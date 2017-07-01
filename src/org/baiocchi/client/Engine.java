@@ -1,7 +1,5 @@
 package org.baiocchi.client;
 
-import java.lang.reflect.InvocationTargetException;
-
 import org.baiocchi.client.reflection.Game;
 import org.baiocchi.client.ui.BotWindow;
 import org.baiocchi.client.util.Cache;
@@ -19,11 +17,7 @@ public class Engine {
 	}
 
 	public void start() {
-		try {
-			window.addApplet(game.getApplet());
-		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException e) {
-			e.printStackTrace();
-		}
+		window.addApplet(game.getApplet());
 		window.setVisible(true);
 	}
 
