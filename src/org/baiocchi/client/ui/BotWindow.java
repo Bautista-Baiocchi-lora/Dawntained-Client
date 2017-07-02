@@ -22,11 +22,12 @@ public class BotWindow extends JFrame {
 	public void addApplet(Applet applet) {
 		if (applet == null) {
 			System.out.println("Could not return applet!");
+			return;
 		}
-		applet.init();
-		applet.start();
-		applet.setLocation(0, 0);
 		this.applet = applet;
+		this.applet.init();
+		this.applet.start();
+		this.applet.setLocation(0, 0);
 		gamePanel = new JPanel();
 		gamePanel.add(this.applet, BorderLayout.CENTER);
 		gamePanel.setSize(getSize());

@@ -51,7 +51,7 @@ public class GameLoader extends URLClassLoader {
 						byteOutStream.write(data, 0, read);
 					}
 					classes.put(entry.getName().replace(".class", ""), byteOutStream.toByteArray());
-					int percent = (classes.size() * 100) / 137;
+					int percent = (classes.size() * 100) / 124;
 					if (entry.getName().contains("class")) {
 						System.out.println("[" + percent + "% Done] Loaded: " + entry.getName());
 					}
