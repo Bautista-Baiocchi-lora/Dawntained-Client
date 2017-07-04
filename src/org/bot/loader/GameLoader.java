@@ -46,6 +46,10 @@ public class GameLoader {
                     frame.pack();
                     setFrame(clientLoader, "add", frame);
                     engine.setGameJFrame(frame);
+
+
+                    // say I want to load another class I would do
+                    //Class<?> randomClass = engine.loadClass("aw"); instead of classLoader.loadClass() or else it will try to duplicate!
                 } catch (IOException | NoSuchFieldException | InstantiationException | ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
                     e.printStackTrace();
                 }
