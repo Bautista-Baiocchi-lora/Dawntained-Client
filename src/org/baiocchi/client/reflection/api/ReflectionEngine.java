@@ -1,4 +1,4 @@
-package org.baiocchi.client.reflection;
+package org.baiocchi.client.reflection.api;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -10,16 +10,20 @@ import java.util.HashMap;
 import java.util.jar.JarEntry;
 import java.util.jar.JarInputStream;
 
-import org.baiocchi.client.util.Cache;
-
-public class GameLoader extends URLClassLoader {
+public class ReflectionEngine extends URLClassLoader {
 
 	private final HashMap<String, byte[]> classes;
+	private final String jarPath;
 
-	public GameLoader() throws MalformedURLException {
-		super(new URL[] { new File(Cache.getJarPath()).toURI().toURL() });
+	public ReflectionEngine(String jarPath) throws MalformedURLException {
+		super(new URL[] { new File(jarPath).toURI().toURL() });
+		this.jarPath = jarPath;
 		classes = new HashMap<String, byte[]>();
 		loadClientJar();
+	}
+
+	public ReflectedClass getClass(String name) {
+		return new ReflectedClass(loadClass(name));
 	}
 
 	@Override
@@ -37,8 +41,7 @@ public class GameLoader extends URLClassLoader {
 	}
 
 	private void loadClientJar() {
-		System.out.println("Loading classes...");
-		try (JarInputStream jarInStream = new JarInputStream(new FileInputStream(new File(Cache.getJarPath())))) {
+		try (JarInputStream jarInStream = new JarInputStream(new FileInputStream(new File(jarPath)))) {
 			JarEntry entry;
 			while ((entry = jarInStream.getNextJarEntry()) != null) {
 				if (!entry.getName().contains(".class")) {
@@ -60,7 +63,6 @@ public class GameLoader extends URLClassLoader {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println("Done loading classes!");
 	}
 
 }

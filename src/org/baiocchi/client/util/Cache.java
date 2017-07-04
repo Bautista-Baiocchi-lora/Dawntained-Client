@@ -9,7 +9,7 @@ import java.net.URL;
 public class Cache {
 
 	public static final String CACHE_PATH = System.getProperty("user.home") + File.separator + "Dawntained Bot Client";
-	public static final String JAR_URL = "http://dawntained.com/dawntained_client.jar";
+	public static final String JAR_URL = "http://dawntained.com/game/dawntained_client.jar";
 
 	public static void revalidate() {
 		create();

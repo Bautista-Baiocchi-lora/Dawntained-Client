@@ -1,24 +1,30 @@
 package org.baiocchi.client;
 
+import java.net.MalformedURLException;
+
+import javax.swing.JFrame;
+
 import org.baiocchi.client.reflection.Game;
-import org.baiocchi.client.ui.BotWindow;
 import org.baiocchi.client.util.Cache;
 
 public class Engine {
 
-	private final BotWindow window;
-	private final Game game;
+	private final JFrame gameFrame;
+	private Game game;
 	private static Engine instance;
 
 	private Engine() {
 		Cache.revalidate();
-		game = new Game();
-		window = new BotWindow();
+		try {
+			game = new Game();
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		gameFrame = game.getGameFrame();
 	}
 
 	public void start() {
-		window.addApplet(game.getApplet());
-		window.setVisible(true);
+		gameFrame.setVisible(true);
 	}
 
 	public Game getGame() {
