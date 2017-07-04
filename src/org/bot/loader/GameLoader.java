@@ -1,79 +1,70 @@
 package org.bot.loader;
 
+import java.awt.BorderLayout;
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.util.jar.JarFile;
+
+import javax.swing.JFrame;
+
+import org.bot.boot.Constants;
 import org.bot.boot.Engine;
 import org.bot.classloader.Archive;
 import org.bot.classloader.ArchiveClassLoader;
 import org.bot.classloader.JarArchive;
-import org.bot.boot.Constants;
 import org.bot.ui.ButtonPanel;
 import org.bot.util.FileDownloader;
+import org.bot.util.reflection.Modifiers;
+import org.bot.util.reflection.ReflectedClass;
+import org.bot.util.reflection.ReflectedField;
 import org.objectweb.asm.tree.ClassNode;
 
-import javax.swing.*;
-import java.awt.*;
-import java.io.IOException;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.jar.JarFile;
-
 public class GameLoader {
-    private Engine engine = Engine.getInstance();
-    private FileDownloader downloader;
-    public ClassLoader classLoader;
-    private ButtonPanel buttonPanel;
 
-    public GameLoader() {
-        downloader = new FileDownloader(
-                Constants.JAR_URL,
-                Constants.getJarPath());
-        downloader.run();
-        final Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    final JarFile jar = new JarFile(Constants.getJarPath());
-                    Archive<ClassNode> archive = new JarArchive(jar);
-                    ClassLoader classLoader = GameLoader.this.classLoader = new ArchiveClassLoader(archive);
+	private final FileDownloader downloader;
+	private ArchiveClassLoader loader;
+	private ButtonPanel buttonPanel;
 
-                    Class<?> clientLoader = classLoader.loadClass("ClientLoader");
-                    clientLoader.getConstructor(String.class, boolean.class).newInstance("1", true);
-                    final JFrame frame = getJFrame(clientLoader, "add");
-                    frame.setTitle("Mo Money Mo Pussy");
-                    frame.revalidate();
-                    buttonPanel = new ButtonPanel();
-                    frame.getContentPane().add(buttonPanel, BorderLayout.NORTH);
-                    frame.pack();
-                    setFrame(clientLoader, "add", frame);
-                    engine.setGameJFrame(frame);
+	public GameLoader() {
+		downloader = new FileDownloader(Constants.JAR_URL, Constants.getJarPath());
+		downloader.run();
+		final Thread thread = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				try {
+					final JarFile jar = new JarFile(Constants.getJarPath());
+					final Archive<ClassNode> archive = new JarArchive(jar);
+					final ArchiveClassLoader loader = GameLoader.this.loader = new ArchiveClassLoader(archive);
+					final ReflectedClass clientLoader = GameLoader.this.getClass("ClientLoader")
+							.getConstructor(
+									new Modifiers.ModifierBuilder().parameterTypes(String.class, boolean.class).build())
+							.getNewInstance("1", true);
+					final ReflectedField frameField = clientLoader
+							.getField(new Modifiers.ModifierBuilder().name("add").build());
+					final JFrame frame = (JFrame) frameField.getValue();
+					frame.setTitle("Fuck alora for ip banning me");
+					frame.revalidate();
+					buttonPanel = new ButtonPanel();
+					frame.getContentPane().add(buttonPanel, BorderLayout.NORTH);
+					frame.pack();
+					frameField.setValue(frame);
+					Engine.getInstance().setGameJFrame(frame);
+				} catch (IOException | InstantiationException | IllegalAccessException | InvocationTargetException e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		thread.start();
+	}
 
-
-                    // say I want to load another class I would do
-                    //Class<?> randomClass = engine.loadClass("aw"); instead of classLoader.loadClass() or else it will try to duplicate!
-                } catch (IOException | NoSuchFieldException | InstantiationException | ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-        thread.start();
-    }
-
-    private JFrame getJFrame(Class clazz, String field) throws NoSuchFieldException, IllegalAccessException {
-        Field f = clazz.getDeclaredField(field);
-        f.setAccessible(true);
-        return (JFrame) f.get(null);
-
-    }
-
-    private void setFrame(Class clazz, String field, Object obj) throws NoSuchFieldException, IllegalAccessException {
-        Field f = clazz.getDeclaredField(field);
-        f.setAccessible(true);
-        f.set(null, obj);
-    }
-
-    private void invokeMain(Class c) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
-        Method main = c.getMethod("main", String[].class);
-        String[] params = null; // init params accordingly
-        main.invoke(null, (Object) params);
-    }
+	public ReflectedClass getClass(String name) {
+		if (!loader.classes().containsKey(name)) {
+			try {
+				return new ReflectedClass(loader.loadClass(name));
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+		}
+		return new ReflectedClass(loader.classes().get(name));
+	}
 }
