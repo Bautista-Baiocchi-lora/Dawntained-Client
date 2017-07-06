@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.Map.Entry;
 
 public class ReflectedClass {
-
 	private final Object instance;
 	private final Class<?> clazz;
 
@@ -157,7 +156,6 @@ public class ReflectedClass {
 				switch (modifier.getKey()) {
 				case PARAMETER_COUNT:
 					if (constructor.getParameterCount() != (int) ((Object) modifier.getValue())) {
-						System.out.println("count wrong");
 						continue Constructors;
 					}
 					break;
@@ -193,21 +191,25 @@ public class ReflectedClass {
 					}
 					break;
 				case ABSTRACT:
+
 					if (Modifier.isAbstract(method.getModifiers()) != (boolean) ((Object) modifier.getValue())) {
 						continue Methods;
 					}
 					break;
 				case FINAL:
+
 					if (Modifier.isFinal(method.getModifiers()) != (boolean) ((Object) modifier.getValue())) {
 						continue Methods;
 					}
 					break;
 				case VOLATILE:
+
 					if (Modifier.isVolatile(method.getModifiers()) != (boolean) ((Object) modifier.getValue())) {
 						continue Methods;
 					}
 					break;
 				case PUBLIC:
+
 					if (Modifier.isPublic(method.getModifiers()) != (boolean) ((Object) modifier.getValue())) {
 						continue Methods;
 					}
@@ -218,6 +220,7 @@ public class ReflectedClass {
 					}
 					break;
 				case PROTECTED:
+
 					if (Modifier.isProtected(method.getModifiers()) != (boolean) ((Object) modifier.getValue())) {
 						continue Methods;
 					}
@@ -276,5 +279,4 @@ public class ReflectedClass {
 		}
 		return constructors.toArray(new ReflectedConstructor[constructors.size()]);
 	}
-
 }

@@ -14,6 +14,10 @@ public class Modifiers {
 		return modifiers;
 	}
 
+	public static enum Condition {
+		STATIC, ABSTRACT, NAME, PARAMETER_TYPES, PARAMETER_COUNT, RETURN_TYPE, VOLATILE, FINAL, TYPE, PUBLIC, PRIVATE, PROTECTED;
+	}
+
 	public static class ModifierBuilder {
 
 		private final HashMap<Condition, Object> modifiers;
@@ -71,10 +75,6 @@ public class Modifiers {
 		public Modifiers build() {
 			return new Modifiers(this);
 		}
-	}
-
-	public static enum Condition {
-		STATIC, ABSTRACT, NAME, PARAMETER_TYPES, PARAMETER_COUNT, RETURN_TYPE, VOLATILE, FINAL, TYPE, PUBLIC, PRIVATE, PROTECTED;
 	}
 
 }
