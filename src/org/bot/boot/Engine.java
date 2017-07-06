@@ -1,10 +1,8 @@
 package org.bot.boot;
 
-import java.io.File;
+import java.awt.Component;
 
-import javax.swing.JFrame;
-
-import org.bot.loader.GameLoader;
+import org.bot.loader.ServerLoader;
 import org.bot.util.directory.DirectoryManager;
 
 public class Engine {
@@ -12,12 +10,12 @@ public class Engine {
 	private static Engine instance;
 	private String username;
 	private boolean developer;
-	private GameLoader gameLoader;
-	private JFrame gameJFrame;
+	private ServerLoader<?> gameLoader;
+	private Component gameComponent;
 	private boolean debugMouse;
 	private DirectoryManager directoryManager;
 
-	public void setGameLoader(GameLoader gameLoader) {
+	public void setGameLoader(ServerLoader<? extends Component> gameLoader) {
 		this.gameLoader = gameLoader;
 	}
 
@@ -49,7 +47,7 @@ public class Engine {
 		this.debugMouse = debugMouse;
 	}
 
-	public GameLoader getGameLoader() {
+	public ServerLoader<?> getGameLoader() {
 		return gameLoader;
 	}
 
@@ -57,12 +55,12 @@ public class Engine {
 		return directoryManager;
 	}
 
-	public JFrame getGameJFrame() {
-		return gameJFrame;
+	public Component getGameComponent() {
+		return gameComponent;
 	}
 
-	public void setGameJFrame(JFrame gameJFrame) {
-		this.gameJFrame = gameJFrame;
+	public void setGameComponent(Component gameComponent) {
+		this.gameComponent = gameComponent;
 	}
 
 	public static Engine getInstance() {

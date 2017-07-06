@@ -1,24 +1,25 @@
 package org.bot.boot;
 
-import java.io.File;
+import java.awt.BorderLayout;
+import java.io.IOException;
 
+import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
 
-import com.bulenkov.darcula.DarculaLaf;
-import org.bot.loader.GameLoader;
+import org.bot.loader.AloraLoader;
+import org.bot.loader.ServerLoader;
 import org.bot.ui.login.LoginFrame;
+import org.bot.ui.menu.ButtonPanel;
 import org.bot.util.Condition;
-import org.bot.util.directory.DirectoryManager;
 
 public class Booter {
 
 	public static void main(String[] args) {
-		Engine.getInstance();
 
-		  try { UIManager.setLookAndFeel( new DarculaLaf()); }
-		 catch (Exception e) { e.printStackTrace(); }
-
+		/*
+		 * try { UIManager.setLookAndFeel( new DarculaLaf()); } catch (Exception
+		 * e) { e.printStackTrace(); }
+		 */
 		LoginFrame login = new LoginFrame();
 		new Thread(new Runnable() {
 			@Override
@@ -37,8 +38,20 @@ public class Booter {
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
 			public void run() {
-				Engine.getInstance().setGameLoader(
-						new GameLoader(DirectoryManager.SERVER_JARS_PATH + File.separator + "GamePack.jar"));
+				try {
+					ServerLoader<JFrame> loader = new AloraLoader();
+					Engine.getInstance().setGameLoader(loader);
+					JFrame gameFrame = (JFrame) loader.getGameComponent();
+					Engine.getInstance().setGameComponent(gameFrame);
+					gameFrame.setTitle("Fuck alora for ip banning me");
+					gameFrame.revalidate();
+					ButtonPanel buttonPanel = new ButtonPanel();
+					gameFrame.getContentPane().add(buttonPanel, BorderLayout.NORTH);
+					gameFrame.pack();
+					gameFrame.setVisible(true);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 		});
 

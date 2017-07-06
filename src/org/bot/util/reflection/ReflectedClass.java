@@ -100,7 +100,7 @@ public class ReflectedClass {
 					}
 					break;
 				case STATIC:
-					if (Modifier.isStatic(field.getModifiers()) != (boolean)((Object) modifier.getValue())) {
+					if (Modifier.isStatic(field.getModifiers()) != (boolean) ((Object) modifier.getValue())) {
 						continue Fields;
 					}
 					break;

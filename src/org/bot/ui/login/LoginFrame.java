@@ -4,15 +4,23 @@
 
 package org.bot.ui.login;
 
-import org.bot.boot.Constants;
-import org.bot.boot.Engine;
-import org.bot.util.directory.DirectoryManager;
-
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.Insets;
+import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.WindowConstants;
+
+import org.bot.boot.Engine;
+import org.bot.util.directory.DirectoryManager;
 
 /**
  * @author Ethan

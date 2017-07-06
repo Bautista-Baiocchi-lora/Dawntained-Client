@@ -15,12 +15,15 @@ import org.bot.util.directory.DirectoryManager;
  */
 public class FileDownloader implements Runnable {
 
+	private final String fileName;
 	private final String source;
 	private int percentage = 0;
 	private int length, written;
+	private Directory path;
 
-	public FileDownloader(String source) {
+	public FileDownloader(String source, String fileName) {
 		this.source = source;
+		this.fileName = fileName;
 	}
 
 	@Override
@@ -32,7 +35,7 @@ public class FileDownloader implements Runnable {
 		try {
 			connection = NetUtil.createURLConnection(source);
 			length = connection.getContentLength();
-			final Directory destinationDirectory = new Directory(DirectoryManager.SERVER_JARS_PATH);
+			final Directory destinationDirectory = path = new Directory(DirectoryManager.SERVER_JARS_PATH);
 			if (destinationDirectory.exists()) {
 				final URLConnection savedFileConnection = destinationDirectory.toURI().toURL().openConnection();
 				if (savedFileConnection.getContentLength() == length) {
@@ -41,7 +44,7 @@ public class FileDownloader implements Runnable {
 			} else {
 				destinationDirectory.create();
 			}
-			output = new FileOutputStream(destinationDirectory.getPath() + File.separator + "GamePack.jar");
+			output = new FileOutputStream(destinationDirectory.getPath() + File.separator + fileName + ".jar");
 			input = connection.getInputStream();
 			final byte[] data = new byte[1024];
 			int read;
@@ -57,6 +60,10 @@ public class FileDownloader implements Runnable {
 			System.out.println("Error downloading file!");
 			a.printStackTrace();
 		}
+	}
+
+	public String getArchivePath() {
+		return path.getPath();
 	}
 
 	public boolean isFinished() {

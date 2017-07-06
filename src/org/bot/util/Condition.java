@@ -1,6 +1,5 @@
 package org.bot.util;
 
-
 import java.nio.file.DirectoryStream.Filter;
 import java.util.concurrent.Callable;
 
