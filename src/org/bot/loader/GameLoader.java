@@ -11,7 +11,7 @@ import org.bot.boot.Constants;
 import org.bot.classloader.Archive;
 import org.bot.classloader.ArchiveClassLoader;
 import org.bot.classloader.JarArchive;
-import org.bot.loader.menu.ButtonPanel;
+import org.bot.ui.menu.ButtonPanel;
 import org.bot.util.FileDownloader;
 import org.bot.util.reflection.Modifiers;
 import org.bot.util.reflection.ReflectedClass;

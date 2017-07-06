@@ -5,6 +5,7 @@ import java.io.File;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
+import com.bulenkov.darcula.DarculaLaf;
 import org.bot.loader.GameLoader;
 import org.bot.ui.login.LoginFrame;
 import org.bot.util.Condition;
@@ -14,10 +15,10 @@ public class Booter {
 
 	public static void main(String[] args) {
 		Engine.getInstance();
-		/*
-		 * try { ///ERROR for me UIManager.setLookAndFeel( new DarculaLaf()); }
-		 * catch (Exception e) { e.printStackTrace(); }
-		 */
+
+		  try { UIManager.setLookAndFeel( new DarculaLaf()); }
+		 catch (Exception e) { e.printStackTrace(); }
+
 		LoginFrame login = new LoginFrame();
 		new Thread(new Runnable() {
 			@Override
