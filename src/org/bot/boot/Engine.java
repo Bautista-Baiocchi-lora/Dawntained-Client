@@ -2,7 +2,9 @@ package org.bot.boot;
 
 import java.awt.Component;
 
-import org.bot.loader.ServerLoader;
+import org.bot.server.ServerLoader;
+import org.bot.server.ServerManifest;
+import org.bot.server.ServerProvider;
 import org.bot.util.directory.DirectoryManager;
 
 public class Engine {
@@ -10,14 +12,11 @@ public class Engine {
 	private static Engine instance;
 	private String username;
 	private boolean developer;
-	private ServerLoader<?> gameLoader;
+	private ServerLoader<?> serverLoader;
 	private Component gameComponent;
 	private boolean debugMouse;
 	private DirectoryManager directoryManager;
-
-	public void setGameLoader(ServerLoader<? extends Component> gameLoader) {
-		this.gameLoader = gameLoader;
-	}
+	private ServerManifest serverManifest;
 
 	public void setDirectoryManager(DirectoryManager manager) {
 		this.directoryManager = manager;
@@ -47,8 +46,17 @@ public class Engine {
 		this.debugMouse = debugMouse;
 	}
 
-	public ServerLoader<?> getGameLoader() {
-		return gameLoader;
+	public ServerLoader<?> getServerLoader() {
+		return serverLoader;
+	}
+
+	public ServerManifest getServerManifest() {
+		return serverManifest;
+	}
+
+	public void setServerProvider(ServerProvider provider) {
+		this.serverLoader = provider.getLoader();
+		this.serverManifest = provider.getManifest();
 	}
 
 	public DirectoryManager getDirectoryManager() {

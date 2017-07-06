@@ -1,5 +1,6 @@
-package org.bot.loader;
+package org.bot.server;
 
+import java.awt.Component;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
@@ -7,11 +8,11 @@ import java.lang.annotation.RetentionPolicy;
 public @interface ServerManifest {
 
 	String serverName();
-	
+
 	String author();
-	
+
 	double version();
 
-	Class<?> type();
+	Class<? extends Component> type();
 
 }

@@ -6,13 +6,15 @@ import java.io.IOException;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
-import org.bot.AloraLoader;
-import org.bot.loader.ServerLoader;
+import org.bot.server.ServerLoader;
 import org.bot.ui.login.LoginFrame;
 import org.bot.ui.menu.ButtonPanel;
+import org.bot.ui.serverselector.ServerSelector;
 import org.bot.util.Condition;
 
 public class Booter {
+
+	private static JFrame login, serverSelector;
 
 	public static void main(String[] args) {
 
@@ -20,27 +22,15 @@ public class Booter {
 		 * try { UIManager.setLookAndFeel( new DarculaLaf()); } catch (Exception
 		 * e) { e.printStackTrace(); }
 		 */
-		LoginFrame login = new LoginFrame();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				login.setVisible(true);
-			}
-		}).start();
-		Condition.wait(new Condition.Check() {
-			public boolean poll() {
-				return login.isVisible();
-			}
-		}, 100, 20);
-		while (login.isVisible()) {
-			Condition.sleep(350);
-		}
+		login = new LoginFrame();
+		launchFrame(login);
+		serverSelector = new ServerSelector();
+		launchFrame(serverSelector);
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
 			public void run() {
-				try {
-					ServerLoader<JFrame> loader = new AloraLoader();
-					Engine.getInstance().setGameLoader(loader);
+				if (Engine.getInstance().getServerManifest().type().equals(JFrame.class)) {
+					ServerLoader<JFrame> loader = (ServerLoader<JFrame>) Engine.getInstance().getServerLoader();
 					JFrame gameFrame = (JFrame) loader.getGameComponent();
 					Engine.getInstance().setGameComponent(gameFrame);
 					gameFrame.setTitle("Fuck alora for ip banning me");
@@ -49,12 +39,27 @@ public class Booter {
 					gameFrame.getContentPane().add(buttonPanel, BorderLayout.NORTH);
 					gameFrame.pack();
 					gameFrame.setVisible(true);
-				} catch (IOException e) {
-					e.printStackTrace();
 				}
 			}
 		});
 
+	}
+
+	private static void launchFrame(JFrame frame) {
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				frame.setVisible(true);
+			}
+		}).start();
+		Condition.wait(new Condition.Check() {
+			public boolean poll() {
+				return frame.isVisible();
+			}
+		}, 100, 20);
+		while (frame.isVisible()) {
+			Condition.sleep(350);
+		}
 	}
 
 }

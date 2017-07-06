@@ -1,4 +1,4 @@
-package org.bot.loader;
+package org.bot.server;
 
 import java.awt.Component;
 import java.io.IOException;
@@ -21,7 +21,6 @@ public abstract class ServerLoader<T extends Component> {
 	private final ArchiveClassLoader loader;
 	private T gameComponent;
 
-	@ServerManifest(author = "Bautista", serverName = "Alora", type = JFrame.class, version = 0.1)
 	public ServerLoader(String jarURL, String serverName) throws IOException {
 		this.JAR_URL = jarURL;
 		this.SERVER_NAME = serverName;

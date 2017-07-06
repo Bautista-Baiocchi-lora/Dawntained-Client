@@ -96,7 +96,7 @@ public class LoginFrame extends JFrame {
 			contentPane.setMinimumSize(preferredSize);
 			contentPane.setPreferredSize(preferredSize);
 		}
-		setSize(215, 195);
+		setSize(250, 210);
 		setLocationRelativeTo(getOwner());
 	}
 
