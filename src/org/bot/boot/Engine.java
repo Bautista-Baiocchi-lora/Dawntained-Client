@@ -1,14 +1,12 @@
 package org.bot.boot;
 
 import org.bot.loader.GameLoader;
-import org.bot.ui.login.LoginFrame;
-import org.bot.util.Condition;
 
 import javax.swing.*;
 
 public class Engine {
 
-    private static Engine instance = new Engine();
+    private static Engine instance;
     private GameLoader gameLoader;
     private JFrame gameJFrame;
     private boolean debugMouse;
@@ -16,32 +14,8 @@ public class Engine {
     private String password = "";
     private boolean dev = false;
 
-    private Engine() {
-        LoginFrame login = new LoginFrame();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                login.setVisible(true);
-            }
-        }).start();
-        Condition.wait(new Condition.Check() {
-            public boolean poll() {
-                return login.isVisible();
-            }
-        }, 100, 20);
-        while (login.isVisible()) {
-            Condition.sleep(350);
-        }
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                gameLoader = new GameLoader();
-            }
-        });
-    }
-
     public static Engine getInstance() {
-        return instance;
+        return instance == null ? instance = new Engine() : instance;
     }
 
     public boolean isDebugMouse() {
@@ -54,6 +28,10 @@ public class Engine {
 
     public GameLoader getGameLoader() {
         return gameLoader;
+    }
+
+    public void setGameLoader(GameLoader gameLoader) {
+        this.gameLoader = gameLoader;
     }
 
     public JFrame getGameJFrame() {
