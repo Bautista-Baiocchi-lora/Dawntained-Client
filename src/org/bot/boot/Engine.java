@@ -1,68 +1,72 @@
 package org.bot.boot;
 
-import org.bot.loader.GameLoader;
+import java.io.File;
 
-import javax.swing.*;
+import javax.swing.JFrame;
+
+import org.bot.loader.GameLoader;
+import org.bot.util.directory.DirectoryManager;
 
 public class Engine {
 
-    private static Engine instance;
-    private GameLoader gameLoader;
-    private JFrame gameJFrame;
-    private boolean debugMouse;
-    private String username = "";
-    private String password = "";
-    private boolean dev = false;
+	private static Engine instance;
+	private String username;
+	private boolean developer;
+	private GameLoader gameLoader;
+	private JFrame gameJFrame;
+	private boolean debugMouse;
+	private DirectoryManager directoryManager;
 
-    public static Engine getInstance() {
-        return instance == null ? instance = new Engine() : instance;
-    }
+	public void setGameLoader(GameLoader gameLoader) {
+		this.gameLoader = gameLoader;
+	}
 
-    public boolean isDebugMouse() {
-        return debugMouse;
-    }
+	public void setDirectoryManager(DirectoryManager manager) {
+		this.directoryManager = manager;
+	}
 
-    public void setDebugMouse(boolean debugMouse) {
-        this.debugMouse = debugMouse;
-    }
+	public void setDeveloper(boolean developer) {
+		this.developer = developer;
+	}
 
-    public GameLoader getGameLoader() {
-        return gameLoader;
-    }
+	public boolean getDeveloper() {
+		return developer;
+	}
 
-    public void setGameLoader(GameLoader gameLoader) {
-        this.gameLoader = gameLoader;
-    }
+	public String getUsername() {
+		return username;
+	}
 
-    public JFrame getGameJFrame() {
-        return gameJFrame;
-    }
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
-    public void setGameJFrame(JFrame gameJFrame) {
-        this.gameJFrame = gameJFrame;
-    }
+	public boolean isDebugMouse() {
+		return debugMouse;
+	}
 
-    public String getUsername() {
-        return username;
-    }
+	public void setDebugMouse(boolean debugMouse) {
+		this.debugMouse = debugMouse;
+	}
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+	public GameLoader getGameLoader() {
+		return gameLoader;
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	public DirectoryManager getDirectoryManager() {
+		return directoryManager;
+	}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	public JFrame getGameJFrame() {
+		return gameJFrame;
+	}
 
-    public boolean isDev() {
-        return dev;
-    }
+	public void setGameJFrame(JFrame gameJFrame) {
+		this.gameJFrame = gameJFrame;
+	}
 
-    public void setDev(boolean dev) {
-        this.dev = dev;
-    }
+	public static Engine getInstance() {
+		return instance == null ? instance = new Engine() : instance;
+	}
+
 }
