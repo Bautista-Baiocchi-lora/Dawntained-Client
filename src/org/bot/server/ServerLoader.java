@@ -4,8 +4,6 @@ import java.awt.Component;
 import java.io.IOException;
 import java.util.jar.JarFile;
 
-import javax.swing.JFrame;
-
 import org.bot.classloader.Archive;
 import org.bot.classloader.ArchiveClassLoader;
 import org.bot.classloader.JarArchive;

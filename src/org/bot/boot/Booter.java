@@ -1,7 +1,6 @@
 package org.bot.boot;
 
 import java.awt.BorderLayout;
-import java.io.IOException;
 
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
@@ -59,6 +58,9 @@ public class Booter {
 		}, 100, 20);
 		while (frame.isVisible()) {
 			Condition.sleep(350);
+		}
+		if (frame.isActive()) {
+			frame.dispose();
 		}
 	}
 
