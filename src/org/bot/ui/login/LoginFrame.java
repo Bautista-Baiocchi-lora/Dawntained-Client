@@ -35,7 +35,7 @@ public class LoginFrame extends JFrame {
 	private Engine engine = Engine.getInstance();
 
 	public LoginFrame() {
-		Engine.getInstance().setDirectoryManager(new DirectoryManager());
+		engine.setDirectoryManager(new DirectoryManager());
 		initialize();
 	}
 

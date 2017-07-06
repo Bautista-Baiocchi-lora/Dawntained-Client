@@ -1,4 +1,4 @@
-package org.bot.loader;
+package org.bot;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -6,6 +6,7 @@ import java.lang.reflect.InvocationTargetException;
 import javax.swing.JFrame;
 
 import org.bot.boot.Constants;
+import org.bot.loader.ServerLoader;
 import org.bot.util.reflection.Modifiers;
 import org.bot.util.reflection.ReflectedClass;
 import org.bot.util.reflection.ReflectedField;

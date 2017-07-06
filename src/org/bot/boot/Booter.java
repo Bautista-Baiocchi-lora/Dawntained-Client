@@ -6,7 +6,7 @@ import java.io.IOException;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
-import org.bot.loader.AloraLoader;
+import org.bot.AloraLoader;
 import org.bot.loader.ServerLoader;
 import org.bot.ui.login.LoginFrame;
 import org.bot.ui.menu.ButtonPanel;
