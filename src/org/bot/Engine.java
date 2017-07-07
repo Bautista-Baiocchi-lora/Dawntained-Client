@@ -2,11 +2,13 @@ package org.bot;
 
 import java.awt.*;
 
+import org.bot.classloader.ArchiveClassLoader;
 import org.bot.provider.ServerProvider;
 import org.bot.provider.loader.ServerLoader;
 import org.bot.provider.manifest.ServerManifest;
 import org.bot.ui.BotUI;
 import org.bot.util.directory.DirectoryManager;
+import org.bot.util.reflection.ReflectedClass;
 
 public class Engine {
 
@@ -21,6 +23,7 @@ public class Engine {
 	private ServerManifest serverManifest;
 	private BotUI botUI;
 	private Canvas gameCanvas;
+	private ArchiveClassLoader classLoader;
 
 	public void setBotUI(BotUI botUI) {
 		this.botUI = botUI;
@@ -91,4 +94,11 @@ public class Engine {
 		return instance == null ? instance = new Engine() : instance;
 	}
 
+	public ArchiveClassLoader getClassLoader() {
+		return classLoader;
+	}
+
+	public void setClassLoader(ArchiveClassLoader classLoader) {
+		this.classLoader = classLoader;
+	}
 }

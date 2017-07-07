@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="uBot:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/uBot_jar</output-path>
-    <root id="archive" name="Dawntained-Client.jar">
+    <root id="archive" name="uBot.jar">
       <element id="module-output" name="uBot" />
       <element id="extracted-dir" path="$USER_HOME$/Downloads/darcula.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$USER_HOME$/Downloads/asm-5.2-bin/asm-5.2/lib/all/asm-all-5.2.jar" path-in-jar="/" />

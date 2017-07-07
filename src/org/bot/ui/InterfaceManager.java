@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 
 import org.bot.Engine;
 import org.bot.provider.ServerProvider;
+import org.bot.util.Utilities;
 
 public class InterfaceManager {
 
@@ -27,8 +28,8 @@ public class InterfaceManager {
 	}
 
 	public boolean logIn(String username, String password, boolean rememberMe) {
-		if (username.equals("ethan") && password.equals("123")) {
-			engine.setUsername(username);
+		if (username.equalsIgnoreCase("ethan") && password.equals("123")) {
+			engine.setUsername(Utilities.capitalize(username));
 			engine.setDeveloper(true);
 			ui.displayServerSelector();
 			return true;
