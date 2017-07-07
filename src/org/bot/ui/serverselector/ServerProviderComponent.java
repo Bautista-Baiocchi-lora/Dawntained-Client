@@ -41,6 +41,7 @@ public class ServerProviderComponent extends JComponent {
         add(author);
         add(type);
         add(version);
+        setToolTipText(provider.getManifest().desc());
         setBackground(Color.GRAY);
         addMouseListener(new MouseListener() {
 
