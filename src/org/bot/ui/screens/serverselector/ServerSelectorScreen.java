@@ -39,7 +39,9 @@ public class ServerSelectorScreen extends Screen {
 		ObservableList<ServerLabel> items = FXCollections.observableArrayList(providers);
 		list.setItems(items);
 		list.setOnMouseClicked((e) -> {
-			displayTab(list.getSelectionModel().getSelectedItem().getTab());
+			if(list.getSelectionModel().getSelectedItem() != null) {
+				displayTab(list.getSelectionModel().getSelectedItem().getTab());
+			}
 		});
 		list.setMaxWidth(250);
 		layout.getChildren().add(list);
