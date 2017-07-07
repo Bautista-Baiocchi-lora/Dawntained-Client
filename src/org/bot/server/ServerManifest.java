@@ -11,8 +11,12 @@ public @interface ServerManifest {
 
 	String author();
 
+	String desc();
+
 	double version();
 
 	Class<? extends Component> type();
+
+	Revision rev();
 
 }

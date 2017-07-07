@@ -1,6 +1,7 @@
 package org.bot.util;
 
 import java.awt.Image;
+import java.net.URL;
 
 import javax.swing.ImageIcon;
 
@@ -18,4 +19,5 @@ public class Utilities {
 			return null;
 		}
 	}
+
 }

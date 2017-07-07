@@ -2,8 +2,13 @@ package org.bot.ui.serverselector;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
+import java.util.zip.ZipFile;
 
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
@@ -19,6 +24,7 @@ import org.bot.server.ServerLoader;
 import org.bot.server.ServerManifest;
 import org.bot.server.ServerProvider;
 import org.bot.util.directory.exceptions.InvalidDirectoryNameException;
+import org.bot.util.reflection.ReflectedClass;
 import org.objectweb.asm.tree.ClassNode;
 
 public class ServerSelector extends JFrame {
@@ -33,21 +39,34 @@ public class ServerSelector extends JFrame {
 		setSize(400, 150);
 		this.providers = new ArrayList<ServerProvider>();
 		JarFile jar;
-		ArchiveClassLoader jarLoader;
 		try {
 			for (File file : engine.getDirectoryManager().getRootDirectory().getSubDirectory("Server Providers")
 					.getFiles()) {
 				jar = new JarFile(file.getAbsolutePath());
-				final Archive<ClassNode> archive = new JarArchive(jar);
-				jarLoader = new ArchiveClassLoader(archive);
-				final Class<? extends ServerLoader> loaderClass = (Class<? extends ServerLoader>) jarLoader
-						.loadClass("Loader");
-				ServerLoader<?> loader = null;
-				final ServerManifest manifest = (ServerManifest) loaderClass.getAnnotation(ServerManifest.class);
-				if (manifest.type().getClass().equals(JFrame.class)) {
-					loader = (ServerLoader<JFrame>) loaderClass.newInstance();
+				URL[] urls = { new URL("jar:file:" + file.getAbsolutePath()+"!/") };
+				ClassLoader cl = URLClassLoader.newInstance(urls);
+				Enumeration<JarEntry> entries = jar.entries();
+				while(entries.hasMoreElements()) {
+					JarEntry e = entries.nextElement();
+					if (e.getName().endsWith(".class") && !e.getName().contains("$")) {
+						System.out.println("We found class: "+e.getName());
+						Class<?> clazz;
+						String classPackage = e.getName().replace(".class", "");
+						clazz = cl.loadClass(classPackage.replaceAll("/", "."));
+						ServerLoader<?> loader = null;
+						if (clazz.isAnnotationPresent(ServerManifest.class)) {
+							final ServerManifest manifest = clazz.getAnnotation(ServerManifest.class);
+							if (manifest == null) {
+								System.out.println("Manifest == null");
+							}
+							if (manifest.type().getClass().equals(JFrame.class)) {
+								loader = (ServerLoader<JFrame>) clazz.newInstance();
+							}
+							providers.add(new ServerProvider(loader, manifest));
+
+						}
+					}
 				}
-				providers.add(new ServerProvider(loader, manifest));
 			}
 		} catch (IOException | InstantiationException | IllegalAccessException | ClassNotFoundException
 				| InvalidDirectoryNameException e) {
