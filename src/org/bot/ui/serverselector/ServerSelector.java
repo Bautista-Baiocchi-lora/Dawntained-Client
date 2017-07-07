@@ -49,19 +49,18 @@ public class ServerSelector extends JFrame {
 				while(entries.hasMoreElements()) {
 					JarEntry e = entries.nextElement();
 					if (e.getName().endsWith(".class") && !e.getName().contains("$")) {
-						System.out.println("We found class: "+e.getName());
 						Class<?> clazz;
 						String classPackage = e.getName().replace(".class", "");
 						clazz = cl.loadClass(classPackage.replaceAll("/", "."));
 						ServerLoader<?> loader = null;
 						if (clazz.isAnnotationPresent(ServerManifest.class)) {
+							System.out.println("We found class: "+e.getName());
 							final ServerManifest manifest = clazz.getAnnotation(ServerManifest.class);
 							if (manifest == null) {
 								System.out.println("Manifest == null");
 							}
-							if (manifest.type().getClass().equals(JFrame.class)) {
-								loader = (ServerLoader<JFrame>) clazz.newInstance();
-							}
+								System.out.println("Provider has been set");
+								loader = (ServerLoader<?>) clazz.newInstance();
 							providers.add(new ServerProvider(loader, manifest));
 
 						}
