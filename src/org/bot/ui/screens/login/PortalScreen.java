@@ -1,5 +1,6 @@
 package org.bot.ui.screens.login;
 
+import org.bot.Engine;
 import org.bot.ui.InterfaceManager;
 import org.bot.ui.screens.Screen;
 
@@ -67,6 +68,7 @@ public class PortalScreen extends Screen {
 		Button asGuestButton = new Button("Continue As Guest");
 		asGuestButton.setMaxWidth(Double.MAX_VALUE);
 		asGuestButton.setOnAction((e) -> {
+			Engine.getInstance().setUsername("Guest");
 			manager.startServerSelector();
 		});
 
