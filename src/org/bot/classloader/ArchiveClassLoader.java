@@ -15,6 +15,9 @@ import java.util.ListIterator;
  * Created by Ethan on 6/27/2017.
  */
 
+import org.bot.Engine;
+import org.bot.component.RSCanvas;
+import org.bot.provider.manifest.Revision;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.AbstractInsnNode;
 import org.objectweb.asm.tree.ClassNode;
@@ -60,7 +63,15 @@ public class ArchiveClassLoader extends ClassLoader {
 	}
 
 	private void modify(ClassNode node) {
-
+		if(Engine.getInstance().getServerLoader() != null) {
+			if(Engine.getInstance().getServerManifest().revision() == Revision.OSRS) {
+				if (node.superName.toLowerCase().contains("canvas")) {
+					System.out.println("Canvas was: " + node.name);
+					setSuper(node, RSCanvas.class.getCanonicalName().replace('.', '/'));
+					System.out.println("Canvas is now: " + node.superName);
+				}
+			}
+		}
 	}
 
 	@Override

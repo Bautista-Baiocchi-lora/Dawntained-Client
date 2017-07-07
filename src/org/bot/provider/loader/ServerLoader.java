@@ -2,14 +2,17 @@ package org.bot.provider.loader;
 
 import java.awt.Component;
 import java.io.IOException;
+import java.util.List;
 import java.util.jar.JarFile;
 
 import org.bot.classloader.Archive;
 import org.bot.classloader.ArchiveClassLoader;
 import org.bot.classloader.JarArchive;
+import org.bot.component.screen.ScreenOverlay;
 import org.bot.util.FileDownloader;
 import org.bot.util.reflection.ReflectedClass;
 import org.objectweb.asm.tree.ClassNode;
+
 
 public abstract class ServerLoader<T extends Component> {
 
@@ -18,7 +21,6 @@ public abstract class ServerLoader<T extends Component> {
 	private FileDownloader downloader = null;
 	private ArchiveClassLoader loader = null;
 	private T gameComponent;
-
 	public ServerLoader(String jarURL, String serverName) throws IOException {
 		this.JAR_URL = jarURL;
 		this.SERVER_NAME = serverName;
@@ -71,6 +73,7 @@ public abstract class ServerLoader<T extends Component> {
 		}
 		return new ReflectedClass(loader.classes().get(name));
 	}
+	public abstract List<ScreenOverlay> getOverlays();
 
 	public abstract T loadProtocol() throws IllegalArgumentException, IllegalAccessException;
 }

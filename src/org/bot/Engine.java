@@ -1,6 +1,6 @@
 package org.bot;
 
-import java.awt.Component;
+import java.awt.*;
 
 import org.bot.provider.ServerProvider;
 import org.bot.provider.loader.ServerLoader;
@@ -20,6 +20,7 @@ public class Engine {
 	private DirectoryManager directoryManager;
 	private ServerManifest serverManifest;
 	private BotUI botUI;
+	private Canvas gameCanvas;
 
 	public void setBotUI(BotUI botUI) {
 		this.botUI = botUI;
@@ -76,6 +77,14 @@ public class Engine {
 
 	public void setGameComponent(Component gameComponent) {
 		this.gameComponent = gameComponent;
+	}
+
+	public Canvas getGameCanvas() {
+		return gameCanvas;
+	}
+
+	public void setGameCanvas(Canvas gameCanvas) {
+		this.gameCanvas = gameCanvas;
 	}
 
 	public static Engine getInstance() {
