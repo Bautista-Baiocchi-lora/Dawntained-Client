@@ -18,16 +18,16 @@ public class Utilities {
 			return null;
 		}
 	}
+
 	public static String capitalize(String text) {
-		if(text == null || text.length() == 0) {
+		if (text == null || text.length() == 0) {
 			return null;
 		}
 		String[] arr = text.split(" ");
 		StringBuffer sb = new StringBuffer();
 
 		for (int i = 0; i < arr.length; i++) {
-			sb.append(Character.toUpperCase(arr[i].charAt(0)))
-					.append(arr[i].substring(1)).append(" ");
+			sb.append(Character.toUpperCase(arr[i].charAt(0))).append(arr[i].substring(1)).append(" ");
 		}
 		return sb.toString().trim();
 	}

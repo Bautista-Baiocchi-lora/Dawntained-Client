@@ -6,14 +6,14 @@ import java.util.Map;
 
 public interface Archive<T> extends Iterable<T> {
 
-    int TMP_LEN = 1024;
+	int TMP_LEN = 1024;
 
-    byte[] getEntry(String name) throws ClassNotFoundException;
+	byte[] getEntry(String name) throws ClassNotFoundException;
 
-    Map<String, T> load() throws IOException;
+	Map<String, T> load() throws IOException;
 
-    void write(File file) throws IOException;
+	void write(File file) throws IOException;
 
-    T get(String string);
+	T get(String string);
 
 }

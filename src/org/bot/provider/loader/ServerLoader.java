@@ -15,14 +15,12 @@ import org.bot.util.FileDownloader;
 import org.bot.util.reflection.ReflectionEngine;
 import org.objectweb.asm.tree.ClassNode;
 
-
 public abstract class ServerLoader<T extends Component> extends ReflectionEngine {
 
 	private final String JAR_URL;
 	private final String SERVER_NAME;
 	private FileDownloader downloader = null;
 
-	private T gameComponent;
 	public ServerLoader(String jarURL, String serverName) throws IOException {
 		this.JAR_URL = jarURL;
 		this.SERVER_NAME = serverName;
@@ -40,7 +38,7 @@ public abstract class ServerLoader<T extends Component> extends ReflectionEngine
 			Engine.getInstance().setClassLoader(new ArchiveClassLoader(archive));
 			System.out.println("Loading " + SERVER_NAME + " jar file.");
 			try {
-				gameComponent = loadProtocol();
+				Engine.getInstance().setGameComponent(loadProtocol());
 			} catch (IllegalArgumentException | IllegalAccessException e) {
 				e.printStackTrace();
 			}
@@ -48,10 +46,6 @@ public abstract class ServerLoader<T extends Component> extends ReflectionEngine
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
-
-	public T getGameComponent() {
-		return gameComponent;
 	}
 
 	public String getJarURL() {
@@ -62,9 +56,9 @@ public abstract class ServerLoader<T extends Component> extends ReflectionEngine
 		return SERVER_NAME;
 	}
 
-	public abstract Hook getHooks();
+	protected abstract Hook getHooks();
 
 	public abstract List<ScreenOverlay> getOverlays();
 
-	public abstract T loadProtocol() throws IllegalArgumentException, IllegalAccessException;
+	protected abstract T loadProtocol() throws IllegalArgumentException, IllegalAccessException;
 }

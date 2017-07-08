@@ -1,18 +1,13 @@
 package org.bot;
 
-import java.awt.*;
-import java.util.HashMap;
-import java.util.Map;
+import java.awt.Canvas;
+import java.awt.Component;
 
 import org.bot.classloader.ArchiveClassLoader;
-import org.bot.hooking.FieldHook;
-import org.bot.hooking.MethodHook;
 import org.bot.provider.ServerProvider;
 import org.bot.provider.loader.ServerLoader;
 import org.bot.provider.manifest.ServerManifest;
-import org.bot.ui.BotUI;
 import org.bot.util.directory.DirectoryManager;
-import org.bot.util.reflection.ReflectedClass;
 
 public class Engine {
 
@@ -25,13 +20,8 @@ public class Engine {
 	private boolean debugMouse;
 	private DirectoryManager directoryManager;
 	private ServerManifest serverManifest;
-	private BotUI botUI;
 	private Canvas gameCanvas;
 	private ArchiveClassLoader classLoader;
-
-	public void setBotUI(BotUI botUI) {
-		this.botUI = botUI;
-	}
 
 	public void setDirectoryManager(DirectoryManager manager) {
 		this.directoryManager = manager;

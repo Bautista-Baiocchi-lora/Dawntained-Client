@@ -1,10 +1,16 @@
 package org.bot.ui.screens.login;
 
+import java.util.ArrayList;
+
 import org.bot.Engine;
-import org.bot.ui.InterfaceManager;
-import org.bot.ui.screens.Screen;
+import org.bot.ui.management.InterfaceAction;
+import org.bot.ui.management.InterfaceActionRequest;
+import org.bot.ui.management.Manageable;
+import org.bot.ui.management.Manager;
+import org.bot.util.Utilities;
 
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -14,16 +20,17 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
-public class PortalScreen extends Screen {
+public class PortalScreen extends Scene implements Manageable {
 
+	private final ArrayList<Manager> managers = new ArrayList<Manager>();
 	private static VBox widgetStack;
 	private TextField usernameField;
 	private PasswordField passwordField;
 	private CheckBox rememberCheck;
 	private Label incorrectLogIn;
 
-	public PortalScreen(InterfaceManager manager) {
-		super(widgetStack = new VBox(), manager);
+	public PortalScreen() {
+		super(widgetStack = new VBox());
 		configure();
 	}
 
@@ -58,10 +65,8 @@ public class PortalScreen extends Screen {
 		loginButton.setMaxWidth(Double.MAX_VALUE);
 		loginButton.setOnAction((e) -> {
 			boolean rememberMe = rememberCheck.isSelected();
-			if (!manager.logIn(usernameField.getText(), passwordField.getText(), rememberMe)) {
+			if (!logIn(usernameField.getText(), passwordField.getText(), rememberMe)) {
 				incorrectLogIn();
-			} else {
-				manager.startServerSelector();
 			}
 		});
 
@@ -69,7 +74,7 @@ public class PortalScreen extends Screen {
 		asGuestButton.setMaxWidth(Double.MAX_VALUE);
 		asGuestButton.setOnAction((e) -> {
 			Engine.getInstance().setUsername("Guest");
-			manager.startServerSelector();
+			requestAction(new InterfaceActionRequest.ActionBuilder(InterfaceAction.SHOW_SERVER_SELECTOR).build());
 		});
 
 		widgetStack.getChildren().addAll(incorrectLogIn, usernameRow, passwordRow, rememberCheck, loginButton,
@@ -78,9 +83,34 @@ public class PortalScreen extends Screen {
 		widgetStack.setAlignment(Pos.CENTER);
 	}
 
+	private boolean logIn(String username, String password, boolean rememberMe) {
+		if (username.equalsIgnoreCase("ethan") && password.equals("123")) {
+			Engine.getInstance().setUsername(Utilities.capitalize(username));
+			Engine.getInstance().setDeveloper(true);
+			requestAction(new InterfaceActionRequest.ActionBuilder(InterfaceAction.SHOW_SERVER_SELECTOR).build());
+			return true;
+		}
+		/**
+		 * HANDLE WEB-BASED LOGIN HERE.
+		 */
+		return false;
+	}
+
 	private void incorrectLogIn() {
 		incorrectLogIn.setVisible(true);
 		usernameField.clear();
 		passwordField.clear();
+	}
+
+	@Override
+	public void requestAction(InterfaceActionRequest action) {
+		for (Manager manager : managers) {
+			manager.processActionRequest(action);
+		}
+	}
+
+	@Override
+	public void registerManager(Manager manager) {
+		managers.add(manager);
 	}
 }

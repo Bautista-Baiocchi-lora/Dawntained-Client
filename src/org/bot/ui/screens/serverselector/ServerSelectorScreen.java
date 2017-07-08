@@ -13,22 +13,23 @@ import org.bot.Engine;
 import org.bot.provider.loader.ServerLoader;
 import org.bot.provider.manifest.NullManifestException;
 import org.bot.provider.manifest.ServerManifest;
-import org.bot.ui.InterfaceManager;
-import org.bot.ui.screens.Screen;
 import org.bot.util.directory.exceptions.InvalidDirectoryNameException;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.Scene;
 import javafx.scene.control.ListView;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.layout.HBox;
 
-public class ServerSelectorScreen extends Screen {
+public class ServerSelectorScreen extends Scene {
 
 	private static HBox layout;
 	private ServerInformationTab serverTab;
 
-	public ServerSelectorScreen(InterfaceManager manager) {
-		super(layout = new HBox(), manager);
+	public ServerSelectorScreen() {
+		super(layout = new HBox());
 		configure();
 	}
 
@@ -39,12 +40,14 @@ public class ServerSelectorScreen extends Screen {
 		ObservableList<ServerLabel> items = FXCollections.observableArrayList(providers);
 		list.setItems(items);
 		list.setOnMouseClicked((e) -> {
-			if(list.getSelectionModel().getSelectedItem() != null) {
+			if (list.getSelectionModel().getSelectedItem() != null) {
 				displayTab(list.getSelectionModel().getSelectedItem().getTab());
 			}
 		});
 		list.setMaxWidth(250);
-		layout.getChildren().add(list);
+		ProgressBar bar = new ProgressBar();
+		ProgressIndicator indicator = new ProgressIndicator();
+		layout.getChildren().addAll(list);
 	}
 
 	private ArrayList<ServerLabel> getServerProviderComponents() {
@@ -70,7 +73,7 @@ public class ServerSelectorScreen extends Screen {
 								throw new NullManifestException();
 							}
 							loader = (ServerLoader<?>) clazz.newInstance();
-							providers.add(new ServerLabel(loader, manifest, manager));
+							providers.add(new ServerLabel(loader, manifest));
 						}
 					}
 				}

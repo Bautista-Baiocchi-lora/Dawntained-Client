@@ -1,8 +1,13 @@
 package org.bot.ui.screens.serverselector;
 
+import java.util.ArrayList;
+
 import org.bot.provider.ServerProvider;
 import org.bot.provider.manifest.ServerManifest;
-import org.bot.ui.InterfaceManager;
+import org.bot.ui.management.InterfaceAction;
+import org.bot.ui.management.InterfaceActionRequest;
+import org.bot.ui.management.Manageable;
+import org.bot.ui.management.Manager;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -11,14 +16,13 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
-public class ServerInformationTab extends ScrollPane {
-	private final InterfaceManager manager;
+public class ServerInformationTab extends ScrollPane implements Manageable {
 	private final ServerProvider provider;
+	private final ArrayList<Manager> managers = new ArrayList<Manager>();
 
-	public ServerInformationTab(ServerProvider provider, InterfaceManager manager) {
+	public ServerInformationTab(ServerProvider provider) {
 		setMaxWidth(250);
 		this.provider = provider;
-		this.manager = manager;
 		configure(provider.getManifest());
 	}
 
@@ -37,7 +41,8 @@ public class ServerInformationTab extends ScrollPane {
 
 		Button launchButton = new Button("Launch");
 		launchButton.setOnAction((e) -> {
-			manager.loadServer(provider);
+			requestAction(
+					new InterfaceActionRequest.ActionBuilder(InterfaceAction.LOAD_SERVER).provider(provider).build());
 		});
 
 		GridPane grid = new GridPane();
@@ -53,5 +58,17 @@ public class ServerInformationTab extends ScrollPane {
 
 		layout.getChildren().addAll(grid);
 		setContent(layout);
+	}
+
+	@Override
+	public void requestAction(InterfaceActionRequest action) {
+		for (Manager manager : managers) {
+			manager.processActionRequest(action);
+		}
+	}
+
+	@Override
+	public void registerManager(Manager manager) {
+		managers.add(manager);
 	}
 }

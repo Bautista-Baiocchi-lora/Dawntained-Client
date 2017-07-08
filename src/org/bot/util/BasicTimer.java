@@ -2,48 +2,49 @@ package org.bot.util;
 
 public class BasicTimer {
 
+	private long start;
+	private long end;
+	private long period;
 
-    private long start;
-    private long end;
-    private long period;
+	public BasicTimer(long period) {
+		this.start = System.currentTimeMillis();
+		this.period = period;
+		this.end = start + period;
+	}
 
-    public BasicTimer(long period) {
-        this.start = System.currentTimeMillis();
-        this.period = period;
-        this.end = start + period;
-    }
+	public boolean isRunning() {
+		return System.currentTimeMillis() < end;
+	}
 
-    public boolean isRunning() {
-        return System.currentTimeMillis() < end;
-    }
+	public long getElapsed() {
+		return System.currentTimeMillis() - start;
+	}
 
-    public long getElapsed() {
-        return System.currentTimeMillis() - start;
-    }
+	public long getRemaining() {
+		return isRunning() ? end - System.currentTimeMillis() : 0;
+	}
 
-    public long getRemaining() {
-        return isRunning() ? end - System.currentTimeMillis() : 0;
-    }
+	public void reset() {
+		this.end = System.currentTimeMillis() + period;
+	}
 
-    public void reset() {
-        this.end = System.currentTimeMillis() + period;
-    }
-    public boolean finished() {
-        return end <= System.currentTimeMillis();
-    }
+	public boolean finished() {
+		return end <= System.currentTimeMillis();
+	}
 
-    public void setPeriod(int period) {
-        this.period = period;
-    }
+	public void setPeriod(int period) {
+		this.period = period;
+	}
 
-    public String toElapsedString() {
-        return parse(getElapsed());
-    }
+	public String toElapsedString() {
+		return parse(getElapsed());
+	}
 
-    public String toRemainingString() {
-        return parse(getRemaining());
-    }
-    public String parse(long millis) {
+	public String toRemainingString() {
+		return parse(getRemaining());
+	}
+
+	public String parse(long millis) {
 		long time = millis / 1000;
 		String seconds = Integer.toString((int) (time % 60));
 		String minutes = Integer.toString((int) ((time % 3600) / 60));
@@ -69,5 +70,5 @@ public class BasicTimer {
 			return days + ":" + hours + ":" + minutes + ":" + seconds;
 
 		return hours + ":" + minutes + ":" + seconds;
-}
+	}
 }
