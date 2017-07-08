@@ -28,15 +28,6 @@ public class Engine {
 	private BotUI botUI;
 	private Canvas gameCanvas;
 	private ArchiveClassLoader classLoader;
-	private Map<String, FieldHook> fieldMap;
-	private Map<String, MethodHook> methodMap;
-
-	public Map<String, FieldHook> getFieldMap() {
-		return fieldMap == null ? fieldMap = new HashMap<>() : fieldMap;
-	}
-	public Map<String, MethodHook> getMethodMap() {
-		return methodMap == null ? methodMap = new HashMap<>() : methodMap;
-	}
 
 	public void setBotUI(BotUI botUI) {
 		this.botUI = botUI;

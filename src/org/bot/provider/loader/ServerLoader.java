@@ -10,6 +10,7 @@ import org.bot.classloader.Archive;
 import org.bot.classloader.ArchiveClassLoader;
 import org.bot.classloader.JarArchive;
 import org.bot.component.screen.ScreenOverlay;
+import org.bot.hooking.Hook;
 import org.bot.util.FileDownloader;
 import org.bot.util.reflection.ReflectionEngine;
 import org.objectweb.asm.tree.ClassNode;
@@ -59,6 +60,8 @@ public abstract class ServerLoader<T extends Component> extends ReflectionEngine
 	public String getServerName() {
 		return SERVER_NAME;
 	}
+
+	public abstract Hook getHooks();
 
 	public abstract List<ScreenOverlay> getOverlays();
 
