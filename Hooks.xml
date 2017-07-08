@@ -1,1859 +1,863 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
--<fields>
-
-
--<getters>
-
-
--<add>
-
-<getter>getBoundryHeight</getter>
-
-<classname>oss/iiIIIIIIII</classname>
-
-<field>do</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
-+<add>
-
-
--<add>
-
-<getter>ModelVertZ</getter>
-
-<classname>oss/IIiiiiiiII</classname>
-
-<field>void</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>ScrollX</getter>
-
-<classname>oss/iIiiiIiiiI</classname>
-
-<field>r</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>LocalNpcs</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>eb</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>Size</getter>
-
-<classname>oss/IIiIiIiIii</classname>
-
-<field>else</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>getInteractiveFlags</getter>
-
-<classname>oss/iIIIiiIIiI</classname>
-
-<field>float</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>WidgetWidths</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>IB</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>WidgetID</getter>
-
-<classname>oss/iIiiiIiiiI</classname>
-
-<field>z</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>Buckets</getter>
-
-<classname>oss/IIiIiIiIii</classname>
-
-<field>byte</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>RelativeY</getter>
-
-<classname>oss/iIiiiIiiiI</classname>
-
-<field>default</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>RelativeX</getter>
-
-<classname>oss/iIiiiIiiiI</classname>
-
-<field>r</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>CombatCycle</getter>
-
-<classname>oss/IIIIiIIiII</classname>
-
-<field>byte</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>getInteractiveID</getter>
-
-<classname>oss/iIIIiiIIiI</classname>
-
-<field>void</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>getBoundryOrientation</getter>
-
-<classname>oss/iiIIIIIIII</classname>
-
-<field>try</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>ModelTriZ</getter>
-
-<classname>oss/IIiiiiiiII</classname>
-
-<field>static</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>Head</getter>
-
-<classname>oss/iIIiiIiiIi</classname>
-
-<field>byte</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>Actions</getter>
-
-<classname>oss/iIiIIiIIii</classname>
-
-<field>null</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>ViewportHeight</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>if</field>
-
-<multiplier>-186527881</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>Definition</getter>
-
-<classname>oss/iIIiiiIiiI</classname>
-
-<field>void</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>MenuHeight</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>GA</field>
-
-<multiplier>-2090618933</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>getBoundryPlane</getter>
-
-<classname>oss/iiIIIIIIII</classname>
-
-<field>byte</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>MapAngle</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>yC</field>
-
-<multiplier>-1072839225</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>ModelTriX</getter>
-
-<classname>oss/IIiiiiiiII</classname>
-
-<field>double</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>ModelTriY</getter>
-
-<classname>oss/IIiiiiiiII</classname>
-
-<field>null</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>WidgetWidth</getter>
-
-<classname>oss/iIiiiIiiiI</classname>
-
-<field>H</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>NpcName</getter>
-
-<classname>oss/IIiIIiIIII</classname>
-
-<field>final</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>AbsoluteY</getter>
-
-<classname>oss/iIiiiIiiiI</classname>
-
-<field>F</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>UID</getter>
-
-<classname>oss/IIIiiiIIiI</classname>
-
-<field>byte</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>AbsoluteX</getter>
-
-<classname>oss/iIiiiIiiiI</classname>
-
-<field>EA</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>MenuCount</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>Sb</field>
-
-<multiplier>1324290403</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>PlayerIndex</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>oE</field>
-
-<multiplier>-1731449945</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>LoginState</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>Fe</field>
-
-<multiplier>-684224463</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>Next</getter>
-
-<classname>oss/IIIiiiIIiI</classname>
-
-<field>new</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>IsMenuOpen</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>Vd</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>Id</getter>
-
-<classname>oss/IiIIiiIIIi</classname>
-
-<field>new</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>WidgetType</getter>
-
-<classname>oss/iIiiiIiiiI</classname>
-
-<field>for</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>Current</getter>
-
-<classname>oss/iIIiiIiiIi</classname>
-
-<field>float</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>NpcCombatLevel</getter>
-
-<classname>oss/IIiIIiIIII</classname>
-
-<field>assert</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>WidgetItemID</getter>
-
-<classname>oss/iIiiiIiiiI</classname>
-
-<field>package</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>CameraZ</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>sC</field>
-
-<multiplier>113597655</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>CameraY</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>oa</field>
-
-<multiplier>681386919</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>CameraX</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>P</field>
-
-<multiplier>-1967123133</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>CombatLevel</getter>
-
-<classname>oss/iIIiiiIiiI</classname>
-
-<field>G</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>LocalPlayer</getter>
-
-<classname>oss/iIIiiiIiiI</classname>
-
-<field>import</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>WidgetStackSizes</getter>
-
-<classname>oss/iIiiiIiiiI</classname>
-
-<field>m</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>BaseY</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>LB</field>
-
-<multiplier>803568843</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>BaseX</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>Zf</field>
-
-<multiplier>-1719983039</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>WidgetHeights</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>Mf</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>LoopCycle</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>cB</field>
-
-<multiplier>1026470457</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>SceneTiles</getter>
-
-<classname>oss/iIiiiIIiIi</classname>
-
-<field>false</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>getBoundryLocalY</getter>
-
-<classname>oss/iiIIIIIIII</classname>
-
-<field>break</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>getBoundryLocalX</getter>
-
-<classname>oss/iiIIIIIIII</classname>
-
-<field>float</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>ActorOrientation</getter>
-
-<classname>oss/IIIIiIIiII</classname>
-
-<field>null</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>QueueSize</getter>
-
-<classname>oss/IIIIiIIiII</classname>
-
-<field>e</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>ScrollHeight</getter>
-
-<classname>oss/iIiiiIiiiI</classname>
-
-<field>WB</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>Energy</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>lc</field>
-
-<multiplier>1278004015</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>ItemName</getter>
-
-<classname>oss/iiIiIiIiiI</classname>
-
-<field>const</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>CurrentWorld</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>ND</field>
-
-<multiplier>1425499025</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>getInteractiveRender</getter>
-
-<classname>oss/iIIIiiIIiI</classname>
-
-<field>break</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>TileSettings</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>lb</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>ModelHeight</getter>
-
-<classname>oss/IiiIiIiIiI</classname>
-
-<field>float</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>Experiences</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>Ub</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>Text</getter>
-
-<classname>oss/iIiiiIiiiI</classname>
-
-<field>b</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>WidgetName</getter>
-
-<classname>oss/iIiiiIiiiI</classname>
-
-<field>N</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>CameraScale</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>hF</field>
-
-<multiplier>-1951712977</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>MenuActions</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>false</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>Prev</getter>
-
-<classname>oss/IIIiiiIIiI</classname>
-
-<field>float</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>Animation</getter>
-
-<classname>oss/IIIIiIIiII</classname>
-
-<field>char</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>ModelVertX</getter>
-
-<classname>oss/IIiiiiiiII</classname>
-
-<field>true</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>IpAddress</getter>
-
-<classname>oss/iiIiIiIIII</classname>
-
-<field>catch</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>ModelVertY</getter>
-
-<classname>oss/IIiiiiiiII</classname>
-
-<field>final</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>MenuWidth</getter>
-
-<classname>oss/IIiiIIiIIi</classname>
-
-<field>this</field>
-
-<multiplier>1712819025</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>ParentID</getter>
-
-<classname>oss/iIiiiIiiiI</classname>
-
-<field>s</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>getInteractiveWorldX</getter>
-
-<classname>oss/iIIIiiIIiI</classname>
-
-<field>else</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>WidgetHeight</getter>
-
-<classname>oss/iIiiiIiiiI</classname>
-
-<field>public</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>getInteractiveWorldY</getter>
-
-<classname>oss/iIIIiiIIiI</classname>
-
-<field>super</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>Index</getter>
-
-<classname>oss/IIiIiIiIii</classname>
-
-<field>float</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>Sine</getter>
-
-<classname>oss/iIiiiiIIIi</classname>
-
-<field>byte</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>StackSizes</getter>
-
-<classname>oss/iiIiIiiIiI</classname>
-
-<field>new</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>getBoundryID</getter>
-
-<classname>oss/iiIIIIIIII</classname>
-
-<field>else</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>Name</getter>
-
-<classname>oss/iIiIIiIIii</classname>
-
-<field>double</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>TileHeights</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>b</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>InvIDs</getter>
-
-<classname>oss/iIiiiIiiiI</classname>
-
-<field>dC</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>getInteractiveLocalX</getter>
-
-<classname>oss/iIIIiiIIiI</classname>
-
-<field>do</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>getInteractiveLocalY</getter>
-
-<classname>oss/iIIIiiIIiI</classname>
-
-<field>const</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>Widgets</getter>
-
-<classname>oss/iIiiiIiiiI</classname>
-
-<field>enum</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>GameObject</getter>
-
-<classname>oss/iiiiIIiIIi</classname>
-
-<field>for</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>PlayerName</getter>
-
-<classname>oss/iIIiiiIiiI</classname>
-
-<field>implements</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>TextureID</getter>
-
-<classname>oss/iIiiiIiiiI</classname>
-
-<field>RA</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>Tick</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>XE</field>
-
-<multiplier>-2146869835</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>ItemAmount</getter>
-
-<classname>oss/iIiiiIiiiI</classname>
-
-<field>int</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>getBoundryFlags</getter>
-
-<classname>oss/iiIIIIIIII</classname>
-
-<field>new</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>NpcActions</getter>
-
-<classname>oss/IIiIIiIIII</classname>
-
-<field>native</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>RealLevels</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>Va</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>getBoundryRender</getter>
-
-<classname>oss/iiIIIIIIII</classname>
-
-<field>int</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>getInteractiveOrientation</getter>
-
-<classname>oss/iIIIiiIIiI</classname>
-
-<field>new</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>Plane</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>Sf</field>
-
-<multiplier>-1093536619</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>Canvas</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>OE</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>BoundaryObject</getter>
-
-<classname>oss/iiiiIIiIIi</classname>
-
-<field>case</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>WidgetPositionY</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>FD</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>Params</getter>
-
-<classname>oss/iiIiIiIIII</classname>
-
-<field>if</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>MaxHealth</getter>
-
-<classname>oss/IIIIiIIiII</classname>
-
-<field>static</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>ItemID</getter>
-
-<classname>oss/iiIiIiiIiI</classname>
-
-<field>byte</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>Weight</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>ba</field>
-
-<multiplier>-1386837203</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>WidgetPositionX</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>WB</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>getInteractivePlane</getter>
-
-<classname>oss/iIIIiiIIiI</classname>
-
-<field>try</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>getItemName</getter>
-
-<classname>oss/iiIiIiIiiI</classname>
-
-<field>char</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>CameraPitch</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>o</field>
-
-<multiplier>-1557542191</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>Region</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>vB</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>CurrentLevels</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>la</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>MapScale</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>Kf</field>
-
-<multiplier>461573195</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>WidgetActions</getter>
-
-<classname>oss/iIiiiIiiiI</classname>
-
-<field>volatile</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>Cosine</getter>
-
-<classname>oss/iIiiiiIIIi</classname>
-
-<field>float</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>BoundsIndex</getter>
-
-<classname>oss/iIiiiIiiiI</classname>
-
-<field>do</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>WidgetNodeCache</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>QC</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>Loader</getter>
-
-<classname>oss/iiIiIiIIII</classname>
-
-<field>int</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>MenuOptions</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>Vc</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>Properties</getter>
-
-<classname>oss/iiIiIiIIII</classname>
-
-<field>enum</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>MapOffset</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>ka</field>
-
-<multiplier>1847328669</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>MenuX</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>ec</field>
-
-<multiplier>681506315</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>MenuY</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>ld</field>
-
-<multiplier>1953108583</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>getInteractiveHeight</getter>
-
-<classname>oss/iIIIiiIIiI</classname>
-
-<field>long</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>Children</getter>
-
-<classname>oss/iIiiiIiiiI</classname>
-
-<field>Za</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>GameSettings</getter>
-
-<classname>oss/iIiiIiIiiI</classname>
-
-<field>float</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>getInteractiveOffsetX</getter>
-
-<classname>oss/iIIIiiIIiI</classname>
-
-<field>final</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>GroundItems</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>qE</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>getInteractiveOffsetY</getter>
-
-<classname>oss/iIIIiiIIiI</classname>
-
-<field>case</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>WorldY</getter>
-
-<classname>oss/IIIIiIIiII</classname>
-
-<field>switch</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>LocalPlayers</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>xb</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>WorldX</getter>
-
-<classname>oss/IIIIiIIiII</classname>
-
-<field>do</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>IsHidden</getter>
-
-<classname>oss/iIiiiIiiiI</classname>
-
-<field>if</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>NpcID</getter>
-
-<classname>oss/IIiIIiIIII</classname>
-
-<field>static</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>SpokenText</getter>
-
-<classname>oss/IIIIiIIiII</classname>
-
-<field>int</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>Health</getter>
-
-<classname>oss/IIIIiIIiII</classname>
-
-<field>this</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>ViewportWidth</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>g</field>
-
-<multiplier>-476732681</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>CameraYaw</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>Lb</field>
-
-<multiplier>167182419</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>DestinationY</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>z</field>
-
-<multiplier>-1524315751</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>InteractingIndex</getter>
-
-<classname>oss/IIIIiIIiII</classname>
-
-<field>double</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>DestinationX</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>TD</field>
-
-<multiplier>-1846442735</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>getMessageCallback</getter>
-
-<classname>oss/iIIiiiiIiI</classname>
-
-<field>case</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>NpcDef</getter>
-
-<classname>oss/iIiIIIIiii</classname>
-
-<field>float</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-
--<add>
-
-<getter>getBoundryRender2</getter>
-
-<classname>oss/iiIIIIIIII</classname>
-
-<field>super</field>
-
-<multiplier>-1</multiplier>
-
-</add>
-
-</getters>
-
+<fields>
+   <getters>
+      <add>
+         <getter>getBoundryHeight</getter>
+         <classname>oss/iiIIIIIIII</classname>
+         <field>do</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>ScrollY</getter>
+         <classname>oss/iIiiiIiiiI</classname>
+         <field>default</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>ModelVertZ</getter>
+         <classname>oss/IIiiiiiiII</classname>
+         <field>void</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>ScrollX</getter>
+         <classname>oss/iIiiiIiiiI</classname>
+         <field>r</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>LocalNpcs</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>eb</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>Size</getter>
+         <classname>oss/IIiIiIiIii</classname>
+         <field>else</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>getInteractiveFlags</getter>
+         <classname>oss/iIIIiiIIiI</classname>
+         <field>float</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>WidgetWidths</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>IB</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>WidgetID</getter>
+         <classname>oss/iIiiiIiiiI</classname>
+         <field>z</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>Buckets</getter>
+         <classname>oss/IIiIiIiIii</classname>
+         <field>byte</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>RelativeY</getter>
+         <classname>oss/iIiiiIiiiI</classname>
+         <field>default</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>RelativeX</getter>
+         <classname>oss/iIiiiIiiiI</classname>
+         <field>r</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>CombatCycle</getter>
+         <classname>oss/IIIIiIIiII</classname>
+         <field>byte</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>getInteractiveID</getter>
+         <classname>oss/iIIIiiIIiI</classname>
+         <field>void</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>getBoundryOrientation</getter>
+         <classname>oss/iiIIIIIIII</classname>
+         <field>try</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>ModelTriZ</getter>
+         <classname>oss/IIiiiiiiII</classname>
+         <field>static</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>Head</getter>
+         <classname>oss/iIIiiIiiIi</classname>
+         <field>byte</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>Actions</getter>
+         <classname>oss/iIiIIiIIii</classname>
+         <field>null</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>ViewportHeight</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>if</field>
+         <multiplier>-186527881</multiplier>
+      </add>
+      <add>
+         <getter>Definition</getter>
+         <classname>oss/iIIiiiIiiI</classname>
+         <field>void</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>MenuHeight</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>GA</field>
+         <multiplier>-2090618933</multiplier>
+      </add>
+      <add>
+         <getter>getBoundryPlane</getter>
+         <classname>oss/iiIIIIIIII</classname>
+         <field>byte</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>MapAngle</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>yC</field>
+         <multiplier>-1072839225</multiplier>
+      </add>
+      <add>
+         <getter>ModelTriX</getter>
+         <classname>oss/IIiiiiiiII</classname>
+         <field>double</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>ModelTriY</getter>
+         <classname>oss/IIiiiiiiII</classname>
+         <field>null</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>WidgetWidth</getter>
+         <classname>oss/iIiiiIiiiI</classname>
+         <field>H</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>NpcName</getter>
+         <classname>oss/IIiIIiIIII</classname>
+         <field>final</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>AbsoluteY</getter>
+         <classname>oss/iIiiiIiiiI</classname>
+         <field>F</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>UID</getter>
+         <classname>oss/IIIiiiIIiI</classname>
+         <field>byte</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>AbsoluteX</getter>
+         <classname>oss/iIiiiIiiiI</classname>
+         <field>EA</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>MenuCount</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>Sb</field>
+         <multiplier>1324290403</multiplier>
+      </add>
+      <add>
+         <getter>PlayerIndex</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>oE</field>
+         <multiplier>-1731449945</multiplier>
+      </add>
+      <add>
+         <getter>LoginState</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>Fe</field>
+         <multiplier>-684224463</multiplier>
+      </add>
+      <add>
+         <getter>Next</getter>
+         <classname>oss/IIIiiiIIiI</classname>
+         <field>new</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>IsMenuOpen</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>Vd</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>Id</getter>
+         <classname>oss/IiIIiiIIIi</classname>
+         <field>new</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>WidgetType</getter>
+         <classname>oss/iIiiiIiiiI</classname>
+         <field>for</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>Current</getter>
+         <classname>oss/iIIiiIiiIi</classname>
+         <field>float</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>NpcCombatLevel</getter>
+         <classname>oss/IIiIIiIIII</classname>
+         <field>assert</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>WidgetItemID</getter>
+         <classname>oss/iIiiiIiiiI</classname>
+         <field>package</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>CameraZ</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>sC</field>
+         <multiplier>113597655</multiplier>
+      </add>
+      <add>
+         <getter>CameraY</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>oa</field>
+         <multiplier>681386919</multiplier>
+      </add>
+      <add>
+         <getter>CameraX</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>P</field>
+         <multiplier>-1967123133</multiplier>
+      </add>
+      <add>
+         <getter>CombatLevel</getter>
+         <classname>oss/iIIiiiIiiI</classname>
+         <field>G</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>LocalPlayer</getter>
+         <classname>oss/iIIiiiIiiI</classname>
+         <field>import</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>WidgetStackSizes</getter>
+         <classname>oss/iIiiiIiiiI</classname>
+         <field>m</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>BaseY</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>LB</field>
+         <multiplier>803568843</multiplier>
+      </add>
+      <add>
+         <getter>BaseX</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>Zf</field>
+         <multiplier>-1719983039</multiplier>
+      </add>
+      <add>
+         <getter>WidgetHeights</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>Mf</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>LoopCycle</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>cB</field>
+         <multiplier>1026470457</multiplier>
+      </add>
+      <add>
+         <getter>SceneTiles</getter>
+         <classname>oss/iIiiiIIiIi</classname>
+         <field>false</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>getBoundryLocalY</getter>
+         <classname>oss/iiIIIIIIII</classname>
+         <field>break</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>getBoundryLocalX</getter>
+         <classname>oss/iiIIIIIIII</classname>
+         <field>float</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>ActorOrientation</getter>
+         <classname>oss/IIIIiIIiII</classname>
+         <field>null</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>QueueSize</getter>
+         <classname>oss/IIIIiIIiII</classname>
+         <field>e</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>ScrollHeight</getter>
+         <classname>oss/iIiiiIiiiI</classname>
+         <field>WB</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>Energy</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>lc</field>
+         <multiplier>1278004015</multiplier>
+      </add>
+      <add>
+         <getter>ItemName</getter>
+         <classname>oss/iiIiIiIiiI</classname>
+         <field>const</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>CurrentWorld</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>ND</field>
+         <multiplier>1425499025</multiplier>
+      </add>
+      <add>
+         <getter>getInteractiveRender</getter>
+         <classname>oss/iIIIiiIIiI</classname>
+         <field>break</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>TileSettings</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>lb</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>ModelHeight</getter>
+         <classname>oss/IiiIiIiIiI</classname>
+         <field>float</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>Experiences</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>Ub</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>Text</getter>
+         <classname>oss/iIiiiIiiiI</classname>
+         <field>b</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>WidgetName</getter>
+         <classname>oss/iIiiiIiiiI</classname>
+         <field>N</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>CameraScale</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>hF</field>
+         <multiplier>-1951712977</multiplier>
+      </add>
+      <add>
+         <getter>MenuActions</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>false</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>Prev</getter>
+         <classname>oss/IIIiiiIIiI</classname>
+         <field>float</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>Animation</getter>
+         <classname>oss/IIIIiIIiII</classname>
+         <field>char</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>ModelVertX</getter>
+         <classname>oss/IIiiiiiiII</classname>
+         <field>true</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>IpAddress</getter>
+         <classname>oss/iiIiIiIIII</classname>
+         <field>catch</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>ModelVertY</getter>
+         <classname>oss/IIiiiiiiII</classname>
+         <field>final</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>MenuWidth</getter>
+         <classname>oss/IIiiIIiIIi</classname>
+         <field>this</field>
+         <multiplier>1712819025</multiplier>
+      </add>
+      <add>
+         <getter>ParentID</getter>
+         <classname>oss/iIiiiIiiiI</classname>
+         <field>s</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>getInteractiveWorldX</getter>
+         <classname>oss/iIIIiiIIiI</classname>
+         <field>else</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>WidgetHeight</getter>
+         <classname>oss/iIiiiIiiiI</classname>
+         <field>public</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>getInteractiveWorldY</getter>
+         <classname>oss/iIIIiiIIiI</classname>
+         <field>super</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>Index</getter>
+         <classname>oss/IIiIiIiIii</classname>
+         <field>float</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>Sine</getter>
+         <classname>oss/iIiiiiIIIi</classname>
+         <field>byte</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>StackSizes</getter>
+         <classname>oss/iiIiIiiIiI</classname>
+         <field>new</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>getBoundryID</getter>
+         <classname>oss/iiIIIIIIII</classname>
+         <field>else</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>Name</getter>
+         <classname>oss/iIiIIiIIii</classname>
+         <field>double</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>TileHeights</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>b</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>InvIDs</getter>
+         <classname>oss/iIiiiIiiiI</classname>
+         <field>dC</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>getInteractiveLocalX</getter>
+         <classname>oss/iIIIiiIIiI</classname>
+         <field>do</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>getInteractiveLocalY</getter>
+         <classname>oss/iIIIiiIIiI</classname>
+         <field>const</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>Widgets</getter>
+         <classname>oss/iIiiiIiiiI</classname>
+         <field>enum</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>GameObject</getter>
+         <classname>oss/iiiiIIiIIi</classname>
+         <field>for</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>PlayerName</getter>
+         <classname>oss/iIIiiiIiiI</classname>
+         <field>implements</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>TextureID</getter>
+         <classname>oss/iIiiiIiiiI</classname>
+         <field>RA</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>Tick</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>XE</field>
+         <multiplier>-2146869835</multiplier>
+      </add>
+      <add>
+         <getter>ItemAmount</getter>
+         <classname>oss/iIiiiIiiiI</classname>
+         <field>int</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>getBoundryFlags</getter>
+         <classname>oss/iiIIIIIIII</classname>
+         <field>new</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>NpcActions</getter>
+         <classname>oss/IIiIIiIIII</classname>
+         <field>native</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>RealLevels</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>Va</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>getBoundryRender</getter>
+         <classname>oss/iiIIIIIIII</classname>
+         <field>int</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>getInteractiveOrientation</getter>
+         <classname>oss/iIIIiiIIiI</classname>
+         <field>new</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>Plane</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>Sf</field>
+         <multiplier>-1093536619</multiplier>
+      </add>
+      <add>
+         <getter>Canvas</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>OE</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>BoundaryObject</getter>
+         <classname>oss/iiiiIIiIIi</classname>
+         <field>case</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>WidgetPositionY</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>FD</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>Params</getter>
+         <classname>oss/iiIiIiIIII</classname>
+         <field>if</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>MaxHealth</getter>
+         <classname>oss/IIIIiIIiII</classname>
+         <field>static</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>ItemID</getter>
+         <classname>oss/iiIiIiiIiI</classname>
+         <field>byte</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>Weight</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>ba</field>
+         <multiplier>-1386837203</multiplier>
+      </add>
+      <add>
+         <getter>WidgetPositionX</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>WB</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>getInteractivePlane</getter>
+         <classname>oss/iIIIiiIIiI</classname>
+         <field>try</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>getItemName</getter>
+         <classname>oss/iiIiIiIiiI</classname>
+         <field>char</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>CameraPitch</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>o</field>
+         <multiplier>-1557542191</multiplier>
+      </add>
+      <add>
+         <getter>Region</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>vB</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>CurrentLevels</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>la</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>MapScale</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>Kf</field>
+         <multiplier>461573195</multiplier>
+      </add>
+      <add>
+         <getter>WidgetActions</getter>
+         <classname>oss/iIiiiIiiiI</classname>
+         <field>volatile</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>Cosine</getter>
+         <classname>oss/iIiiiiIIIi</classname>
+         <field>float</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>BoundsIndex</getter>
+         <classname>oss/iIiiiIiiiI</classname>
+         <field>do</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>WidgetNodeCache</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>QC</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>Loader</getter>
+         <classname>oss/iiIiIiIIII</classname>
+         <field>int</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>MenuOptions</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>Vc</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>Properties</getter>
+         <classname>oss/iiIiIiIIII</classname>
+         <field>enum</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>MapOffset</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>ka</field>
+         <multiplier>1847328669</multiplier>
+      </add>
+      <add>
+         <getter>MenuX</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>ec</field>
+         <multiplier>681506315</multiplier>
+      </add>
+      <add>
+         <getter>MenuY</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>ld</field>
+         <multiplier>1953108583</multiplier>
+      </add>
+      <add>
+         <getter>getInteractiveHeight</getter>
+         <classname>oss/iIIIiiIIiI</classname>
+         <field>long</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>Children</getter>
+         <classname>oss/iIiiiIiiiI</classname>
+         <field>Za</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>GameSettings</getter>
+         <classname>oss/iIiiIiIiiI</classname>
+         <field>float</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>getInteractiveOffsetX</getter>
+         <classname>oss/iIIIiiIIiI</classname>
+         <field>final</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>GroundItems</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>qE</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>getInteractiveOffsetY</getter>
+         <classname>oss/iIIIiiIIiI</classname>
+         <field>case</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>WorldY</getter>
+         <classname>oss/IIIIiIIiII</classname>
+         <field>switch</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>LocalPlayers</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>xb</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>WorldX</getter>
+         <classname>oss/IIIIiIIiII</classname>
+         <field>do</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>IsHidden</getter>
+         <classname>oss/iIiiiIiiiI</classname>
+         <field>if</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>NpcID</getter>
+         <classname>oss/IIiIIiIIII</classname>
+         <field>static</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>SpokenText</getter>
+         <classname>oss/IIIIiIIiII</classname>
+         <field>int</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>Health</getter>
+         <classname>oss/IIIIiIIiII</classname>
+         <field>this</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>ViewportWidth</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>g</field>
+         <multiplier>-476732681</multiplier>
+      </add>
+      <add>
+         <getter>CameraYaw</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>Lb</field>
+         <multiplier>167182419</multiplier>
+      </add>
+      <add>
+         <getter>DestinationY</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>z</field>
+         <multiplier>-1524315751</multiplier>
+      </add>
+      <add>
+         <getter>InteractingIndex</getter>
+         <classname>oss/IIIIiIIiII</classname>
+         <field>double</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>DestinationX</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>TD</field>
+         <multiplier>-1846442735</multiplier>
+      </add>
+      <add>
+         <getter>getMessageCallback</getter>
+         <classname>oss/iIIiiiiIiI</classname>
+         <field>case</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>NpcDef</getter>
+         <classname>oss/iIiIIIIiii</classname>
+         <field>float</field>
+         <multiplier>-1</multiplier>
+      </add>
+      <add>
+         <getter>getBoundryRender2</getter>
+         <classname>oss/iiIIIIIIII</classname>
+         <field>super</field>
+         <multiplier>-1</multiplier>
+      </add>
+   </getters>
 </fields>
