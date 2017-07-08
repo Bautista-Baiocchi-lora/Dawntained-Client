@@ -1,8 +1,12 @@
 package org.bot;
 
 import java.awt.*;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.bot.classloader.ArchiveClassLoader;
+import org.bot.hooking.FieldHook;
+import org.bot.hooking.MethodHook;
 import org.bot.provider.ServerProvider;
 import org.bot.provider.loader.ServerLoader;
 import org.bot.provider.manifest.ServerManifest;
@@ -24,6 +28,15 @@ public class Engine {
 	private BotUI botUI;
 	private Canvas gameCanvas;
 	private ArchiveClassLoader classLoader;
+	private Map<String, FieldHook> fieldMap;
+	private Map<String, MethodHook> methodMap;
+
+	public Map<String, FieldHook> getFieldMap() {
+		return fieldMap == null ? fieldMap = new HashMap<>() : fieldMap;
+	}
+	public Map<String, MethodHook> getMethodMap() {
+		return methodMap == null ? methodMap = new HashMap<>() : methodMap;
+	}
 
 	public void setBotUI(BotUI botUI) {
 		this.botUI = botUI;

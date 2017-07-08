@@ -63,9 +63,9 @@ public class ReflectedClass {
 		return clazz;
 	}
 
-	public ReflectedClass getNewInstance() {
+	public Object getNewInstance() {
 		try {
-			return new ReflectedClass(clazz.newInstance());
+			return clazz.newInstance();
 		} catch (InstantiationException | IllegalAccessException e) {
 			e.printStackTrace();
 		}
