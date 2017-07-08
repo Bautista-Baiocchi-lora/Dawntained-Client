@@ -1,6 +1,6 @@
 package org.bot.ui;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
 import org.bot.Engine;
 import org.bot.provider.ServerProvider;
@@ -75,7 +75,7 @@ public class BotUI extends Application implements Manager {
 
 	private void loadServer(ServerProvider provider) {
 		Engine.getInstance().setServerProvider(provider);
-		if (provider.getManifest().type().equals(JFrame.class)) {
+		if (provider.getManifest().type().equals(JFrame.class) || provider.getManifest().type().equals(JPanel.class)) {
 			terminate();
 		}
 		Engine.getInstance().getServerLoader().executeServer();

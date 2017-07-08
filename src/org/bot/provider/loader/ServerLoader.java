@@ -1,5 +1,6 @@
 package org.bot.provider.loader;
 
+import java.applet.Applet;
 import java.awt.Component;
 import java.io.IOException;
 import java.util.List;
@@ -11,9 +12,12 @@ import org.bot.classloader.ArchiveClassLoader;
 import org.bot.classloader.JarArchive;
 import org.bot.component.screen.ScreenOverlay;
 import org.bot.hooking.Hook;
+import org.bot.ui.screens.clientframe.GameFrame;
 import org.bot.util.FileDownloader;
 import org.bot.util.reflection.ReflectionEngine;
 import org.objectweb.asm.tree.ClassNode;
+
+import javax.swing.*;
 
 public abstract class ServerLoader<T extends Component> extends ReflectionEngine {
 
@@ -39,6 +43,15 @@ public abstract class ServerLoader<T extends Component> extends ReflectionEngine
 			System.out.println("Loading " + SERVER_NAME + " jar file.");
 			try {
 				Engine.getInstance().setGameComponent(loadProtocol());
+				if(Engine.getInstance().getServerManifest().type().equals(JPanel.class)) {
+					Engine.getInstance().setGameFrame(new GameFrame(Engine.getInstance().getGameComponent()));
+					Engine.getInstance().getGameFrame().setVisible(true);
+				} else {
+
+					/**
+					 * Handle the adding to jframe?
+					 */
+				}
 			} catch (IllegalArgumentException | IllegalAccessException e) {
 				e.printStackTrace();
 			}

@@ -7,12 +7,13 @@ import org.bot.classloader.ArchiveClassLoader;
 import org.bot.provider.ServerProvider;
 import org.bot.provider.loader.ServerLoader;
 import org.bot.provider.manifest.ServerManifest;
+import org.bot.ui.screens.clientframe.GameFrame;
 import org.bot.util.directory.DirectoryManager;
 
 public class Engine {
 
 	private static Engine instance;
-	public static final double VERSION = 0.1;
+	public static final double VERSION = 0.12;
 	private String username;
 	private boolean developer;
 	private ServerLoader<?> serverLoader;
@@ -22,6 +23,16 @@ public class Engine {
 	private ServerManifest serverManifest;
 	private Canvas gameCanvas;
 	private ArchiveClassLoader classLoader;
+	private GameFrame gameFrame;
+
+
+	public GameFrame getGameFrame() {
+		return gameFrame;
+	}
+
+	public void setGameFrame(GameFrame gameFrame) {
+		this.gameFrame = gameFrame;
+	}
 
 	public void setDirectoryManager(DirectoryManager manager) {
 		this.directoryManager = manager;
@@ -92,6 +103,10 @@ public class Engine {
 		return classLoader;
 	}
 
+	public String getTitle() {
+		return "["+ username +"] "+serverLoader.getServerName()+ " || uBot v"+ VERSION;
+
+	}
 	public void setClassLoader(ArchiveClassLoader classLoader) {
 		this.classLoader = classLoader;
 	}

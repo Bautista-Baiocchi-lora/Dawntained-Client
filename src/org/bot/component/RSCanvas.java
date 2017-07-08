@@ -13,6 +13,8 @@ import org.bot.component.listeners.PaintListener;
 import org.bot.component.screen.ScreenOverlay;
 import org.bot.util.Condition;
 
+import javax.swing.*;
+
 /**
  * Created by Ethan on 7/7/2017.
  */
@@ -38,7 +40,10 @@ public class RSCanvas extends Canvas {
 	public Graphics getGraphics() {
 		beginTime = System.currentTimeMillis();
 		if (this.getHeight() != clientBuffer.getHeight() || this.getWidth() != clientBuffer.getWidth()) {
-			// Engine.getInstance().getGameComponent().revalidate();
+
+			if(Engine.getInstance().getServerManifest().type().equals(JPanel.class)) {
+				Engine.getInstance().getGameFrame().revalidate();
+			}
 			this.clientBuffer.flush();
 			this.gameBuffer.flush();
 			Runtime.getRuntime().gc();
