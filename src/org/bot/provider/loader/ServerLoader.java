@@ -30,6 +30,7 @@ public abstract class ServerLoader<T extends Component> extends ReflectionEngine
 
 	public void executeServer() {
 		try {
+			getHooks();
 			System.out.println("Updating " + SERVER_NAME + " jar file.");
 			this.downloader = new FileDownloader(JAR_URL, SERVER_NAME);
 			downloader.run();
