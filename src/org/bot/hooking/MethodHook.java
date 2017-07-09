@@ -4,14 +4,14 @@ package org.bot.hooking;
  * Created by Ethan on 7/7/2017.
  */
 public class MethodHook {
-	private String clazz;
-	private String field;
-	private String desc;
+	private final String clazz;
+	private final String field;
+	private final String description;
 
-	public MethodHook(String clazz, String field, String desc) {
+	public MethodHook(String clazz, String field, String description) {
 		this.clazz = clazz;
 		this.field = field;
-		this.desc = desc;
+		this.description = description;
 
 	}
 
@@ -23,8 +23,8 @@ public class MethodHook {
 		return field.replaceAll("/", ".");
 	}
 
-	public String getDesc() {
-		return desc;
+	public String getDescription() {
+		return description;
 	}
 
 }

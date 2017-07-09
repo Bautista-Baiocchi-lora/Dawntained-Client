@@ -25,7 +25,6 @@ public class Engine {
 	private ArchiveClassLoader classLoader;
 	private GameFrame gameFrame;
 
-
 	public GameFrame getGameFrame() {
 		return gameFrame;
 	}
@@ -103,10 +102,11 @@ public class Engine {
 		return classLoader;
 	}
 
-	public String getTitle() {
-		return "["+ username +"] "+serverLoader.getServerName()+ " || uBot v"+ VERSION;
-
+	public String getInterfaceTitle() {
+		return (username != null ? "[" + username + "] " : " ")
+				+ (serverLoader != null ? (serverLoader.getServerName() + " || ") : "") + "uBot v" + VERSION;
 	}
+
 	public void setClassLoader(ArchiveClassLoader classLoader) {
 		this.classLoader = classLoader;
 	}

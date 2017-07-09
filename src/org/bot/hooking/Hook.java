@@ -18,11 +18,13 @@ import org.w3c.dom.NodeList;
  */
 public class Hook {
 
-	private String HOOK_URL = null;
-	private Map<String, FieldHook> fieldMap;
-	private Map<String, MethodHook> methodMap;
+	private final String HOOK_URL;
+	private final Map<String, FieldHook> fieldMap;
+	private final Map<String, MethodHook> methodMap;
 
 	public Hook(String hookURL) {
+		fieldMap = new HashMap<String, FieldHook>();
+		methodMap = new HashMap<String, MethodHook>();
 		HOOK_URL = hookURL;
 		init();
 	}
@@ -37,24 +39,17 @@ public class Hook {
 			URLConnection connection = NetUtil.createURLConnection(HOOK_URL);
 			Document doc = dBuilder.parse(connection.getInputStream());
 			doc.getDocumentElement().normalize();
-
 			NodeList getters = doc.getElementsByTagName("add");
-
 			for (int i = 0; i < getters.getLength(); i++) {
 				Node n = getters.item(i);
-
 				if (n.getNodeType() == Node.ELEMENT_NODE) {
 					Element e = (Element) n;
 					String getter = e.getElementsByTagName("getter").item(0).getTextContent();
 					String clazz = e.getElementsByTagName("classname").item(0).getTextContent();
 					String field = e.getElementsByTagName("field").item(0).getTextContent();
 					String multiplier = e.getElementsByTagName("multiplier").item(0).getTextContent();
-					getFieldMap().put(getter, new FieldHook(clazz, field, Integer.parseInt(multiplier)));
-					// System.out.println("Getter: "+getter + " || Class:
-					// "+clazz + " || Field: "+field + " || Multiplier:
-					// "+multiplier);
+					fieldMap.put(getter, new FieldHook(clazz, field, Integer.parseInt(multiplier)));
 				}
-
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -73,15 +68,15 @@ public class Hook {
 		return getFieldMap().get(getterName).getMultiplier();
 	}
 
-	public String getDesc(String getterName) {
-		return getMethodMap().get(getterName).getDesc();
+	public String getDescription(String getterName) {
+		return getMethodMap().get(getterName).getDescription();
 	}
 
 	public Map<String, FieldHook> getFieldMap() {
-		return fieldMap == null ? fieldMap = new HashMap<>() : fieldMap;
+		return fieldMap;
 	}
 
 	public Map<String, MethodHook> getMethodMap() {
-		return methodMap == null ? methodMap = new HashMap<>() : methodMap;
+		return methodMap;
 	}
 }

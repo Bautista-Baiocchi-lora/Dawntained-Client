@@ -8,12 +8,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import javax.swing.JPanel;
+
 import org.bot.Engine;
 import org.bot.component.listeners.PaintListener;
 import org.bot.component.screen.ScreenOverlay;
 import org.bot.util.Condition;
-
-import javax.swing.*;
 
 /**
  * Created by Ethan on 7/7/2017.
@@ -41,7 +41,7 @@ public class RSCanvas extends Canvas {
 		beginTime = System.currentTimeMillis();
 		if (this.getHeight() != clientBuffer.getHeight() || this.getWidth() != clientBuffer.getWidth()) {
 
-			if(Engine.getInstance().getServerManifest().type().equals(JPanel.class)) {
+			if (Engine.getInstance().getServerManifest().type().equals(JPanel.class)) {
 				Engine.getInstance().getGameFrame().revalidate();
 			}
 			this.clientBuffer.flush();

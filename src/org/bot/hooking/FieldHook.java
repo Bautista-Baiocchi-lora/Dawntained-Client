@@ -4,9 +4,9 @@ package org.bot.hooking;
  * Created by Ethan on 7/7/2017.
  */
 public class FieldHook {
-	private String clazz;
-	private String field;
-	private int multiplier;
+	private final String clazz;
+	private final String field;
+	private final int multiplier;
 
 	public FieldHook(String clazz, String field, int multiplier) {
 		this.clazz = clazz;

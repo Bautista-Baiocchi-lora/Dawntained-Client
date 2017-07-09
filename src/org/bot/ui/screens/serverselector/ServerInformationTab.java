@@ -46,15 +46,15 @@ public class ServerInformationTab extends ScrollPane implements Manageable {
 		});
 
 		GridPane grid = new GridPane();
-		GridPane.setRowIndex(authorLabel, 0);
-		GridPane.setRowIndex(versionLabel, 1);
-		GridPane.setRowIndex(revisionLabel, 2);
-		GridPane.setRowIndex(typeLabel, 3);
-		GridPane.setRowIndex(infoLabel, 4);
-		GridPane.setRowIndex(infoArea, 5);
-		GridPane.setRowIndex(launchButton, 6);
-		grid.getChildren().addAll(authorLabel, versionLabel, revisionLabel, typeLabel, infoLabel, infoArea,
-				launchButton);
+		GridPane.setRowIndex(launchButton, 0);
+		GridPane.setRowIndex(authorLabel, 1);
+		GridPane.setRowIndex(versionLabel, 2);
+		GridPane.setRowIndex(revisionLabel, 3);
+		GridPane.setRowIndex(typeLabel, 4);
+		GridPane.setRowIndex(infoLabel, 5);
+		GridPane.setRowIndex(infoArea, 6);
+		grid.getChildren().addAll(launchButton, authorLabel, versionLabel, revisionLabel, typeLabel, infoLabel,
+				infoArea);
 
 		layout.getChildren().addAll(grid);
 		setContent(layout);

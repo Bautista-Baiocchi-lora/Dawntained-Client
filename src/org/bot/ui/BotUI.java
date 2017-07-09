@@ -1,6 +1,8 @@
 package org.bot.ui;
 
-import javax.swing.*;
+import java.applet.Applet;
+
+import javax.swing.JFrame;
 
 import org.bot.Engine;
 import org.bot.provider.ServerProvider;
@@ -38,7 +40,7 @@ public class BotUI extends Application implements Manager {
 
 	@Override
 	public void start(Stage stage) throws Exception {
-		stage.setTitle("uBot v" + Engine.VERSION);
+		stage.setTitle(Engine.getInstance().getInterfaceTitle());
 		stage.show();
 		PortalScreen portal = new PortalScreen();
 		portal.registerManager(this);
@@ -55,6 +57,7 @@ public class BotUI extends Application implements Manager {
 	private void displayScreen(final Scene scene) {
 		if (stage != null) {
 			stage.setScene(scene);
+			stage.setTitle(Engine.getInstance().getInterfaceTitle());
 		}
 	}
 
@@ -75,10 +78,10 @@ public class BotUI extends Application implements Manager {
 
 	private void loadServer(ServerProvider provider) {
 		Engine.getInstance().setServerProvider(provider);
-		if (provider.getManifest().type().equals(JFrame.class) || provider.getManifest().type().equals(JPanel.class)) {
+		Engine.getInstance().getServerLoader().executeServer();
+		if (provider.getManifest().type().equals(JFrame.class) || provider.getManifest().type().equals(Applet.class)) {
 			terminate();
 		}
-		Engine.getInstance().getServerLoader().executeServer();
 	}
 
 }
