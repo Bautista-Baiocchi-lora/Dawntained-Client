@@ -1,7 +1,6 @@
 package org.bot;
 
-import java.awt.Canvas;
-import java.awt.Component;
+import java.awt.*;
 
 import org.bot.classloader.ArchiveClassLoader;
 import org.bot.provider.ServerProvider;
@@ -25,12 +24,22 @@ public class Engine {
 	private static ArchiveClassLoader classLoader;
 	private static GameFrame gameFrame;
 	private static ReflectionEngine reflectionEngine;
+	private static Rectangle gameViewport = new Rectangle(5, 5, 509, 332);;
+
 	public static GameFrame getGameFrame() {
 		return gameFrame;
 	}
 
 	public static void setGameFrame(GameFrame gameFrame) {
 		Engine.gameFrame = gameFrame;
+	}
+
+	public static Rectangle getGameViewport() {
+		return gameViewport;
+	}
+
+	public static void setGameViewport(Rectangle gameViewport) {
+		Engine.gameViewport = gameViewport;
 	}
 
 	public static ReflectionEngine getReflectionEngine() {

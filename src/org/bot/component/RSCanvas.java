@@ -1,8 +1,6 @@
 package org.bot.component;
 
-import java.awt.Canvas;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -49,7 +47,7 @@ public class RSCanvas extends Canvas {
 			Runtime.getRuntime().gc();
 			clientBuffer = new BufferedImage(this.getWidth(), this.getHeight(), BufferedImage.TYPE_INT_RGB);
 			gameBuffer = new BufferedImage(this.getWidth(), this.getHeight(), BufferedImage.TYPE_INT_RGB);
-
+			Engine.setGameViewport(new Rectangle(4, 4, getWidth() - 248, getHeight() - 170));
 		}
 		final Graphics graphics = clientBuffer.getGraphics();
 		graphics.drawImage(gameBuffer, 0, 0, null);
