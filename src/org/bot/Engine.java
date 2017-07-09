@@ -9,6 +9,7 @@ import org.bot.provider.loader.ServerLoader;
 import org.bot.provider.manifest.ServerManifest;
 import org.bot.ui.screens.clientframe.GameFrame;
 import org.bot.util.directory.DirectoryManager;
+import org.bot.util.reflection.ReflectionEngine;
 
 public class Engine {
 
@@ -23,13 +24,21 @@ public class Engine {
 	private static Canvas gameCanvas;
 	private static ArchiveClassLoader classLoader;
 	private static GameFrame gameFrame;
-
+	private static ReflectionEngine reflectionEngine;
 	public static GameFrame getGameFrame() {
 		return gameFrame;
 	}
 
 	public static void setGameFrame(GameFrame gameFrame) {
 		Engine.gameFrame = gameFrame;
+	}
+
+	public static ReflectionEngine getReflectionEngine() {
+		return reflectionEngine;
+	}
+
+	public static void setReflectionEngine(ReflectionEngine reflectionEngine) {
+		Engine.reflectionEngine = reflectionEngine;
 	}
 
 	public static void setDirectoryManager(DirectoryManager manager) {

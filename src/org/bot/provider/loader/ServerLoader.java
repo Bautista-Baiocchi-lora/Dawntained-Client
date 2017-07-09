@@ -21,7 +21,7 @@ import org.bot.util.FileDownloader;
 import org.bot.util.reflection.ReflectionEngine;
 import org.objectweb.asm.tree.ClassNode;
 
-public abstract class ServerLoader<T extends Component> extends ReflectionEngine {
+public abstract class ServerLoader<T extends Component> {
 
 	private final String JAR_URL;
 	private final String SERVER_NAME;
