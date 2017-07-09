@@ -19,11 +19,10 @@ import org.bot.ui.menu.ButtonPanel;
  * Created by Ethan on 7/8/2017.
  */
 public class GameFrame extends JFrame implements WindowListener {
-	private Engine engine = Engine.getInstance();
 	private ButtonPanel buttonPanel;
 
 	public GameFrame(Component comp) {
-		setTitle(engine.getInterfaceTitle());
+		setTitle(Engine.getInterfaceTitle());
 		setResizable(true);
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));

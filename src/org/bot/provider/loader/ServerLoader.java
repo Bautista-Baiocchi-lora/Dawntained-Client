@@ -44,23 +44,23 @@ public abstract class ServerLoader<T extends Component> extends ReflectionEngine
 			downloader.run();
 			final JarFile jar = new JarFile(downloader.getArchivePath() + "/" + SERVER_NAME + ".jar");
 			final Archive<ClassNode> archive = new JarArchive(jar);
-			Engine.getInstance().setClassLoader(new ArchiveClassLoader(archive));
+			Engine.setClassLoader(new ArchiveClassLoader(archive));
 			System.out.println("Loading " + SERVER_NAME + " jar file.");
 			try {
 				T component = loadComponent();
-				if (Engine.getInstance().getServerManifest().type().equals(Applet.class)) {
+				if (Engine.getServerManifest().type().equals(Applet.class)) {
 					Applet applet = (Applet) component;
 					applet.setPreferredSize(new Dimension(765, 503));
 					applet.init();
 					if (!applet.isActive()) {
 						applet.start();
 					}
-					Engine.getInstance().setGameComponent(applet);
+					Engine.setGameComponent(applet);
 					final JPanel panel = new JPanel();
 					panel.setLayout(new BorderLayout());
 					panel.add(applet, BorderLayout.CENTER);
 					panel.revalidate();
-					Engine.getInstance().setGameFrame(new GameFrame(panel));
+					Engine.setGameFrame(new GameFrame(panel));
 				} else {
 
 					/**

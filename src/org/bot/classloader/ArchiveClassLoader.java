@@ -60,8 +60,8 @@ public class ArchiveClassLoader extends ClassLoader {
 	}
 
 	private void modify(ClassNode node) {
-		if (Engine.getInstance().getServerLoader() != null) {
-			if (Engine.getInstance().getServerManifest().revision() == Revision.OSRS) {
+		if (Engine.getServerLoader() != null) {
+			if (Engine.getServerManifest().revision() == Revision.OSRS) {
 				if (node.superName.toLowerCase().contains("canvas")) {
 					System.out.println("Canvas was: " + node.name);
 					setSuper(node, RSCanvas.class.getCanonicalName().replace('.', '/'));

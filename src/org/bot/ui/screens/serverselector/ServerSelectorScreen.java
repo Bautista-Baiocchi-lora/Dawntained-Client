@@ -54,8 +54,8 @@ public class ServerSelectorScreen extends Scene {
 		final ArrayList<ServerLabel> providers = new ArrayList<ServerLabel>();
 		JarFile jar;
 		try {
-			for (File file : Engine.getInstance().getDirectoryManager().getRootDirectory()
-					.getSubDirectory("Server Providers").getFiles()) {
+			for (File file : Engine.getDirectoryManager().getRootDirectory().getSubDirectory("Server Providers")
+					.getFiles()) {
 				jar = new JarFile(file.getAbsolutePath());
 				URL[] urls = { new URL("jar:file:" + file.getAbsolutePath() + "!/") };
 				ClassLoader cl = URLClassLoader.newInstance(urls);

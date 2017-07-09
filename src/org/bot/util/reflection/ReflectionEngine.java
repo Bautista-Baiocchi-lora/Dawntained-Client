@@ -8,14 +8,14 @@ import org.bot.Engine;
 public abstract class ReflectionEngine {
 
 	public ReflectedClass getClass(String name, Object instance) {
-		if (!Engine.getInstance().getClassLoader().classes().containsKey(name)) {
+		if (!Engine.getClassLoader().classes().containsKey(name)) {
 			try {
-				return new ReflectedClass(Engine.getInstance().getClassLoader().loadClass(name), instance);
+				return new ReflectedClass(Engine.getClassLoader().loadClass(name), instance);
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
 		}
-		return new ReflectedClass(Engine.getInstance().getClassLoader().classes().get(name));
+		return new ReflectedClass(Engine.getClassLoader().classes().get(name));
 	}
 
 	public ReflectedClass getClass(String name) {

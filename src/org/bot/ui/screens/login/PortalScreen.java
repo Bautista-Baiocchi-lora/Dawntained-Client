@@ -73,7 +73,7 @@ public class PortalScreen extends Scene implements Manageable {
 		Button asGuestButton = new Button("Continue As Guest");
 		asGuestButton.setMaxWidth(Double.MAX_VALUE);
 		asGuestButton.setOnAction((e) -> {
-			Engine.getInstance().setUsername("Guest");
+			Engine.setUsername("Guest");
 			requestAction(new InterfaceActionRequest.ActionBuilder(InterfaceAction.SHOW_SERVER_SELECTOR).build());
 		});
 
@@ -85,8 +85,8 @@ public class PortalScreen extends Scene implements Manageable {
 
 	private boolean logIn(String username, String password, boolean rememberMe) {
 		if (username.equalsIgnoreCase("ethan") && password.equals("123")) {
-			Engine.getInstance().setUsername(Utilities.capitalize(username));
-			Engine.getInstance().setDeveloper(true);
+			Engine.setUsername(Utilities.capitalize(username));
+			Engine.setDeveloper(true);
 			requestAction(new InterfaceActionRequest.ActionBuilder(InterfaceAction.SHOW_SERVER_SELECTOR).build());
 			return true;
 		}

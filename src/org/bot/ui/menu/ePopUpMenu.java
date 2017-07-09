@@ -15,8 +15,6 @@ public class ePopUpMenu extends JPopupMenu implements ActionListener {
 	private final JMenu view;
 	private final JCheckBoxMenuItem mouse;
 
-	private final Engine engine = Engine.getInstance();
-
 	public ePopUpMenu() {
 		view = new JMenu("Debugging");
 
@@ -31,8 +29,8 @@ public class ePopUpMenu extends JPopupMenu implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == mouse) {
-			engine.setDebugMouse(!engine.isDebugMouse());
-			System.out.println(engine.isDebugMouse() ? "Enabled mouse drawing." : "Disabled mouse drawing.");
+			Engine.setDebugMouse(!Engine.isDebugMouse());
+			System.out.println(Engine.isDebugMouse() ? "Enabled mouse drawing." : "Disabled mouse drawing.");
 		}
 	}
 }

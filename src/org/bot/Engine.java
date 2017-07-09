@@ -12,102 +12,97 @@ import org.bot.util.directory.DirectoryManager;
 
 public class Engine {
 
-	private static Engine instance;
 	public static final double VERSION = 0.12;
-	private String username;
-	private boolean developer;
-	private ServerLoader<?> serverLoader;
-	private Component gameComponent;
-	private boolean debugMouse;
-	private DirectoryManager directoryManager;
-	private ServerManifest serverManifest;
-	private Canvas gameCanvas;
-	private ArchiveClassLoader classLoader;
-	private GameFrame gameFrame;
+	private static String username;
+	private static boolean developer;
+	private static ServerLoader<?> serverLoader;
+	private static Component gameComponent;
+	private static boolean debugMouse;
+	private static DirectoryManager directoryManager;
+	private static ServerManifest serverManifest;
+	private static Canvas gameCanvas;
+	private static ArchiveClassLoader classLoader;
+	private static GameFrame gameFrame;
 
-	public GameFrame getGameFrame() {
+	public static GameFrame getGameFrame() {
 		return gameFrame;
 	}
 
-	public void setGameFrame(GameFrame gameFrame) {
-		this.gameFrame = gameFrame;
+	public static void setGameFrame(GameFrame gameFrame) {
+		Engine.gameFrame = gameFrame;
 	}
 
-	public void setDirectoryManager(DirectoryManager manager) {
-		this.directoryManager = manager;
+	public static void setDirectoryManager(DirectoryManager manager) {
+		directoryManager = manager;
 	}
 
-	public void setDeveloper(boolean developer) {
-		this.developer = developer;
+	public static void setDeveloper(boolean developer) {
+		Engine.developer = developer;
 	}
 
-	public boolean getDeveloper() {
+	public static boolean getDeveloper() {
 		return developer;
 	}
 
-	public String getUsername() {
+	public static String getUsername() {
 		return username;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public static void setUsername(String username) {
+		Engine.username = username;
 	}
 
-	public boolean isDebugMouse() {
+	public static boolean isDebugMouse() {
 		return debugMouse;
 	}
 
-	public void setDebugMouse(boolean debugMouse) {
-		this.debugMouse = debugMouse;
+	public static void setDebugMouse(boolean debugMouse) {
+		Engine.debugMouse = debugMouse;
 	}
 
-	public ServerLoader<?> getServerLoader() {
+	public static ServerLoader<?> getServerLoader() {
 		return serverLoader;
 	}
 
-	public ServerManifest getServerManifest() {
+	public static ServerManifest getServerManifest() {
 		return serverManifest;
 	}
 
-	public void setServerProvider(ServerProvider provider) {
-		this.serverLoader = provider.getLoader();
-		this.serverManifest = provider.getManifest();
+	public static void setServerProvider(ServerProvider provider) {
+		serverLoader = provider.getLoader();
+		serverManifest = provider.getManifest();
 	}
 
-	public DirectoryManager getDirectoryManager() {
+	public static DirectoryManager getDirectoryManager() {
 		return directoryManager;
 	}
 
-	public Component getGameComponent() {
+	public static Component getGameComponent() {
 		return gameComponent;
 	}
 
-	public void setGameComponent(Component gameComponent) {
-		this.gameComponent = gameComponent;
+	public static void setGameComponent(Component gameComponent) {
+		Engine.gameComponent = gameComponent;
 	}
 
-	public Canvas getGameCanvas() {
+	public static Canvas getGameCanvas() {
 		return gameCanvas;
 	}
 
-	public void setGameCanvas(Canvas gameCanvas) {
-		this.gameCanvas = gameCanvas;
+	public static void setGameCanvas(Canvas gameCanvas) {
+		Engine.gameCanvas = gameCanvas;
 	}
 
-	public static Engine getInstance() {
-		return instance == null ? instance = new Engine() : instance;
-	}
-
-	public ArchiveClassLoader getClassLoader() {
+	public static ArchiveClassLoader getClassLoader() {
 		return classLoader;
 	}
 
-	public String getInterfaceTitle() {
+	public static String getInterfaceTitle() {
 		return (username != null ? "[" + username + "] " : " ")
 				+ (serverLoader != null ? (serverLoader.getServerName() + " || ") : "") + "uBot v" + VERSION;
 	}
 
-	public void setClassLoader(ArchiveClassLoader classLoader) {
-		this.classLoader = classLoader;
+	public static void setClassLoader(ArchiveClassLoader classLoader) {
+		Engine.classLoader = classLoader;
 	}
 }

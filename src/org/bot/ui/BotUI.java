@@ -27,7 +27,7 @@ public class BotUI extends Application implements Manager {
 	}
 
 	public BotUI() {
-		Engine.getInstance().setDirectoryManager(new DirectoryManager());
+		Engine.setDirectoryManager(new DirectoryManager());
 	}
 
 	public static BotUI getInstance() {
@@ -40,7 +40,7 @@ public class BotUI extends Application implements Manager {
 
 	@Override
 	public void start(Stage stage) throws Exception {
-		stage.setTitle(Engine.getInstance().getInterfaceTitle());
+		stage.setTitle(Engine.getInterfaceTitle());
 		stage.show();
 		PortalScreen portal = new PortalScreen();
 		portal.registerManager(this);
@@ -57,7 +57,7 @@ public class BotUI extends Application implements Manager {
 	private void displayScreen(final Scene scene) {
 		if (stage != null) {
 			stage.setScene(scene);
-			stage.setTitle(Engine.getInstance().getInterfaceTitle());
+			stage.setTitle(Engine.getInterfaceTitle());
 		}
 	}
 
@@ -77,8 +77,8 @@ public class BotUI extends Application implements Manager {
 	}
 
 	private void loadServer(ServerProvider provider) {
-		Engine.getInstance().setServerProvider(provider);
-		Engine.getInstance().getServerLoader().executeServer();
+		Engine.setServerProvider(provider);
+		Engine.getServerLoader().executeServer();
 		if (provider.getManifest().type().equals(JFrame.class) || provider.getManifest().type().equals(Applet.class)) {
 			terminate();
 		}

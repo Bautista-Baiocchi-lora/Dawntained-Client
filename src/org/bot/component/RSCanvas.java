@@ -31,8 +31,8 @@ public class RSCanvas extends Canvas {
 
 	public RSCanvas() {
 		super();
-		Engine.getInstance().setGameCanvas(this);
-		List<ScreenOverlay> overlayList = Engine.getInstance().getServerLoader().getOverlays();
+		Engine.setGameCanvas(this);
+		List<ScreenOverlay> overlayList = Engine.getServerLoader().getOverlays();
 		ScreenOverlay[] overlays = overlayList.toArray(new ScreenOverlay[overlayList.size()]);
 		Collections.addAll(listeners, overlays);
 	}
@@ -41,8 +41,8 @@ public class RSCanvas extends Canvas {
 		beginTime = System.currentTimeMillis();
 		if (this.getHeight() != clientBuffer.getHeight() || this.getWidth() != clientBuffer.getWidth()) {
 
-			if (Engine.getInstance().getServerManifest().type().equals(JPanel.class)) {
-				Engine.getInstance().getGameFrame().revalidate();
+			if (Engine.getServerManifest().type().equals(JPanel.class)) {
+				Engine.getGameFrame().revalidate();
 			}
 			this.clientBuffer.flush();
 			this.gameBuffer.flush();
