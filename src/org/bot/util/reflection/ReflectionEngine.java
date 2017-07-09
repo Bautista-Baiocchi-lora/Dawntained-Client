@@ -25,7 +25,7 @@ public abstract class ReflectionEngine {
 	public static ReflectedField getField(String className, String fieldName, Object instance) {
 		ReflectedClass clazz;
 		clazz = getClass(className, instance);
-		return clazz.getField(new Modifiers.ModifierBuilder().name(fieldName).isStatic(true).build());
+		return clazz.getField(new Modifiers.ModifierBuilder().name(fieldName).isStatic(false).build());
 
 	}
 
@@ -37,6 +37,9 @@ public abstract class ReflectionEngine {
 
 	public static Object getFieldValue(String getter, Object instance)  {
 		try {
+			if(instance == null) {
+				return getFieldValue(getter);
+			}
 			String className = Engine.getServerLoader().getHooks().getClass(getter, true);
 			String fieldName = Engine.getServerLoader().getHooks().getField(getter, true);
 			int multiplier = Engine.getServerLoader().getHooks().getMuliplier(getter);
