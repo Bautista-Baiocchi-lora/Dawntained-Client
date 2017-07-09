@@ -37,11 +37,12 @@ public abstract class ReflectionEngine {
 
 	public static Object getFieldValue(String getter, Object instance)  {
 		try {
+			String className = Engine.getServerLoader().getHooks().getClass(getter, true);
+			String fieldName = Engine.getServerLoader().getHooks().getField(getter, true);
+			int multiplier = Engine.getServerLoader().getHooks().getMuliplier(getter);
 
-			ReflectedClass clazz;
-			clazz = getClass(Engine.getServerLoader().getHooks().getClass(getter, true), instance);
-			ReflectedField field = clazz.getField(new Modifiers.ModifierBuilder().name(Engine.getServerLoader().getHooks().getField(getter, true)).isStatic(true).build());
-			if (Engine.getServerLoader().getHooks().getMuliplier(getter) != -1) {
+			ReflectedField field = getField(className, fieldName, instance);
+			if (multiplier != -1) {
 				Integer decoded = (int) field.getValue() * Engine.getServerLoader().getHooks().getMuliplier(getter);
 				return decoded;
 			} else {
@@ -53,12 +54,14 @@ public abstract class ReflectionEngine {
 		return null;
 	}
 
-	public static Object getFieldValue(String getter) {
+	public static Object getFieldValue(String getter)  {
 		try {
-			ReflectedClass clazz;
-			clazz = getClass(Engine.getServerLoader().getHooks().getClass(getter, true));
-			ReflectedField field = clazz.getField(new Modifiers.ModifierBuilder().name(Engine.getServerLoader().getHooks().getField(getter, true)).build());
-			if (Engine.getServerLoader().getHooks().getMuliplier(getter) != -1) {
+			String className = Engine.getServerLoader().getHooks().getClass(getter, true);
+			String fieldName = Engine.getServerLoader().getHooks().getField(getter, true);
+			int multiplier = Engine.getServerLoader().getHooks().getMuliplier(getter);
+
+			ReflectedField field = getField(className, fieldName);
+			if (multiplier != -1) {
 				Integer decoded = (int) field.getValue() * Engine.getServerLoader().getHooks().getMuliplier(getter);
 				return decoded;
 			} else {
