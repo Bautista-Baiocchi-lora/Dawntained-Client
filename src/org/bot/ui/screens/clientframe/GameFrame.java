@@ -10,7 +10,6 @@ import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.UIManager;
 import javax.swing.WindowConstants;
 
 import org.bot.Engine;
@@ -23,16 +22,12 @@ public class GameFrame extends JFrame implements WindowListener {
     private ButtonPanel buttonPanel;
 
     public GameFrame(Component comp) {
-        try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         setTitle(Engine.getInterfaceTitle());
         setResizable(true);
         setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
         buttonPanel = new ButtonPanel();
+
         getContentPane().add(buttonPanel, BorderLayout.NORTH);
         getContentPane().add(comp);
         addWindowListener(this);

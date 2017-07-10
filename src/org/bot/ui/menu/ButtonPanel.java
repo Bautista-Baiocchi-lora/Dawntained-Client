@@ -1,16 +1,10 @@
 package org.bot.ui.menu;
 
-import java.awt.Color;
-import java.awt.GradientPaint;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.GridBagLayout;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.Box;
-import javax.swing.JButton;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 public class ButtonPanel extends JPanel {
 
@@ -22,7 +16,7 @@ public class ButtonPanel extends JPanel {
 	private ePopUpMenu menu;
 
 	public ButtonPanel() {
-		this.setLayout(new GridBagLayout());
+		this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 		menu = new ePopUpMenu();
 		add(Box.createHorizontalGlue());
 		playButton = new Buttons("play.png");
