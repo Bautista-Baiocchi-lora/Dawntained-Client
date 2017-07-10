@@ -9,11 +9,14 @@ import java.security.Permissions;
 import java.security.ProtectionDomain;
 import java.security.cert.Certificate;
 import java.util.Hashtable;
+import java.util.List;
 import java.util.ListIterator;
 
 import org.bot.Engine;
 import org.bot.component.RSCanvas;
+import org.bot.component.screen.ScreenOverlay;
 import org.bot.provider.manifest.Revision;
+import org.bot.util.injection.Injector;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.AbstractInsnNode;
 import org.objectweb.asm.tree.ClassNode;
@@ -25,7 +28,8 @@ public class ArchiveClassLoader extends ClassLoader {
 	private final Hashtable<String, Class<?>> classes;
 	private final Archive<?> archive;
 	private final ProtectionDomain domain;
-
+	private final List<Injector> injectorList = Engine.getServerLoader().getInjectables();
+	private final Injector[] injectors = injectorList.toArray(new Injector[injectorList.size()]);
 	protected ArchiveClassLoader(Archive<?> archive) throws IOException {
 		this.archive = archive;
 		classes = new Hashtable<>();
@@ -67,6 +71,11 @@ public class ArchiveClassLoader extends ClassLoader {
 					setSuper(node, RSCanvas.class.getCanonicalName().replace('.', '/'));
 					System.out.println("Canvas is now: " + node.superName);
 				}
+			}
+		}
+		for (Injector injector : injectors) {
+			if (injector.canRun(node)) {
+				injector.run(node);
 			}
 		}
 	}

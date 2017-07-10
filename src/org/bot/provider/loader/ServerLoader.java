@@ -17,6 +17,7 @@ import org.bot.component.screen.ScreenOverlay;
 import org.bot.hooking.Hook;
 import org.bot.ui.screens.clientframe.GameFrame;
 import org.bot.util.FileDownloader;
+import org.bot.util.injection.Injector;
 import org.bot.util.reflection.ReflectionEngine;
 import org.objectweb.asm.tree.ClassNode;
 
@@ -84,6 +85,8 @@ public abstract class ServerLoader<T extends Component> {
 	private Hook loadHooks() {
 		return new Hook(HOOK_URL);
 	}
+
+	public abstract List<Injector> getInjectables();
 
 	public abstract List<ScreenOverlay> getOverlays();
 
