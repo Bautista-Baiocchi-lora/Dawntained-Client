@@ -26,9 +26,7 @@ public class RSCanvas extends Canvas {
 	private BufferedImage clientBuffer = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 	private BufferedImage gameBuffer = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 	private List<PaintListener> listeners = new ArrayList<>();
-	private final int FRAMESTEP = 1000 / 60;
-	private long timeTaken = 0;
-	private long beginTime = 0;
+
 
 	public RSCanvas() {
 		super();
@@ -39,7 +37,7 @@ public class RSCanvas extends Canvas {
 	}
 
 	public Graphics getGraphics() {
-		beginTime = System.currentTimeMillis();
+
 		if (this.getHeight() != clientBuffer.getHeight() || this.getWidth() != clientBuffer.getWidth()) {
 
 			if (Engine.getServerManifest().type().equals(JPanel.class)) {
@@ -69,8 +67,6 @@ public class RSCanvas extends Canvas {
 
 		final Graphics2D rend = (Graphics2D) super.getGraphics();
 		rend.drawImage(clientBuffer, 0, 0, null);
-		timeTaken = System.currentTimeMillis() - beginTime;
-		Condition.sleep((int) (FRAMESTEP - timeTaken));
 		return gameBuffer.getGraphics();
 	}
 

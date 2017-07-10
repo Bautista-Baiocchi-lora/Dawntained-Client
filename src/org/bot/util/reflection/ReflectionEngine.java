@@ -37,13 +37,37 @@ public class ReflectionEngine extends ArchiveClassLoader {
 		return getClass(instance.getClass().getSimpleName(), instance);
 	}
 
+	public String getClassName(String getter) {
+		final FieldHook hook = hooks.getFieldHook(getter);
+		return hook.getClazz();
+	}
+
+	public String getFieldName(String getter) {
+		final FieldHook hook = hooks.getFieldHook(getter);
+		return hook.getField();
+	}
+
+	public int getMultiplier(String getter) {
+		final FieldHook hook = hooks.getFieldHook(getter);
+		return hook.getMultiplier();
+	}
+	public ReflectedField getField(String getter, Object instance) {
+
+		final ReflectedClass clazz = getClass(getClassName(getter), instance);
+		final ReflectedField field = clazz.getField(new Modifiers.ModifierBuilder().name(getFieldName(getter)).build());
+		return field;
+	}
+
+	public ReflectedField getField(String getter) {
+		return getField(getter, null);
+	}
+
 	public Object getFieldHookValue(String getter, Object instance) {
 		try {
-			final FieldHook hook = hooks.getFieldHook(getter);
-			final ReflectedClass clazz = getClass(hook.getClazz(), instance);
-			final ReflectedField field = clazz.getField(new Modifiers.ModifierBuilder().name(hook.getField()).build());
-			if (hook.getMultiplier() != -1) {
-				int decoded = ((int) field.getValue()) * hook.getMultiplier();
+			final ReflectedClass clazz = getClass(getClassName(getter), instance);
+			final ReflectedField field = clazz.getField(new Modifiers.ModifierBuilder().name(getFieldName(getter)).build());
+			if (getMultiplier(getter) != -1) {
+				int decoded = ((int) field.getValue()) * getMultiplier(getter);
 				return decoded;
 			}
 			return field.getValue();
