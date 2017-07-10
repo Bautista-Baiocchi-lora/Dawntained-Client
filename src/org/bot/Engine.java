@@ -4,6 +4,8 @@ import java.awt.Canvas;
 import java.awt.Component;
 import java.awt.Rectangle;
 
+import org.bot.component.inputs.InternalKeyboard;
+import org.bot.component.inputs.InternalMouse;
 import org.bot.provider.ServerProvider;
 import org.bot.provider.loader.ServerLoader;
 import org.bot.provider.manifest.ServerManifest;
@@ -25,6 +27,8 @@ public class Engine {
 	private static GameFrame gameFrame;
 	private static ReflectionEngine reflectionEngine;
 	private static Rectangle gameViewport = new Rectangle(5, 5, 509, 332);;
+	private static InternalMouse mouse;
+	private static InternalKeyboard keyboard;
 
 	public static GameFrame getGameFrame() {
 		return gameFrame;
@@ -48,6 +52,22 @@ public class Engine {
 
 	public static void setReflectionEngine(ReflectionEngine reflectionEngine) {
 		Engine.reflectionEngine = reflectionEngine;
+	}
+
+	public static InternalMouse getMouse() {
+		return mouse;
+	}
+
+	public static void setMouse(InternalMouse mouse) {
+		Engine.mouse = mouse;
+	}
+
+	public static InternalKeyboard getKeyboard() {
+		return keyboard;
+	}
+
+	public static void setKeyboard(InternalKeyboard keyboard) {
+		Engine.keyboard = keyboard;
 	}
 
 	public static void setDirectoryManager(DirectoryManager manager) {

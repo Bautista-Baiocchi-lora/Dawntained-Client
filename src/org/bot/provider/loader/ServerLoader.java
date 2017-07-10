@@ -15,6 +15,7 @@ import org.bot.classloader.Archive;
 import org.bot.classloader.JarArchive;
 import org.bot.component.screen.ScreenOverlay;
 import org.bot.hooking.Hook;
+import org.bot.threads.HandleInputs;
 import org.bot.ui.screens.clientframe.GameFrame;
 import org.bot.util.FileDownloader;
 import org.bot.util.injection.Injector;
@@ -27,7 +28,7 @@ public abstract class ServerLoader<T extends Component> {
 	private final String SERVER_NAME;
 	private final String HOOK_URL;
 	private FileDownloader downloader = null;
-
+	private Thread inputThreads = null;
 	protected ServerLoader(String jarURL, String hookURL, String serverName) throws IOException {
 		this.JAR_URL = jarURL;
 		this.SERVER_NAME = serverName;
@@ -49,6 +50,8 @@ public abstract class ServerLoader<T extends Component> {
 				if (Engine.getServerManifest().type().equals(Applet.class)) {
 					Applet applet = (Applet) component;
 					applet.setPreferredSize(new Dimension(765, 503));
+					inputThreads = new Thread(new HandleInputs());
+					inputThreads.start();
 					applet.init();
 					if (!applet.isActive()) {
 						applet.start();
@@ -59,6 +62,7 @@ public abstract class ServerLoader<T extends Component> {
 					panel.add(applet, BorderLayout.CENTER);
 					panel.revalidate();
 					Engine.setGameFrame(new GameFrame(panel));
+
 				} else {
 
 					/**
