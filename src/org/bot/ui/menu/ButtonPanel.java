@@ -1,5 +1,7 @@
 package org.bot.ui.menu;
 
+import org.bot.Engine;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,11 +15,11 @@ public class ButtonPanel extends JPanel {
 	private final Color colorDark = color.darker();
 
 	private Buttons statsButton, playButton, pauseButton, stopButton;
-	private ePopUpMenu menu;
+	private JPopupMenu menu;
 
 	public ButtonPanel() {
 		this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-		menu = new ePopUpMenu();
+		menu = Engine.getServerLoader().getPopUpMenu();
 		add(Box.createHorizontalGlue());
 		playButton = new Buttons("play.png");
 		playButton.setButtonHoverIcon("play_hover.png");

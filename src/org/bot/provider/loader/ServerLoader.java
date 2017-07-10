@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.jar.JarFile;
 
-import javax.swing.JPanel;
+import javax.swing.*;
 
 import org.bot.Engine;
 import org.bot.classloader.Archive;
@@ -89,6 +89,7 @@ public abstract class ServerLoader<T extends Component> {
 	private Hook loadHooks() {
 		return new Hook(HOOK_URL);
 	}
+	public abstract JPopupMenu getPopUpMenu();
 
 	public abstract List<Injector> getInjectables();
 
