@@ -1,78 +1,76 @@
 package org.bot.util.reflection;
 
-import org.bot.Engine;
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 
-/**
- * Created by Ethan on 7/7/2017.
- */
-public abstract class ReflectionEngine {
+import org.bot.classloader.Archive;
+import org.bot.classloader.ArchiveClassLoader;
+import org.bot.hooking.FieldHook;
+import org.bot.hooking.Hook;
+import org.bot.hooking.MethodHook;
 
-	public static ReflectedClass getClass(String name, Object instance) {
-		if (!Engine.getClassLoader().classes().containsKey(name)) {
+public class ReflectionEngine extends ArchiveClassLoader {
+
+	private final Hook hooks;
+
+	public ReflectionEngine(Archive<?> archive, Hook hooks) throws IOException {
+		super(archive);
+		this.hooks = hooks;
+	}
+
+	public ReflectedClass getClass(String name, Object instance) {
+		if (!this.classes().containsKey(name)) {
 			try {
-				return new ReflectedClass(Engine.getClassLoader().loadClass(name), instance);
+				return new ReflectedClass(this.loadClass(name), instance);
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
 		}
-		return new ReflectedClass(Engine.getClassLoader().classes().get(name));
+		return new ReflectedClass(this.classes().get(name), instance);
 	}
 
-	public static ReflectedClass getClass(String name) {
+	public ReflectedClass getClass(String name) {
 		return getClass(name, null);
 	}
 
-	public static ReflectedField getField(String className, String fieldName, Object instance) {
-		ReflectedClass clazz;
-		clazz = getClass(className, instance);
-		return clazz.getField(new Modifiers.ModifierBuilder().name(fieldName).isStatic(false).build());
-
+	public ReflectedClass getClass(Object instance) {
+		return getClass(instance.getClass().getSimpleName(), instance);
 	}
 
-	public static ReflectedField getField(String className, String fieldName) {
-		ReflectedClass clazz;
-		clazz = getClass(className);
-		return clazz.getField(new Modifiers.ModifierBuilder().name(fieldName).build());
-	}
-
-	public static Object getFieldValue(String getter, Object instance)  {
+	public Object getFieldHookValue(String getter, Object instance) {
 		try {
-			if(instance == null) {
-				return getFieldValue(getter);
-			}
-			String className = Engine.getServerLoader().getHooks().getClass(getter, true);
-			String fieldName = Engine.getServerLoader().getHooks().getField(getter, true);
-			int multiplier = Engine.getServerLoader().getHooks().getMuliplier(getter);
-
-			ReflectedField field = getField(className, fieldName, instance);
-			if (multiplier != -1) {
-				Integer decoded = (int) field.getValue() * Engine.getServerLoader().getHooks().getMuliplier(getter);
+			final FieldHook hook = hooks.getFieldHook(getter);
+			final ReflectedClass clazz = getClass(hook.getClazz(), instance);
+			final ReflectedField field = clazz.getField(new Modifiers.ModifierBuilder().name(hook.getField()).build());
+			if (hook.getMultiplier() != -1) {
+				int decoded = ((int) field.getValue()) * hook.getMultiplier();
 				return decoded;
-			} else {
-				return field.getValue();
 			}
+			return field.getValue();
 		} catch (IllegalAccessException e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
 
-	public static Object getFieldValue(String getter)  {
-		try {
-			String className = Engine.getServerLoader().getHooks().getClass(getter, true);
-			String fieldName = Engine.getServerLoader().getHooks().getField(getter, true);
-			int multiplier = Engine.getServerLoader().getHooks().getMuliplier(getter);
+	public Object getFieldHookValue(String getter) {
+		return getFieldHookValue(getter, null);
+	}
 
-			ReflectedField field = getField(className, fieldName);
-			if (multiplier != -1) {
-				Integer decoded = (int) field.getValue() * Engine.getServerLoader().getHooks().getMuliplier(getter);
-				return decoded;
-			} else {
-				return field.getValue();
-			}
-		} catch (IllegalAccessException e) {
+	public Object getMethodHookValue(String getter, Object instance) {
+		final MethodHook hook = hooks.getMethodHook(getter);
+		final ReflectedClass clazz = getClass(hook.getClazz(), instance);
+		final ReflectedMethod method = clazz.getMethod(new Modifiers.ModifierBuilder().name(hook.getName()).build());
+		try {
+			return method.invoke();
+		} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
+
+	public Object getMethodHookValue(String getter) {
+		return getMethodHookValue(getter, null);
+	}
+
 }

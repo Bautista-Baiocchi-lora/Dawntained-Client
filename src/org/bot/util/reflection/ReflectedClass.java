@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map.Entry;
 
 public class ReflectedClass {
-	private final Object instance;
+	private Object instance;
 	private final Class<?> clazz;
 
 	public ReflectedClass(Class<?> clazz) {
@@ -61,6 +61,13 @@ public class ReflectedClass {
 
 	public Class<?> getRespresentedClass() {
 		return clazz;
+	}
+
+	public void setInstance(Object instance) {
+		if (!clazz.isInstance(instance)) {
+			throw new IllegalArgumentException(instance + " is not an instance of the class " + clazz);
+		}
+		this.instance = instance;
 	}
 
 	public Object getNewInstance() {

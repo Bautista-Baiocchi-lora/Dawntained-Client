@@ -1,8 +1,9 @@
 package org.bot;
 
-import java.awt.*;
+import java.awt.Canvas;
+import java.awt.Component;
+import java.awt.Rectangle;
 
-import org.bot.classloader.ArchiveClassLoader;
 import org.bot.provider.ServerProvider;
 import org.bot.provider.loader.ServerLoader;
 import org.bot.provider.manifest.ServerManifest;
@@ -12,7 +13,7 @@ import org.bot.util.reflection.ReflectionEngine;
 
 public class Engine {
 
-	public static final double VERSION = 0.12;
+	public static final double VERSION = 0.13;
 	private static String username;
 	private static boolean developer;
 	private static ServerLoader<?> serverLoader;
@@ -21,7 +22,6 @@ public class Engine {
 	private static DirectoryManager directoryManager;
 	private static ServerManifest serverManifest;
 	private static Canvas gameCanvas;
-	private static ArchiveClassLoader classLoader;
 	private static GameFrame gameFrame;
 	private static ReflectionEngine reflectionEngine;
 	private static Rectangle gameViewport = new Rectangle(5, 5, 509, 332);;
@@ -58,7 +58,7 @@ public class Engine {
 		Engine.developer = developer;
 	}
 
-	public static boolean getDeveloper() {
+	public static boolean isDeveloper() {
 		return developer;
 	}
 
@@ -111,16 +111,8 @@ public class Engine {
 		Engine.gameCanvas = gameCanvas;
 	}
 
-	public static ArchiveClassLoader getClassLoader() {
-		return classLoader;
-	}
-
 	public static String getInterfaceTitle() {
 		return (username != null ? "[" + username + "] " : " ")
 				+ (serverLoader != null ? (serverLoader.getServerName() + " || ") : "") + "uBot v" + VERSION;
-	}
-
-	public static void setClassLoader(ArchiveClassLoader classLoader) {
-		Engine.classLoader = classLoader;
 	}
 }

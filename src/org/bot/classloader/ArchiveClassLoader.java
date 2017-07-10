@@ -22,11 +22,11 @@ import org.objectweb.asm.tree.MethodNode;
 
 public class ArchiveClassLoader extends ClassLoader {
 
-	public Hashtable<String, Class<?>> classes;
-	private Archive<?> archive;
-	private ProtectionDomain domain;
+	private final Hashtable<String, Class<?>> classes;
+	private final Archive<?> archive;
+	private final ProtectionDomain domain;
 
-	public ArchiveClassLoader(Archive<?> archive) throws IOException {
+	protected ArchiveClassLoader(Archive<?> archive) throws IOException {
 		this.archive = archive;
 		classes = new Hashtable<>();
 		Permissions permissions = getAppletPermissions();
@@ -91,9 +91,7 @@ public class ArchiveClassLoader extends ClassLoader {
 	@Override
 	public Class<?> loadClass(String name, boolean resolve) throws ClassNotFoundException {
 		String clsName = name.replaceAll("\\.", "/");
-
 		ClassNode node = (ClassNode) archive.get(clsName);
-
 		if (node != null) {
 			modify(node);
 			byte[] clsData = archive.getEntry(clsName);

@@ -29,7 +29,7 @@ public class Hook {
 		init();
 	}
 
-	public void init() {
+	public final void init() {
 		/**
 		 * GRAB HOOKS FROM XML?
 		 */
@@ -56,27 +56,12 @@ public class Hook {
 		}
 	}
 
-	public String getClass(String getterName, boolean isField) {
-		return isField ? getFieldMap().get(getterName).getClazz() : getMethodMap().get(getterName).getClazz();
+	public final FieldHook getFieldHook(String getterName) {
+		return fieldMap.get(getterName);
 	}
 
-	public String getField(String getterName, boolean isField) {
-		return isField ? getFieldMap().get(getterName).getField() : getMethodMap().get(getterName).getField();
+	public final MethodHook getMethodHook(String getterName) {
+		return methodMap.get(getterName);
 	}
 
-	public int getMuliplier(String getterName) {
-		return getFieldMap().get(getterName).getMultiplier();
-	}
-
-	public String getDescription(String getterName) {
-		return getMethodMap().get(getterName).getDescription();
-	}
-
-	public Map<String, FieldHook> getFieldMap() {
-		return fieldMap;
-	}
-
-	public Map<String, MethodHook> getMethodMap() {
-		return methodMap;
-	}
 }

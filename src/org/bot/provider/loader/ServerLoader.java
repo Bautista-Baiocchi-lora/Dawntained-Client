@@ -12,7 +12,6 @@ import javax.swing.JPanel;
 
 import org.bot.Engine;
 import org.bot.classloader.Archive;
-import org.bot.classloader.ArchiveClassLoader;
 import org.bot.classloader.JarArchive;
 import org.bot.component.screen.ScreenOverlay;
 import org.bot.hooking.Hook;
@@ -26,10 +25,9 @@ public abstract class ServerLoader<T extends Component> {
 	private final String JAR_URL;
 	private final String SERVER_NAME;
 	private final String HOOK_URL;
-	private Hook hooks;
 	private FileDownloader downloader = null;
 
-	public ServerLoader(String jarURL, String hookURL, String serverName) throws IOException {
+	protected ServerLoader(String jarURL, String hookURL, String serverName) throws IOException {
 		this.JAR_URL = jarURL;
 		this.SERVER_NAME = serverName;
 		this.HOOK_URL = hookURL;
@@ -37,14 +35,13 @@ public abstract class ServerLoader<T extends Component> {
 
 	public void executeServer() {
 		try {
-			System.out.println("Loading hooks file.");
-			loadHooks(HOOK_URL);
 			System.out.println("Updating " + SERVER_NAME + " jar file.");
 			this.downloader = new FileDownloader(JAR_URL, SERVER_NAME);
 			downloader.run();
+			System.out.println("Creating reflection engine.");
 			final JarFile jar = new JarFile(downloader.getArchivePath() + "/" + SERVER_NAME + ".jar");
 			final Archive<ClassNode> archive = new JarArchive(jar);
-			Engine.setClassLoader(new ArchiveClassLoader(archive));
+			Engine.setReflectionEngine(new ReflectionEngine(archive, loadHooks()));
 			System.out.println("Loading " + SERVER_NAME + " jar file.");
 			try {
 				T component = loadComponent();
@@ -84,12 +81,8 @@ public abstract class ServerLoader<T extends Component> {
 		return SERVER_NAME;
 	}
 
-	public final Hook getHooks() {
-		return hooks;
-	}
-
-	private void loadHooks(String url) {
-		hooks = new Hook(url);
+	private Hook loadHooks() {
+		return new Hook(HOOK_URL);
 	}
 
 	public abstract List<ScreenOverlay> getOverlays();

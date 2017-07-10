@@ -1,6 +1,7 @@
 package org.bot.util;
 
-import java.awt.*;
+import java.awt.Point;
+import java.awt.Polygon;
 
 /**
  * Thus is a utility class for performing useful functions for manipulating and

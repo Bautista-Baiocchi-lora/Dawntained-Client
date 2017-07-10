@@ -5,12 +5,12 @@ package org.bot.hooking;
  */
 public class MethodHook {
 	private final String clazz;
-	private final String field;
+	private final String name;
 	private final String description;
 
-	public MethodHook(String clazz, String field, String description) {
+	public MethodHook(String clazz, String name, String description) {
 		this.clazz = clazz;
-		this.field = field;
+		this.name = name;
 		this.description = description;
 
 	}
@@ -19,8 +19,8 @@ public class MethodHook {
 		return clazz.replaceAll("/", ".");
 	}
 
-	public String getField() {
-		return field.replaceAll("/", ".");
+	public String getName() {
+		return name;
 	}
 
 	public String getDescription() {

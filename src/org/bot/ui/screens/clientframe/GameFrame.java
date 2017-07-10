@@ -1,13 +1,20 @@
 package org.bot.ui.screens.clientframe;
 
-import org.bot.Engine;
-import org.bot.ui.menu.ButtonPanel;
-
-import javax.swing.*;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+
+import javax.swing.BoxLayout;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.WindowConstants;
+
+import org.bot.Engine;
+import org.bot.ui.menu.ButtonPanel;
 
 /**
  * Created by Ethan on 7/8/2017.
