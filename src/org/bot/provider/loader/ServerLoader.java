@@ -40,10 +40,9 @@ public abstract class ServerLoader<T extends Component> {
 			this.downloader = new FileDownloader(JAR_URL, SERVER_NAME);
 			downloader.run();
 			System.out.println("Creating reflection engine.");
-			ClassArchive classArchive = new ClassArchive();
-			classArchive.addJar(new File(downloader.getArchivePath() +"/" +SERVER_NAME+ ".jar").toURI().toURL());
-			classArchive.addJar(new File(DirectoryManager.SERVER_PROVIDERS_PATH+"/"+Engine.getProviderJarNames().get(Engine.getServerManifest().serverName())));
-			Engine.setReflectionEngine(new ReflectionEngine(classArchive, loadHooks()));
+			Engine.getClassArchive().addJar(new File(DirectoryManager.SERVER_PROVIDERS_PATH+"/"+Engine.getProviderJarNames().get(Engine.getServerManifest().serverName())));
+			Engine.getClassArchive().addJar(new File(downloader.getArchivePath() +"/" +SERVER_NAME+ ".jar").toURI().toURL());
+			Engine.setReflectionEngine(new ReflectionEngine(Engine.getClassArchive(), loadHooks()));
 			System.out.println("Loading " + SERVER_NAME + " jar file.");
 			try {
 				T component = loadComponent();

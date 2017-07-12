@@ -4,8 +4,10 @@ import java.awt.Canvas;
 import java.awt.Component;
 import java.awt.Rectangle;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Map;
 
+import org.bot.classloader.ClassArchive;
 import org.bot.component.inputs.InternalKeyboard;
 import org.bot.component.inputs.InternalMouse;
 import org.bot.provider.ServerProvider;
@@ -32,6 +34,20 @@ public class Engine {
 	private static InternalMouse mouse;
 	private static InternalKeyboard keyboard;
 	private static Map<String, String> providerJarNames = new HashMap();
+	private static ClassArchive classArchive;
+	private static Hashtable<Object, Object> modelCache = new Hashtable<>();
+
+	public static Hashtable<Object, Object> getModelCache() {
+		return modelCache;
+	}
+
+	public static ClassArchive getClassArchive() {
+		return classArchive;
+	}
+
+	public static void setClassArchive(ClassArchive classArchive) {
+		Engine.classArchive = classArchive;
+	}
 
 	public static Map<String, String> getProviderJarNames() {
 		return providerJarNames;

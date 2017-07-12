@@ -10,6 +10,8 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
 import org.bot.Engine;
+import org.bot.classloader.ASMClassLoader;
+import org.bot.classloader.ClassArchive;
 import org.bot.provider.loader.ServerLoader;
 import org.bot.provider.manifest.NullManifestException;
 import org.bot.provider.manifest.ServerManifest;
@@ -57,8 +59,9 @@ public class ServerSelectorScreen extends Scene {
 			for (File file : Engine.getDirectoryManager().getRootDirectory().getSubDirectory("Server Providers")
 					.getFiles()) {
 				jar = new JarFile(file.getAbsolutePath());
-				URL[] urls = { new URL("jar:file:" + file.getAbsolutePath() + "!/") };
-				ClassLoader cl = URLClassLoader.newInstance(urls);
+				Engine.setClassArchive(new ClassArchive());
+				Engine.getClassArchive().addJar((new File(file.getAbsolutePath()).toURI().toURL()));
+				ASMClassLoader cl = new ASMClassLoader(Engine.getClassArchive());
 				Enumeration<JarEntry> entries = jar.entries();
 				while (entries.hasMoreElements()) {
 					JarEntry e = entries.nextElement();

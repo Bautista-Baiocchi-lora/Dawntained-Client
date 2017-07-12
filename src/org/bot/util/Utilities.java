@@ -8,6 +8,15 @@ import javax.swing.ImageIcon;
  * Created by Ethan on 7/3/2017.
  */
 public class Utilities {
+	public static int[] SINE = new int[2048];
+	public static int[] COSINE = new int[2048];
+
+	static {
+		for (int i = 0; i < SINE.length; i++) {
+			SINE[i] = ((int) (65536.0D * Math.sin(i * 0.0030679615D)));
+			COSINE[i] = ((int) (65536.0D * Math.cos(i * 0.0030679615D)));
+		}
+	}
 	public static Image getLocalImage(String file) {
 		try {
 

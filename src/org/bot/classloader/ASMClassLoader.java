@@ -26,8 +26,8 @@ public class ASMClassLoader extends ClassLoader {
 
     public Map<String, Class<?>> classCache;
     public ClassArchive classArchive;
-    private final List<Injector> injectorList = Engine.getServerLoader().getInjectables();
-    private final Injector[] injectors = injectorList.toArray(new Injector[injectorList.size()]);
+    private List<Injector> injectorList;
+    private Injector[] injectors;
     public ASMClassLoader(final ClassArchive classArchive) {
         this.classCache = new HashMap<>();
         this.classArchive = classArchive;
@@ -56,17 +56,22 @@ public class ASMClassLoader extends ClassLoader {
     }
 
     private void modify(ClassNode node) {
+        if(Engine.getServerLoader() != null) {
+            injectorList = Engine.getServerLoader().getInjectables();
+            injectors = injectorList.toArray(new Injector[injectorList.size()]);
+            for (Injector injector : injectors) {
+                if (injector.canRun(node)) {
+                    injector.run(node);
+                }
+            }
+        }
         if (Engine.getServerLoader() != null) {
             if (Engine.getServerManifest().revision() == Revision.OSRS) {
                new ModifyCanvas(RSCanvas.class.getCanonicalName().replaceAll("\\.", "/"), node);
             }
         }
 
-        for (Injector injector : injectors) {
-            if (injector.canRun(node)) {
-                injector.run(node);
-            }
-        }
+
     }
     @Override
     protected Class<?> findClass(String name) throws ClassNotFoundException {
