@@ -3,6 +3,8 @@ package org.bot;
 import java.awt.Canvas;
 import java.awt.Component;
 import java.awt.Rectangle;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.bot.component.inputs.InternalKeyboard;
 import org.bot.component.inputs.InternalMouse;
@@ -29,6 +31,11 @@ public class Engine {
 	private static Rectangle gameViewport = new Rectangle(5, 5, 509, 332);;
 	private static InternalMouse mouse;
 	private static InternalKeyboard keyboard;
+	private static Map<String, String> providerJarNames = new HashMap();
+
+	public static Map<String, String> getProviderJarNames() {
+		return providerJarNames;
+	}
 
 	public static GameFrame getGameFrame() {
 		return gameFrame;

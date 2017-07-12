@@ -4,23 +4,22 @@ import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
-import java.util.jar.JarFile;
 
 import javax.swing.*;
 
 import org.bot.Engine;
-import org.bot.classloader.Archive;
-import org.bot.classloader.JarArchive;
+import org.bot.classloader.ClassArchive;
 import org.bot.component.screen.ScreenOverlay;
 import org.bot.hooking.Hook;
 import org.bot.threads.HandleInputs;
 import org.bot.ui.screens.clientframe.GameFrame;
 import org.bot.util.FileDownloader;
+import org.bot.util.directory.DirectoryManager;
 import org.bot.util.injection.Injector;
 import org.bot.util.reflection.ReflectionEngine;
-import org.objectweb.asm.tree.ClassNode;
 
 public abstract class ServerLoader<T extends Component> {
 
@@ -41,9 +40,10 @@ public abstract class ServerLoader<T extends Component> {
 			this.downloader = new FileDownloader(JAR_URL, SERVER_NAME);
 			downloader.run();
 			System.out.println("Creating reflection engine.");
-			final JarFile jar = new JarFile(downloader.getArchivePath() + "/" + SERVER_NAME + ".jar");
-			final Archive<ClassNode> archive = new JarArchive(jar);
-			Engine.setReflectionEngine(new ReflectionEngine(archive, loadHooks()));
+			ClassArchive classArchive = new ClassArchive();
+			classArchive.addJar(new File(downloader.getArchivePath() +"/" +SERVER_NAME+ ".jar").toURI().toURL());
+			classArchive.addJar(new File(DirectoryManager.SERVER_PROVIDERS_PATH+"/"+Engine.getProviderJarNames().get(Engine.getServerManifest().serverName())));
+			Engine.setReflectionEngine(new ReflectionEngine(classArchive, loadHooks()));
 			System.out.println("Loading " + SERVER_NAME + " jar file.");
 			try {
 				T component = loadComponent();

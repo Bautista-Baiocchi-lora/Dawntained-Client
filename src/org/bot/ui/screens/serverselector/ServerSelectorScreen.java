@@ -73,6 +73,7 @@ public class ServerSelectorScreen extends Scene {
 								throw new NullManifestException();
 							}
 							loader = (ServerLoader<?>) clazz.newInstance();
+							Engine.getProviderJarNames().put(manifest.serverName(), file.getName());
 							providers.add(new ServerLabel(loader, manifest));
 						}
 					}

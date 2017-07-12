@@ -1,72 +1,101 @@
 package org.bot.classloader;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.jar.JarEntry;
-import java.util.jar.JarOutputStream;
-
+import org.bot.util.directory.DirectoryManager;
 import org.objectweb.asm.ClassReader;
-import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.tree.ClassNode;
 
-public class ClassArchive implements Archive<ClassNode> {
+import java.io.*;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
-	private Map<String, byte[]> classes;
+/**
+ * Created by Ethan on 7/11/2017.
+ */
+public class ClassArchive {
+    public final ArrayList<String> classNames;
+    public final HashMap<String, ClassNode> classes;
+    public final Map<String, File> resources;
+    public URL lastParsed;
+    private ArrayList<URL> jarFiles;
 
-	private Map<String, ClassNode> nodes;
 
-	public ClassArchive(Map<String, byte[]> classes) throws IOException {
-		this.classes = classes;
-		this.nodes = load();
-	}
+    public ClassArchive() {
+        this.classNames = new ArrayList<>();
+        this.classes = new HashMap<>();
+        this.resources = new HashMap<>();
+        this.jarFiles = new ArrayList<>();
+    }
 
-	public ClassNode get(String name) {
-		return nodes.get(name);
-	}
+    protected void loadClass(InputStream in) throws IOException {
+        ClassReader cr = new ClassReader(in);
+        ClassNode cn = new ClassNode();
+        cr.accept(cn, ClassReader.EXPAND_FRAMES);
 
-	@Override
-	public byte[] getEntry(String name) throws ClassNotFoundException {
-		ClassNode node = nodes.get(name);
-		if (node == null) {
-			throw new ClassNotFoundException("Class " + name + " is not valid in the archive.");
-		}
-		ClassWriter writer = new ClassWriter(ClassWriter.COMPUTE_MAXS);
-		node.accept(writer);
-		return writer.toByteArray();
-	}
+        classNames.add(cn.name.replace('/', '.'));
+        classes.put(cn.name, cn);
 
-	@Override
-	public Map<String, ClassNode> load() throws IOException {
-		Map<String, ClassNode> clses = new HashMap<String, ClassNode>();
-		for (String name : classes.keySet()) {
-			ClassNode node = new ClassNode();
-			ClassReader reader = new ClassReader(classes.get(name));
-			reader.accept(node, ClassReader.SKIP_FRAMES | ClassReader.SKIP_DEBUG);
-			clses.put(node.name.replace(".class", ""), node);
-		}
-		return clses;
-	}
+    }
 
-	@Override
-	public void write(File file) throws IOException {
-		JarOutputStream jos = new JarOutputStream(new FileOutputStream(file));
-		for (String key : classes.keySet()) {
-			byte[] bytes = classes.get(key);
-			jos.putNextEntry(new JarEntry(key.replaceAll("\\.", "/") + ".class"));
-			jos.write(bytes);
-			jos.closeEntry();
+    public void loadResource(final String name, final InputStream in) throws IOException {
+        String path;
+        path = DirectoryManager.SERVER_JARS_PATH + File.separator;
+        File f1 = new File(path);
 
-		}
-		jos.close();
-	}
+        final File f = File.createTempFile("bot", ".tmp", f1);
+        f.deleteOnExit();
+        try (OutputStream out = new FileOutputStream(f)) {
+            byte[] buffer = new byte[1024];
+            int len;
+            while ((len = in.read(buffer)) != -1) {
+                out.write(buffer, 0, len);
+            }
+        } catch (IOException e) {
+        }
+        resources.put(name, f);
+    }
 
-	@Override
-	public Iterator<ClassNode> iterator() {
-		return nodes.values().iterator();
-	}
+    public void addJar(final File file) {
+        try {
+            addJar(file.toURI().toURL());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void addJar(final URL url) {
+        this.lastParsed = url;
+        try {
+            addJar(url.openConnection());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void addJar(final URLConnection connection) {
+        try {
+            final ZipInputStream zin = new ZipInputStream(connection.getInputStream());
+            ZipEntry e;
+            while ((e = zin.getNextEntry()) != null) {
+                if (e.isDirectory())
+                    continue;
+                if (e.getName().endsWith(".class")) {
+                    loadClass(zin);
+                } else {
+                    loadResource(e.getName(), zin);
+                }
+
+            }
+            zin.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }

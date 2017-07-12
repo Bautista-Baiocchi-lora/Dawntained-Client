@@ -3,30 +3,32 @@ package org.bot.util.reflection;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 
-import org.bot.classloader.Archive;
-import org.bot.classloader.ArchiveClassLoader;
+import org.bot.classloader.ASMClassLoader;
+import org.bot.classloader.ClassArchive;
 import org.bot.hooking.FieldHook;
 import org.bot.hooking.Hook;
 import org.bot.hooking.MethodHook;
 
-public class ReflectionEngine extends ArchiveClassLoader {
+public class ReflectionEngine {
 
 	private final Hook hooks;
-
-	public ReflectionEngine(Archive<?> archive, Hook hooks) throws IOException {
-		super(archive);
+	private ClassArchive path;
+	private ASMClassLoader classLoader;
+	public ReflectionEngine(ClassArchive path, Hook hooks) throws IOException {
+		this.path = path;
 		this.hooks = hooks;
+		this.classLoader = new ASMClassLoader(path);
 	}
 
 	public ReflectedClass getClass(String name, Object instance) {
-		if (!this.classes().containsKey(name)) {
+		if (!path.classes.containsKey(name)) {
 			try {
-				return new ReflectedClass(this.loadClass(name), instance);
+				return new ReflectedClass(classLoader.loadClass(name), instance);
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
 		}
-		return new ReflectedClass(this.classes().get(name), instance);
+		return new ReflectedClass(classLoader.classCache.get(name), instance);
 	}
 
 	public ReflectedClass getClass(String name) {
