@@ -1,7 +1,11 @@
 package org.bot.ui.screens.serverselector;
 
-import java.util.ArrayList;
-
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import org.bot.provider.ServerProvider;
 import org.bot.provider.manifest.ServerManifest;
 import org.bot.ui.management.InterfaceAction;
@@ -9,12 +13,7 @@ import org.bot.ui.management.InterfaceActionRequest;
 import org.bot.ui.management.Manageable;
 import org.bot.ui.management.Manager;
 
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextArea;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
+import java.util.ArrayList;
 
 public class ServerInformationTab extends ScrollPane implements Manageable {
 	private final ServerProvider provider;
@@ -41,6 +40,7 @@ public class ServerInformationTab extends ScrollPane implements Manageable {
 
 		Button launchButton = new Button("Launch");
 		launchButton.setOnAction((e) -> {
+			requestAction(new InterfaceActionRequest.ActionBuilder(InterfaceAction.TERMINATE_CURRENT_STAGE).build());
 			requestAction(
 					new InterfaceActionRequest.ActionBuilder(InterfaceAction.LOAD_SERVER).provider(provider).build());
 		});

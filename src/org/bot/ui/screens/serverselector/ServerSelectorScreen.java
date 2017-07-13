@@ -1,14 +1,10 @@
 package org.bot.ui.screens.serverselector;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.net.URLClassLoader;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.jar.JarEntry;
-import java.util.jar.JarFile;
-
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.Scene;
+import javafx.scene.control.ListView;
+import javafx.scene.layout.HBox;
 import org.bot.Engine;
 import org.bot.classloader.ASMClassLoader;
 import org.bot.classloader.ClassArchive;
@@ -17,13 +13,12 @@ import org.bot.provider.manifest.NullManifestException;
 import org.bot.provider.manifest.ServerManifest;
 import org.bot.util.directory.exceptions.InvalidDirectoryNameException;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.scene.Scene;
-import javafx.scene.control.ListView;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.control.ProgressIndicator;
-import javafx.scene.layout.HBox;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.jar.JarEntry;
+import java.util.jar.JarInputStream;
 
 public class ServerSelectorScreen extends Scene {
 
@@ -47,27 +42,24 @@ public class ServerSelectorScreen extends Scene {
 			}
 		});
 		list.setMaxWidth(250);
-		ProgressBar bar = new ProgressBar();
-		ProgressIndicator indicator = new ProgressIndicator();
 		layout.getChildren().addAll(list);
 	}
 
 	private ArrayList<ServerLabel> getServerProviderComponents() {
 		final ArrayList<ServerLabel> providers = new ArrayList<ServerLabel>();
-		JarFile jar;
+		JarInputStream inputStream = null;
 		try {
 			for (File file : Engine.getDirectoryManager().getRootDirectory().getSubDirectory("Server Providers")
 					.getFiles()) {
-				jar = new JarFile(file.getAbsolutePath());
 				Engine.setClassArchive(new ClassArchive());
 				Engine.getClassArchive().addJar((new File(file.getAbsolutePath()).toURI().toURL()));
 				ASMClassLoader cl = new ASMClassLoader(Engine.getClassArchive());
-				Enumeration<JarEntry> entries = jar.entries();
-				while (entries.hasMoreElements()) {
-					JarEntry e = entries.nextElement();
-					if (e.getName().endsWith(".class") && !e.getName().contains("$")) {
+				inputStream = new JarInputStream(new FileInputStream(file));
+				JarEntry jarEntry;
+				while ((jarEntry = inputStream.getNextJarEntry()) != null) {
+					if (jarEntry.getName().endsWith(".class") && !jarEntry.getName().contains("$")) {
 						Class<?> clazz;
-						String classPackage = e.getName().replace(".class", "");
+						String classPackage = jarEntry.getName().replace(".class", "");
 						clazz = cl.loadClass(classPackage.replaceAll("/", "."));
 						ServerLoader<?> loader = null;
 						if (clazz.isAnnotationPresent(ServerManifest.class)) {
@@ -82,6 +74,7 @@ public class ServerSelectorScreen extends Scene {
 					}
 				}
 			}
+			inputStream.close();
 		} catch (IOException | InstantiationException | IllegalAccessException | ClassNotFoundException
 				| InvalidDirectoryNameException e) {
 			e.printStackTrace();

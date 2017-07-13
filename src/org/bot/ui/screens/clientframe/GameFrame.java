@@ -1,6 +1,5 @@
 package org.bot.ui.screens.clientframe;
 
-import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.event.WindowAdapter;

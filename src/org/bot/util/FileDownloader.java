@@ -1,23 +1,21 @@
 package org.bot.util;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.URLConnection;
-
+import org.bot.ui.screens.loading.ProgressRelayer;
+import org.bot.ui.screens.loading.ProgressTracker;
 import org.bot.util.directory.Directory;
 import org.bot.util.directory.DirectoryManager;
 
-/**
- * Created by Kenneth on 7/29/2014.
- */
-public class FileDownloader implements Runnable {
+import java.io.*;
+import java.net.URLConnection;
 
+
+public class FileDownloader implements Runnable, ProgressRelayer {
+
+	private ProgressTracker tracker;
 	private final String fileName;
 	private final String source;
-	private int percentage = 0;
+	private volatile double progress = 0;
+	private volatile String status;
 	private int length, written;
 	private Directory path;
 
@@ -31,7 +29,7 @@ public class FileDownloader implements Runnable {
 		OutputStream output;
 		InputStream input;
 		URLConnection connection;
-
+		status = "Downloading";
 		try {
 			connection = NetUtil.createURLConnection(source);
 			length = connection.getContentLength();
@@ -51,11 +49,12 @@ public class FileDownloader implements Runnable {
 			while ((read = input.read(data)) != -1) {
 				output.write(data, 0, read);
 				written += read;
-				percentage = (int) (((double) written / (double) length) * 100D);
+				progress = ((double) written / (double) length);
 			}
 			output.flush();
 			output.close();
 			input.close();
+			status = "Finished downloading.";
 		} catch (IOException a) {
 			System.out.println("Error downloading file!");
 			a.printStackTrace();
@@ -70,7 +69,15 @@ public class FileDownloader implements Runnable {
 		return written == 0 || length == written;
 	}
 
-	public int getPercentage() {
-		return percentage;
+	@Override
+	public void registerProgressTracker(final ProgressTracker tracker) {
+		this.tracker = tracker;
+	}
+
+	@Override
+	public void update() {
+		if (tracker != null) {
+			tracker.update(progress, status);
+		}
 	}
 }
