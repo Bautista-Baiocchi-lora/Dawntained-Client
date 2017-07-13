@@ -6,6 +6,8 @@ package org.bot.ui.screens.loading;
 
 
 import javafx.concurrent.Task;
+import javafx.concurrent.WorkerStateEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -36,6 +38,8 @@ public class LoadingScreen extends Scene {
 	}
 
 	public void run() {
+		loadThread.setDaemon(true);
 		loadThread.start();
+
 	}
 }

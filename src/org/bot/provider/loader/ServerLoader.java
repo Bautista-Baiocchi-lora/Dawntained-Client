@@ -1,10 +1,13 @@
 package org.bot.provider.loader;
 
 import javafx.concurrent.Task;
+import javafx.concurrent.WorkerStateEvent;
+import javafx.event.EventHandler;
 import org.bot.Engine;
 import org.bot.component.screen.ScreenOverlay;
 import org.bot.hooking.Hook;
 import org.bot.threads.HandleInputs;
+import org.bot.ui.BotUI;
 import org.bot.ui.screens.clientframe.GameFrame;
 import org.bot.util.FileDownloader;
 import org.bot.util.injection.Injector;
@@ -33,7 +36,14 @@ public abstract class ServerLoader<T extends Component> extends Task<Void> {
 		this.SERVER_NAME = serverName;
 		this.HOOK_URL = hookURL;
 	}
-
+	@Override
+	protected void succeeded() {
+		BotUI.getInstance().terminate();
+	}
+	@Override
+	protected void failed() {
+		System.out.println("Bad jar must fail");
+	}
 	@Override
 	public Void call() {
 		try {

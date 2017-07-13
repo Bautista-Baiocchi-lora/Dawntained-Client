@@ -30,7 +30,7 @@ public class BotUI extends Application implements Manager {
 		return instance;
 	}
 
-	private void terminate() {
+	public void terminate() {
 		Platform.exit();
 	}
 
