@@ -1,7 +1,9 @@
 package org.bot.util.reflection;
 
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 import org.bot.classloader.ASMClassLoader;
 import org.bot.classloader.ClassArchive;
@@ -14,6 +16,7 @@ public class ReflectionEngine {
 	private final Hook hooks;
 	private ClassArchive path;
 	private ASMClassLoader classLoader;
+
 	public ReflectionEngine(ClassArchive path, Hook hooks) throws IOException {
 		this.path = path;
 		this.hooks = hooks;
@@ -21,15 +24,14 @@ public class ReflectionEngine {
 	}
 
 	public ReflectedClass getClass(String name, Object instance) {
-		if (!path.classes.containsKey(name)) {
-			try {
-				return new ReflectedClass(classLoader.loadClass(name), instance);
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			}
+		try {
+			return new ReflectedClass(classLoader.loadClass(name), instance);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
 		}
-		return new ReflectedClass(classLoader.classCache.get(name), instance);
+		return null;
 	}
+
 
 	public ReflectedClass getClass(String name) {
 		return getClass(name, null);
@@ -83,12 +85,12 @@ public class ReflectionEngine {
 		return getFieldHookValue(getter, null);
 	}
 
-	public Object getMethodHookValue(String getter, Object instance) {
-		final MethodHook hook = hooks.getMethodHook(getter);
-		final ReflectedClass clazz = getClass(hook.getClazz(), instance);
-		final ReflectedMethod method = clazz.getMethod(new Modifiers.ModifierBuilder().name(hook.getName()).build());
+	public Object getMethodHookValue(String getter, Object... params) {
+		final FieldHook hook = hooks.getFieldHook(getter);
+		final ReflectedClass clazz = getClass(hook.getClazz());
+		final ReflectedMethod method = clazz.getMethod(new Modifiers.ModifierBuilder().name(hook.getField()).build());
 		try {
-			return method.invoke();
+			return method.invoke(params);
 		} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
 			e.printStackTrace();
 		}
@@ -96,7 +98,8 @@ public class ReflectionEngine {
 	}
 
 	public Object getMethodHookValue(String getter) {
-		return getMethodHookValue(getter, null);
+
+		return getMethodHookValue(getter);
 	}
 
 }

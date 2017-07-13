@@ -37,6 +37,10 @@ public class ReflectedMethod {
 		return null;
 	}
 
+	public int getParameterCount() {
+		return method.getParameterCount();
+	}
+
 	public boolean isStatic() {
 		return Modifier.isStatic(method.getModifiers());
 	}

@@ -1,5 +1,6 @@
 package org.bot.ui.screens.clientframe;
 
+import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.event.WindowAdapter;
@@ -27,7 +28,6 @@ public class GameFrame extends JFrame implements WindowListener {
         setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
         buttonPanel = new ButtonPanel();
-
         getContentPane().add(buttonPanel, BorderLayout.NORTH);
         getContentPane().add(comp);
         addWindowListener(this);
@@ -36,6 +36,7 @@ public class GameFrame extends JFrame implements WindowListener {
         setLocationRelativeTo(getOwner());
         confirmOnClose();
         setVisible(true);
+
     }
 
     public void confirmOnClose() {

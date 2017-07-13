@@ -28,6 +28,7 @@ public abstract class ServerLoader<T extends Component> {
 	private final String HOOK_URL;
 	private FileDownloader downloader = null;
 	private Thread inputThreads = null;
+	private T component;
 	protected ServerLoader(String jarURL, String hookURL, String serverName) throws IOException {
 		this.JAR_URL = jarURL;
 		this.SERVER_NAME = serverName;
@@ -35,38 +36,37 @@ public abstract class ServerLoader<T extends Component> {
 	}
 
 	public void executeServer() {
+
 		try {
 			System.out.println("Updating " + SERVER_NAME + " jar file.");
 			this.downloader = new FileDownloader(JAR_URL, SERVER_NAME);
 			downloader.run();
 			System.out.println("Creating reflection engine.");
-			Engine.getClassArchive().addJar(new File(DirectoryManager.SERVER_PROVIDERS_PATH+"/"+Engine.getProviderJarNames().get(Engine.getServerManifest().serverName())));
 			Engine.getClassArchive().addJar(new File(downloader.getArchivePath() +"/" +SERVER_NAME+ ".jar").toURI().toURL());
 			Engine.setReflectionEngine(new ReflectionEngine(Engine.getClassArchive(), loadHooks()));
 			System.out.println("Loading " + SERVER_NAME + " jar file.");
 			try {
-				T component = loadComponent();
+				component = loadComponent();
 				if (Engine.getServerManifest().type().equals(Applet.class)) {
+					final JPanel panel = new JPanel();
 					Applet applet = (Applet) component;
-					applet.setPreferredSize(new Dimension(765, 503));
+					panel.setPreferredSize(new Dimension(765, 503));
+					panel.setLayout(new BorderLayout());
 					inputThreads = new Thread(new HandleInputs());
 					inputThreads.start();
+					Engine.setGameComponent(applet);
+					panel.add(applet, BorderLayout.CENTER);
+					panel.revalidate();
+					Engine.setGameFrame(new GameFrame(panel));
 					applet.init();
 					if (!applet.isActive()) {
 						applet.start();
 					}
-					Engine.setGameComponent(applet);
-					final JPanel panel = new JPanel();
-					panel.setLayout(new BorderLayout());
-					panel.add(applet, BorderLayout.CENTER);
-					panel.revalidate();
-					Engine.setGameFrame(new GameFrame(panel));
 
-				} else {
-
-					/**
-					 * Handle the adding to jframe?
-					 */
+				} else if(Engine.getServerManifest().type().equals(JPanel.class)) {
+					System.out.println("We JPanel up in here");
+					Engine.setGameComponent(component);
+					Engine.setGameFrame(new GameFrame(component));
 				}
 			} catch (IllegalArgumentException | IllegalAccessException e) {
 				e.printStackTrace();

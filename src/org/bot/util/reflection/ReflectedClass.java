@@ -71,6 +71,9 @@ public class ReflectedClass {
 	}
 
 	public Object getNewInstance() {
+		if(clazz == null) {
+			throw new NullPointerException("clazz == null!");
+		}
 		try {
 			return clazz.newInstance();
 		} catch (InstantiationException | IllegalAccessException e) {
@@ -269,10 +272,10 @@ public class ReflectedClass {
 				methods.add(new ReflectedMethod(method, instance));
 			}
 		}
-		if (instance != null) {
+		if (instance == null) {
 			for (Method method : clazz.getDeclaredMethods()) {
 				if (Modifier.isStatic(method.getModifiers())) {
-					methods.add(new ReflectedMethod(method, instance));
+					methods.add(new ReflectedMethod(method));
 				}
 			}
 		}
