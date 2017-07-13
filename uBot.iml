@@ -9,6 +9,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="asm-all-5.2" level="project" />
     <orderEntry type="library" name="darcula" level="project" />
-    <orderEntry type="library" name="JSON" level="project" />
+    <orderEntry type="library" name="json-simple-1.1.1" level="project" />
   </component>
 </module>
