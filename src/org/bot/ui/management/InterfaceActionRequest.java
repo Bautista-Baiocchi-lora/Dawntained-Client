@@ -4,8 +4,8 @@ import org.bot.provider.ServerProvider;
 
 public class InterfaceActionRequest {
 
-	private ServerProvider provider;
 	private final InterfaceAction action;
+	private ServerProvider provider;
 
 	private InterfaceActionRequest(ActionBuilder builder) {
 		action = builder.action;
@@ -21,8 +21,8 @@ public class InterfaceActionRequest {
 	}
 
 	public static class ActionBuilder {
-		private ServerProvider provider;
 		private final InterfaceAction action;
+		private ServerProvider provider;
 
 		public ActionBuilder(InterfaceAction action) {
 			this.action = action;

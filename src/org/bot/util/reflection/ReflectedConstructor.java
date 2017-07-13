@@ -41,7 +41,7 @@ public class ReflectedConstructor {
 
 	public ReflectedClass getNewInstance()
 			throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
-		return getNewInstance(new Object[] {});
+		return getNewInstance(new Object[]{});
 	}
 
 	public ReflectedClass getNewInstance(Object... parameters)

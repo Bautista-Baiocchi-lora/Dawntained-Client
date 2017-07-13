@@ -1,6 +1,7 @@
 package org.bot.component.inputs;
 
 import org.bot.Engine;
+
 import java.awt.*;
 
 public class Mouse {

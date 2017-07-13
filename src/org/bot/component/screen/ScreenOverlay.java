@@ -1,11 +1,11 @@
 package org.bot.component.screen;
 
+import org.bot.component.listeners.PaintListener;
+import org.bot.util.BasicTimer;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import org.bot.component.listeners.PaintListener;
-import org.bot.util.BasicTimer;
 
 /**
  * Created by Ethan on 7/7/2017.

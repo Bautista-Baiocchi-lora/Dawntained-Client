@@ -2,11 +2,10 @@ package org.bot.ui.menu;
 
 import org.bot.Engine;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.*;
 
 public class ButtonPanel extends JPanel {
 

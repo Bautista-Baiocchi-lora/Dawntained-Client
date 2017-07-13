@@ -1,14 +1,14 @@
 package org.bot.util.directory;
 
+import org.bot.util.directory.exceptions.InvalidDirectoryNameException;
+import org.bot.util.directory.exceptions.InvalidFileNameException;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.nio.file.InvalidPathException;
 import java.util.ArrayList;
 import java.util.Arrays;
-
-import org.bot.util.directory.exceptions.InvalidDirectoryNameException;
-import org.bot.util.directory.exceptions.InvalidFileNameException;
 
 public class Directory {
 

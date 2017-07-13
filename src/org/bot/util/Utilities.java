@@ -1,8 +1,7 @@
 package org.bot.util;
 
-import java.awt.Image;
-
-import javax.swing.ImageIcon;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * Created by Ethan on 7/3/2017.
@@ -17,6 +16,7 @@ public class Utilities {
 			COSINE[i] = ((int) (65536.0D * Math.cos(i * 0.0030679615D)));
 		}
 	}
+
 	public static Image getLocalImage(String file) {
 		try {
 
@@ -40,6 +40,7 @@ public class Utilities {
 		}
 		return sb.toString().trim();
 	}
+
 	public static boolean inArray(String string, String[] strings) {
 		if (string == null)
 			return false;

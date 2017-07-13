@@ -1,6 +1,6 @@
 package org.bot.component.listeners;
 
-import java.awt.Graphics2D;
+import java.awt.*;
 
 /**
  * Created by Ethan on 6/28/2017.

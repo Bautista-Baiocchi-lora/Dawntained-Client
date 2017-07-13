@@ -1,10 +1,6 @@
 package org.bot.util;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.channels.Channels;
@@ -38,6 +34,7 @@ public class NetUtil {
 		}
 		return lines.toArray(new String[lines.size()]);
 	}
+
 	public static String readUrl(String urlString) throws Exception {
 		BufferedReader reader = null;
 		try {
@@ -55,11 +52,11 @@ public class NetUtil {
 				reader.close();
 		}
 	}
+
 	/**
 	 * Static method for creating a URLConnection
 	 *
-	 * @param url
-	 *            the complete web URL for the file
+	 * @param url the complete web URL for the file
 	 * @return The
 	 */
 	public static URLConnection createURLConnection(String url) {
@@ -81,12 +78,10 @@ public class NetUtil {
 	/**
 	 * Handy static method for downloading and saving files.
 	 *
-	 * @param url
-	 *            the complete web URL for the file
-	 * @param location
-	 *            the complete destination including extension for the file
+	 * @param url      the complete web URL for the file
+	 * @param location the complete destination including extension for the file
 	 * @return true if the file exists in the location, false if an exception is
-	 *         thrown or the file does not exist
+	 * thrown or the file does not exist
 	 */
 	public static boolean downloadFile(String url, String location) {
 		try {

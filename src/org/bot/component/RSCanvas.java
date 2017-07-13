@@ -1,20 +1,15 @@
 package org.bot.component;
 
-import java.awt.Canvas;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Rectangle;
+import org.bot.Engine;
+import org.bot.component.listeners.PaintListener;
+import org.bot.component.screen.ScreenOverlay;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
-import javax.swing.JPanel;
-
-import org.bot.Engine;
-import org.bot.component.listeners.PaintListener;
-import org.bot.component.screen.ScreenOverlay;
-import org.bot.util.Condition;
 
 /**
  * Created by Ethan on 7/7/2017.

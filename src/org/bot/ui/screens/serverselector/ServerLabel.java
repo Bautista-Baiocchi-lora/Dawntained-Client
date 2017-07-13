@@ -1,11 +1,10 @@
 package org.bot.ui.screens.serverselector;
 
+import javafx.scene.control.Label;
 import org.bot.provider.ServerProvider;
 import org.bot.provider.loader.ServerLoader;
 import org.bot.provider.manifest.ServerManifest;
 import org.bot.ui.BotUI;
-
-import javafx.scene.control.Label;
 
 public class ServerLabel extends Label {
 

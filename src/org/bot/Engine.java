@@ -1,12 +1,5 @@
 package org.bot;
 
-import java.awt.Canvas;
-import java.awt.Component;
-import java.awt.Rectangle;
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.Map;
-
 import org.bot.classloader.ClassArchive;
 import org.bot.component.inputs.InternalKeyboard;
 import org.bot.component.inputs.InternalMouse;
@@ -16,6 +9,11 @@ import org.bot.provider.manifest.ServerManifest;
 import org.bot.ui.screens.clientframe.GameFrame;
 import org.bot.util.directory.DirectoryManager;
 import org.bot.util.reflection.ReflectionEngine;
+
+import java.awt.*;
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.Map;
 
 public class Engine {
 
@@ -30,7 +28,8 @@ public class Engine {
 	private static Canvas gameCanvas;
 	private static GameFrame gameFrame;
 	private static ReflectionEngine reflectionEngine;
-	private static Rectangle gameViewport = new Rectangle(5, 5, 509, 332);;
+	private static Rectangle gameViewport = new Rectangle(5, 5, 509, 332);
+	;
 	private static InternalMouse mouse;
 	private static InternalKeyboard keyboard;
 	private static Map<String, String> providerJarNames = new HashMap();
@@ -93,16 +92,12 @@ public class Engine {
 		Engine.keyboard = keyboard;
 	}
 
-	public static void setDirectoryManager(DirectoryManager manager) {
-		directoryManager = manager;
+	public static boolean isDeveloper() {
+		return developer;
 	}
 
 	public static void setDeveloper(boolean developer) {
 		Engine.developer = developer;
-	}
-
-	public static boolean isDeveloper() {
-		return developer;
 	}
 
 	public static String getUsername() {
@@ -136,6 +131,10 @@ public class Engine {
 
 	public static DirectoryManager getDirectoryManager() {
 		return directoryManager;
+	}
+
+	public static void setDirectoryManager(DirectoryManager manager) {
+		directoryManager = manager;
 	}
 
 	public static Component getGameComponent() {

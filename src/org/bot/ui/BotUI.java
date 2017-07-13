@@ -15,15 +15,15 @@ import org.bot.util.directory.DirectoryManager;
 
 public class BotUI extends Application implements Manager {
 
-	private Stage stage;
 	private static BotUI instance = new BotUI();
-
-	public static void main(String[] args) {
-		launch(args);
-	}
+	private Stage stage;
 
 	public BotUI() {
 		Engine.setDirectoryManager(new DirectoryManager());
+	}
+
+	public static void main(String[] args) {
+		launch(args);
 	}
 
 	public static BotUI getInstance() {
@@ -76,7 +76,7 @@ public class BotUI extends Application implements Manager {
 				terminate();
 				break;
 			case TERMINATE_CURRENT_STAGE:
-				stage=null;
+				stage = null;
 				break;
 			default:
 				System.out.println("Error processing interface aciton request.");

@@ -1,7 +1,5 @@
 package org.bot.util;
 
-import org.bot.ui.screens.loading.ProgressRelayer;
-import org.bot.ui.screens.loading.ProgressTracker;
 import org.bot.util.directory.Directory;
 import org.bot.util.directory.DirectoryManager;
 
@@ -9,13 +7,11 @@ import java.io.*;
 import java.net.URLConnection;
 
 
-public class FileDownloader implements Runnable, ProgressRelayer {
+public class FileDownloader implements Runnable {
 
-	private ProgressTracker tracker;
 	private final String fileName;
 	private final String source;
 	private volatile double progress = 0;
-	private volatile String status;
 	private int length, written;
 	private Directory path;
 
@@ -29,7 +25,6 @@ public class FileDownloader implements Runnable, ProgressRelayer {
 		OutputStream output;
 		InputStream input;
 		URLConnection connection;
-		status = "Downloading";
 		try {
 			connection = NetUtil.createURLConnection(source);
 			length = connection.getContentLength();
@@ -54,11 +49,14 @@ public class FileDownloader implements Runnable, ProgressRelayer {
 			output.flush();
 			output.close();
 			input.close();
-			status = "Finished downloading.";
 		} catch (IOException a) {
 			System.out.println("Error downloading file!");
 			a.printStackTrace();
 		}
+	}
+
+	public double getProgress() {
+		return progress;
 	}
 
 	public String getArchivePath() {
@@ -69,15 +67,4 @@ public class FileDownloader implements Runnable, ProgressRelayer {
 		return written == 0 || length == written;
 	}
 
-	@Override
-	public void registerProgressTracker(final ProgressTracker tracker) {
-		this.tracker = tracker;
-	}
-
-	@Override
-	public void update() {
-		if (tracker != null) {
-			tracker.update(progress, status);
-		}
-	}
 }

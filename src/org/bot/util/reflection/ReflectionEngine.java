@@ -1,15 +1,12 @@
 package org.bot.util.reflection;
 
-import java.io.IOException;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-
 import org.bot.classloader.ASMClassLoader;
 import org.bot.classloader.ClassArchive;
 import org.bot.hooking.FieldHook;
 import org.bot.hooking.Hook;
-import org.bot.hooking.MethodHook;
+
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 
 public class ReflectionEngine {
 
@@ -55,6 +52,7 @@ public class ReflectionEngine {
 		final FieldHook hook = hooks.getFieldHook(getter);
 		return hook.getMultiplier();
 	}
+
 	public ReflectedField getField(String getter, Object instance) {
 
 		final ReflectedClass clazz = getClass(getClassName(getter), instance);

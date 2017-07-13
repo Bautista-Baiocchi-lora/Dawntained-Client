@@ -11,8 +11,8 @@ import java.util.List;
 import java.util.Map.Entry;
 
 public class ReflectedClass {
-	private Object instance;
 	private final Class<?> clazz;
+	private Object instance;
 
 	public ReflectedClass(Class<?> clazz) {
 		this(clazz, null);
@@ -33,6 +33,13 @@ public class ReflectedClass {
 
 	public Object getInstance() {
 		return instance;
+	}
+
+	public void setInstance(Object instance) {
+		if (!clazz.isInstance(instance)) {
+			throw new IllegalArgumentException(instance + " is not an instance of the class " + clazz);
+		}
+		this.instance = instance;
 	}
 
 	public ReflectedClass getSuperClass() {
@@ -63,15 +70,8 @@ public class ReflectedClass {
 		return clazz;
 	}
 
-	public void setInstance(Object instance) {
-		if (!clazz.isInstance(instance)) {
-			throw new IllegalArgumentException(instance + " is not an instance of the class " + clazz);
-		}
-		this.instance = instance;
-	}
-
 	public Object getNewInstance() {
-		if(clazz == null) {
+		if (clazz == null) {
 			throw new NullPointerException("clazz == null!");
 		}
 		try {
@@ -100,56 +100,57 @@ public class ReflectedClass {
 	}
 
 	public ReflectedField getField(Modifiers modifiers) {
-		Fields: for (Field field : clazz.getDeclaredFields()) {
+		Fields:
+		for (Field field : clazz.getDeclaredFields()) {
 			for (Entry<Modifiers.Condition, ? extends Object> modifier : modifiers.getModifiers().entrySet()) {
 				switch (modifier.getKey()) {
-				case NAME:
-					if (!field.getName().equals(modifier.getValue())) {
-						continue Fields;
-					}
-					break;
-				case STATIC:
-					if (Modifier.isStatic(field.getModifiers()) != (boolean) ((Object) modifier.getValue())) {
-						continue Fields;
-					}
-					break;
-				case ABSTRACT:
-					if (Modifier.isAbstract(field.getModifiers()) != (boolean) ((Object) modifier.getValue())) {
-						continue Fields;
-					}
-					break;
-				case TYPE:
-					if (field.getType().equals((Class<?>) modifier.getValue())) {
-						continue Fields;
-					}
-					break;
-				case FINAL:
-					if (Modifier.isFinal(field.getModifiers()) != (boolean) ((Object) modifier.getValue())) {
-						continue Fields;
-					}
-					break;
-				case VOLATILE:
-					if (Modifier.isVolatile(field.getModifiers()) != (boolean) ((Object) modifier.getValue())) {
-						continue Fields;
-					}
-					break;
-				case PUBLIC:
-					if (Modifier.isPublic(field.getModifiers()) != (boolean) ((Object) modifier.getValue())) {
-						continue Fields;
-					}
-					break;
-				case PRIVATE:
-					if (Modifier.isPrivate(field.getModifiers()) != (boolean) ((Object) modifier.getValue())) {
-						continue Fields;
-					}
-					break;
-				case PROTECTED:
-					if (Modifier.isProtected(field.getModifiers()) != (boolean) ((Object) modifier.getValue())) {
-						continue Fields;
-					}
-					break;
-				default:
-					break;
+					case NAME:
+						if (!field.getName().equals(modifier.getValue())) {
+							continue Fields;
+						}
+						break;
+					case STATIC:
+						if (Modifier.isStatic(field.getModifiers()) != (boolean) ((Object) modifier.getValue())) {
+							continue Fields;
+						}
+						break;
+					case ABSTRACT:
+						if (Modifier.isAbstract(field.getModifiers()) != (boolean) ((Object) modifier.getValue())) {
+							continue Fields;
+						}
+						break;
+					case TYPE:
+						if (field.getType().equals((Class<?>) modifier.getValue())) {
+							continue Fields;
+						}
+						break;
+					case FINAL:
+						if (Modifier.isFinal(field.getModifiers()) != (boolean) ((Object) modifier.getValue())) {
+							continue Fields;
+						}
+						break;
+					case VOLATILE:
+						if (Modifier.isVolatile(field.getModifiers()) != (boolean) ((Object) modifier.getValue())) {
+							continue Fields;
+						}
+						break;
+					case PUBLIC:
+						if (Modifier.isPublic(field.getModifiers()) != (boolean) ((Object) modifier.getValue())) {
+							continue Fields;
+						}
+						break;
+					case PRIVATE:
+						if (Modifier.isPrivate(field.getModifiers()) != (boolean) ((Object) modifier.getValue())) {
+							continue Fields;
+						}
+						break;
+					case PROTECTED:
+						if (Modifier.isProtected(field.getModifiers()) != (boolean) ((Object) modifier.getValue())) {
+							continue Fields;
+						}
+						break;
+					default:
+						break;
 				}
 			}
 			if (Modifier.isStatic(field.getModifiers())) {
@@ -161,24 +162,25 @@ public class ReflectedClass {
 	}
 
 	public ReflectedConstructor getConstructor(Modifiers modifiers) {
-		Constructors: for (Constructor<?> constructor : clazz.getConstructors()) {
+		Constructors:
+		for (Constructor<?> constructor : clazz.getConstructors()) {
 			for (Entry<Modifiers.Condition, ? extends Object> modifier : modifiers.getModifiers().entrySet()) {
 				switch (modifier.getKey()) {
-				case PARAMETER_COUNT:
-					if (constructor.getParameterCount() != (int) ((Object) modifier.getValue())) {
-						continue Constructors;
-					}
-					break;
-				case PARAMETER_TYPES:
-					List<Class<?>> parameterClasses = Arrays.asList(constructor.getParameterTypes());
-					for (Class<?> parameter : (Class<?>[]) modifier.getValue()) {
-						if (!parameterClasses.contains(parameter)) {
+					case PARAMETER_COUNT:
+						if (constructor.getParameterCount() != (int) ((Object) modifier.getValue())) {
 							continue Constructors;
 						}
-					}
-					break;
-				default:
-					break;
+						break;
+					case PARAMETER_TYPES:
+						List<Class<?>> parameterClasses = Arrays.asList(constructor.getParameterTypes());
+						for (Class<?> parameter : (Class<?>[]) modifier.getValue()) {
+							if (!parameterClasses.contains(parameter)) {
+								continue Constructors;
+							}
+						}
+						break;
+					default:
+						break;
 				}
 			}
 			return new ReflectedConstructor(constructor);
@@ -187,74 +189,75 @@ public class ReflectedClass {
 	}
 
 	public ReflectedMethod getMethod(Modifiers modifiers) {
-		Methods: for (Method method : clazz.getDeclaredMethods()) {
+		Methods:
+		for (Method method : clazz.getDeclaredMethods()) {
 			for (Entry<Modifiers.Condition, ? extends Object> modifier : modifiers.getModifiers().entrySet()) {
 				switch (modifier.getKey()) {
-				case NAME:
-					if (!method.getName().equals(modifier.getValue())) {
-						continue Methods;
-					}
-					break;
-				case STATIC:
-					if (Modifier.isStatic(method.getModifiers()) != (boolean) ((Object) modifier.getValue())) {
-						continue Methods;
-					}
-					break;
-				case ABSTRACT:
-
-					if (Modifier.isAbstract(method.getModifiers()) != (boolean) ((Object) modifier.getValue())) {
-						continue Methods;
-					}
-					break;
-				case FINAL:
-
-					if (Modifier.isFinal(method.getModifiers()) != (boolean) ((Object) modifier.getValue())) {
-						continue Methods;
-					}
-					break;
-				case VOLATILE:
-
-					if (Modifier.isVolatile(method.getModifiers()) != (boolean) ((Object) modifier.getValue())) {
-						continue Methods;
-					}
-					break;
-				case PUBLIC:
-
-					if (Modifier.isPublic(method.getModifiers()) != (boolean) ((Object) modifier.getValue())) {
-						continue Methods;
-					}
-					break;
-				case PRIVATE:
-					if (Modifier.isPrivate(method.getModifiers()) != (boolean) ((Object) modifier.getValue())) {
-						continue Methods;
-					}
-					break;
-				case PROTECTED:
-
-					if (Modifier.isProtected(method.getModifiers()) != (boolean) ((Object) modifier.getValue())) {
-						continue Methods;
-					}
-					break;
-				case PARAMETER_TYPES:
-					List<Class<?>> parameterClasses = Arrays.asList(method.getParameterTypes());
-					for (Class<?> parameter : (Class<?>[]) modifier.getValue()) {
-						if (!parameterClasses.contains(parameter)) {
+					case NAME:
+						if (!method.getName().equals(modifier.getValue())) {
 							continue Methods;
 						}
-					}
-					break;
-				case PARAMETER_COUNT:
-					if (method.getParameterCount() != (int) ((Object) modifier.getValue())) {
-						continue;
-					}
-					break;
-				case RETURN_TYPE:
-					if (!method.getReturnType().equals(modifier.getValue())) {
-						continue Methods;
-					}
-					break;
-				default:
-					break;
+						break;
+					case STATIC:
+						if (Modifier.isStatic(method.getModifiers()) != (boolean) ((Object) modifier.getValue())) {
+							continue Methods;
+						}
+						break;
+					case ABSTRACT:
+
+						if (Modifier.isAbstract(method.getModifiers()) != (boolean) ((Object) modifier.getValue())) {
+							continue Methods;
+						}
+						break;
+					case FINAL:
+
+						if (Modifier.isFinal(method.getModifiers()) != (boolean) ((Object) modifier.getValue())) {
+							continue Methods;
+						}
+						break;
+					case VOLATILE:
+
+						if (Modifier.isVolatile(method.getModifiers()) != (boolean) ((Object) modifier.getValue())) {
+							continue Methods;
+						}
+						break;
+					case PUBLIC:
+
+						if (Modifier.isPublic(method.getModifiers()) != (boolean) ((Object) modifier.getValue())) {
+							continue Methods;
+						}
+						break;
+					case PRIVATE:
+						if (Modifier.isPrivate(method.getModifiers()) != (boolean) ((Object) modifier.getValue())) {
+							continue Methods;
+						}
+						break;
+					case PROTECTED:
+
+						if (Modifier.isProtected(method.getModifiers()) != (boolean) ((Object) modifier.getValue())) {
+							continue Methods;
+						}
+						break;
+					case PARAMETER_TYPES:
+						List<Class<?>> parameterClasses = Arrays.asList(method.getParameterTypes());
+						for (Class<?> parameter : (Class<?>[]) modifier.getValue()) {
+							if (!parameterClasses.contains(parameter)) {
+								continue Methods;
+							}
+						}
+						break;
+					case PARAMETER_COUNT:
+						if (method.getParameterCount() != (int) ((Object) modifier.getValue())) {
+							continue;
+						}
+						break;
+					case RETURN_TYPE:
+						if (!method.getReturnType().equals(modifier.getValue())) {
+							continue Methods;
+						}
+						break;
+					default:
+						break;
 				}
 			}
 			if (Modifier.isStatic(method.getModifiers())) {

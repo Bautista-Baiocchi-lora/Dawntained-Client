@@ -1,19 +1,19 @@
 package org.bot.util.directory;
 
+import org.bot.util.directory.exceptions.InvalidDirectoryNameException;
+
 import java.io.File;
 import java.io.IOException;
-
-import org.bot.util.directory.exceptions.InvalidDirectoryNameException;
 
 public class DirectoryManager {
 
 	public final static String BOT_DIRECTORY_PATH = System.getProperty("user.home") + File.separator + "uBot";
-	private final Directory botDirectory;
 	public static String CACHE_PATH;
 	public static String SERVER_PROVIDERS_PATH;
 	public static String SCRIPTS_PATH;
 	public static String TEMP_PATH;
 	public static String SERVER_JARS_PATH;
+	private final Directory botDirectory;
 
 	public DirectoryManager() {
 		botDirectory = getRootDirectory();

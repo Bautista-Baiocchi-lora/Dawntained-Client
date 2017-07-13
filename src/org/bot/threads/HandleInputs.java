@@ -11,25 +11,26 @@ import java.applet.Applet;
  * Created by Ethan on 7/10/2017.
  */
 public class HandleInputs implements Runnable {
-    Applet applet;
-    @Override
-    public void run() {
-        System.out.println("Attempting to set mouse & keyboard.");
+	Applet applet;
 
-        while (Engine.getGameCanvas() == null) {
-            Condition.sleep(5);
-        }
-        Condition.wait(new Condition.Check() {
-            public boolean poll() {
-                 applet = (Applet) Engine.getGameComponent();
-                return applet.getComponents().length != 0;
-            }
-        }, 100, 20);
+	@Override
+	public void run() {
+		System.out.println("Attempting to set mouse & keyboard.");
 
-        Engine.setMouse(new InternalMouse());
-        Engine.setKeyboard(new InternalKeyboard());
-        System.out.println("Mouse & Keyboard set.");
+		while (Engine.getGameCanvas() == null) {
+			Condition.sleep(5);
+		}
+		Condition.wait(new Condition.Check() {
+			public boolean poll() {
+				applet = (Applet) Engine.getGameComponent();
+				return applet.getComponents().length != 0;
+			}
+		}, 100, 20);
 
-    }
+		Engine.setMouse(new InternalMouse());
+		Engine.setKeyboard(new InternalKeyboard());
+		System.out.println("Mouse & Keyboard set.");
+
+	}
 
 }

@@ -1,12 +1,9 @@
 package org.bot.ui.menu;
 
-import java.awt.Dimension;
-import java.awt.Image;
-
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-
 import org.bot.util.Utilities;
+
+import javax.swing.*;
+import java.awt.*;
 
 public class Buttons extends JButton {
 

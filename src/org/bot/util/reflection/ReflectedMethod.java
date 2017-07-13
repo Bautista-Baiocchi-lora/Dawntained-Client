@@ -18,7 +18,7 @@ public class ReflectedMethod {
 	}
 
 	public Object invoke() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
-		return invoke(new Object[] {});
+		return invoke(new Object[]{});
 	}
 
 	public Object invoke(Object... parameters)

@@ -1,6 +1,6 @@
 package org.bot.provider.manifest;
 
-import java.awt.Component;
+import java.awt.*;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 

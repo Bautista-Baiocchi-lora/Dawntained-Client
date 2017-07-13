@@ -1,7 +1,11 @@
 package org.bot.ui.screens.login;
 
-import java.util.ArrayList;
-
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import org.bot.Engine;
 import org.bot.ui.management.InterfaceAction;
 import org.bot.ui.management.InterfaceActionRequest;
@@ -9,21 +13,12 @@ import org.bot.ui.management.Manageable;
 import org.bot.ui.management.Manager;
 import org.bot.util.Utilities;
 
-import javafx.geometry.Pos;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
+import java.util.ArrayList;
 
 public class PortalScreen extends Scene implements Manageable {
 
-	private final ArrayList<Manager> managers = new ArrayList<Manager>();
 	private static VBox widgetStack;
+	private final ArrayList<Manager> managers = new ArrayList<Manager>();
 	private TextField usernameField;
 	private PasswordField passwordField;
 	private CheckBox rememberCheck;
