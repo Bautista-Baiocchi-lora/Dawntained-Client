@@ -39,6 +39,7 @@ public class ButtonPanel extends JPanel {
 				}
 			}
 		});
+		add(playButton);
 
 		pauseButton = new Buttons("pause.png");
 		pauseButton.setButtonHoverIcon("pause_hover.png");

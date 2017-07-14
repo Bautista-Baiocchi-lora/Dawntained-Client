@@ -7,32 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a749048c-453f-45b8-96ac-6d38b10c793b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/bot/script/handler/ScriptHandler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/bot/script/types/Action.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/bot/script/types/ActionScript.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/bot/script/types/LoopScript.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/Engine.class" afterPath="$PROJECT_DIR$/out/production/uBot/org/bot/Engine.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/component/RSCanvas.class" afterPath="$PROJECT_DIR$/out/production/uBot/org/bot/component/RSCanvas.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/component/inputs/InternalKeyboard.class" afterPath="$PROJECT_DIR$/out/production/uBot/org/bot/component/inputs/InternalKeyboard.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/component/inputs/InternalMouse.class" afterPath="$PROJECT_DIR$/out/production/uBot/org/bot/component/inputs/InternalMouse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/provider/loader/ServerLoader.class" afterPath="$PROJECT_DIR$/out/production/uBot/org/bot/provider/loader/ServerLoader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/script/loader/ScriptLoader.class" afterPath="$PROJECT_DIR$/out/production/uBot/org/bot/script/loader/ScriptLoader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/script/scriptdata/ScriptData.class" afterPath="$PROJECT_DIR$/out/production/uBot/org/bot/script/scriptdata/ScriptData.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/threads/HandleInputs.class" afterPath="$PROJECT_DIR$/out/production/uBot/org/bot/threads/HandleInputs.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/BotUI$1.class" afterPath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/BotUI$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/BotUI.class" afterPath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/BotUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/menu/ButtonPanel$1.class" afterPath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/menu/ButtonPanel$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/menu/ButtonPanel$2.class" afterPath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/menu/ButtonPanel$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/menu/ButtonPanel.class" afterPath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/menu/ButtonPanel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/screens/loading/LoadingScreen.class" afterPath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/screens/loading/LoadingScreen.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/screens/serverselector/ServerInformationTab.class" afterPath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/screens/serverselector/ServerInformationTab.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/screens/serverselector/ServerSelectorScreen.class" afterPath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/screens/serverselector/ServerSelectorScreen.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/Engine.java" afterPath="$PROJECT_DIR$/src/org/bot/Engine.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/script/loader/ScriptLoader.java" afterPath="$PROJECT_DIR$/src/org/bot/script/loader/ScriptLoader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/script/scriptdata/ScriptData.java" afterPath="$PROJECT_DIR$/src/org/bot/script/scriptdata/ScriptData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/script/scriptdata/ScriptManifest.java" afterPath="$PROJECT_DIR$/src/org/bot/script/scriptdata/ScriptManifest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/script/scriptdata/SkillCategory.java" afterPath="$PROJECT_DIR$/src/org/bot/script/scriptdata/SkillCategory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/ui/menu/ButtonPanel.java" afterPath="$PROJECT_DIR$/src/org/bot/ui/menu/ButtonPanel.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -46,18 +20,6 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ScriptHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/bot/script/handler/ScriptHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1496">
-              <caret line="96" column="1" lean-forward="false" selection-start-line="96" selection-start-column="1" selection-end-line="96" selection-end-column="1" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ScriptLoader.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/bot/script/loader/ScriptLoader.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -101,29 +63,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ServerLoader.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/bot/provider/loader/ServerLoader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-157">
-              <caret line="46" column="26" lean-forward="false" selection-start-line="46" selection-start-column="26" selection-end-line="47" selection-end-column="28" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ButtonPanel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/bot/ui/menu/ButtonPanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="491">
-              <caret line="75" column="38" lean-forward="false" selection-start-line="75" selection-start-column="38" selection-end-line="75" selection-end-column="58" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoopScript.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LoopScript.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/bot/script/types/LoopScript.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
@@ -132,6 +72,39 @@
                 <element signature="e#336#337#0" expanded="true" />
                 <element signature="e#384#385#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BotUI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/bot/ui/BotUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="32" column="10" lean-forward="false" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
+              <folding>
+                <element signature="e#871#872#0" expanded="true" />
+                <element signature="e#893#894#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Buttons.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/bot/ui/menu/Buttons.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ButtonPanel.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/org/bot/ui/menu/ButtonPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="219">
+              <caret line="44" column="45" lean-forward="false" selection-start-line="44" selection-start-column="45" selection-end-line="44" selection-end-column="45" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -250,11 +223,11 @@
         <option value="$PROJECT_DIR$/src/org/bot/script/scriptdata/SkillCategory.java" />
         <option value="$PROJECT_DIR$/src/org/bot/Engine.java" />
         <option value="$PROJECT_DIR$/src/org/bot/script/handler/ScriptHandler.java" />
-        <option value="$PROJECT_DIR$/src/org/bot/ui/menu/ButtonPanel.java" />
         <option value="$PROJECT_DIR$/src/org/bot/script/types/LoopScript.java" />
         <option value="$PROJECT_DIR$/src/org/bot/script/types/ActionScript.java" />
         <option value="$PROJECT_DIR$/src/org/bot/script/scriptdata/ScriptData.java" />
         <option value="$PROJECT_DIR$/src/org/bot/script/types/Action.java" />
+        <option value="$PROJECT_DIR$/src/org/bot/ui/menu/ButtonPanel.java" />
       </list>
     </option>
   </component>
@@ -1123,14 +1096,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/bot/ui/BotUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="32" column="10" lean-forward="false" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/bot/hooking/JSONParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1242,22 +1207,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/bot/ui/menu/Buttons.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/bot/ui/menu/ButtonPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="75" column="38" lean-forward="false" selection-start-line="75" selection-start-column="38" selection-end-line="75" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/bot/provider/loader/ServerLoader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-157">
@@ -1337,6 +1286,33 @@
             <element signature="e#336#337#0" expanded="true" />
             <element signature="e#384#385#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/bot/ui/BotUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="32" column="10" lean-forward="false" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
+          <folding>
+            <element signature="e#871#872#0" expanded="true" />
+            <element signature="e#893#894#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/bot/ui/menu/Buttons.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/bot/ui/menu/ButtonPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="44" column="45" lean-forward="false" selection-start-line="44" selection-start-column="45" selection-end-line="44" selection-end-column="45" />
+          <folding />
         </state>
       </provider>
     </entry>
