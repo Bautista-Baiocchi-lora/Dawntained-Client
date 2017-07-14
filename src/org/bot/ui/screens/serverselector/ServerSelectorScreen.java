@@ -74,7 +74,9 @@ public class ServerSelectorScreen extends Scene {
 					}
 				}
 			}
-			inputStream.close();
+			if(inputStream != null) {
+				inputStream.close();
+			}
 		} catch (IOException | InstantiationException | IllegalAccessException | ClassNotFoundException
 				| InvalidDirectoryNameException e) {
 			e.printStackTrace();

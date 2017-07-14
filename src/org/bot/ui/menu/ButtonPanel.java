@@ -1,6 +1,7 @@
 package org.bot.ui.menu;
 
 import org.bot.Engine;
+import org.bot.ui.screens.scriptselector.ScriptSelector;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,6 +13,7 @@ public class ButtonPanel extends JPanel {
 	private static final long serialVersionUID = 3147770371892729345L;
 	private final Color color = new Color(92, 98, 106);
 	private final Color colorDark = color.darker();
+	private ScriptSelector scriptSelector;
 
 	private Buttons statsButton, playButton, pauseButton, stopButton;
 	private JPopupMenu menu;
@@ -20,10 +22,19 @@ public class ButtonPanel extends JPanel {
 		this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 		menu = Engine.getServerLoader().getPopUpMenu();
 		add(Box.createHorizontalGlue());
+		scriptSelector = new ScriptSelector();
 		playButton = new Buttons("play.png");
 		playButton.setButtonHoverIcon("play_hover.png");
 		playButton.setToolTipText("Start Script.");
+		playButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+					scriptSelector.loadScripts();
+					scriptSelector.setLocationRelativeTo(scriptSelector.getOwner());
+					scriptSelector.setVisible(!scriptSelector.isVisible());
 
+			}
+		});
 		add(playButton);
 
 		pauseButton = new Buttons("pause.png");
