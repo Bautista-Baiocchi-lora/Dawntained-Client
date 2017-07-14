@@ -1,5 +1,7 @@
 package org.bot.script.scriptdata;
 
+import java.io.File;
+
 /**
  * Created by Ethan on 7/14/2017.
  */
@@ -13,8 +15,9 @@ public class ScriptData {
     public String author;
     public SkillCategory skillCategory;
     public int scriptId;
+    public File scriptPath;
 
-    public ScriptData(String clazz, String name, String server, String desc, double version, String author, SkillCategory category) {
+    public ScriptData(String clazz, String name, String server, String desc, double version, String author, SkillCategory category, File scriptPath) {
         this.clazz = clazz;
         this.name = name;
         this.server = server;
@@ -23,6 +26,11 @@ public class ScriptData {
         this.author = author;
         this.skillCategory = category;
         this.scriptId = -1;
+        this.scriptPath = scriptPath;
+    }
+
+    public File getScriptPath() {
+        return scriptPath;
     }
 
     public String getClazz() {

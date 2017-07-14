@@ -7,7 +7,83 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a749048c-453f-45b8-96ac-6d38b10c793b" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/Engine.class" afterPath="$PROJECT_DIR$/out/production/uBot/org/bot/Engine.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/provider/loader/ServerLoader.class" afterPath="$PROJECT_DIR$/out/production/uBot/org/bot/provider/loader/ServerLoader.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/script/loader/ScriptLoader.class" afterPath="$PROJECT_DIR$/out/production/uBot/org/bot/script/loader/ScriptLoader.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/script/scriptdata/ScriptData.class" afterPath="$PROJECT_DIR$/out/production/uBot/org/bot/script/scriptdata/ScriptData.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/menu/ButtonPanel$2.class" afterPath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/menu/ButtonPanel$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/menu/ButtonPanel$3.class" afterPath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/menu/ButtonPanel$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/menu/ButtonPanel$4.class" afterPath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/menu/ButtonPanel$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/menu/ButtonPanel.class" afterPath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/menu/ButtonPanel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/screens/scriptselector/ScriptSelector$1.class" afterPath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/screens/scriptselector/ScriptSelector$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/screens/scriptselector/ScriptSelector$2.class" afterPath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/screens/scriptselector/ScriptSelector$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/screens/scriptselector/ScriptSelector$3.class" afterPath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/screens/scriptselector/ScriptSelector$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/screens/scriptselector/ScriptSelector.class" afterPath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/screens/scriptselector/ScriptSelector.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/util/Utilities.class" afterPath="$PROJECT_DIR$/out/production/uBot/org/bot/util/Utilities.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/Engine.java" afterPath="$PROJECT_DIR$/src/org/bot/Engine.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/classloader/ASMClassLoader.java" afterPath="$PROJECT_DIR$/src/org/bot/classloader/ASMClassLoader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/classloader/ClassArchive.java" afterPath="$PROJECT_DIR$/src/org/bot/classloader/ClassArchive.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/component/RSCanvas.java" afterPath="$PROJECT_DIR$/src/org/bot/component/RSCanvas.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/component/inputs/InternalKeyboard.java" afterPath="$PROJECT_DIR$/src/org/bot/component/inputs/InternalKeyboard.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/component/inputs/InternalMouse.java" afterPath="$PROJECT_DIR$/src/org/bot/component/inputs/InternalMouse.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/component/inputs/Keyboard.java" afterPath="$PROJECT_DIR$/src/org/bot/component/inputs/Keyboard.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/component/inputs/Mouse.java" afterPath="$PROJECT_DIR$/src/org/bot/component/inputs/Mouse.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/component/listeners/PaintListener.java" afterPath="$PROJECT_DIR$/src/org/bot/component/listeners/PaintListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/component/screen/ScreenOverlay.java" afterPath="$PROJECT_DIR$/src/org/bot/component/screen/ScreenOverlay.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/hooking/FieldHook.java" afterPath="$PROJECT_DIR$/src/org/bot/hooking/FieldHook.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/hooking/Hook.java" afterPath="$PROJECT_DIR$/src/org/bot/hooking/Hook.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/hooking/JSONParser.java" afterPath="$PROJECT_DIR$/src/org/bot/hooking/JSONParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/hooking/MethodHook.java" afterPath="$PROJECT_DIR$/src/org/bot/hooking/MethodHook.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/hooking/XMLParser.java" afterPath="$PROJECT_DIR$/src/org/bot/hooking/XMLParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/provider/ServerProvider.java" afterPath="$PROJECT_DIR$/src/org/bot/provider/ServerProvider.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/provider/loader/ServerLoader.java" afterPath="$PROJECT_DIR$/src/org/bot/provider/loader/ServerLoader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/provider/manifest/HookType.java" afterPath="$PROJECT_DIR$/src/org/bot/provider/manifest/HookType.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/provider/manifest/NullManifestException.java" afterPath="$PROJECT_DIR$/src/org/bot/provider/manifest/NullManifestException.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/provider/manifest/Revision.java" afterPath="$PROJECT_DIR$/src/org/bot/provider/manifest/Revision.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/provider/manifest/ServerManifest.java" afterPath="$PROJECT_DIR$/src/org/bot/provider/manifest/ServerManifest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/provider/osrs/models/Model.java" afterPath="$PROJECT_DIR$/src/org/bot/provider/osrs/models/Model.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/provider/osrs/models/ModelCallBack.java" afterPath="$PROJECT_DIR$/src/org/bot/provider/osrs/models/ModelCallBack.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/script/loader/ScriptLoader.java" afterPath="$PROJECT_DIR$/src/org/bot/script/loader/ScriptLoader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/script/scriptdata/ScriptData.java" afterPath="$PROJECT_DIR$/src/org/bot/script/scriptdata/ScriptData.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/threads/HandleInputs.java" afterPath="$PROJECT_DIR$/src/org/bot/threads/HandleInputs.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/ui/BotUI.java" afterPath="$PROJECT_DIR$/src/org/bot/ui/BotUI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/ui/management/InterfaceAction.java" afterPath="$PROJECT_DIR$/src/org/bot/ui/management/InterfaceAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/ui/management/InterfaceActionRequest.java" afterPath="$PROJECT_DIR$/src/org/bot/ui/management/InterfaceActionRequest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/ui/management/Manageable.java" afterPath="$PROJECT_DIR$/src/org/bot/ui/management/Manageable.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/ui/management/Manager.java" afterPath="$PROJECT_DIR$/src/org/bot/ui/management/Manager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/ui/menu/ButtonPanel.java" afterPath="$PROJECT_DIR$/src/org/bot/ui/menu/ButtonPanel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/ui/menu/Buttons.java" afterPath="$PROJECT_DIR$/src/org/bot/ui/menu/Buttons.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/ui/screens/clientframe/GameFrame.java" afterPath="$PROJECT_DIR$/src/org/bot/ui/screens/clientframe/GameFrame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/ui/screens/loading/LoadingScreen.java" afterPath="$PROJECT_DIR$/src/org/bot/ui/screens/loading/LoadingScreen.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/ui/screens/login/PortalScreen.java" afterPath="$PROJECT_DIR$/src/org/bot/ui/screens/login/PortalScreen.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/ui/screens/scriptselector/ScriptPanel.java" afterPath="$PROJECT_DIR$/src/org/bot/ui/screens/scriptselector/ScriptPanel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/ui/screens/scriptselector/ScriptSelector.java" afterPath="$PROJECT_DIR$/src/org/bot/ui/screens/scriptselector/ScriptSelector.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/ui/screens/serverselector/ServerInformationTab.java" afterPath="$PROJECT_DIR$/src/org/bot/ui/screens/serverselector/ServerInformationTab.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/ui/screens/serverselector/ServerLabel.java" afterPath="$PROJECT_DIR$/src/org/bot/ui/screens/serverselector/ServerLabel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/ui/screens/serverselector/ServerSelectorScreen.java" afterPath="$PROJECT_DIR$/src/org/bot/ui/screens/serverselector/ServerSelectorScreen.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/util/BasicTimer.java" afterPath="$PROJECT_DIR$/src/org/bot/util/BasicTimer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/util/Condition.java" afterPath="$PROJECT_DIR$/src/org/bot/util/Condition.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/util/FileDownloader.java" afterPath="$PROJECT_DIR$/src/org/bot/util/FileDownloader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/util/Filter.java" afterPath="$PROJECT_DIR$/src/org/bot/util/Filter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/util/NetUtil.java" afterPath="$PROJECT_DIR$/src/org/bot/util/NetUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/util/PolygonUtils.java" afterPath="$PROJECT_DIR$/src/org/bot/util/PolygonUtils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/util/Random.java" afterPath="$PROJECT_DIR$/src/org/bot/util/Random.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/util/Utilities.java" afterPath="$PROJECT_DIR$/src/org/bot/util/Utilities.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/util/directory/Directory.java" afterPath="$PROJECT_DIR$/src/org/bot/util/directory/Directory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/util/directory/DirectoryManager.java" afterPath="$PROJECT_DIR$/src/org/bot/util/directory/DirectoryManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/util/directory/exceptions/InvalidDirectoryNameException.java" afterPath="$PROJECT_DIR$/src/org/bot/util/directory/exceptions/InvalidDirectoryNameException.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/util/directory/exceptions/InvalidFileNameException.java" afterPath="$PROJECT_DIR$/src/org/bot/util/directory/exceptions/InvalidFileNameException.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/util/directory/exceptions/InvalidNameException.java" afterPath="$PROJECT_DIR$/src/org/bot/util/directory/exceptions/InvalidNameException.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/util/injection/Injector.java" afterPath="$PROJECT_DIR$/src/org/bot/util/injection/Injector.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/util/injection/asm/ModifyCanvas.java" afterPath="$PROJECT_DIR$/src/org/bot/util/injection/asm/ModifyCanvas.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/util/injection/asm/SetSuper.java" afterPath="$PROJECT_DIR$/src/org/bot/util/injection/asm/SetSuper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/util/reflection/Modifiers.java" afterPath="$PROJECT_DIR$/src/org/bot/util/reflection/Modifiers.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/util/reflection/ReflectedClass.java" afterPath="$PROJECT_DIR$/src/org/bot/util/reflection/ReflectedClass.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/util/reflection/ReflectedConstructor.java" afterPath="$PROJECT_DIR$/src/org/bot/util/reflection/ReflectedConstructor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/util/reflection/ReflectedField.java" afterPath="$PROJECT_DIR$/src/org/bot/util/reflection/ReflectedField.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/util/reflection/ReflectedMethod.java" afterPath="$PROJECT_DIR$/src/org/bot/util/reflection/ReflectedMethod.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/bot/util/reflection/ReflectionEngine.java" afterPath="$PROJECT_DIR$/src/org/bot/util/reflection/ReflectionEngine.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,48 +93,85 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/uBot$uBot.coverage" NAME="uBot Coverage Results" MODIFIED="1500058617683" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ScriptLoader.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/bot/script/loader/ScriptLoader.java">
+      <file leaf-file-name="ServerLoader.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/bot/provider/loader/ServerLoader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1097">
-              <caret line="67" column="13" lean-forward="false" selection-start-line="67" selection-start-column="13" selection-end-line="67" selection-end-column="13" />
+            <state relative-caret-position="391">
+              <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Engine.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/bot/Engine.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="39" column="47" lean-forward="false" selection-start-line="39" selection-start-column="47" selection-end-line="39" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScriptSelector.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/bot/ui/screens/scriptselector/ScriptSelector.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="307">
+              <caret line="100" column="0" lean-forward="false" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1500056030766" expanded="true" signature="3145:3146" ph="{...}" />
+                <marker date="1500060569263" expanded="true" signature="3734:3735" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScriptManifest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/bot/script/scriptdata/ScriptManifest.java">
+      <file leaf-file-name="URLClassLoader.java" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/net/URLClassLoader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+            <state relative-caret-position="233">
+              <caret line="380" column="0" lean-forward="false" selection-start-line="380" selection-start-column="0" selection-end-line="380" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SkillCategory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/bot/script/scriptdata/SkillCategory.java">
+      <file leaf-file-name="ASMClassLoader.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/bot/classloader/ASMClassLoader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="29" column="29" lean-forward="false" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
+            <state relative-caret-position="221">
+              <caret line="97" column="0" lean-forward="false" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClassLoader.java" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/ClassLoader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="233">
+              <caret line="423" column="0" lean-forward="false" selection-start-line="423" selection-start-column="0" selection-end-line="423" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScriptData.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/bot/script/scriptdata/ScriptData.java">
+      <file leaf-file-name="ReflectionEngine.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/bot/util/reflection/ReflectionEngine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="4" column="3" lean-forward="false" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
-              <folding />
+            <state relative-caret-position="0">
+              <caret line="19" column="52" lean-forward="false" selection-start-line="19" selection-start-column="52" selection-end-line="19" selection-end-column="52" />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -66,8 +179,8 @@
       <file leaf-file-name="LoopScript.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/bot/script/types/LoopScript.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+            <state relative-caret-position="323">
+              <caret line="19" column="14" lean-forward="false" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
               <folding>
                 <element signature="e#336#337#0" expanded="true" />
                 <element signature="e#384#385#0" expanded="true" />
@@ -76,54 +189,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BotUI.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/bot/ui/BotUI.java">
+      <file leaf-file-name="ScriptLoader.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/org/bot/script/loader/ScriptLoader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="32" column="10" lean-forward="false" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
+            <state relative-caret-position="395">
+              <caret line="82" column="192" lean-forward="false" selection-start-line="82" selection-start-column="192" selection-end-line="82" selection-end-column="192" />
               <folding>
-                <element signature="e#871#872#0" expanded="true" />
-                <element signature="e#893#894#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <marker date="1500060571658" expanded="true" signature="3265:3266" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Buttons.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/bot/ui/menu/Buttons.java">
+      <file leaf-file-name="ScriptHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/bot/script/handler/ScriptHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ButtonPanel.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/org/bot/ui/menu/ButtonPanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="44" column="45" lean-forward="false" selection-start-line="44" selection-start-column="45" selection-end-line="44" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Action.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/bot/script/types/Action.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="16" column="1" lean-forward="false" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ActionScript.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/bot/script/types/ActionScript.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="19" column="8" lean-forward="false" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+            <state relative-caret-position="655">
+              <caret line="96" column="1" lean-forward="false" selection-start-line="96" selection-start-column="1" selection-end-line="96" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -192,13 +275,11 @@
         <option value="$PROJECT_DIR$/src/org/bot/util/injection/asm/ModelCallBack.java" />
         <option value="$PROJECT_DIR$/src/org/bot/util/injection/asm/Model.java" />
         <option value="$PROJECT_DIR$/src/org/bot/classloader/ClassArchive.java" />
-        <option value="$PROJECT_DIR$/src/org/bot/util/Utilities.java" />
         <option value="$PROJECT_DIR$/src/org/bot/provider/osrs/models/ModelCallBack.java" />
         <option value="$PROJECT_DIR$/src/org/bot/provider/osrs/models/ModelInjector.java" />
         <option value="$PROJECT_DIR$/src/org/bot/provider/osrs/models/Model.java" />
         <option value="$PROJECT_DIR$/src/org/bot/util/reflection/ReflectedMethod.java" />
         <option value="$PROJECT_DIR$/src/org/bot/util/reflection/ReflectedClass.java" />
-        <option value="$PROJECT_DIR$/src/org/bot/util/reflection/ReflectionEngine.java" />
         <option value="$PROJECT_DIR$/src/org/bot/ui/screens/clientframe/GameFrame.java" />
         <option value="$PROJECT_DIR$/src/org/bot/classloader/ASMClassLoader.java" />
         <option value="$PROJECT_DIR$/src/org/bot/provider/manifest/ServerManifest.java" />
@@ -208,7 +289,6 @@
         <option value="$PROJECT_DIR$/src/org/bot/hooking/Hook.java" />
         <option value="$PROJECT_DIR$/src/org/bot/ui/screens/loading/LoadingScreen.java" />
         <option value="$PROJECT_DIR$/src/org/bot/ui/BotUI.java" />
-        <option value="$PROJECT_DIR$/src/org/bot/provider/loader/ServerLoader.java" />
         <option value="$PROJECT_DIR$/src/org/bot/hooking/JSONParser.java" />
         <option value="$PROJECT_DIR$/src/org/bot/script/ScriptInfo.java" />
         <option value="$PROJECT_DIR$/src/org/bot/script/Manifest.java" />
@@ -216,18 +296,21 @@
         <option value="$PROJECT_DIR$/src/org/bot/script/scriptdata/Manifest.java" />
         <option value="$PROJECT_DIR$/src/org/bot/script/scriptdata/ScriptManifest.java" />
         <option value="$PROJECT_DIR$/src/org/bot/ui/screens/scriptselector/ScriptPanel.java" />
-        <option value="$PROJECT_DIR$/src/org/bot/ui/screens/scriptselector/ScriptSelector.java" />
         <option value="$PROJECT_DIR$/src/org/bot/script/scriptdata/ScriptInfo.java" />
-        <option value="$PROJECT_DIR$/src/org/bot/script/loader/ScriptLoader.java" />
         <option value="$PROJECT_DIR$/src/org/bot/ui/screens/serverselector/ServerSelectorScreen.java" />
         <option value="$PROJECT_DIR$/src/org/bot/script/scriptdata/SkillCategory.java" />
-        <option value="$PROJECT_DIR$/src/org/bot/Engine.java" />
         <option value="$PROJECT_DIR$/src/org/bot/script/handler/ScriptHandler.java" />
         <option value="$PROJECT_DIR$/src/org/bot/script/types/LoopScript.java" />
         <option value="$PROJECT_DIR$/src/org/bot/script/types/ActionScript.java" />
-        <option value="$PROJECT_DIR$/src/org/bot/script/scriptdata/ScriptData.java" />
         <option value="$PROJECT_DIR$/src/org/bot/script/types/Action.java" />
         <option value="$PROJECT_DIR$/src/org/bot/ui/menu/ButtonPanel.java" />
+        <option value="$PROJECT_DIR$/src/org/bot/ui/screens/scriptselector/ScriptSelector.java" />
+        <option value="$PROJECT_DIR$/src/org/bot/util/Utilities.java" />
+        <option value="$PROJECT_DIR$/src/org/bot/script/scriptdata/ScriptData.java" />
+        <option value="$PROJECT_DIR$/src/org/bot/util/reflection/ReflectionEngine.java" />
+        <option value="$PROJECT_DIR$/src/org/bot/Engine.java" />
+        <option value="$PROJECT_DIR$/src/org/bot/provider/loader/ServerLoader.java" />
+        <option value="$PROJECT_DIR$/src/org/bot/script/loader/ScriptLoader.java" />
       </list>
     </option>
   </component>
@@ -276,6 +359,10 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -292,6 +379,54 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="bot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Dawntained-Client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Dawntained-Client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="reflection" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -314,6 +449,62 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Dawntained-Client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="screens" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Dawntained-Client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="screens" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scriptselector" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -514,6 +705,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="component" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Dawntained-Client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -802,19 +1007,19 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3244397" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32286024" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33084312" sideWeight="0.50364965" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21881838" sideWeight="0.49635038" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2177243" sideWeight="0.49635038" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -846,50 +1051,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/org/bot/provider/osrs/models/ModelCallBack.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="1" lean-forward="false" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
-          <folding>
-            <element signature="e#753#754#0" expanded="true" />
-            <element signature="e#798#799#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/bot/provider/osrs/models/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2057">
-          <caret line="121" column="54" lean-forward="false" selection-start-line="121" selection-start-column="54" selection-end-line="121" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4059#4060#0" expanded="true" />
-            <element signature="e#4105#4106#0" expanded="true" />
-            <element signature="e#4355#4356#0" expanded="true" />
-            <element signature="e#4619#4620#0" expanded="true" />
-            <element signature="e#4660#4661#0" expanded="true" />
-            <element signature="e#5517#5518#0" expanded="true" />
-            <element signature="e#5545#5546#0" expanded="true" />
-            <element signature="e#5577#5578#0" expanded="true" />
-            <element signature="e#5613#5614#0" expanded="true" />
-            <element signature="e#6968#6969#0" expanded="true" />
-            <element signature="e#6996#6997#0" expanded="true" />
-            <element signature="e#7025#7026#0" expanded="true" />
-            <element signature="e#7053#7054#0" expanded="true" />
-            <element signature="e#7078#7079#0" expanded="true" />
-            <element signature="e#7102#7103#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/bot/util/FileDownloader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="36" column="39" lean-forward="false" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/bot/util/reflection/Modifiers.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -914,14 +1075,6 @@
             <element signature="e#1067#1068#0" expanded="true" />
             <element signature="e#1107#1108#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/bot/util/reflection/ReflectionEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -951,20 +1104,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/bot/classloader/ASMClassLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="69" column="13" lean-forward="false" selection-start-line="69" selection-start-column="13" selection-end-line="69" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/bot/provider/manifest/HookType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="1" lean-forward="false" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1079,9 +1223,9 @@
         <state relative-caret-position="544">
           <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding>
-            <marker date="1500054932423" expanded="true" signature="484:587" ph="{...}" />
-            <marker date="1500054932423" expanded="true" signature="615:932" ph="{...}" />
-            <marker date="1500054932423" expanded="true" signature="1907:1910" ph="{...}" />
+            <marker date="1500060569319" expanded="true" signature="484:587" ph="{...}" />
+            <marker date="1500060569319" expanded="true" signature="615:932" ph="{...}" />
+            <marker date="1500060569319" expanded="true" signature="2117:2123" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1156,25 +1300,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/bot/ui/screens/scriptselector/ScriptSelector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="28" column="52" lean-forward="false" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1500054932426" expanded="true" signature="3028:3029" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/bot/ui/screens/serverselector/ServerSelectorScreen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="335">
           <caret line="76" column="17" lean-forward="false" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1500054932429" expanded="true" signature="3189:3218" ph="{...}" />
-            <marker date="1500054932429" expanded="true" signature="3271:3480" ph="{...}" />
+            <marker date="1500060571776" expanded="true" signature="3873:3917" ph="{...}" />
+            <marker date="1500060571776" expanded="true" signature="3973:4248" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1191,65 +1324,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-6">
           <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/bot/Engine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="43" column="18" lean-forward="false" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1535#1536#0" expanded="true" />
-            <element signature="e#1559#1560#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/bot/provider/loader/ServerLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-157">
-          <caret line="46" column="26" lean-forward="false" selection-start-line="46" selection-start-column="26" selection-end-line="47" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/bot/script/handler/ScriptHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1496">
-          <caret line="96" column="1" lean-forward="false" selection-start-line="96" selection-start-column="1" selection-end-line="96" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/bot/script/loader/ScriptLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1097">
-          <caret line="67" column="13" lean-forward="false" selection-start-line="67" selection-start-column="13" selection-end-line="67" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1500056030766" expanded="true" signature="3145:3146" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/bot/script/scriptdata/ScriptData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="4" column="3" lean-forward="false" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/bot/script/scriptdata/ScriptManifest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1278,24 +1352,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/bot/script/types/LoopScript.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="e#336#337#0" expanded="true" />
-            <element signature="e#384#385#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/bot/ui/BotUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="32" column="10" lean-forward="false" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
           <folding>
-            <element signature="e#871#872#0" expanded="true" />
-            <element signature="e#893#894#0" expanded="true" />
+            <element signature="e#916#917#0" expanded="true" />
+            <element signature="e#947#948#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1310,9 +1373,131 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/bot/ui/menu/ButtonPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
+        <state relative-caret-position="372">
           <caret line="44" column="45" lean-forward="false" selection-start-line="44" selection-start-column="45" selection-end-line="44" selection-end-column="45" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/bot/util/Utilities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/bot/script/scriptdata/ScriptManifest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/bot/script/scriptdata/ScriptData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="36" column="14" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="36" selection-end-column="14" />
+          <folding>
+            <element signature="e#840#841#0" expanded="true" />
+            <element signature="e#873#874#0" expanded="true" />
+            <element signature="e#905#906#0" expanded="true" />
+            <element signature="e#933#934#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/net/URLClassLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="380" column="0" lean-forward="false" selection-start-line="380" selection-start-column="0" selection-end-line="380" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/ClassLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="423" column="0" lean-forward="false" selection-start-line="423" selection-start-column="0" selection-end-line="423" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/bot/script/types/LoopScript.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="14" lean-forward="false" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+          <folding>
+            <element signature="e#336#337#0" expanded="true" />
+            <element signature="e#384#385#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/bot/classloader/ASMClassLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="97" column="0" lean-forward="false" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/bot/util/reflection/ReflectionEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="19" column="52" lean-forward="false" selection-start-line="19" selection-start-column="52" selection-end-line="19" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/bot/Engine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="39" column="47" lean-forward="false" selection-start-line="39" selection-start-column="47" selection-end-line="39" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/bot/ui/screens/scriptselector/ScriptSelector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="100" column="0" lean-forward="false" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1500060569263" expanded="true" signature="3734:3735" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/bot/script/handler/ScriptHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="655">
+          <caret line="96" column="1" lean-forward="false" selection-start-line="96" selection-start-column="1" selection-end-line="96" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/bot/provider/loader/ServerLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/bot/script/loader/ScriptLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="82" column="192" lean-forward="false" selection-start-line="82" selection-start-column="192" selection-end-line="82" selection-end-column="192" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1500060571658" expanded="true" signature="3265:3266" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>

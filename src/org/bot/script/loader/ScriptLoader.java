@@ -6,6 +6,8 @@ import org.bot.classloader.ClassArchive;
 import org.bot.provider.manifest.NullManifestException;
 import org.bot.script.scriptdata.ScriptData;
 import org.bot.script.scriptdata.ScriptManifest;
+import org.bot.script.types.LoopScript;
+import org.bot.util.directory.DirectoryManager;
 import org.bot.util.directory.exceptions.InvalidDirectoryNameException;
 
 import java.io.File;
@@ -21,9 +23,7 @@ import java.util.jar.JarInputStream;
  */
 
 public class ScriptLoader {
-
     private static final List<ScriptData> scripts = new ArrayList<>();
-
 
     public static List<ScriptData> getScripts() {
         scripts.clear();
@@ -57,7 +57,7 @@ public class ScriptLoader {
                             if (manifest == null) {
                                 throw new NullManifestException();
                             }
-                            ScriptData scriptData = new ScriptData(classPackage.replaceAll("/", "."), manifest.name(), manifest.server(), manifest.description(), manifest.version(), manifest.author(), manifest.category());
+                            ScriptData scriptData = new ScriptData(classPackage.replaceAll("/", "."), manifest.name(), manifest.server(), manifest.description(), manifest.version(), manifest.author(), manifest.category(), new File(file.getAbsolutePath()));
                             scripts.add(scriptData);
                         }
                     }
@@ -74,5 +74,18 @@ public class ScriptLoader {
             System.exit(0);
         }
         return scripts;
+    }
+
+    public static LoopScript loadScript(ScriptData scriptData) {
+        LoopScript loopScript = null;
+        try {
+            Engine.getClassArchive().addJar(scriptData.scriptPath.toURI().toURL());
+            Engine.getClassArchive().addJar(new File(DirectoryManager.SERVER_PROVIDERS_PATH + "/" + Engine.getProviderJarNames().get(Engine.getServerManifest().serverName())).toURI().toURL());
+            ASMClassLoader classLoader = new ASMClassLoader(Engine.getClassArchive());
+            loopScript = (LoopScript) classLoader.loadClass(scriptData.clazz).newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return loopScript;
     }
 }
