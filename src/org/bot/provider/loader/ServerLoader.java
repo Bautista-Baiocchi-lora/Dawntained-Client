@@ -1,8 +1,6 @@
 package org.bot.provider.loader;
 
 import javafx.concurrent.Task;
-import javafx.concurrent.WorkerStateEvent;
-import javafx.event.EventHandler;
 import org.bot.Engine;
 import org.bot.component.screen.ScreenOverlay;
 import org.bot.hooking.Hook;
@@ -36,19 +34,24 @@ public abstract class ServerLoader<T extends Component> extends Task<Void> {
 		this.SERVER_NAME = serverName;
 		this.HOOK_URL = hookURL;
 	}
+
 	@Override
 	protected void succeeded() {
 		BotUI.getInstance().terminate();
 	}
+
 	@Override
 	protected void failed() {
-		System.out.println("Bad jar must fail");
+		System.out.println("Jar error.");
+		System.exit(0);
 	}
+
 	@Override
 	public Void call() {
 		try {
 			updateMessage("Updating " + SERVER_NAME + " jar file.");
 			Thread downloadThread = new Thread(this.downloader = new FileDownloader(JAR_URL, SERVER_NAME));
+			updateProgress(0.1, 1);
 			downloadThread.start();
 			while (downloadThread.isAlive()) {
 				updateProgress((0.4 * downloader.getProgress()), 1);
@@ -57,11 +60,11 @@ public abstract class ServerLoader<T extends Component> extends Task<Void> {
 			Engine.getClassArchive().addJar(new File(downloader.getArchivePath() + "/" + SERVER_NAME + ".jar").toURI().toURL());
 			updateMessage("Creating reflection engine.");
 			Engine.setReflectionEngine(new ReflectionEngine(Engine.getClassArchive(), loadHooks()));
-			updateProgress(0.5, 1);
+			updateProgress(0.6, 1);
 			try {
 				updateMessage("Loading component.");
 				component = loadComponent();
-				updateProgress(0.8, 1);
+				updateProgress(0.9, 1);
 				if (Engine.getServerManifest().type().equals(Applet.class)) {
 					updateMessage("Embedding applet.");
 					final JPanel panel = new JPanel();

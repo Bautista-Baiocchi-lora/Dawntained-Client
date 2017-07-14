@@ -5,7 +5,6 @@ import org.bot.util.NetUtil;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-
 import java.util.Map;
 
 /**
@@ -27,16 +26,16 @@ public class JSONParser {
 			JSONObject mainObject = (JSONObject) jsonParser.parse(NetUtil.readUrl(HOOK_URL));
 			JSONObject resourceObject = (JSONObject) mainObject.get("resource");
 			JSONArray hookArray = (JSONArray) resourceObject.get("getterInjects");
-			for(Object hooks : hookArray){
+			for (Object hooks : hookArray) {
 				JSONObject jsonHook = (JSONObject) hooks;
 				final String getterName = (String) jsonHook.get("getterName");
 				final String getterClassName = (String) jsonHook.get("getterClassName");
 				final String getterFieldName = (String) jsonHook.get("getterFieldName");
 				long multiplier = -1;
-				if(jsonHook.get("multiplier") != null) {
+				if (jsonHook.get("multiplier") != null) {
 					multiplier = (long) jsonHook.get("multiplier");
 				}
-				System.out.println("Getter: "+getterName + " || Class: "+getterClassName + " || Field: "+getterFieldName + " || Multiplier: "+multiplier);
+				System.out.println("Getter: " + getterName + " || Class: " + getterClassName + " || Field: " + getterFieldName + " || Multiplier: " + multiplier);
 
 			}
 		} catch (Exception e) {

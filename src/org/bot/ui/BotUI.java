@@ -37,11 +37,11 @@ public class BotUI extends Application implements Manager {
 	@Override
 	public void start(Stage stage) throws Exception {
 		stage.setTitle(Engine.getInterfaceTitle());
-		stage.show();
 		final PortalScreen portal = new PortalScreen();
 		portal.registerManager(this);
 		stage.setScene(portal);
 		stage.sizeToScene();
+		stage.show();
 		this.stage = stage;
 	}
 
@@ -79,7 +79,7 @@ public class BotUI extends Application implements Manager {
 				stage = null;
 				break;
 			default:
-				System.out.println("Error processing interface aciton request.");
+				System.out.println("Error processing interface action request.");
 				break;
 		}
 	}
