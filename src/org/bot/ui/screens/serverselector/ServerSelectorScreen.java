@@ -22,82 +22,82 @@ import java.util.jar.JarInputStream;
 
 public class ServerSelectorScreen extends Scene {
 
-	private static HBox layout;
-	private ServerInformationTab serverTab;
+    private static HBox layout;
+    private ServerInformationTab serverTab;
 
-	public ServerSelectorScreen() {
-		super(layout = new HBox());
-		configure();
-	}
+    public ServerSelectorScreen() {
+        super(layout = new HBox());
+        configure();
+    }
 
-	private void configure() {
-		ListView<ServerLabel> list = new ListView<ServerLabel>();
-		list.setEditable(false);
-		ObservableList<ServerLabel> items = FXCollections.observableArrayList(getServerProviderComponents());
-		list.setItems(items);
-		list.setOnMouseClicked((e) -> {
-			if (list.getSelectionModel().getSelectedItem() != null) {
-				displayTab(list.getSelectionModel().getSelectedItem().getTab());
-			}
-		});
-		list.setMaxWidth(250);
-		layout.getChildren().addAll(list);
-	}
+    private void configure() {
+        ListView<ServerLabel> list = new ListView<ServerLabel>();
+        list.setEditable(false);
+        ObservableList<ServerLabel> items = FXCollections.observableArrayList(getServerProviderComponents());
+        list.setItems(items);
+        list.setOnMouseClicked((e) -> {
+            if (list.getSelectionModel().getSelectedItem() != null) {
+                displayTab(list.getSelectionModel().getSelectedItem().getTab());
+            }
+        });
+        list.setMaxWidth(250);
+        layout.getChildren().addAll(list);
+    }
 
-	private ArrayList<ServerLabel> getServerProviderComponents() {
-		final ArrayList<ServerLabel> providers = new ArrayList<ServerLabel>();
-		try {
-			for (File file : Engine.getDirectoryManager().getRootDirectory().getSubDirectory("Server Providers")
-					.getFiles()) {
-				Engine.setClassArchive(new ClassArchive());
-				Engine.getClassArchive().addJar((new File(file.getAbsolutePath()).toURI().toURL()));
-				ASMClassLoader cl = new ASMClassLoader(Engine.getClassArchive());
-				try (JarInputStream inputStream = new JarInputStream(new FileInputStream(file))) {
-					JarEntry jarEntry;
-					while ((jarEntry = inputStream.getNextJarEntry()) != null) {
-						if (jarEntry.getName().endsWith(".class") && !jarEntry.getName().contains("$")) {
-							Class<?> clazz;
-							String classPackage = jarEntry.getName().replace(".class", "");
-							clazz = cl.loadClass(classPackage.replaceAll("/", "."));
-							ServerLoader<?> loader = null;
-							if (clazz.isAnnotationPresent(ServerManifest.class)) {
-								final ServerManifest manifest = clazz.getAnnotation(ServerManifest.class);
-								if (manifest == null) {
-									throw new NullManifestException();
-								}
-								loader = (ServerLoader<?>) clazz.newInstance();
-								Engine.getProviderJarNames().put(manifest.serverName(), file.getName());
-								providers.add(new ServerLabel(loader, manifest));
-							}
-						}
-					}
-				}
-			}
-		} catch (InvalidDirectoryNameException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (NullManifestException e) {
-			e.printStackTrace();
-		} catch (InstantiationException e) {
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
-		}
-		return providers;
-	}
+    private ArrayList<ServerLabel> getServerProviderComponents() {
+        final ArrayList<ServerLabel> providers = new ArrayList<ServerLabel>();
+        try {
+            for (File file : Engine.getDirectoryManager().getRootDirectory().getSubDirectory("Server Providers")
+                    .getFiles()) {
+                Engine.setClassArchive(new ClassArchive());
+                Engine.getClassArchive().addJar((new File(file.getAbsolutePath()).toURI().toURL()));
+                ASMClassLoader cl = new ASMClassLoader(Engine.getClassArchive());
+                try (JarInputStream inputStream = new JarInputStream(new FileInputStream(file))) {
+                    JarEntry jarEntry;
+                    while ((jarEntry = inputStream.getNextJarEntry()) != null) {
+                        if (jarEntry.getName().endsWith(".class") && !jarEntry.getName().contains("$")) {
+                            Class<?> clazz;
+                            String classPackage = jarEntry.getName().replace(".class", "");
+                            clazz = cl.loadClass(classPackage.replaceAll("/", "."));
+                            ServerLoader<?> loader = null;
+                            if (clazz.isAnnotationPresent(ServerManifest.class)) {
+                                final ServerManifest manifest = clazz.getAnnotation(ServerManifest.class);
+                                if (manifest == null) {
+                                    throw new NullManifestException();
+                                }
+                                loader = (ServerLoader<?>) clazz.newInstance();
+                                Engine.getProviderJarNames().put(manifest.serverName(), file.getName());
+                                providers.add(new ServerLabel(loader, manifest));
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (InvalidDirectoryNameException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (NullManifestException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return providers;
+    }
 
-	private void displayTab(ServerInformationTab tab) {
-		if (serverTab == null) {
-			serverTab = tab;
-			layout.getChildren().add(serverTab);
-		} else {
-			layout.getChildren().remove(serverTab);
-			serverTab = tab;
-			layout.getChildren().add(serverTab);
-		}
-	}
+    private void displayTab(ServerInformationTab tab) {
+        if (serverTab == null) {
+            serverTab = tab;
+            layout.getChildren().add(serverTab);
+        } else {
+            layout.getChildren().remove(serverTab);
+            serverTab = tab;
+            layout.getChildren().add(serverTab);
+        }
+    }
 
 }

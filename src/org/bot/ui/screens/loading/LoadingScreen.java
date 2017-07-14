@@ -21,51 +21,51 @@ import java.util.ArrayList;
 
 public class LoadingScreen extends Scene implements Manageable {
 
-	private static VBox layout;
-	private final ArrayList<Manager> managers = new ArrayList<Manager>();
-	private final Thread loadThread;
-	private final Task<?> task;
-	private ProgressBar bar;
-	private Label status;
-	private boolean success;
+    private static VBox layout;
+    private final ArrayList<Manager> managers = new ArrayList<Manager>();
+    private final Thread loadThread;
+    private final Task<?> task;
+    private ProgressBar bar;
+    private Label status;
+    private boolean success;
 
-	public LoadingScreen(Task<?> task) {
-		super(layout = new VBox(), 400, 70);
-		loadThread = new Thread(this.task = task);
-		configure();
-	}
+    public LoadingScreen(Task<?> task) {
+        super(layout = new VBox(), 400, 70);
+        loadThread = new Thread(this.task = task);
+        configure();
+    }
 
-	private void configure() {
-		bar = new ProgressBar();
-		bar.progressProperty().bind(task.progressProperty());
-		bar.setMaxWidth(Double.MAX_VALUE);
-		status = new Label("Status");
-		status.textProperty().bind(task.messageProperty());
-		layout.getChildren().addAll(status, bar);
-		layout.setSpacing(10);
-		layout.setStyle("-fx-padding: 10");
-	}
+    private void configure() {
+        bar = new ProgressBar();
+        bar.progressProperty().bind(task.progressProperty());
+        bar.setMaxWidth(Double.MAX_VALUE);
+        status = new Label("Status");
+        status.textProperty().bind(task.messageProperty());
+        layout.getChildren().addAll(status, bar);
+        layout.setSpacing(10);
+        layout.setStyle("-fx-padding: 10");
+    }
 
-	public void run() {
-		loadThread.setDaemon(true);
-		task.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
-			@Override
-			public void handle(final WorkerStateEvent event) {
-				requestAction(new InterfaceActionRequest.ActionBuilder(InterfaceAction.TERMINATE_UI).build());
-			}
-		});
-		loadThread.start();
-	}
+    public void run() {
+        loadThread.setDaemon(true);
+        task.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
+            @Override
+            public void handle(final WorkerStateEvent event) {
+                requestAction(new InterfaceActionRequest.ActionBuilder(InterfaceAction.TERMINATE_UI).build());
+            }
+        });
+        loadThread.start();
+    }
 
-	@Override
-	public void requestAction(final InterfaceActionRequest request) {
-		for (Manager manager : managers) {
-			manager.processActionRequest(request);
-		}
-	}
+    @Override
+    public void requestAction(final InterfaceActionRequest request) {
+        for (Manager manager : managers) {
+            manager.processActionRequest(request);
+        }
+    }
 
-	@Override
-	public void registerManager(final Manager manager) {
-		managers.add(manager);
-	}
+    @Override
+    public void registerManager(final Manager manager) {
+        managers.add(manager);
+    }
 }

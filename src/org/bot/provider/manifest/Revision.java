@@ -1,5 +1,5 @@
 package org.bot.provider.manifest;
 
 public enum Revision {
-	OSRS, $317, $474;
+    OSRS, $317, $474;
 }
