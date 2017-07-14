@@ -33,8 +33,7 @@ public class ServerSelectorScreen extends Scene {
 	private void configure() {
 		ListView<ServerLabel> list = new ListView<ServerLabel>();
 		list.setEditable(false);
-		ArrayList<ServerLabel> providers = getServerProviderComponents();
-		ObservableList<ServerLabel> items = FXCollections.observableArrayList(providers);
+		ObservableList<ServerLabel> items = FXCollections.observableArrayList(getServerProviderComponents());
 		list.setItems(items);
 		list.setOnMouseClicked((e) -> {
 			if (list.getSelectionModel().getSelectedItem() != null) {
@@ -47,42 +46,45 @@ public class ServerSelectorScreen extends Scene {
 
 	private ArrayList<ServerLabel> getServerProviderComponents() {
 		final ArrayList<ServerLabel> providers = new ArrayList<ServerLabel>();
-		JarInputStream inputStream = null;
 		try {
 			for (File file : Engine.getDirectoryManager().getRootDirectory().getSubDirectory("Server Providers")
 					.getFiles()) {
 				Engine.setClassArchive(new ClassArchive());
 				Engine.getClassArchive().addJar((new File(file.getAbsolutePath()).toURI().toURL()));
 				ASMClassLoader cl = new ASMClassLoader(Engine.getClassArchive());
-				inputStream = new JarInputStream(new FileInputStream(file));
-				JarEntry jarEntry;
-				while ((jarEntry = inputStream.getNextJarEntry()) != null) {
-					if (jarEntry.getName().endsWith(".class") && !jarEntry.getName().contains("$")) {
-						Class<?> clazz;
-						String classPackage = jarEntry.getName().replace(".class", "");
-						clazz = cl.loadClass(classPackage.replaceAll("/", "."));
-						ServerLoader<?> loader = null;
-						if (clazz.isAnnotationPresent(ServerManifest.class)) {
-							final ServerManifest manifest = clazz.getAnnotation(ServerManifest.class);
-							if (manifest == null) {
-								throw new NullManifestException();
+				try (JarInputStream inputStream = new JarInputStream(new FileInputStream(file))) {
+					JarEntry jarEntry;
+					while ((jarEntry = inputStream.getNextJarEntry()) != null) {
+						if (jarEntry.getName().endsWith(".class") && !jarEntry.getName().contains("$")) {
+							Class<?> clazz;
+							String classPackage = jarEntry.getName().replace(".class", "");
+							clazz = cl.loadClass(classPackage.replaceAll("/", "."));
+							ServerLoader<?> loader = null;
+							if (clazz.isAnnotationPresent(ServerManifest.class)) {
+								final ServerManifest manifest = clazz.getAnnotation(ServerManifest.class);
+								if (manifest == null) {
+									throw new NullManifestException();
+								}
+								loader = (ServerLoader<?>) clazz.newInstance();
+								Engine.getProviderJarNames().put(manifest.serverName(), file.getName());
+								providers.add(new ServerLabel(loader, manifest));
 							}
-							loader = (ServerLoader<?>) clazz.newInstance();
-							Engine.getProviderJarNames().put(manifest.serverName(), file.getName());
-							providers.add(new ServerLabel(loader, manifest));
 						}
 					}
 				}
 			}
-			if(inputStream != null) {
-				inputStream.close();
-			}
-		} catch (IOException | InstantiationException | IllegalAccessException | ClassNotFoundException
-				| InvalidDirectoryNameException e) {
+		} catch (InvalidDirectoryNameException e) {
 			e.printStackTrace();
-		} catch (NullManifestException e1) {
-			e1.printStackTrace();
-			System.exit(0);
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (NullManifestException e) {
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
 		}
 		return providers;
 	}

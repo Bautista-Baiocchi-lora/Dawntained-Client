@@ -29,9 +29,9 @@ public class ButtonPanel extends JPanel {
 		playButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-					scriptSelector.loadScripts();
-					scriptSelector.setLocationRelativeTo(scriptSelector.getOwner());
-					scriptSelector.setVisible(!scriptSelector.isVisible());
+				scriptSelector.loadScripts();
+				scriptSelector.setLocationRelativeTo(scriptSelector.getOwner());
+				scriptSelector.setVisible(!scriptSelector.isVisible());
 
 			}
 		});

@@ -5,7 +5,6 @@ import org.bot.Engine;
 import org.bot.component.screen.ScreenOverlay;
 import org.bot.hooking.Hook;
 import org.bot.threads.HandleInputs;
-import org.bot.ui.BotUI;
 import org.bot.ui.screens.clientframe.GameFrame;
 import org.bot.util.FileDownloader;
 import org.bot.util.injection.Injector;
@@ -33,17 +32,6 @@ public abstract class ServerLoader<T extends Component> extends Task<Void> {
 		this.JAR_URL = jarURL;
 		this.SERVER_NAME = serverName;
 		this.HOOK_URL = hookURL;
-	}
-
-	@Override
-	protected void succeeded() {
-		BotUI.getInstance().terminate();
-	}
-
-	@Override
-	protected void failed() {
-		System.out.println("Jar error.");
-		System.exit(0);
 	}
 
 	@Override
@@ -96,6 +84,7 @@ public abstract class ServerLoader<T extends Component> extends Task<Void> {
 		}
 		return null;
 	}
+
 
 	public final String getJarURL() {
 		return JAR_URL;

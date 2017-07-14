@@ -15,8 +15,8 @@ import org.bot.util.directory.DirectoryManager;
 
 public class BotUI extends Application implements Manager {
 
+	public static Stage stage;
 	private static BotUI instance = new BotUI();
-	private Stage stage;
 
 	public BotUI() {
 		Engine.setDirectoryManager(new DirectoryManager());
@@ -30,53 +30,39 @@ public class BotUI extends Application implements Manager {
 		return instance;
 	}
 
-	public void terminate() {
+	private void terminate() {
 		Platform.exit();
 	}
 
 	@Override
 	public void start(Stage stage) throws Exception {
-		stage.setTitle(Engine.getInterfaceTitle());
-		final PortalScreen portal = new PortalScreen();
-		portal.registerManager(this);
-		stage.setScene(portal);
-		stage.sizeToScene();
-		stage.show();
 		this.stage = stage;
-	}
-
-	private void displayServerSelector() {
-		displayScreen(new ServerSelectorScreen());
-		stage.setWidth(500);
-		stage.setHeight(300);
+		PortalScreen screen = new PortalScreen();
+		screen.registerManager(this);
+		displayScreen(screen);
+		stage.show();
 	}
 
 	private void displayScreen(final Scene scene) {
-		final Stage newStage = new Stage();
-		newStage.setTitle(Engine.getInterfaceTitle());
-		newStage.setScene(scene);
-		newStage.sizeToScene();
-		if (stage != null) {
-			this.stage.close();
-		}
-		this.stage = newStage;
-		this.stage.show();
+		stage.setTitle(Engine.getInterfaceTitle());
+		stage.setScene(scene);
+		stage.sizeToScene();
 	}
 
 	@Override
 	public void processActionRequest(InterfaceActionRequest request) {
+		System.out.println("Request");
 		switch (request.getAction()) {
 			case LOAD_SERVER:
 				loadServer(request.getProvider());
 				break;
 			case SHOW_SERVER_SELECTOR:
-				displayServerSelector();
+				displayScreen(new ServerSelectorScreen());
+				stage.setWidth(500);
+				stage.setHeight(300);
 				break;
 			case TERMINATE_UI:
 				terminate();
-				break;
-			case TERMINATE_CURRENT_STAGE:
-				stage = null;
 				break;
 			default:
 				System.out.println("Error processing interface action request.");
@@ -87,8 +73,10 @@ public class BotUI extends Application implements Manager {
 	private void loadServer(ServerProvider provider) {
 		Engine.setServerProvider(provider);
 		final LoadingScreen screen = new LoadingScreen(Engine.getServerLoader());
+		screen.registerManager(this);
 		displayScreen(screen);
 		screen.run();
+
 	}
 
 }

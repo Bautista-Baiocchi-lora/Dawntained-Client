@@ -40,7 +40,6 @@ public class ServerInformationTab extends ScrollPane implements Manageable {
 
 		Button launchButton = new Button("Launch");
 		launchButton.setOnAction((e) -> {
-			requestAction(new InterfaceActionRequest.ActionBuilder(InterfaceAction.TERMINATE_CURRENT_STAGE).build());
 			requestAction(
 					new InterfaceActionRequest.ActionBuilder(InterfaceAction.LOAD_SERVER).provider(provider).build());
 		});
