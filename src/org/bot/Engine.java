@@ -1,11 +1,13 @@
 package org.bot;
 
 import org.bot.classloader.ClassArchive;
+import org.bot.component.RSCanvas;
 import org.bot.component.inputs.InternalKeyboard;
 import org.bot.component.inputs.InternalMouse;
 import org.bot.provider.ServerProvider;
 import org.bot.provider.loader.ServerLoader;
 import org.bot.provider.manifest.ServerManifest;
+import org.bot.script.handler.ScriptHandler;
 import org.bot.ui.screens.clientframe.GameFrame;
 import org.bot.util.directory.DirectoryManager;
 import org.bot.util.reflection.ReflectionEngine;
@@ -25,19 +27,24 @@ public class Engine {
 	private static boolean debugMouse;
 	private static DirectoryManager directoryManager;
 	private static ServerManifest serverManifest;
-	private static Canvas gameCanvas;
+	private static RSCanvas gameCanvas;
 	private static GameFrame gameFrame;
 	private static ReflectionEngine reflectionEngine;
 	private static Rectangle gameViewport = new Rectangle(5, 5, 509, 332);
-	;
 	private static InternalMouse mouse;
 	private static InternalKeyboard keyboard;
 	private static Map<String, String> providerJarNames = new HashMap();
 	private static ClassArchive classArchive;
 	private static Hashtable<Object, Object> modelCache = new Hashtable<>();
-
+	private static ScriptHandler scriptHandler;
 	public static Hashtable<Object, Object> getModelCache() {
 		return modelCache;
+	}
+
+	public static ScriptHandler getScriptHandler() {
+		if (scriptHandler == null)
+			scriptHandler = new ScriptHandler();
+		return scriptHandler;
 	}
 
 	public static ClassArchive getClassArchive() {
@@ -145,11 +152,11 @@ public class Engine {
 		Engine.gameComponent = gameComponent;
 	}
 
-	public static Canvas getGameCanvas() {
+	public static RSCanvas getGameCanvas() {
 		return gameCanvas;
 	}
 
-	public static void setGameCanvas(Canvas gameCanvas) {
+	public static void setGameCanvas(RSCanvas gameCanvas) {
 		Engine.gameCanvas = gameCanvas;
 	}
 

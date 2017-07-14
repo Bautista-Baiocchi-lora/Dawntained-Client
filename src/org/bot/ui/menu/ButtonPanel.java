@@ -1,6 +1,7 @@
 package org.bot.ui.menu;
 
 import org.bot.Engine;
+import org.bot.script.handler.ScriptHandler;
 import org.bot.ui.screens.scriptselector.ScriptSelector;
 
 import javax.swing.*;
@@ -29,24 +30,44 @@ public class ButtonPanel extends JPanel {
 		playButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				scriptSelector.loadScripts();
-				scriptSelector.setLocationRelativeTo(scriptSelector.getOwner());
-				scriptSelector.setVisible(!scriptSelector.isVisible());
-
+				if (Engine.getScriptHandler().getScriptState().equals(ScriptHandler.State.PAUSE)) {
+					Engine.getScriptHandler().setScriptState(ScriptHandler.State.RUNNING);
+				} else if (!Engine.getScriptHandler().getScriptState().equals(ScriptHandler.State.RUNNING) && !scriptSelector.isVisible()) {
+					scriptSelector.loadScripts();
+					scriptSelector.setLocationRelativeTo(scriptSelector.getOwner());
+					scriptSelector.setVisible(!scriptSelector.isVisible());
+				}
 			}
 		});
-		add(playButton);
 
 		pauseButton = new Buttons("pause.png");
 		pauseButton.setButtonHoverIcon("pause_hover.png");
 		pauseButton.setToolTipText("Pause Script.");
-
+		pauseButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (Engine.getScriptHandler().getScriptState() != null && Engine.getScriptHandler().getScriptState().equals(ScriptHandler.State.RUNNING)) {
+					Engine.getScriptHandler().pause();
+				} else {
+					System.out.println("There is no script currently running!");
+				}
+			}
+		});
 		add(pauseButton);
 
 		stopButton = new Buttons("stop.png");
 		stopButton.setButtonHoverIcon("stop_hover.png");
 		stopButton.setToolTipText("Stop Script.");
-
+		stopButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (Engine.getScriptHandler().getScriptState() != null && !Engine.getScriptHandler().getScriptState().equals(ScriptHandler.State.STOPPED)) {
+					Engine.getScriptHandler().stop();
+				} else {
+					System.out.println("There is no script currently running!");
+				}
+			}
+		});
 		add(stopButton);
 
 		statsButton = new Buttons("buttons/settings.png");

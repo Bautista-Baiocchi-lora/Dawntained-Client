@@ -8,17 +8,17 @@ import java.lang.annotation.RetentionPolicy;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ScriptManifest {
 
-	String name();
+    String name();
 
-	String author();
+    String author();
 
-	String server();
+    String server();
 
-	String description() default "";
+    String description() default "";
 
-	double version() default 1.0;
+    double version() default 1.0;
 
-	SkillCategory category() default SkillCategory.MISC;
+    SkillCategory category() default SkillCategory.MISC;
 
 
 }
