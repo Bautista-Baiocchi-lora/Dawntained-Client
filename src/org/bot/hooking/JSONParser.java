@@ -2,8 +2,8 @@ package org.bot.hooking;
 
 
 import org.bot.util.NetUtil;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.Map;
 
@@ -22,18 +22,16 @@ public class JSONParser {
 
 	public void init() {
 		try {
-			org.json.simple.parser.JSONParser jsonParser = new org.json.simple.parser.JSONParser();
-			JSONObject mainObject = (JSONObject) jsonParser.parse(NetUtil.readUrl(HOOK_URL));
-			JSONObject resourceObject = (JSONObject) mainObject.get("resource");
-			JSONArray hookArray = (JSONArray) resourceObject.get("getterInjects");
-			for (Object hooks : hookArray) {
-				JSONObject jsonHook = (JSONObject) hooks;
-				final String getterName = (String) jsonHook.get("getterName");
-				final String getterClassName = (String) jsonHook.get("getterClassName");
-				final String getterFieldName = (String) jsonHook.get("getterFieldName");
+			JSONObject mainObject = new JSONObject(NetUtil.readUrl(HOOK_URL));
+			JSONObject resourceObject = mainObject.getJSONObject("resource");
+			JSONArray hookArray = resourceObject.getJSONArray("getterInjects");
+			for (int i = 0; i < hookArray.length(); i++) {
+				final String getterName = hookArray.getJSONObject(i).getString("getterName");
+				final String getterClassName = hookArray.getJSONObject(i).getString("getterClassName");
+				final String getterFieldName = hookArray.getJSONObject(i).getString("getterFieldName");
 				long multiplier = -1;
-				if (jsonHook.get("multiplier") != null) {
-					multiplier = (long) jsonHook.get("multiplier");
+				if (hookArray.getJSONObject(i).get("multiplier") != null) {
+					multiplier = hookArray.getJSONObject(i).getLong("multiplier");
 				}
 				System.out.println("Getter: " + getterName + " || Class: " + getterClassName + " || Field: " + getterFieldName + " || Multiplier: " + multiplier);
 
