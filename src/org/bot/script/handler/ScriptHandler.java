@@ -16,7 +16,6 @@ public class ScriptHandler implements Runnable {
     private State scriptState = State.STOPPED;
     private PaintListener paintListener;
 
-
     @Override
     public void run() {
         try {
@@ -43,11 +42,7 @@ public class ScriptHandler implements Runnable {
         this.scriptState = State.RUNNING;
         this.scriptData = scriptData;
         this.script = script;
-
-
         this.scriptThread = new Thread(this);
-
-
         this.script.onStart();
         this.scriptThread.start();
 

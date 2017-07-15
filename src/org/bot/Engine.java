@@ -43,7 +43,6 @@ public class Engine {
         return modelCache;
     }
 
-
     public static ScriptHandler getScriptHandler() {
         if (scriptHandler == null)
             scriptHandler = new ScriptHandler();
