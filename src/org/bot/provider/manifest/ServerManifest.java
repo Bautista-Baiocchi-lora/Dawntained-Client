@@ -7,18 +7,18 @@ import java.lang.annotation.RetentionPolicy;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ServerManifest {
 
-    String serverName();
+	String serverName();
 
-    String author();
+	String author();
 
-    double version();
+	double version();
 
-    Class<? extends Component> type();
+	Class<? extends Component> type();
 
-    Revision revision();
+	Revision revision();
 
-    String info();
+	String info();
 
-    HookType hookType();
+	HookType hookType();
 
 }

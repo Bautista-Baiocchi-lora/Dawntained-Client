@@ -7,21 +7,21 @@ import org.bot.Engine;
  */
 public abstract class LoopScript {
 
-    private final long startTime = System.currentTimeMillis();
+	private final long startTime = System.currentTimeMillis();
 
 
-    public abstract void onStart();
+	public abstract void onStart();
 
-    public abstract int operate();
+	public abstract int operate();
 
-    public abstract void onStop();
+	public abstract void onStop();
 
-    public final void stop() {
-        Engine.getScriptHandler().stop();
-    }
+	public final void stop() {
+		Engine.getScriptHandler().stop();
+	}
 
-    public long getRuntime() {
-        return System.currentTimeMillis() - startTime;
-    }
+	public long getRuntime() {
+		return System.currentTimeMillis() - startTime;
+	}
 
 }

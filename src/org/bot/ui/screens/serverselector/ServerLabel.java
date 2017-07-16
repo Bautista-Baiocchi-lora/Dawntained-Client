@@ -8,16 +8,16 @@ import org.bot.ui.BotUI;
 
 public class ServerLabel extends Label {
 
-    private final ServerInformationTab serverTab;
+	private final ServerInformationTab serverTab;
 
-    public ServerLabel(ServerLoader<?> loader, ServerManifest manifest) {
-        super(manifest.serverName());
-        serverTab = new ServerInformationTab(new ServerProvider(loader, manifest));
-        serverTab.registerManager(BotUI.getInstance());
-    }
+	public ServerLabel(ServerLoader<?> loader, ServerManifest manifest) {
+		super(manifest.serverName());
+		serverTab = new ServerInformationTab(new ServerProvider(loader, manifest));
+		serverTab.registerManager(BotUI.getInstance());
+	}
 
-    public ServerInformationTab getTab() {
-        return serverTab;
-    }
+	public ServerInformationTab getTab() {
+		return serverTab;
+	}
 
 }

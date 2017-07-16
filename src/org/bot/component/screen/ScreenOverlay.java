@@ -12,18 +12,18 @@ import java.util.List;
  */
 public abstract class ScreenOverlay<E> implements PaintListener {
 
-    protected List<E> list = new ArrayList<>();
-    private BasicTimer refreshRate = new BasicTimer(1000);
+	protected List<E> list = new ArrayList<>();
+	private BasicTimer refreshRate = new BasicTimer(1000);
 
-    public abstract E[] elements();
+	public abstract E[] elements();
 
-    public abstract boolean activate();
+	public abstract boolean activate();
 
-    public List<E> refresh() {
-        if (!refreshRate.isRunning()) {
-            list = Arrays.asList(elements());
-        }
-        return list;
-    }
+	public List<E> refresh() {
+		if (!refreshRate.isRunning()) {
+			list = Arrays.asList(elements());
+		}
+		return list;
+	}
 
 }

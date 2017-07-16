@@ -6,12 +6,12 @@ package org.bot.script.types;
 public abstract class Action {
 
 
-    public abstract boolean activate();
+	public abstract boolean activate();
 
-    public abstract void execute();
+	public abstract void execute();
 
-    public int priority() {
-        return 0;
-    }
+	public int priority() {
+		return 0;
+	}
 
 }

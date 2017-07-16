@@ -11,32 +11,32 @@ import java.util.Map;
  */
 public class Hook {
 
-    private final String HOOK_URL;
-    private final Map<String, FieldHook> fieldMap;
-    private final Map<String, MethodHook> methodMap;
+	private final String HOOK_URL;
+	private final Map<String, FieldHook> fieldMap;
+	private final Map<String, MethodHook> methodMap;
 
-    public Hook(String hookURL) {
-        fieldMap = new HashMap<>();
-        methodMap = new HashMap<>();
-        HOOK_URL = hookURL;
-        init();
-    }
+	public Hook(String hookURL) {
+		fieldMap = new HashMap<>();
+		methodMap = new HashMap<>();
+		HOOK_URL = hookURL;
+		init();
+	}
 
-    public final void init() {
-        if (Engine.getServerManifest().hookType().equals(HookType.XML)) {
-            new XMLParser(HOOK_URL, fieldMap);
-        } else {
-            new JSONParser(HOOK_URL, fieldMap);
-        }
+	public final void init() {
+		if (Engine.getServerManifest().hookType().equals(HookType.XML)) {
+			new XMLParser(HOOK_URL, fieldMap);
+		} else {
+			new JSONParser(HOOK_URL, fieldMap);
+		}
 
-    }
+	}
 
-    public final FieldHook getFieldHook(String getterName) {
-        return fieldMap.get(getterName);
-    }
+	public final FieldHook getFieldHook(String getterName) {
+		return fieldMap.get(getterName);
+	}
 
-    public final MethodHook getMethodHook(String getterName) {
-        return methodMap.get(getterName);
-    }
+	public final MethodHook getMethodHook(String getterName) {
+		return methodMap.get(getterName);
+	}
 
 }

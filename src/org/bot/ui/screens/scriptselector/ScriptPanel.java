@@ -11,29 +11,29 @@ import java.awt.*;
  */
 public class ScriptPanel extends JPanel {
 
-    private static final long serialVersionUID = -5181188196122580695L;
-    private JButton button;
+	private static final long serialVersionUID = -5181188196122580695L;
+	private JButton button;
 
-    public ScriptPanel(final ScriptData scriptData) {
-        setLayout(new BorderLayout());
+	public ScriptPanel(final ScriptData scriptData) {
+		setLayout(new BorderLayout());
 
-        setToolTipText(scriptData.desc);
+		setToolTipText(scriptData.desc);
 
-        button = new JButton("Start");
+		button = new JButton("Start");
 
-        add(button, BorderLayout.SOUTH);
+		add(button, BorderLayout.SOUTH);
 
-        final JLabel scriptName = new JLabel(scriptData.name);
+		final JLabel scriptName = new JLabel(scriptData.name);
 
-        scriptName.setHorizontalAlignment(JLabel.CENTER);
+		scriptName.setHorizontalAlignment(JLabel.CENTER);
 
-        add(scriptName, BorderLayout.NORTH);
+		add(scriptName, BorderLayout.NORTH);
 
-        setBorder(new EtchedBorder());
-    }
+		setBorder(new EtchedBorder());
+	}
 
-    public JButton getButton() {
-        return button;
-    }
+	public JButton getButton() {
+		return button;
+	}
 
 }

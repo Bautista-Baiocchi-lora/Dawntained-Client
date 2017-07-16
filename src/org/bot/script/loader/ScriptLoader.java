@@ -23,69 +23,69 @@ import java.util.jar.JarInputStream;
  */
 
 public class ScriptLoader {
-    private static final List<ScriptData> scripts = new ArrayList<>();
+	private static final List<ScriptData> scripts = new ArrayList<>();
 
-    public static List<ScriptData> getScripts() {
-        scripts.clear();
-        for (ScriptData scriptData : getLocalJarScripts()) {
-            scripts.add(scriptData);
-        }
-        /**
-         * Another for loop here for localClassScripts, once we add.
-         */
-        return scripts;
-    }
+	public static List<ScriptData> getScripts() {
+		scripts.clear();
+		for (ScriptData scriptData : getLocalJarScripts()) {
+			scripts.add(scriptData);
+		}
+		/**
+		 * Another for loop here for localClassScripts, once we add.
+		 */
+		return scripts;
+	}
 
-    private static ArrayList<ScriptData> getLocalJarScripts() {
-        final ArrayList<ScriptData> scripts = new ArrayList<>();
-        JarInputStream inputStream = null;
-        try {
-            for (File file : Engine.getDirectoryManager().getRootDirectory().getSubDirectory("Scripts")
-                    .getFiles()) {
-                Engine.setClassArchive(new ClassArchive());
-                Engine.getClassArchive().addJar((new File(file.getAbsolutePath()).toURI().toURL()));
-                ASMClassLoader cl = new ASMClassLoader(Engine.getClassArchive());
-                inputStream = new JarInputStream(new FileInputStream(file));
-                JarEntry jarEntry;
-                while ((jarEntry = inputStream.getNextJarEntry()) != null) {
-                    if (jarEntry.getName().endsWith(".class") && !jarEntry.getName().contains("$")) {
-                        Class<?> clazz;
-                        String classPackage = jarEntry.getName().replace(".class", "");
-                        clazz = cl.loadClass(classPackage.replaceAll("/", "."));
-                        if (clazz.isAnnotationPresent(ScriptManifest.class)) {
-                            final ScriptManifest manifest = clazz.getAnnotation(ScriptManifest.class);
-                            if (manifest == null) {
-                                throw new NullManifestException();
-                            }
-                            ScriptData scriptData = new ScriptData(classPackage.replaceAll("/", "."), manifest.name(), manifest.server(), manifest.description(), manifest.version(), manifest.author(), manifest.category(), new File(file.getAbsolutePath()));
-                            scripts.add(scriptData);
-                        }
-                    }
-                }
-            }
-            if (inputStream != null) {
-                inputStream.close();
-            }
-        } catch (IOException | ClassNotFoundException
-                | InvalidDirectoryNameException e) {
-            e.printStackTrace();
-        } catch (NullManifestException e1) {
-            e1.printStackTrace();
-            System.exit(0);
-        }
-        return scripts;
-    }
+	private static ArrayList<ScriptData> getLocalJarScripts() {
+		final ArrayList<ScriptData> scripts = new ArrayList<>();
+		JarInputStream inputStream = null;
+		try {
+			for (File file : Engine.getDirectoryManager().getRootDirectory().getSubDirectory("Scripts")
+					.getFiles()) {
+				Engine.setClassArchive(new ClassArchive());
+				Engine.getClassArchive().addJar((new File(file.getAbsolutePath()).toURI().toURL()));
+				ASMClassLoader cl = new ASMClassLoader(Engine.getClassArchive());
+				inputStream = new JarInputStream(new FileInputStream(file));
+				JarEntry jarEntry;
+				while ((jarEntry = inputStream.getNextJarEntry()) != null) {
+					if (jarEntry.getName().endsWith(".class") && !jarEntry.getName().contains("$")) {
+						Class<?> clazz;
+						String classPackage = jarEntry.getName().replace(".class", "");
+						clazz = cl.loadClass(classPackage.replaceAll("/", "."));
+						if (clazz.isAnnotationPresent(ScriptManifest.class)) {
+							final ScriptManifest manifest = clazz.getAnnotation(ScriptManifest.class);
+							if (manifest == null) {
+								throw new NullManifestException();
+							}
+							ScriptData scriptData = new ScriptData(classPackage.replaceAll("/", "."), manifest.name(), manifest.server(), manifest.description(), manifest.version(), manifest.author(), manifest.category(), new File(file.getAbsolutePath()));
+							scripts.add(scriptData);
+						}
+					}
+				}
+			}
+			if (inputStream != null) {
+				inputStream.close();
+			}
+		} catch (IOException | ClassNotFoundException
+				| InvalidDirectoryNameException e) {
+			e.printStackTrace();
+		} catch (NullManifestException e1) {
+			e1.printStackTrace();
+			System.exit(0);
+		}
+		return scripts;
+	}
 
-    public static LoopScript loadScript(ScriptData scriptData) {
-        LoopScript loopScript = null;
-        try {
-            Engine.getClassArchive().addJar(scriptData.scriptPath.toURI().toURL());
-            Engine.getClassArchive().addJar(new File(DirectoryManager.SERVER_PROVIDERS_PATH + "/" + Engine.getProviderJarNames().get(Engine.getServerManifest().serverName())).toURI().toURL());
-            ASMClassLoader classLoader = new ASMClassLoader(Engine.getClassArchive());
-            loopScript = (LoopScript) classLoader.loadClass(scriptData.clazz).newInstance();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return loopScript;
-    }
+	public static LoopScript loadScript(ScriptData scriptData) {
+		LoopScript loopScript = null;
+		try {
+			Engine.getClassArchive().addJar(scriptData.scriptPath.toURI().toURL());
+			Engine.getClassArchive().addJar(new File(DirectoryManager.SERVER_PROVIDERS_PATH + "/" + Engine.getProviderJarNames().get(Engine.getServerManifest().serverName())).toURI().toURL());
+			ASMClassLoader classLoader = new ASMClassLoader(Engine.getClassArchive());
+			loopScript = (LoopScript) classLoader.loadClass(scriptData.clazz).newInstance();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return loopScript;
+	}
 }
