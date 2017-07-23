@@ -4,6 +4,7 @@ import org.bot.Engine;
 import org.bot.component.listeners.PaintListener;
 import org.bot.script.scriptdata.ScriptData;
 import org.bot.script.types.LoopScript;
+import org.bot.ui.screens.clientframe.menu.logger.Logger;
 import org.bot.util.Condition;
 
 /**
@@ -35,17 +36,16 @@ public class ScriptHandler implements Runnable {
 	}
 
 	public void start(LoopScript script, ScriptData scriptData) {
-		if (script == null)
+		if (script == null) {
 			return;
-
-		System.out.println("Script Started: " + scriptData.name);
+		}
+		Logger.log("Script Started: " + scriptData.name);
 		this.scriptState = State.RUNNING;
 		this.scriptData = scriptData;
 		this.script = script;
 		this.scriptThread = new Thread(this);
 		this.script.onStart();
 		this.scriptThread.start();
-
 		if (script instanceof PaintListener) {
 			paintListener = (PaintListener) script;
 			Engine.getGameCanvas().getPaintListeners().add(paintListener);
@@ -54,7 +54,7 @@ public class ScriptHandler implements Runnable {
 	}
 
 	public void stop() {
-		System.out.println("Script Stopped: " + scriptData.name);
+		Logger.logWarning("Script Stopped: " + scriptData.name);
 		this.scriptState = State.STOPPED;
 		this.script.onStop();
 		this.scriptThread.interrupt();
@@ -66,7 +66,7 @@ public class ScriptHandler implements Runnable {
 	}
 
 	public void pause() {
-		System.out.println("Script Paused: " + scriptData.name);
+		Logger.logWarning("Script Paused: " + scriptData.name);
 		this.scriptState = State.PAUSE;
 	}
 
@@ -86,7 +86,7 @@ public class ScriptHandler implements Runnable {
 		return scriptThread;
 	}
 
-	public enum State {
+	private enum State {
 		RUNNING, PAUSE, STOPPED
 	}
 }
