@@ -17,29 +17,23 @@ import java.awt.event.WindowListener;
 public class GameFrame extends JFrame implements WindowListener {
 	private ButtonPanel buttonPanel;
 
-	private Logger logger;
-
-	public GameFrame(Component comp) {
+	public GameFrame(Component component) {
 		setTitle(Engine.getInterfaceTitle());
-		setResizable(true);
+		setResizable(false);
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 		buttonPanel = new ButtonPanel();
 		getContentPane().add(buttonPanel, BorderLayout.NORTH);
-		getContentPane().add(comp);
-		getContentPane().add(new LoggerPanel(logger = new Logger()), BorderLayout.SOUTH);
+		getContentPane().add(component);
+		getContentPane().add(new LoggerPanel(new Logger()), BorderLayout.SOUTH);
 		addWindowListener(this);
 		setLocationRelativeTo(getParent());
 		pack();
 		setLocationRelativeTo(getOwner());
 		confirmOnClose();
 		setVisible(true);
-
 	}
 
-	public Logger getLogger() {
-		return logger;
-	}
 
 	public void confirmOnClose() {
 		this.addWindowListener(new WindowAdapter() {

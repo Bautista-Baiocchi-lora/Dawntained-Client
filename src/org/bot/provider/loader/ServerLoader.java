@@ -52,6 +52,7 @@ public abstract class ServerLoader<T extends Component> extends Task<Void> {
 			try {
 				updateMessage("Loading component.");
 				component = loadComponent();
+				Engine.setGameComponent(component);
 				updateProgress(0.9, 1);
 				if (Engine.getServerManifest().type().equals(Applet.class)) {
 					updateMessage("Embedding applet.");
@@ -71,7 +72,6 @@ public abstract class ServerLoader<T extends Component> extends Task<Void> {
 					}
 				} else if (Engine.getServerManifest().type().equals(JPanel.class)) {
 					updateMessage("Embedding Panel.");
-					Engine.setGameComponent(component);
 					Engine.setGameFrame(new GameFrame(component));
 				}
 			} catch (IllegalArgumentException | IllegalAccessException e) {
@@ -83,6 +83,12 @@ public abstract class ServerLoader<T extends Component> extends Task<Void> {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	@Override
+	public void updateMessage(String message) {
+		super.updateMessage(message);
+		System.out.println(message);
 	}
 
 
