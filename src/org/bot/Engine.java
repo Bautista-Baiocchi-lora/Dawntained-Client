@@ -10,6 +10,7 @@ import org.bot.provider.loader.ServerLoader;
 import org.bot.provider.manifest.ServerManifest;
 import org.bot.script.handler.ScriptHandler;
 import org.bot.ui.screens.clientframe.GameFrame;
+import org.bot.util.ConfigManager;
 import org.bot.util.directory.DirectoryManager;
 import org.bot.util.reflection.ReflectionEngine;
 
@@ -39,6 +40,15 @@ public class Engine {
 	private static ScriptHandler scriptHandler;
 	private static HashMap<String, ServerProvider> serverProviders;
 	private static AccountManager accountManager;
+	private static ConfigManager configManager;
+
+	public static ConfigManager getConfigManager() {
+		return configManager;
+	}
+
+	public static void setConfigManager(ConfigManager configManager) {
+		Engine.configManager = configManager;
+	}
 
 	public static HashMap<String, ServerProvider> getServerProviders() {
 		return serverProviders;
@@ -176,12 +186,12 @@ public class Engine {
 		Engine.gameCanvas = gameCanvas;
 	}
 
-	public static void setAccountManager(AccountManager accountManager) {
-		Engine.accountManager = accountManager;
-	}
-
 	public static AccountManager getAccountManager() {
 		return accountManager;
+	}
+
+	public static void setAccountManager(AccountManager accountManager) {
+		Engine.accountManager = accountManager;
 	}
 
 	public static String getInterfaceTitle() {

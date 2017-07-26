@@ -16,6 +16,7 @@ import org.bot.ui.screens.clientframe.menu.logger.Logger;
 import org.bot.ui.screens.loading.LoadingScreen;
 import org.bot.ui.screens.login.PortalScreen;
 import org.bot.ui.screens.serverselector.ServerSelectorScreen;
+import org.bot.util.ConfigManager;
 import org.bot.util.directory.DirectoryManager;
 
 public class BotUI extends Application implements Manager {
@@ -25,6 +26,7 @@ public class BotUI extends Application implements Manager {
 
 	public BotUI() {
 		Engine.setDirectoryManager(new DirectoryManager());
+		Engine.setConfigManager(new ConfigManager());
 		Engine.getDirectoryManager().loadServerProviderJars();
 	}
 

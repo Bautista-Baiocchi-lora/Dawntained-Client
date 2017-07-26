@@ -11,6 +11,7 @@ import org.bot.ui.management.InterfaceAction;
 import org.bot.ui.management.InterfaceActionRequest;
 import org.bot.ui.management.Manageable;
 import org.bot.ui.management.Manager;
+import org.bot.util.ConfigManager;
 import org.bot.util.Utilities;
 
 import java.util.ArrayList;
@@ -19,13 +20,16 @@ public class PortalScreen extends Scene implements Manageable {
 
 	private static VBox widgetStack;
 	private final ArrayList<Manager> managers = new ArrayList<Manager>();
+	private final ConfigManager configManager = Engine.getConfigManager();
 	private TextField usernameField;
 	private PasswordField passwordField;
 	private CheckBox rememberCheck;
 	private Label incorrectLogIn;
+	private boolean rememberMe;
 
 	public PortalScreen() {
 		super(widgetStack = new VBox());
+		rememberMe = Boolean.parseBoolean(configManager.getProperty("remeberme"));
 		configure();
 	}
 
@@ -42,6 +46,7 @@ public class PortalScreen extends Scene implements Manageable {
 
 		Label usernameLabel = new Label("Username:");
 		usernameField = new TextField();
+		usernameField.setText(rememberMe ? configManager.getProperty("username") : "");
 		usernameRow.getChildren().addAll(usernameLabel, usernameField);
 
 		Label passwordLabel = new Label("Password:");
@@ -54,13 +59,13 @@ public class PortalScreen extends Scene implements Manageable {
 		incorrectLogIn.setVisible(false);
 
 		rememberCheck = new CheckBox("Remember Me");
+		rememberCheck.setSelected(rememberMe);
 		rememberCheck.setAlignment(Pos.CENTER);
 
 		Button loginButton = new Button("Log In");
 		loginButton.setMaxWidth(Double.MAX_VALUE);
 		loginButton.setOnAction((e) -> {
-			boolean rememberMe = rememberCheck.isSelected();
-			if (!logIn(usernameField.getText(), passwordField.getText(), rememberMe)) {
+			if (!logIn(usernameField.getText(), passwordField.getText(), rememberCheck.isSelected())) {
 				incorrectLogIn();
 			}
 		});
@@ -80,6 +85,10 @@ public class PortalScreen extends Scene implements Manageable {
 
 	private boolean logIn(String username, String password, boolean rememberMe) {
 		if ((username.equalsIgnoreCase("ethan") && password.equals("123")) || (username.equalsIgnoreCase("") && password.equals(""))) {
+			if (rememberMe) {
+				configManager.saveProperty("rememberme", Boolean.toString(rememberMe));
+				configManager.saveProperty("username", username);
+			}
 			Engine.setUsername(Utilities.capitalize(username));
 			Engine.setDeveloper(true);
 			requestAction(new InterfaceActionRequest.ActionBuilder(InterfaceAction.SHOW_HOME_SCREEN).build());

@@ -27,11 +27,15 @@ public class DirectoryManager {
 	public final static String SCRIPTS = "Scripts";
 	public final static String TEMP = "Temp";
 	public final static String SERVER_JARS = "Server Jars";
+	public final static String SCREENSHOTS = "Screenshots";
+	public final static String ACCOUNTS = "Accounts";
+	public static String ACCOUNTS_PATH;
 	public static String CACHE_PATH;
 	public static String SERVER_PROVIDERS_PATH;
 	public static String SCRIPTS_PATH;
 	public static String TEMP_PATH;
 	public static String SERVER_JARS_PATH;
+	public static String SCREENSHOTS_PATH;
 	private final Directory botDirectory;
 
 	public DirectoryManager() {
@@ -70,6 +74,10 @@ public class DirectoryManager {
 		SERVER_JARS_PATH = botDirectory.getSubDirectory(CACHE).getSubDirectory(SERVER_JARS).getPath();
 		botDirectory.getSubDirectory(CACHE).createSubDirectory(TEMP);
 		TEMP_PATH = botDirectory.getSubDirectory(CACHE).getSubDirectory(TEMP).getPath();
+		botDirectory.getSubDirectory(CACHE).createSubDirectory(SCREENSHOTS);
+		SCREENSHOTS_PATH = botDirectory.getSubDirectory(CACHE).getSubDirectory(SCREENSHOTS).getPath();
+		botDirectory.getSubDirectory(CACHE).createSubDirectory(ACCOUNTS);
+		ACCOUNTS_PATH = botDirectory.getSubDirectory(CACHE).getSubDirectory(ACCOUNTS).getPath();
 		Logger.log("uBot directories created.", LogType.CLIENT);
 	}
 

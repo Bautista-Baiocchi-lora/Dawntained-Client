@@ -23,12 +23,13 @@ import java.util.ArrayList;
 public class AccountManagerScreen extends Scene implements Manageable {
 
 	private static HBox layout;
-	private final AccountManager manager = Engine.getAccountManager();
+	private final AccountManager manager;
 	private final ArrayList<Manager> managers = new ArrayList<Manager>();
 	private AccountInformationTab accountTab;
 
 	public AccountManagerScreen() {
 		super(layout = new HBox());
+		Engine.setAccountManager(manager = new AccountManager());
 		layout.setStyle("-fx-padding: 10;");
 		configure();
 	}
@@ -42,7 +43,7 @@ public class AccountManagerScreen extends Scene implements Manageable {
 		list.setItems(items);
 		list.setOnMouseClicked((e) -> {
 			if (list.getSelectionModel().getSelectedItem() != null) {
-				//show account panel
+				displayTab(list.getSelectionModel().getSelectedItem().getInformationTab());
 			}
 		});
 		list.setMaxWidth(250);
