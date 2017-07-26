@@ -86,7 +86,7 @@ public class ScriptHandler implements Runnable {
 		return scriptThread;
 	}
 
-	private enum State {
+	public enum State {
 		RUNNING, PAUSE, STOPPED
 	}
 }

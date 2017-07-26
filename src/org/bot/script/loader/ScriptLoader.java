@@ -3,6 +3,7 @@ package org.bot.script.loader;
 import org.bot.Engine;
 import org.bot.classloader.ASMClassLoader;
 import org.bot.classloader.ClassArchive;
+import org.bot.provider.ServerProvider;
 import org.bot.provider.manifest.NullManifestException;
 import org.bot.script.scriptdata.ScriptData;
 import org.bot.script.scriptdata.ScriptManifest;
@@ -15,6 +16,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.jar.JarEntry;
 import java.util.jar.JarInputStream;
 
@@ -80,7 +82,11 @@ public class ScriptLoader {
 		LoopScript loopScript = null;
 		try {
 			Engine.getClassArchive().addJar(scriptData.scriptPath.toURI().toURL());
-			Engine.getClassArchive().addJar(new File(DirectoryManager.SERVER_PROVIDERS_PATH + "/" + Engine.getProviderJarNames().get(Engine.getServerManifest().serverName())).toURI().toURL());
+			for (Map.Entry<String, ServerProvider> providerEntry : Engine.getServerProviders().entrySet()) {
+				if (providerEntry.getValue().getManifest().serverName().equals(Engine.getServerManifest().serverName())) {
+					Engine.getClassArchive().addJar(Engine.getDirectoryManager().getRootDirectory().getSubDirectory(DirectoryManager.SERVER_PROVIDERS).getFile(providerEntry.getKey()).toURI().toURL());
+				}
+			}
 			ASMClassLoader classLoader = new ASMClassLoader(Engine.getClassArchive());
 			loopScript = (LoopScript) classLoader.loadClass(scriptData.clazz).newInstance();
 		} catch (Exception e) {

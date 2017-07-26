@@ -72,17 +72,17 @@ public class PortalScreen extends Scene implements Manageable {
 			requestAction(new InterfaceActionRequest.ActionBuilder(InterfaceAction.SHOW_SERVER_SELECTOR).build());
 		});
 
-		widgetStack.getChildren().addAll(incorrectLogIn, usernameRow, passwordRow, rememberCheck, loginButton,
-				asGuestButton);
 		widgetStack.setSpacing(10);
 		widgetStack.setAlignment(Pos.CENTER);
+		widgetStack.getChildren().addAll(incorrectLogIn, usernameRow, passwordRow, rememberCheck, loginButton,
+				asGuestButton);
 	}
 
 	private boolean logIn(String username, String password, boolean rememberMe) {
 		if ((username.equalsIgnoreCase("ethan") && password.equals("123")) || (username.equalsIgnoreCase("") && password.equals(""))) {
 			Engine.setUsername(Utilities.capitalize(username));
 			Engine.setDeveloper(true);
-			requestAction(new InterfaceActionRequest.ActionBuilder(InterfaceAction.SHOW_SERVER_SELECTOR).build());
+			requestAction(new InterfaceActionRequest.ActionBuilder(InterfaceAction.SHOW_HOME_SCREEN).build());
 			return true;
 		}
 		/**

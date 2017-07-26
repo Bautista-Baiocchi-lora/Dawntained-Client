@@ -1,5 +1,6 @@
 package org.bot;
 
+import org.bot.account.AccountManager;
 import org.bot.classloader.ClassArchive;
 import org.bot.component.RSCanvas;
 import org.bot.component.inputs.InternalKeyboard;
@@ -16,7 +17,6 @@ import java.awt.*;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Hashtable;
-import java.util.Map;
 
 public class Engine {
 
@@ -34,10 +34,19 @@ public class Engine {
 	private static Rectangle gameViewport = new Rectangle(5, 5, 509, 332);
 	private static InternalMouse mouse;
 	private static InternalKeyboard keyboard;
-	private static Map<String, String> providerJarNames = new HashMap();
 	private static ClassArchive classArchive;
 	private static Hashtable<Object, Object> modelCache = new Hashtable<>();
 	private static ScriptHandler scriptHandler;
+	private static HashMap<String, ServerProvider> serverProviders;
+	private static AccountManager accountManager;
+
+	public static HashMap<String, ServerProvider> getServerProviders() {
+		return serverProviders;
+	}
+
+	public static void setServerProviders(HashMap<String, ServerProvider> providers) {
+		Engine.serverProviders = providers;
+	}
 
 	public static Hashtable<Object, Object> getModelCache() {
 		return modelCache;
@@ -64,10 +73,6 @@ public class Engine {
 
 	public static void setClassArchive(ClassArchive classArchive) {
 		Engine.classArchive = classArchive;
-	}
-
-	public static Map<String, String> getProviderJarNames() {
-		return providerJarNames;
 	}
 
 	public static GameFrame getGameFrame() {
@@ -152,7 +157,7 @@ public class Engine {
 	}
 
 	public static void setDirectoryManager(DirectoryManager manager) {
-		directoryManager = manager;
+		Engine.directoryManager = manager;
 	}
 
 	public static Component getGameComponent() {
@@ -169,6 +174,14 @@ public class Engine {
 
 	public static void setGameCanvas(RSCanvas gameCanvas) {
 		Engine.gameCanvas = gameCanvas;
+	}
+
+	public static void setAccountManager(AccountManager accountManager) {
+		Engine.accountManager = accountManager;
+	}
+
+	public static AccountManager getAccountManager() {
+		return accountManager;
 	}
 
 	public static String getInterfaceTitle() {

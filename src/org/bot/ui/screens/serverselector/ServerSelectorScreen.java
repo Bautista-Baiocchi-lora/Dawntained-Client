@@ -6,23 +6,20 @@ import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.HBox;
 import org.bot.Engine;
-import org.bot.classloader.ASMClassLoader;
-import org.bot.classloader.ClassArchive;
-import org.bot.provider.loader.ServerLoader;
-import org.bot.provider.manifest.NullManifestException;
-import org.bot.provider.manifest.ServerManifest;
-import org.bot.util.directory.exceptions.InvalidDirectoryNameException;
+import org.bot.provider.ServerProvider;
+import org.bot.ui.management.InterfaceAction;
+import org.bot.ui.management.InterfaceActionRequest;
+import org.bot.ui.management.Manageable;
+import org.bot.ui.management.Manager;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.jar.JarEntry;
-import java.util.jar.JarInputStream;
+import java.util.Map;
 
-public class ServerSelectorScreen extends Scene {
+public class ServerSelectorScreen extends Scene implements Manageable {
+
 
 	private static HBox layout;
+	private final ArrayList<Manager> managers = new ArrayList<Manager>();
 	private ServerInformationTab serverTab;
 
 	public ServerSelectorScreen() {
@@ -33,7 +30,7 @@ public class ServerSelectorScreen extends Scene {
 	private void configure() {
 		ListView<ServerLabel> list = new ListView<ServerLabel>();
 		list.setEditable(false);
-		ObservableList<ServerLabel> items = FXCollections.observableArrayList(getServerProviderComponents());
+		ObservableList<ServerLabel> items = FXCollections.observableArrayList(getServerLabels());
 		list.setItems(items);
 		list.setOnMouseClicked((e) -> {
 			if (list.getSelectionModel().getSelectedItem() != null) {
@@ -44,52 +41,18 @@ public class ServerSelectorScreen extends Scene {
 		layout.getChildren().addAll(list);
 	}
 
-	private ArrayList<ServerLabel> getServerProviderComponents() {
+	private ArrayList<ServerLabel> getServerLabels() {
 		final ArrayList<ServerLabel> providers = new ArrayList<ServerLabel>();
-		try {
-			for (File file : Engine.getDirectoryManager().getRootDirectory().getSubDirectory("Server Providers")
-					.getFiles()) {
-				Engine.setClassArchive(new ClassArchive());
-				Engine.getClassArchive().addJar((new File(file.getAbsolutePath()).toURI().toURL()));
-				ASMClassLoader cl = new ASMClassLoader(Engine.getClassArchive());
-				try (JarInputStream inputStream = new JarInputStream(new FileInputStream(file))) {
-					JarEntry jarEntry;
-					while ((jarEntry = inputStream.getNextJarEntry()) != null) {
-						if (jarEntry.getName().endsWith(".class") && !jarEntry.getName().contains("$")) {
-							Class<?> clazz;
-							String classPackage = jarEntry.getName().replace(".class", "");
-							clazz = cl.loadClass(classPackage.replaceAll("/", "."));
-							ServerLoader<?> loader = null;
-							if (clazz.isAnnotationPresent(ServerManifest.class)) {
-								final ServerManifest manifest = clazz.getAnnotation(ServerManifest.class);
-								if (manifest == null) {
-									throw new NullManifestException();
-								}
-								loader = (ServerLoader<?>) clazz.newInstance();
-								Engine.getProviderJarNames().put(manifest.serverName(), file.getName());
-								providers.add(new ServerLabel(loader, manifest));
-							}
-						}
-					}
-				}
-			}
-		} catch (InvalidDirectoryNameException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (NullManifestException e) {
-			e.printStackTrace();
-		} catch (InstantiationException e) {
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
+		for (Map.Entry<String, ServerProvider> entry : Engine.getServerProviders().entrySet()) {
+			providers.add(new ServerLabel(entry.getValue()));
 		}
 		return providers;
 	}
 
 	private void displayTab(ServerInformationTab tab) {
+		if (this.getWindow().getWidth() == 250) {
+			requestAction(new InterfaceActionRequest.ActionBuilder(InterfaceAction.RESIZE_STAGE).size(500, 300).build());
+		}
 		if (serverTab == null) {
 			serverTab = tab;
 			layout.getChildren().add(serverTab);
@@ -98,6 +61,18 @@ public class ServerSelectorScreen extends Scene {
 			serverTab = tab;
 			layout.getChildren().add(serverTab);
 		}
+	}
+
+	@Override
+	public void requestAction(InterfaceActionRequest action) {
+		for (Manager manager : managers) {
+			manager.processActionRequest(action);
+		}
+	}
+
+	@Override
+	public void registerManager(Manager manager) {
+		managers.add(manager);
 	}
 
 }
