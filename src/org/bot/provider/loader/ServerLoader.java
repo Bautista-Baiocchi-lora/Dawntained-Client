@@ -4,8 +4,11 @@ import javafx.concurrent.Task;
 import org.bot.Engine;
 import org.bot.component.screen.ScreenOverlay;
 import org.bot.hooking.Hook;
+import org.bot.provider.overlays.MouseOverlay;
 import org.bot.threads.HandleInputs;
 import org.bot.ui.screens.clientframe.GameFrame;
+import org.bot.ui.screens.clientframe.menu.logger.LogType;
+import org.bot.ui.screens.clientframe.menu.logger.Logger;
 import org.bot.util.FileDownloader;
 import org.bot.util.injection.Injector;
 import org.bot.util.reflection.ReflectionEngine;
@@ -15,6 +18,7 @@ import java.applet.Applet;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class ServerLoader<T extends Component> extends Task<Void> {
@@ -54,7 +58,7 @@ public abstract class ServerLoader<T extends Component> extends Task<Void> {
 				component = loadComponent();
 				Engine.setGameComponent(component);
 				updateProgress(0.9, 1);
-				if (Engine.getServerManifest().type().equals(Applet.class)) {
+				if (Engine.getServerProvider().getManifest().type().equals(Applet.class)) {
 					updateMessage("Embedding applet.");
 					final JPanel panel = new JPanel();
 					Applet applet = (Applet) component;
@@ -70,7 +74,7 @@ public abstract class ServerLoader<T extends Component> extends Task<Void> {
 					if (!applet.isActive()) {
 						applet.start();
 					}
-				} else if (Engine.getServerManifest().type().equals(JPanel.class)) {
+				} else if (Engine.getServerProvider().getManifest().type().equals(JPanel.class)) {
 					updateMessage("Embedding Panel.");
 					Engine.setGameFrame(new GameFrame(component));
 				}
@@ -88,9 +92,15 @@ public abstract class ServerLoader<T extends Component> extends Task<Void> {
 	@Override
 	public void updateMessage(String message) {
 		super.updateMessage(message);
-		System.out.println(message);
+		Logger.log(message, LogType.CLIENT);
 	}
 
+
+	public List<ScreenOverlay> getOverlays() {
+		List<ScreenOverlay> overlays = new ArrayList<>();
+		overlays.add(new MouseOverlay());
+		return overlays;
+	}
 
 	public final String getJarURL() {
 		return JAR_URL;
@@ -104,11 +114,7 @@ public abstract class ServerLoader<T extends Component> extends Task<Void> {
 		return new Hook(HOOK_URL);
 	}
 
-	public abstract JPopupMenu getPopUpMenu();
-
 	public abstract List<Injector> getInjectables();
-
-	public abstract List<ScreenOverlay> getOverlays();
 
 	protected abstract T loadComponent() throws IllegalArgumentException, IllegalAccessException;
 }

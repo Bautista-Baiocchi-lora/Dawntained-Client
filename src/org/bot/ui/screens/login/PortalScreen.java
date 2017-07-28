@@ -21,11 +21,11 @@ public class PortalScreen extends Scene implements Manageable {
 	private static VBox widgetStack;
 	private final ArrayList<Manager> managers = new ArrayList<Manager>();
 	private final ConfigManager configManager = Engine.getConfigManager();
+	private final boolean rememberMe;
 	private TextField usernameField;
 	private PasswordField passwordField;
 	private CheckBox rememberCheck;
 	private Label incorrectLogIn;
-	private final boolean rememberMe;
 
 	public PortalScreen() {
 		super(widgetStack = new VBox());
@@ -96,7 +96,7 @@ public class PortalScreen extends Scene implements Manageable {
 			}
 			Engine.setUsername(Utilities.capitalize(username));
 			Engine.setDeveloper(true);
-			requestAction(new InterfaceActionRequest.ActionBuilder(InterfaceAction.SHOW_HOME_SCREEN).build());
+			requestAction(new InterfaceActionRequest.ActionBuilder(InterfaceAction.SHOW_SERVER_SELECTOR).build());
 			return true;
 		}
 		/**

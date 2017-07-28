@@ -58,8 +58,8 @@ public class ASMClassLoader extends ClassLoader {
 	}
 
 	private void modify(ClassNode node) {
-		if (Engine.getServerLoader() != null) {
-			injectorList = Engine.getServerLoader().getInjectables();
+		if (Engine.getServerProvider() != null) {
+			injectorList = Engine.getServerProvider().getLoader().getInjectables();
 			injectors = injectorList.toArray(new Injector[injectorList.size()]);
 			for (Injector injector : injectors) {
 				if (injector.canRun(node)) {
@@ -67,8 +67,8 @@ public class ASMClassLoader extends ClassLoader {
 				}
 			}
 		}
-		if (Engine.getServerLoader() != null) {
-			if (Engine.getServerManifest().revision() == Revision.OSRS) {
+		if (Engine.getServerProvider() != null) {
+			if (Engine.getServerProvider().getManifest().revision() == Revision.OSRS) {
 				new ModifyCanvas(RSCanvas.class.getCanonicalName().replaceAll("\\.", "/"), node);
 			}
 		}

@@ -10,12 +10,12 @@ import java.util.ArrayList;
 /**
  * Created by bautistabaiocchi-lora on 7/26/17.
  */
-public abstract class ExpandableInformationTab<T extends Object> extends ScrollPane implements Manageable {
+public abstract class ExpandableTab<T extends Object> extends ScrollPane implements Manageable {
 
 	protected final T object;
 	private final ArrayList<Manager> managers = new ArrayList<Manager>();
 
-	public ExpandableInformationTab(T object) {
+	public ExpandableTab(T object) {
 		this.object = object;
 		setMaxWidth(250);
 		configure();

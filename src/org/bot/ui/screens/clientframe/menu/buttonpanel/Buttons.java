@@ -1,4 +1,4 @@
-package org.bot.ui.screens.clientframe.menu;
+package org.bot.ui.screens.clientframe.menu.buttonpanel;
 
 import org.bot.util.Utilities;
 

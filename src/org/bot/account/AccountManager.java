@@ -71,7 +71,7 @@ public class AccountManager {
 		saveAccount(account);
 	}
 
-	public void updateAccount(Account account){
+	public void updateAccount(Account account) {
 		saveAccount(account);
 	}
 

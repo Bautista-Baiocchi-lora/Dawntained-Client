@@ -6,8 +6,6 @@ import org.bot.component.RSCanvas;
 import org.bot.component.inputs.InternalKeyboard;
 import org.bot.component.inputs.InternalMouse;
 import org.bot.provider.ServerProvider;
-import org.bot.provider.loader.ServerLoader;
-import org.bot.provider.manifest.ServerManifest;
 import org.bot.script.handler.ScriptHandler;
 import org.bot.ui.screens.clientframe.GameFrame;
 import org.bot.util.ConfigManager;
@@ -24,11 +22,9 @@ public class Engine {
 	public static final double VERSION = 0.13;
 	private static String username;
 	private static boolean developer;
-	private static ServerLoader<?> serverLoader;
 	private static Component gameComponent;
-	private static boolean debugMouse;
 	private static DirectoryManager directoryManager;
-	private static ServerManifest serverManifest;
+	private static ServerProvider serverProvider;
 	private static RSCanvas gameCanvas;
 	private static GameFrame gameFrame;
 	private static ReflectionEngine reflectionEngine;
@@ -141,27 +137,6 @@ public class Engine {
 		Engine.username = username;
 	}
 
-	public static boolean isDebugMouse() {
-		return debugMouse;
-	}
-
-	public static void setDebugMouse(boolean debugMouse) {
-		Engine.debugMouse = debugMouse;
-	}
-
-	public static ServerLoader<?> getServerLoader() {
-		return serverLoader;
-	}
-
-	public static ServerManifest getServerManifest() {
-		return serverManifest;
-	}
-
-	public static void setServerProvider(ServerProvider provider) {
-		Engine.serverLoader = provider.getLoader();
-		Engine.serverManifest = provider.getManifest();
-	}
-
 	public static DirectoryManager getDirectoryManager() {
 		return directoryManager;
 	}
@@ -194,8 +169,16 @@ public class Engine {
 		Engine.accountManager = accountManager;
 	}
 
+	public static ServerProvider getServerProvider() {
+		return serverProvider;
+	}
+
+	public static void setServerProvider(ServerProvider provider) {
+		Engine.serverProvider = provider;
+	}
+
 	public static String getInterfaceTitle() {
 		return (username != null ? "[" + username + "] " : " ")
-				+ (serverLoader != null ? (serverLoader.getServerName() + " || ") : "") + "uBot v" + VERSION;
+				+ (serverProvider != null ? (serverProvider.getLoader().getServerName() + " || ") : "") + "uBot v" + VERSION;
 	}
 }

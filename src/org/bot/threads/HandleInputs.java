@@ -3,6 +3,8 @@ package org.bot.threads;
 import org.bot.Engine;
 import org.bot.component.inputs.InternalKeyboard;
 import org.bot.component.inputs.InternalMouse;
+import org.bot.ui.screens.clientframe.menu.logger.LogType;
+import org.bot.ui.screens.clientframe.menu.logger.Logger;
 import org.bot.util.Condition;
 
 import java.applet.Applet;
@@ -15,8 +17,7 @@ public class HandleInputs implements Runnable {
 
 	@Override
 	public void run() {
-		System.out.println("Attempting to set mouse & keyboard.");
-
+		Logger.log("Attempting to set mouse & keyboard.", LogType.DEBUG);
 		while (Engine.getGameCanvas() == null) {
 			Condition.sleep(5);
 		}
@@ -29,8 +30,7 @@ public class HandleInputs implements Runnable {
 
 		Engine.setMouse(new InternalMouse());
 		Engine.setKeyboard(new InternalKeyboard());
-		System.out.println("Mouse & Keyboard set.");
-
+		Logger.log("Mouse & Keyboard set.", LogType.DEBUG);
 	}
 
 }

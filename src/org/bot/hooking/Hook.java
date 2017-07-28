@@ -23,7 +23,7 @@ public class Hook {
 	}
 
 	public final void init() {
-		if (Engine.getServerManifest().hookType().equals(HookType.XML)) {
+		if (Engine.getServerProvider().getManifest().hookType().equals(HookType.XML)) {
 			new XMLParser(HOOK_URL, fieldMap);
 		} else {
 			new JSONParser(HOOK_URL, fieldMap);

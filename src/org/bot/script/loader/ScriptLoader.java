@@ -83,7 +83,7 @@ public class ScriptLoader {
 		try {
 			Engine.getClassArchive().addJar(scriptData.scriptPath.toURI().toURL());
 			for (Map.Entry<String, ServerProvider> providerEntry : Engine.getServerProviders().entrySet()) {
-				if (providerEntry.getValue().getManifest().serverName().equals(Engine.getServerManifest().serverName())) {
+				if (providerEntry.getValue().getManifest().serverName().equals(Engine.getServerProvider().getManifest().serverName())) {
 					Engine.getClassArchive().addJar(Engine.getDirectoryManager().getRootDirectory().getSubDirectory(DirectoryManager.SERVER_PROVIDERS).getFile(providerEntry.getKey()).toURI().toURL());
 				}
 			}

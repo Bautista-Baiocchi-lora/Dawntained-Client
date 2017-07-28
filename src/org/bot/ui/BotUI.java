@@ -3,14 +3,13 @@ package org.bot.ui;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.bot.Engine;
 import org.bot.provider.ServerProvider;
 import org.bot.ui.management.InterfaceActionRequest;
 import org.bot.ui.management.Manageable;
 import org.bot.ui.management.Manager;
-import org.bot.ui.screens.HomeScreen;
-import org.bot.ui.screens.accountmanager.AccountManagerScreen;
 import org.bot.ui.screens.clientframe.menu.logger.LogType;
 import org.bot.ui.screens.clientframe.menu.logger.Logger;
 import org.bot.ui.screens.loading.LoadingScreen;
@@ -65,9 +64,8 @@ public class BotUI extends Application implements Manager {
 	public void processActionRequest(InterfaceActionRequest request) {
 		Logger.log("Action requested: " + request.getAction().toString(), LogType.DEBUG);
 		switch (request.getAction()) {
-			case SHOW_ACCOUNT_MANAGER:
-				displayScreen(new AccountManagerScreen());
-				resizeStage(250, 300);
+			case BLOCK_MAIN_STAGE:
+				stage.initModality(Modality.APPLICATION_MODAL);
 				break;
 			case LOAD_SERVER:
 				loadServer(request.getProvider());
@@ -75,10 +73,6 @@ public class BotUI extends Application implements Manager {
 			case SHOW_SERVER_SELECTOR:
 				displayScreen(new ServerSelectorScreen());
 				resizeStage(250, 300);
-				break;
-			case SHOW_HOME_SCREEN:
-				displayScreen(new HomeScreen());
-				resizeStage(300, 150);
 				break;
 			case TERMINATE_UI:
 				terminate();
@@ -102,7 +96,7 @@ public class BotUI extends Application implements Manager {
 
 	private void loadServer(ServerProvider provider) {
 		Engine.setServerProvider(provider);
-		final LoadingScreen screen = new LoadingScreen(Engine.getServerLoader());
+		final LoadingScreen screen = new LoadingScreen(Engine.getServerProvider().getLoader());
 		screen.registerManager(this);
 		displayScreen(screen);
 		screen.run();

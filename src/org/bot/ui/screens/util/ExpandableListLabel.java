@@ -8,16 +8,16 @@ import org.bot.ui.BotUI;
  */
 public class ExpandableListLabel<T extends Object> extends Label {
 
-	private final ExpandableInformationTab<T> informationTab;
+	private final ExpandableTab<T> tab;
 
-	public ExpandableListLabel(ExpandableInformationTab<T> informationTab) {
-		super(informationTab.getLabelTitle());
-		this.informationTab = informationTab;
-		this.informationTab.registerManager(BotUI.getInstance());
+	public ExpandableListLabel(ExpandableTab<T> tab) {
+		super(tab.getLabelTitle());
+		this.tab = tab;
+		this.tab.registerManager(BotUI.getInstance());
 	}
 
-	protected ExpandableInformationTab<T> getInformationTab() {
-		return informationTab;
+	protected ExpandableTab<T> getTab() {
+		return tab;
 	}
 
 

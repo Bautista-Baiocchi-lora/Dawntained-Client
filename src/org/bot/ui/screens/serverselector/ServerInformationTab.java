@@ -2,38 +2,35 @@ package org.bot.ui.screens.serverselector;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import org.bot.provider.ServerProvider;
-import org.bot.provider.manifest.ServerManifest;
 import org.bot.ui.management.InterfaceAction;
 import org.bot.ui.management.InterfaceActionRequest;
-import org.bot.ui.management.Manageable;
-import org.bot.ui.management.Manager;
+import org.bot.ui.screens.util.ExpandableTab;
 
-import java.util.ArrayList;
-
-public class ServerInformationTab extends ScrollPane implements Manageable {
-	private final ServerProvider provider;
-	private final ArrayList<Manager> managers = new ArrayList<Manager>();
+public class ServerInformationTab extends ExpandableTab<ServerProvider> {
 
 	public ServerInformationTab(ServerProvider provider) {
-		setMaxWidth(250);
-		this.provider = provider;
-		configure(provider.getManifest());
+		super(provider);
 	}
 
-	private void configure(ServerManifest manifest) {
+	@Override
+	protected String getLabelTitle() {
+		return object.getManifest().serverName();
+	}
+
+	@Override
+	protected void configure() {
 		VBox layout = new VBox();
 
-		Label authorLabel = new Label("Author: " + manifest.author());
-		Label versionLabel = new Label("Version: " + String.valueOf(manifest.version()));
-		Label typeLabel = new Label("Type: " + manifest.type().getSimpleName());
-		Label revisionLabel = new Label("Revision: " + manifest.revision().toString());
+		Label authorLabel = new Label("Author: " + object.getManifest().author());
+		Label versionLabel = new Label("Version: " + String.valueOf(object.getManifest().version()));
+		Label typeLabel = new Label("Type: " + object.getManifest().type().getSimpleName());
+		Label revisionLabel = new Label("Revision: " + object.getManifest().revision().toString());
 		Label infoLabel = new Label("Info");
-		TextArea infoArea = new TextArea(manifest.info());
+		TextArea infoArea = new TextArea(object.getManifest().info());
 		infoArea.setWrapText(true);
 		infoArea.setEditable(false);
 		infoArea.setMaxWidth(250);
@@ -41,7 +38,7 @@ public class ServerInformationTab extends ScrollPane implements Manageable {
 		Button launchButton = new Button("Launch");
 		launchButton.setOnAction((e) -> {
 			requestAction(
-					new InterfaceActionRequest.ActionBuilder(InterfaceAction.LOAD_SERVER).provider(provider).build());
+					new InterfaceActionRequest.ActionBuilder(InterfaceAction.LOAD_SERVER).provider(object).build());
 		});
 
 		GridPane grid = new GridPane();
@@ -59,15 +56,5 @@ public class ServerInformationTab extends ScrollPane implements Manageable {
 		setContent(layout);
 	}
 
-	@Override
-	public void requestAction(InterfaceActionRequest action) {
-		for (Manager manager : managers) {
-			manager.processActionRequest(action);
-		}
-	}
 
-	@Override
-	public void registerManager(Manager manager) {
-		managers.add(manager);
-	}
 }

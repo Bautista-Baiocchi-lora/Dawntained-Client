@@ -1,7 +1,8 @@
 package org.bot.ui.screens.clientframe;
 
 import org.bot.Engine;
-import org.bot.ui.screens.clientframe.menu.ButtonPanel;
+import org.bot.account.AccountManager;
+import org.bot.ui.screens.clientframe.menu.buttonpanel.ButtonPanel;
 import org.bot.ui.screens.clientframe.menu.logger.Logger;
 import org.bot.ui.screens.clientframe.menu.logger.LoggerPanel;
 
@@ -18,6 +19,7 @@ public class GameFrame extends JFrame implements WindowListener {
 	private ButtonPanel buttonPanel;
 
 	public GameFrame(Component component) {
+		Engine.setAccountManager(new AccountManager());
 		setTitle(Engine.getInterfaceTitle());
 		setResizable(false);
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);

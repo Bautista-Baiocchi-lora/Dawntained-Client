@@ -16,47 +16,51 @@ import java.util.ArrayList;
 /**
  * Created by bautistabaiocchi-lora on 7/26/17.
  */
-public abstract class ExpandableTabList extends Scene implements Manageable {
+public abstract class ExpandableTabListScreen<T extends Object> extends Scene implements Manageable {
 
-	protected static HBox layout;
-	private ExpandableInformationTab informationTab;
+	protected static VBox layout;
+	private static HBox mainLayout;
 	private final ArrayList<Manager> managers = new ArrayList<Manager>();
+	private ExpandableTab informationTab;
 
-	public ExpandableTabList() {
-		super(layout = new HBox());
+	public ExpandableTabListScreen() {
+		super(mainLayout = new HBox());
+		mainLayout.setStyle("-fx-padding: 10;");
+		mainLayout.setSpacing(5);
 		configure();
 	}
 
-	private void configure() {
-		VBox componentLayout = new VBox();
+	protected void configure() {
+		layout = new VBox();
 
-		ListView<ExpandableListLabel> list = new ListView<ExpandableListLabel>();
+		ListView<ExpandableListLabel<T>> list = new ListView<ExpandableListLabel<T>>();
 		list.setEditable(false);
-		ObservableList<ExpandableListLabel> items = FXCollections.observableArrayList(getListLabels());
+		ObservableList<ExpandableListLabel<T>> items = FXCollections.observableArrayList(getListLabels());
 		list.setItems(items);
 		list.setOnMouseClicked((e) -> {
 			if (list.getSelectionModel().getSelectedItem() != null) {
-				displayTab(list.getSelectionModel().getSelectedItem().getInformationTab());
+				displayTab(list.getSelectionModel().getSelectedItem().getTab());
 			}
 		});
 		list.setMaxWidth(250);
 
-		componentLayout.setSpacing(15);
-		componentLayout.getChildren().add(list);
-		layout.getChildren().add(componentLayout);
+		layout.setSpacing(10);
+		layout.getChildren().add(list);
+
+		mainLayout.getChildren().add(layout);
 	}
 
-	protected abstract ExpandableListLabel getListLabels();
+	protected abstract ArrayList<ExpandableListLabel<T>> getListLabels();
 
-	private void displayTab(ExpandableInformationTab tab) {
+	private void displayTab(ExpandableTab tab) {
 		if (this.getWindow().getWidth() == 250) {
 			requestAction(new InterfaceActionRequest.ActionBuilder(InterfaceAction.RESIZE_STAGE).size(500, 300).build());
 		}
 		if (informationTab == null) {
-			layout.getChildren().add(informationTab = tab);
+			mainLayout.getChildren().add(informationTab = tab);
 		} else {
-			layout.getChildren().remove(informationTab);
-			layout.getChildren().add(informationTab = tab);
+			mainLayout.getChildren().remove(informationTab);
+			mainLayout.getChildren().add(informationTab = tab);
 		}
 	}
 
