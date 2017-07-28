@@ -51,7 +51,7 @@ public class AccountManagerScreen extends Scene implements Manageable {
 		Button addButton = new Button("Add Account");
 		addButton.setMaxWidth(Double.MAX_VALUE);
 		addButton.setOnAction((e) -> {
-			//add account
+			displayTab(new AccountInformationTab());
 		});
 
 		componentLayout.setSpacing(15);

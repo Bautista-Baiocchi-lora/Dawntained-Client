@@ -25,11 +25,11 @@ public class PortalScreen extends Scene implements Manageable {
 	private PasswordField passwordField;
 	private CheckBox rememberCheck;
 	private Label incorrectLogIn;
-	private boolean rememberMe;
+	private final boolean rememberMe;
 
 	public PortalScreen() {
 		super(widgetStack = new VBox());
-		rememberMe = Boolean.parseBoolean(configManager.getProperty("remeberme"));
+		rememberMe = Boolean.parseBoolean(configManager.getProperty("rememberme"));
 		configure();
 	}
 
@@ -63,6 +63,7 @@ public class PortalScreen extends Scene implements Manageable {
 		rememberCheck.setAlignment(Pos.CENTER);
 
 		Button loginButton = new Button("Log In");
+		loginButton.setDefaultButton(true);
 		loginButton.setMaxWidth(Double.MAX_VALUE);
 		loginButton.setOnAction((e) -> {
 			if (!logIn(usernameField.getText(), passwordField.getText(), rememberCheck.isSelected())) {
@@ -81,10 +82,14 @@ public class PortalScreen extends Scene implements Manageable {
 		widgetStack.setAlignment(Pos.CENTER);
 		widgetStack.getChildren().addAll(incorrectLogIn, usernameRow, passwordRow, rememberCheck, loginButton,
 				asGuestButton);
+
+		if (rememberMe) {
+			passwordField.requestFocus();
+		}
 	}
 
 	private boolean logIn(String username, String password, boolean rememberMe) {
-		if ((username.equalsIgnoreCase("ethan") && password.equals("123")) || (username.equalsIgnoreCase("") && password.equals(""))) {
+		if ((username.equalsIgnoreCase("bautista") && password.equals("123")) || (username.equalsIgnoreCase("ethan") && password.equals("123")) || (username.equalsIgnoreCase("") && password.equals(""))) {
 			if (rememberMe) {
 				configManager.saveProperty("rememberme", Boolean.toString(rememberMe));
 				configManager.saveProperty("username", username);

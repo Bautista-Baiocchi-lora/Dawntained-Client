@@ -53,7 +53,7 @@ public class BotUI extends Application implements Manager {
 	private void displayScreen(final Scene scene) {
 		if (scene instanceof Manageable) {
 			((Manageable) scene).registerManager(this);
-			Logger.log("Manager registered.", LogType.DEBUG);
+			Logger.log("UI Manager registered.", LogType.DEBUG);
 		}
 		stage.setTitle(Engine.getInterfaceTitle());
 		stage.setScene(scene);

@@ -37,6 +37,10 @@ public class AccountInformationTab extends ScrollPane implements Manageable {
 
 		ListView<String> list = new ListView<String>();
 		HBox listButtons = new HBox();
+
+		layout.setSpacing(10);
+		layout.setStyle("-fx-padding: 10;");
+		layout.getChildren().addAll(usernameLabel, usernameField, passwordLabel, passwordField);
 	}
 
 	@Override
