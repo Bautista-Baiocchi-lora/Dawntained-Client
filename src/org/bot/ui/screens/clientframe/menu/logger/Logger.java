@@ -81,5 +81,4 @@ public class Logger extends JTextPane {
 		write(str, type, LoggerFlag.WARNING);
 	}
 
-
 }

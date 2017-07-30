@@ -8,15 +8,15 @@ import java.util.List;
 /**
  * Created by Ethan on 7/14/2017.
  */
-public abstract class ActionScript extends LoopScript implements Comparator<Action> {
+public abstract class ActionScript extends Script implements Comparator<Action> {
 
-	private final List<Action> actions = new LinkedList<>();
+	private final List<Action> actions = new LinkedList<Action>();
 
 	private synchronized Action get() {
 		try {
-			for (Action a : actions) {
-				if (a != null && a.activate()) {
-					return a;
+			for (Action action : actions) {
+				if (action != null && action.activate()) {
+					return action;
 				}
 			}
 		} catch (Exception e) {
@@ -25,32 +25,19 @@ public abstract class ActionScript extends LoopScript implements Comparator<Acti
 		return null;
 	}
 
-	public void provide(Action... action) {
+	public final void provide(Action... action) {
 		Collections.addAll(actions, action);
 		Collections.sort(actions, this);
 	}
 
 	@Override
-	public void onStart() {
-		start();
-	}
-
-	@Override
-	public int operate() {
-		try {
-			final Action action = get();
-			if (action != null) {
-				action.execute();
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
+	public final int operate() {
+		final Action action = get();
+		if (action != null) {
+			action.execute();
+			return 200;
 		}
-		return 200;
-	}
-
-	@Override
-	public void onStop() {
-		actions.clear();
+		return 0;
 	}
 
 	@Override
@@ -58,5 +45,4 @@ public abstract class ActionScript extends LoopScript implements Comparator<Acti
 		return o1.priority() - o2.priority();
 	}
 
-	public abstract void start();
 }

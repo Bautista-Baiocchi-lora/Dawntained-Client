@@ -82,7 +82,7 @@ public class Condition {
 	 * @return the actual amount of time slept in milliseconds, which is subject
 	 * to system clock accuracy
 	 */
-	public static int sleep(final int ms) {
+	public static int sleep(final long ms) {
 		if (ms <= 0) {
 			Thread.yield();
 			return 0;

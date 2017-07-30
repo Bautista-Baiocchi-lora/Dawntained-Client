@@ -79,4 +79,5 @@ public class SettingsMenu extends JPopupMenu implements ActionListener {
 				break;
 		}
 	}
+
 }

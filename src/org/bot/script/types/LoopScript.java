@@ -1,27 +1,15 @@
 package org.bot.script.types;
 
-import org.bot.Engine;
 
 /**
- * Created by Ethan on 7/14/2017.
+ * Created by bautistabaiocchi-lora on 7/30/2017.
  */
-public abstract class LoopScript {
+public abstract class LoopScript extends Script {
 
-	private final long startTime = System.currentTimeMillis();
+	public abstract int loop();
 
-
-	public abstract void onStart();
-
-	public abstract int operate();
-
-	public abstract void onStop();
-
-	public final void stop() {
-		Engine.getScriptHandler().stop();
+	@Override
+	public final int operate() {
+		return loop();
 	}
-
-	public long getRuntime() {
-		return System.currentTimeMillis() - startTime;
-	}
-
 }

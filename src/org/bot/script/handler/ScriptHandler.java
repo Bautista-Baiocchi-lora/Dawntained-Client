@@ -3,7 +3,8 @@ package org.bot.script.handler;
 import org.bot.Engine;
 import org.bot.component.listeners.PaintListener;
 import org.bot.script.scriptdata.ScriptData;
-import org.bot.script.types.LoopScript;
+import org.bot.script.types.Script;
+import org.bot.ui.screens.clientframe.menu.logger.LogType;
 import org.bot.ui.screens.clientframe.menu.logger.Logger;
 import org.bot.util.Condition;
 
@@ -12,9 +13,10 @@ import org.bot.util.Condition;
  */
 public class ScriptHandler implements Runnable {
 	private Thread scriptThread;
-	private LoopScript script;
+	private Script script;
 	private ScriptData scriptData;
-	private State scriptState = State.STOPPED;
+	private volatile State scriptState = State.STOPPED;
+	private long breakDuration;
 	private PaintListener paintListener;
 
 	@Override
@@ -25,6 +27,9 @@ public class ScriptHandler implements Runnable {
 					stop();
 				} else if (scriptState.equals(State.PAUSE)) {
 					Condition.sleep(500);
+				} else if (scriptState.equals(State.BREAKING)) {
+					this.script.onBreak();
+					Condition.sleep(breakDuration);
 				} else {
 					int timeToSleep = script.operate();
 					Condition.sleep(timeToSleep);
@@ -35,8 +40,9 @@ public class ScriptHandler implements Runnable {
 		}
 	}
 
-	public void start(LoopScript script, ScriptData scriptData) {
+	public void start(Script script, ScriptData scriptData) {
 		if (script == null) {
+			Logger.logException("Error starting script.", LogType.CLIENT);
 			return;
 		}
 		Logger.log("Script Started: " + scriptData.name);
@@ -44,13 +50,19 @@ public class ScriptHandler implements Runnable {
 		this.scriptData = scriptData;
 		this.script = script;
 		this.scriptThread = new Thread(this);
-		this.script.onStart();
-		this.scriptThread.start();
-		if (script instanceof PaintListener) {
-			paintListener = (PaintListener) script;
-			Engine.getGameCanvas().getPaintListeners().add(paintListener);
+		if (this.script.onStart()) {
+			this.scriptThread.start();
+			if (script instanceof PaintListener) {
+				paintListener = (PaintListener) script;
+				Engine.getGameCanvas().getPaintListeners().add(paintListener);
+			}
 		}
+	}
 
+	public void takeBreak(long duration) {
+		Logger.logWarning(scriptData.name + " Breaking for: " + duration);
+		this.breakDuration = duration;
+		this.scriptState = State.BREAKING;
 	}
 
 	public void stop() {
@@ -62,16 +74,11 @@ public class ScriptHandler implements Runnable {
 		this.script = null;
 		this.scriptThread = null;
 		this.paintListener = null;
-
 	}
 
 	public void pause() {
 		Logger.logWarning("Script Paused: " + scriptData.name);
 		this.scriptState = State.PAUSE;
-	}
-
-	public void renew() {
-		this.scriptThread = new Thread(this);
 	}
 
 	public State getScriptState() {
@@ -82,11 +89,7 @@ public class ScriptHandler implements Runnable {
 		this.scriptState = scriptState;
 	}
 
-	public Thread getScriptThread() {
-		return scriptThread;
-	}
-
 	public enum State {
-		RUNNING, PAUSE, STOPPED
+		RUNNING, BREAKING, PAUSE, STOPPED
 	}
 }
