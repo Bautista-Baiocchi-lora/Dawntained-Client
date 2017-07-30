@@ -1,6 +1,7 @@
 package org.bot.ui.screens.clientframe.menu;
 
 import org.bot.Engine;
+import org.bot.ui.screens.clientframe.menu.accountmanager.AccountManagerUI;
 import org.bot.ui.screens.clientframe.menu.logger.LogType;
 import org.bot.ui.screens.clientframe.menu.logger.Logger;
 
@@ -53,7 +54,8 @@ public class SettingsMenu extends JPopupMenu implements ActionListener {
 	public void actionPerformed(final ActionEvent e) {
 		switch (e.getActionCommand()) {
 			case "Account Manager":
-				//show manager
+				final AccountManagerUI accountManagerUI = new AccountManagerUI();
+				accountManagerUI.setLocationRelativeTo(this.getRootPane());
 				break;
 			case "Mouse":
 				Engine.getServerProvider().debugMouse(!Engine.getServerProvider().isDebugMouse());

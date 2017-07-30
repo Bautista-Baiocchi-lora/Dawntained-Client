@@ -8,7 +8,7 @@ import org.objectweb.asm.tree.ClassNode;
 
 public interface Injector {
 
-	public abstract boolean canRun(ClassNode classNode);
+	boolean canRun(ClassNode classNode);
 
-	public abstract void run(ClassNode classNode);
+	void run(ClassNode classNode);
 }

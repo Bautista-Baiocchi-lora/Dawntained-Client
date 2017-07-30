@@ -16,6 +16,7 @@ import java.awt.event.WindowListener;
  * Created by Ethan on 7/8/2017.
  */
 public class GameFrame extends JFrame implements WindowListener {
+
 	private ButtonPanel buttonPanel;
 
 	public GameFrame(Component component) {

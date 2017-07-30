@@ -71,4 +71,9 @@ public class ServerProvider {
 		return debugGameInfo;
 	}
 
+	@Override
+	public String toString() {
+		return manifest.serverName();
+	}
+
 }

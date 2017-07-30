@@ -1,10 +1,12 @@
 package org.bot.ui.management;
 
+import org.bot.account.Account;
 import org.bot.provider.ServerProvider;
 
 public class InterfaceActionRequest {
 
 	private final InterfaceAction action;
+	private Account account;
 	private ServerProvider provider;
 	private double stageWidth;
 	private double stageHeight;
@@ -14,6 +16,11 @@ public class InterfaceActionRequest {
 		provider = builder.provider;
 		stageHeight = builder.stageHeight;
 		stageWidth = builder.stageWidth;
+		account = builder.account;
+	}
+
+	public Account getAccount() {
+		return account;
 	}
 
 	public double getStageWidth() {
@@ -37,11 +44,17 @@ public class InterfaceActionRequest {
 		private ServerProvider provider;
 		private double stageWidth;
 		private double stageHeight;
+		private Account account;
 
 		public ActionBuilder(InterfaceAction action) {
 			this.action = action;
 		}
 
+
+		public ActionBuilder account(Account account) {
+			this.account = account;
+			return this;
+		}
 
 		public ActionBuilder provider(ServerProvider provider) {
 			this.provider = provider;

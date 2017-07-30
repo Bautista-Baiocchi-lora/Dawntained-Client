@@ -1,6 +1,8 @@
 package org.bot.util.injection.asm;
 
 
+import org.bot.ui.screens.clientframe.menu.logger.LogType;
+import org.bot.ui.screens.clientframe.menu.logger.Logger;
 import org.objectweb.asm.tree.ClassNode;
 
 /**
@@ -18,11 +20,9 @@ public class ModifyCanvas {
 
 	public void init() {
 		if (node.superName.toLowerCase().contains("canvas")) {
-			System.out.println("Canvas was: " + node.name + " : " + node.methods.size());
+			Logger.log("Canvas was: " + node.name + " : " + node.methods.size(), LogType.DEBUG);
 			new SetSuper(newCanvasPath, node);
-			System.out.println("Canvas is now: " + node.superName);
-
-
+			Logger.log("Canvas is now: " + node.superName, LogType.DEBUG);
 		}
 	}
 }

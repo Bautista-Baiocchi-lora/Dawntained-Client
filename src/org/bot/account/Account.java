@@ -1,28 +1,48 @@
 package org.bot.account;
 
-import java.util.ArrayList;
-
 /**
  * Created by bautistabaiocchi-lora on 7/23/17.
  */
 public class Account {
 
-	private String username;
-	private String password;
-	private ArrayList<String> servers;
+	private final String username;
+	private final String server;
+	private int sleepDuration;
+	private int sleepInterval;
+	private String password = "";
+	private boolean breaking;
 
-	public Account(String username, String password) {
+	public Account(String username, String server) {
 		this.username = username;
-		this.password = password;
-		this.servers = new ArrayList<String>();
+		this.server = server;
+	}
+
+	public boolean isBreaking() {
+		return breaking;
+	}
+
+	public void setBreaking(boolean breaking) {
+		this.breaking = breaking;
+	}
+
+	public int getSleepInterval() {
+		return sleepInterval;
+	}
+
+	public void setSleepInterval(int interval) {
+		this.sleepInterval = interval;
+	}
+
+	public int getSleepDuration() {
+		return sleepDuration;
+	}
+
+	public void setSleepDuration(int duration) {
+		this.sleepDuration = duration;
 	}
 
 	public String getUsername() {
 		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
 	}
 
 	public String getPassword() {
@@ -33,11 +53,21 @@ public class Account {
 		this.password = password;
 	}
 
-	public void addServer(String server) {
-		servers.add(server);
+	public String getServer() {
+		return server;
 	}
 
-	public ArrayList<String> getServers() {
-		return servers;
+	@Override
+	public String toString() {
+		return username;
+	}
+
+	@Override
+	public boolean equals(Object object) {
+		if (object instanceof Account) {
+			Account account = (Account) object;
+			return account.getUsername().equals(username);
+		}
+		return false;
 	}
 }

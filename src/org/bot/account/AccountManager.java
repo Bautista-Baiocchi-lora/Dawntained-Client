@@ -48,10 +48,11 @@ public class AccountManager {
 			if (!property.getProperty("owner").equals(Engine.getUsername())) {
 				continue;
 			}
-			final Account account = new Account(property.getProperty("username"), property.getProperty("password"));
-			for (String server : property.getProperty("servers").split(",")) {
-				account.addServer(server);
-			}
+			final Account account = new Account(property.getProperty("username"), property.getProperty("server"));
+			account.setPassword(property.getProperty("password"));
+			account.setBreaking(Boolean.parseBoolean(property.getProperty("breaking")));
+			account.setSleepDuration(Integer.parseInt(property.getProperty("sleepduration")));
+			account.setSleepInterval(Integer.parseInt(property.getProperty("sleepinterval")));
 			accounts.add(account);
 		}
 		Logger.log("Accounts loaded.", LogType.DEBUG);
@@ -64,15 +65,18 @@ public class AccountManager {
 		} catch (InvalidFileNameException e) {
 			e.printStackTrace();
 		}
+		Logger.log("Account deleted.", LogType.CLIENT);
 	}
 
 	public void addAccount(Account account) {
 		accounts.add(account);
 		saveAccount(account);
+		Logger.log("Account saved.", LogType.CLIENT);
 	}
 
 	public void updateAccount(Account account) {
 		saveAccount(account);
+		Logger.log("Account updated.", LogType.CLIENT);
 	}
 
 	private void saveAccount(Account account) {
@@ -80,15 +84,22 @@ public class AccountManager {
 		property.put("owner", Engine.getUsername());
 		property.put("username", account.getUsername());
 		property.put("password", account.getPassword());
-		StringBuilder servers = new StringBuilder();
-		for (String server : account.getServers()) {
-			servers.append(server + ",");
-		}
-		property.put("servers", servers.toString());
-		try (FileOutputStream outputStream = new FileOutputStream(directory.getPath())) {
-			property.store(outputStream, null);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+		property.put("server", account.getServer());
+		property.put("breaking", String.valueOf(account.isBreaking()));
+		property.put("sleepduration", String.valueOf(account.getSleepDuration()));
+		property.put("sleepinterval", String.valueOf(account.getSleepInterval()));
+		File accountFile = new File(DirectoryManager.ACCOUNTS_PATH + File.separator + account.getUsername() + ".account");
+		try {
+			if (!accountFile.exists()) {
+				if (accountFile.createNewFile()) {
+					Logger.log("Created " + account.getUsername() + " account file.", LogType.DEBUG);
+				}
+			}
+			try (FileOutputStream outputStream = new FileOutputStream(accountFile)) {
+				property.store(outputStream, null);
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

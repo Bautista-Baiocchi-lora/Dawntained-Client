@@ -41,7 +41,7 @@ public class DirectoryManager {
 	public DirectoryManager() {
 		botDirectory = getRootDirectory();
 		try {
-			createSubDirectories();
+			validateSubDirectories();
 		} catch (InvalidDirectoryNameException | IOException e) {
 			e.printStackTrace();
 		}
@@ -63,7 +63,7 @@ public class DirectoryManager {
 		return directory;
 	}
 
-	private void createSubDirectories() throws IOException, InvalidDirectoryNameException {
+	private void validateSubDirectories() throws IOException, InvalidDirectoryNameException {
 		botDirectory.createSubDirectory(CACHE);
 		CACHE_PATH = botDirectory.getSubDirectory(CACHE).getPath();
 		botDirectory.createSubDirectory(SERVER_PROVIDERS);

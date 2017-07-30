@@ -61,7 +61,7 @@ public abstract class ServerLoader<T extends Component> extends Task<Void> {
 				if (Engine.getServerProvider().getManifest().type().equals(Applet.class)) {
 					updateMessage("Embedding applet.");
 					final JPanel panel = new JPanel();
-					Applet applet = (Applet) component;
+					final Applet applet = (Applet) component;
 					panel.setPreferredSize(new Dimension(765, 503));
 					panel.setLayout(new BorderLayout());
 					inputThreads = new Thread(new HandleInputs());
