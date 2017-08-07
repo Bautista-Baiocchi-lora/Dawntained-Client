@@ -19,7 +19,27 @@ public class ScriptCategory extends JPanel
 		
 		add(new JLabel(name, SwingConstants.CENTER),BorderLayout.NORTH);
 
-		PanelRotator rotator=new PanelRotator(size,scripts);
+		PanelRotator rotator;
+		int diff=size-scripts.size();
+		if(diff>0)
+		{
+			ArrayList<ScriptTab> copiedScripts=new ArrayList<ScriptTab>(scripts.size());
+			for(ScriptTab t:scripts)
+			{
+				copiedScripts.add(t);
+			}
+
+			for(int i=0;i<diff;++i)
+			{
+				copiedScripts.add(new ScriptTab(null));
+			}
+			rotator=new PanelRotator(size,copiedScripts);
+		}
+		else
+		{
+			rotator=new PanelRotator(size,scripts);
+		}
+
 		add(rotator, BorderLayout.CENTER);
 	}
 

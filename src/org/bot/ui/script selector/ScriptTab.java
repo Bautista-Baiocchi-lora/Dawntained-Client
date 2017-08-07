@@ -20,14 +20,16 @@ public class ScriptTab extends JPanel {
         setBorder(BorderFactory.createLineBorder(Color.BLACK));
         setPreferredSize(new Dimension(200,200));
 
-        CardLayout layout = new CardLayout();
-        JPanel cardStack = new JPanel(layout);
-        cardStack.setPreferredSize(new Dimension(200,180));
+        if(data!=null) {
+            CardLayout layout = new CardLayout();
+            JPanel cardStack = new JPanel(layout);
+            cardStack.setPreferredSize(new Dimension(200, 180));
 
-        cardStack.add(makeFirstCard(layout, cardStack, data), "1");
-        cardStack.add(makeSecondCard(layout, cardStack, data), "2");
+            cardStack.add(makeFirstCard(layout, cardStack, data), "1");
+            cardStack.add(makeSecondCard(layout, cardStack, data), "2");
 
-        add(cardStack);
+            add(cardStack);
+        }
     }
 
     private JPanel makeFirstCard(CardLayout layout, JPanel cardStack, ScriptData data) {

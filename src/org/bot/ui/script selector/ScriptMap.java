@@ -1,11 +1,11 @@
 import java.util.ArrayList;
 
-public class CategoryMap
+public class ScriptMap
 {
     private String name;
     private ArrayList<ScriptTab> tabs;
 
-    public CategoryMap(String name)
+    public ScriptMap(String name)
     {
         this.name=name;
         tabs=new ArrayList<ScriptTab>();

@@ -6,19 +6,18 @@ import javax.swing.*;
 
 public class ScriptSelector extends JFrame
 {
-	private ArrayList<ScriptTab> tabs;
-	private ScriptDisplay mainDisplay;
+	private ScriptDisplay lastDisplay;
+	private ScriptSearcher searcher;
 	private int categorySize;
 
 	public ScriptSelector(ArrayList<ScriptData> data,int categorySize)
 	{
 		this.categorySize=categorySize;
-		makeScriptTabs(data);
-		makeMainDisplay();
-		setUp();
+		searcher=new ScriptSearcher(data);
+		setUp(categorySize);
 	}
 
-	private void setUp()
+	private void setUp(int categorySize)
 	{
 		if(categorySize>5)
 		{
@@ -33,7 +32,9 @@ public class ScriptSelector extends JFrame
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		setLayout(new BorderLayout());
+		ScriptDisplay mainDisplay=mainDisplay();
 		add(mainDisplay,BorderLayout.CENTER);
+		lastDisplay=mainDisplay;
 		add(new SearchPanel(this),BorderLayout.NORTH);
 
 		setVisible(true);
@@ -41,63 +42,36 @@ public class ScriptSelector extends JFrame
 
 	public void search(String pattern)
 	{
-		add(new ScriptDisplay(new ArrayList<ScriptCategory>()),BorderLayout.CENTER);
+		changeDisplay(new ScriptDisplay(makeScriptCategories(searcher.search(pattern))));
+	}
+
+	public void returnHome()
+	{
+		changeDisplay(mainDisplay());
+	}
+
+	private void changeDisplay(ScriptDisplay display)
+	{
+		remove(lastDisplay);
+		lastDisplay=display;
+		add(display,BorderLayout.CENTER);
 		revalidate();
-		System.out.println(pattern);
 	}
 
-	private void makeScriptTabs(ArrayList<ScriptData> data)
+	private ScriptDisplay mainDisplay()
 	{
-		tabs=new ArrayList<ScriptTab>();
-		for(ScriptData d:data)
-		{
-			tabs.add(new ScriptTab(d));
-		}
+		return new ScriptDisplay(makeScriptCategories(searcher.getCategories()));
 	}
 
-	private void makeMainDisplay()
-	{
-		ArrayList<CategoryMap> maps=makeCategoryMaps(tabs);
-		mainDisplay=new ScriptDisplay(makeScriptCategories(maps,categorySize));
-	}
-
-	private ArrayList<ScriptCategory> makeScriptCategories(ArrayList<CategoryMap> maps,int categorySize)
+	private ArrayList<ScriptCategory> makeScriptCategories(ArrayList<ScriptMap> maps)
 	{
 		ArrayList<ScriptCategory> categories=new ArrayList<ScriptCategory>();
 
-		for(CategoryMap map:maps)
+		for(ScriptMap map:maps)
 		{
 			categories.add(new ScriptCategory(map.getName(),map.getTabs(),categorySize));
 		}
 
 		return categories;
-	}
-
-	private ArrayList<CategoryMap> makeCategoryMaps(ArrayList<ScriptTab> tabs)
-	{
-		ArrayList<CategoryMap> maps=new ArrayList<CategoryMap>();
-
-		for(ScriptTab tab:tabs)
-		{
-			String skill=tab.getData().getSkillCategory().getName();
-			boolean categoryFound=false;
-			for(CategoryMap map:maps)
-			{
-				if(map.getName().equalsIgnoreCase(skill))
-				{
-					map.addTab(tab);
-					categoryFound=true;
-				}
-			}
-
-			if(!categoryFound)
-			{
-				CategoryMap map=new CategoryMap(skill);
-				map.addTab(tab);
-				maps.add(map);
-			}
-		}
-
-		return maps;
 	}
 }

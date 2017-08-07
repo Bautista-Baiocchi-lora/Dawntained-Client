@@ -25,6 +25,15 @@ public class SearchPanel extends JPanel
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				sel.search(field.getText());
+				field.setText("");
+			}
+		});
+
+		JButton home=new JButton("Home");
+		home.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				sel.returnHome();
 			}
 		});
 		
@@ -33,5 +42,6 @@ public class SearchPanel extends JPanel
 		fieldConst.fill=GridBagConstraints.HORIZONTAL;
 		add(field,fieldConst);
 		add(button);
+		add(home);
 	}
 }
