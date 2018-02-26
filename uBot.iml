@@ -8,6 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="asm-all-5.2" level="project" />
-    <orderEntry type="library" name="JSON" level="project" />
+    <orderEntry type="library" name="json-20090211" level="project" />
   </component>
 </module>

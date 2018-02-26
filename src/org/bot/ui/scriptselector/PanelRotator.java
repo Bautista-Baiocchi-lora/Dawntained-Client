@@ -1,11 +1,10 @@
+package org.bot.ui.scriptselector;
+
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 public class PanelRotator extends JPanel {
     private JButton nextButton;
@@ -32,7 +31,7 @@ public class PanelRotator extends JPanel {
         add(prevButton, BorderLayout.WEST);
 
         container = new JPanel();
-        container.setLayout(new GridLayout(1, size,3,3));
+        container.setLayout(new GridLayout(1, size, 3, 3));
         add(container, BorderLayout.CENTER);
     }
 

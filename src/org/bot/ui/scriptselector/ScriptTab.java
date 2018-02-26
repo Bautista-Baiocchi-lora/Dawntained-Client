@@ -1,3 +1,7 @@
+package org.bot.ui.scriptselector;
+
+import org.bot.script.scriptdata.ScriptData;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -7,20 +11,19 @@ public class ScriptTab extends JPanel {
     private ScriptData data;
 
     public ScriptTab(ScriptData data) {
-        this.data=data;
+        this.data = data;
         arrangeLayout(data);
     }
 
-    public ScriptData getData()
-    {
+    public ScriptData getData() {
         return data;
     }
 
     private void arrangeLayout(ScriptData data) {
         setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        setPreferredSize(new Dimension(200,200));
+        setPreferredSize(new Dimension(200, 200));
 
-        if(data!=null) {
+        if (data != null) {
             CardLayout layout = new CardLayout();
             JPanel cardStack = new JPanel(layout);
             cardStack.setPreferredSize(new Dimension(200, 180));
@@ -62,7 +65,7 @@ public class ScriptTab extends JPanel {
 
     private JPanel makeSecondCard(CardLayout layout, JPanel cardStack, ScriptData data) {
         JPanel secondCard = new JPanel(new BorderLayout());
-        secondCard.setPreferredSize(new Dimension(cardStack.getWidth(),cardStack.getHeight()));
+        secondCard.setPreferredSize(new Dimension(cardStack.getWidth(), cardStack.getHeight()));
 
         JButton backButton = new JButton("Back");
         backButton.addActionListener(new ActionListener() {
