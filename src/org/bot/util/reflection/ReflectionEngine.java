@@ -4,6 +4,7 @@ import org.bot.classloader.ASMClassLoader;
 import org.bot.classloader.ClassArchive;
 import org.bot.hooking.FieldHook;
 import org.bot.hooking.Hook;
+import org.bot.ui.screens.clientframe.menu.logger.Logger;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -126,6 +127,7 @@ public class ReflectionEngine {
 			for (ReflectedMethod m : clazz.getMethods()) {
 				if (m.getName().equals(fieldName)) {
 					if (m.getParameterCount() == paramCount) {
+						//Logger.log(m.getReturnType().toGenericString());
 						if (m.getReturnType().toGenericString().equals(returnType)) {
 							return m.invoke(params);
 						}

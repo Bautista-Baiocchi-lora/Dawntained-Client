@@ -18,6 +18,8 @@ import org.bot.ui.screens.serverselector.ServerSelectorScreen;
 import org.bot.util.ConfigManager;
 import org.bot.util.directory.DirectoryManager;
 
+import javax.swing.*;
+
 public class BotUI extends Application implements Manager {
 
 	public static Stage stage;
@@ -30,6 +32,11 @@ public class BotUI extends Application implements Manager {
 	}
 
 	public static void main(String[] args) {
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		launch(args);
 	}
 

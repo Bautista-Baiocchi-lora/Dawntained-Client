@@ -55,12 +55,15 @@ public class ScriptLoader {
 						String classPackage = jarEntry.getName().replace(".class", "");
 						clazz = cl.loadClass(classPackage.replaceAll("/", "."));
 						if (clazz.isAnnotationPresent(ScriptManifest.class)) {
+							System.out.println("Found a script");
 							final ScriptManifest manifest = clazz.getAnnotation(ScriptManifest.class);
 							if (manifest == null) {
 								throw new NullManifestException();
 							}
 							ScriptData scriptData = new ScriptData(classPackage.replaceAll("/", "."), manifest.name(), manifest.server(), manifest.description(), manifest.version(), manifest.author(), manifest.category(), new File(file.getAbsolutePath()));
 							scripts.add(scriptData);
+							System.out.println("added a script");
+
 						}
 					}
 				}

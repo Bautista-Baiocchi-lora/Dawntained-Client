@@ -11,7 +11,7 @@ public class ServerProvider {
 	private final ServerLoader<?> loader;
 	private final ServerManifest manifest;
 	private final List<ScreenOverlay> screenOverlays;
-	private boolean debugMouse, debugNPCs, debugPlayers, debugInventory, debugGameInfo;
+	private boolean debugMouse, debugNPCs, debugPlayers, debugInventory, debugGameInfo, debugObjects;
 
 	public ServerProvider(ServerLoader<?> loader, ServerManifest manifest) {
 		this.loader = loader;
@@ -35,6 +35,10 @@ public class ServerProvider {
 		debugMouse = debug;
 	}
 
+	public void debugObjects(boolean debug) {
+		debugObjects = debug;
+	}
+
 	public boolean isDebugMouse() {
 		return debugMouse;
 	}
@@ -48,7 +52,7 @@ public class ServerProvider {
 	}
 
 	public void debugPlayers(boolean debug) {
-		this.debugNPCs = debug;
+		this.debugPlayers = debug;
 	}
 
 	public boolean isDebugPlayers() {
@@ -61,6 +65,10 @@ public class ServerProvider {
 
 	public boolean isDebugInventory() {
 		return debugInventory;
+	}
+
+	public boolean isDebugObjects() {
+		return debugObjects;
 	}
 
 	public void debugGameInfo(boolean debug) {

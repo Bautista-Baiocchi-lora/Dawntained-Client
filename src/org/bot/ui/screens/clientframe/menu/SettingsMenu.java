@@ -17,7 +17,7 @@ public class SettingsMenu extends JPopupMenu implements ActionListener {
 
 	private final JMenu debugMenu;
 	private final JMenuItem accountManagerMenu;
-	private final JCheckBoxMenuItem mouse, npcs, players, text, inventory;
+	private final JCheckBoxMenuItem mouse, npcs, players, text, inventory, objects;
 
 	public SettingsMenu() {
 		accountManagerMenu = new JMenuItem("Account Manager");
@@ -40,8 +40,12 @@ public class SettingsMenu extends JPopupMenu implements ActionListener {
 		inventory = new JCheckBoxMenuItem("Inventory");
 		inventory.addActionListener(this);
 
+		objects = new JCheckBoxMenuItem("Objects");
+		objects.addActionListener(this);
+
 		debugMenu.add(npcs);
 		debugMenu.add(players);
+		debugMenu.add(objects);
 		debugMenu.add(text);
 		debugMenu.add(inventory);
 		debugMenu.add(mouse);
@@ -76,6 +80,10 @@ public class SettingsMenu extends JPopupMenu implements ActionListener {
 			case "Game":
 				Engine.getServerProvider().debugGameInfo(!Engine.getServerProvider().isDebugGameInfo());
 				Logger.log("Game info debugging toggled.", LogType.DEBUG);
+				break;
+			case "Objects":
+				Engine.getServerProvider().debugObjects(!Engine.getServerProvider().isDebugObjects());
+				Logger.log("Objects debugging toggled.", LogType.DEBUG);
 				break;
 		}
 	}
