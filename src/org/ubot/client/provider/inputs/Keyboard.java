@@ -8,7 +8,7 @@ import java.awt.event.KeyEvent;
 
 public class Keyboard {
 
-	public static void pressEnter() {
+/*	public static void pressEnter() {
 		press(KeyEvent.VK_ENTER);
 		release(KeyEvent.VK_ENTER);
 	}
@@ -42,5 +42,5 @@ public class Keyboard {
 		}
 		if (pressEnter)
 			pressEnter();
-	}
+	}*/
 }

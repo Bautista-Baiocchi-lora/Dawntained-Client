@@ -15,12 +15,12 @@ public class MouseOverlay extends ScreenOverlay<Object> {
 
 	@Override
 	public boolean activate() {
-		return Engine.getServerProvider().isDebugMouse();
+		return true;
 	}
 
 	@Override
 	public void render(Graphics2D g) {
-		final Point p = Mouse.getLocation();
+		final Point p = new Point(1,1);
 
 		if (p.x == -1 || p.y == -1) {
 			return;
@@ -48,7 +48,7 @@ public class MouseOverlay extends ScreenOverlay<Object> {
 		}
 
 		g.setColor(Color.yellow);
-		g.drawString("Location: " + (int) Mouse.getLocation().getX() + " , " + (int) Mouse.getLocation().getY(), 10, 30);
+		g.drawString("Location: " + (int) 1 + " , " + (int) 1, 10, 30);
 	}
 
 

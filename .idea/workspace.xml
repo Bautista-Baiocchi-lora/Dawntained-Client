@@ -7,201 +7,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a749048c-453f-45b8-96ac-6d38b10c793b" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/json_simple_1_1_1.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/org/ubot/bot/Bot.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/org/ubot/bot/BotModel.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/org/ubot/client/Client.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/org/ubot/client/ClientModel.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/org/ubot/client/hooking/JSONParser.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/org/ubot/client/provider/threads/HandleInputs.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/org/ubot/client/ui/screens/loading/LoadingScreen.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/org/ubot/client/ui/screens/serverselector/ServerSelectorScreen.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/org/ubot/client/ui/screens/util/ExpandableTab.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/org/ubot/client/ui/screens/util/PopUp.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/org/ubot/launcher/Launcher.java" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/asm_all_5_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/asm_all_5_2.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/json_20090211.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/objenesis_2_6.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/out/production/uBot/META-INF/MANIFEST.MF" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/Engine.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/classloader/ASMClassLoader.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/classloader/ClassArchive.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/component/RSCanvas.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/component/inputs/InternalKeyboard.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/component/inputs/InternalMouse.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/component/inputs/Keyboard.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/component/inputs/Mouse.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/component/listeners/PaintListener.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/component/screen/ScreenOverlay.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/hooking/FieldHook.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/hooking/Hook.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/hooking/JSONParser.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/hooking/MethodHook.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/hooking/XMLParser.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/provider/ServerProvider.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/provider/loader/ServerLoader.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/provider/manifest/HookType.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/provider/manifest/NullManifestException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/provider/manifest/Revision.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/provider/manifest/ServerManifest.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/provider/osrs/models/Model.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/provider/osrs/models/ModelCallBack.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/script/handler/ScriptHandler$State.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/script/handler/ScriptHandler.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/script/loader/ScriptLoader.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/script/scriptdata/ScriptData.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/script/scriptdata/ScriptManifest.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/script/scriptdata/SkillCategory.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/script/types/Action.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/script/types/ActionScript.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/script/types/LoopScript.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/threads/HandleInputs$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/threads/HandleInputs.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/BotUI$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/BotUI.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/management/InterfaceAction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/management/InterfaceActionRequest$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/management/InterfaceActionRequest$ActionBuilder.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/management/InterfaceActionRequest.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/management/Manageable.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/management/Manager.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/screens/clientframe/GameFrame$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/screens/clientframe/GameFrame.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/screens/loading/LoadingScreen$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/screens/loading/LoadingScreen.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/screens/login/PortalScreen.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/screens/scriptselector/ScriptPanel.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/screens/scriptselector/ScriptSelector$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/screens/scriptselector/ScriptSelector$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/screens/scriptselector/ScriptSelector$3.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/screens/scriptselector/ScriptSelector.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/screens/serverselector/ServerInformationTab.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/ui/screens/serverselector/ServerSelectorScreen.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/util/BasicTimer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/util/Condition$Check.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/util/Condition.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/util/FileDownloader.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/util/Filter.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/util/NetUtil.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/util/PolygonUtils.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/util/Random$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/util/Random.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/util/Utilities.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/util/directory/Directory.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/util/directory/DirectoryManager.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/util/directory/exceptions/InvalidDirectoryNameException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/util/directory/exceptions/InvalidFileNameException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/util/directory/exceptions/InvalidNameException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/util/injection/Injector.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/util/injection/asm/ModifyCanvas.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/util/injection/asm/SetSuper.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/util/reflection/Modifiers$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/util/reflection/Modifiers$Condition.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/util/reflection/Modifiers$ModifierBuilder.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/util/reflection/Modifiers.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/util/reflection/ReflectedClass$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/util/reflection/ReflectedClass.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/util/reflection/ReflectedConstructor.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/util/reflection/ReflectedField.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/util/reflection/ReflectedMethod.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/uBot/org/bot/util/reflection/ReflectionEngine.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/Engine.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/account/Account.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/account/Account.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/account/AccountManager.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/account/AccountManager.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/classloader/ASMClassLoader.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/classloader/ASMClassLoader.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/classloader/ClassArchive.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/classloader/ClassArchive.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/component/RSCanvas.java" afterPath="$PROJECT_DIR$/src/org/ubot/bot/component/RSCanvas.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/component/inputs/InternalKeyboard.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/provider/inputs/InternalKeyboard.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/component/inputs/InternalMouse.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/provider/inputs/InternalMouse.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/component/inputs/Keyboard.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/provider/inputs/Keyboard.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/component/inputs/Mouse.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/provider/inputs/Mouse.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/component/listeners/PaintListener.java" afterPath="$PROJECT_DIR$/src/org/ubot/bot/component/listeners/PaintListener.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/component/screen/ScreenOverlay.java" afterPath="$PROJECT_DIR$/src/org/ubot/bot/component/screen/ScreenOverlay.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/hooking/FieldHook.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/hooking/FieldHook.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/hooking/Hook.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/hooking/Hook.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/hooking/JSONParser.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/hooking/MethodHook.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/hooking/MethodHook.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/hooking/XMLParser.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/hooking/XMLParser.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/provider/ServerProvider.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/provider/ServerProvider.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/provider/loader/ServerLoader.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/provider/loader/ServerLoader.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/provider/manifest/HookType.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/provider/manifest/NullManifestException.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/provider/manifest/NullManifestException.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/provider/manifest/Revision.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/provider/manifest/Revision.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/provider/manifest/ServerManifest.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/provider/manifest/ServerManifest.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/provider/osrs/models/Model.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/provider/osrs/models/ModelCallBack.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/provider/overlays/MouseOverlay.java" afterPath="$PROJECT_DIR$/src/org/ubot/bot/component/screen/overlays/MouseOverlay.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/script/handler/ScriptHandler.java" afterPath="$PROJECT_DIR$/src/org/ubot/bot/script/handler/ScriptHandler.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/script/loader/ScriptLoader.java" afterPath="$PROJECT_DIR$/src/org/ubot/bot/script/loader/ScriptLoader.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/script/scriptdata/ScriptData.java" afterPath="$PROJECT_DIR$/src/org/ubot/bot/script/scriptdata/ScriptData.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/script/scriptdata/ScriptManifest.java" afterPath="$PROJECT_DIR$/src/org/ubot/bot/script/scriptdata/ScriptManifest.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/script/scriptdata/SkillCategory.java" afterPath="$PROJECT_DIR$/src/org/ubot/bot/script/scriptdata/SkillCategory.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/script/types/Action.java" afterPath="$PROJECT_DIR$/src/org/ubot/bot/script/types/Action.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/script/types/ActionScript.java" afterPath="$PROJECT_DIR$/src/org/ubot/bot/script/types/ActionScript.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/script/types/LoopScript.java" afterPath="$PROJECT_DIR$/src/org/ubot/bot/script/types/LoopScript.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/script/types/Script.java" afterPath="$PROJECT_DIR$/src/org/ubot/bot/script/types/Script.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/threads/HandleInputs.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/ui/BotUI.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/ui/management/InterfaceAction.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/ui/management/InterfaceActionRequest.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/ui/management/Manageable.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/ui/management/Manager.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/ui/screens/clientframe/GameFrame.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/ui/screens/clientframe/menu/SettingsMenu.java" afterPath="$PROJECT_DIR$/src/org/ubot/bot/ui/SettingsMenu.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/ui/screens/clientframe/menu/accountmanager/AccountManagerUI.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/ui/screens/clientframe/menu/accountmanager/AccountPreviewPanel.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/ui/screens/clientframe/menu/buttonpanel/ButtonPanel.java" afterPath="$PROJECT_DIR$/src/org/ubot/bot/ui/buttonpanel/ButtonPanel.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/ui/screens/clientframe/menu/buttonpanel/Buttons.java" afterPath="$PROJECT_DIR$/src/org/ubot/bot/ui/buttonpanel/Buttons.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/ui/screens/clientframe/menu/logger/LogType.java" afterPath="$PROJECT_DIR$/src/org/ubot/bot/ui/logger/LogType.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/ui/screens/clientframe/menu/logger/Logger.java" afterPath="$PROJECT_DIR$/src/org/ubot/bot/ui/logger/Logger.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/ui/screens/clientframe/menu/logger/LoggerFlag.java" afterPath="$PROJECT_DIR$/src/org/ubot/bot/ui/logger/LoggerFlag.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/ui/screens/clientframe/menu/logger/LoggerPanel.java" afterPath="$PROJECT_DIR$/src/org/ubot/bot/ui/logger/LoggerPanel.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/ui/screens/loading/LoadingScreen.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/ui/screens/login/PortalScreen.java" afterPath="$PROJECT_DIR$/src/org/ubot/launcher/PortalScreen.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/ui/screens/scriptselector/ScriptPanel.java" afterPath="$PROJECT_DIR$/src/org/ubot/bot/ui/scriptselector/ScriptPanel.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/ui/screens/scriptselector/ScriptSelector.java" afterPath="$PROJECT_DIR$/src/org/ubot/bot/ui/scriptselector/ScriptSelector.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/ui/screens/serverselector/ServerInformationTab.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/ui/screens/serverselector/ServerInformationTab.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/ui/screens/serverselector/ServerSelectorScreen.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/ui/screens/util/ExpandableListLabel.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/ui/screens/util/ExpandableListLabel.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/ui/screens/util/ExpandableTab.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/ui/screens/util/ExpandableTabListScreen.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/ui/screens/util/ExpandableTabListScreen.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/ui/screens/util/PopUp.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/ui/scriptselector/CircularList.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/ui/scriptselector/CircularList.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/ui/scriptselector/CircularListNode.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/ui/scriptselector/CircularListNode.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/ui/scriptselector/PanelRotator.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/ui/scriptselector/PanelRotator.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/ui/scriptselector/ScriptCategory.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/ui/scriptselector/ScriptCategory.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/ui/scriptselector/ScriptDisplay.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/ui/scriptselector/ScriptDisplay.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/ui/scriptselector/ScriptMap.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/ui/scriptselector/ScriptMap.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/ui/scriptselector/ScriptSearcher.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/ui/scriptselector/ScriptSearcher.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/ui/scriptselector/ScriptSelector.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/ui/scriptselector/ScriptSelector.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/ui/scriptselector/ScriptTab.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/ui/scriptselector/ScriptTab.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/ui/scriptselector/SearchPanel.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/ui/scriptselector/SearchPanel.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/util/BasicTimer.java" afterPath="$PROJECT_DIR$/src/org/ubot/util/BasicTimer.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/util/Condition.java" afterPath="$PROJECT_DIR$/src/org/ubot/util/Condition.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/util/ConfigManager.java" afterPath="$PROJECT_DIR$/src/org/ubot/util/ConfigManager.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/util/FileDownloader.java" afterPath="$PROJECT_DIR$/src/org/ubot/util/FileDownloader.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/util/Filter.java" afterPath="$PROJECT_DIR$/src/org/ubot/util/Filter.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/util/NetUtil.java" afterPath="$PROJECT_DIR$/src/org/ubot/util/NetUtil.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/util/PolygonUtils.java" afterPath="$PROJECT_DIR$/src/org/ubot/util/PolygonUtils.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/util/Random.java" afterPath="$PROJECT_DIR$/src/org/ubot/util/Random.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/util/Utilities.java" afterPath="$PROJECT_DIR$/src/org/ubot/util/Utilities.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/util/directory/Directory.java" afterPath="$PROJECT_DIR$/src/org/ubot/util/directory/Directory.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/util/directory/DirectoryManager.java" afterPath="$PROJECT_DIR$/src/org/ubot/util/directory/DirectoryManager.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/util/directory/exceptions/InvalidDirectoryNameException.java" afterPath="$PROJECT_DIR$/src/org/ubot/util/directory/exceptions/InvalidDirectoryNameException.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/util/directory/exceptions/InvalidFileNameException.java" afterPath="$PROJECT_DIR$/src/org/ubot/util/directory/exceptions/InvalidFileNameException.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/util/directory/exceptions/InvalidNameException.java" afterPath="$PROJECT_DIR$/src/org/ubot/util/directory/exceptions/InvalidNameException.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/util/injection/Injector.java" afterPath="$PROJECT_DIR$/src/org/ubot/util/injection/Injector.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/util/injection/asm/ModifyCanvas.java" afterPath="$PROJECT_DIR$/src/org/ubot/util/injection/asm/ModifyCanvas.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/util/injection/asm/SetSuper.java" afterPath="$PROJECT_DIR$/src/org/ubot/util/injection/asm/SetSuper.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/util/reflection/Modifiers.java" afterPath="$PROJECT_DIR$/src/org/ubot/util/reflection/Modifiers.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/util/reflection/ReflectedClass.java" afterPath="$PROJECT_DIR$/src/org/ubot/util/reflection/ReflectedClass.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/util/reflection/ReflectedConstructor.java" afterPath="$PROJECT_DIR$/src/org/ubot/util/reflection/ReflectedConstructor.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/util/reflection/ReflectedField.java" afterPath="$PROJECT_DIR$/src/org/ubot/util/reflection/ReflectedField.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/util/reflection/ReflectedMethod.java" afterPath="$PROJECT_DIR$/src/org/ubot/util/reflection/ReflectedMethod.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/bot/util/reflection/ReflectionEngine.java" afterPath="$PROJECT_DIR$/src/org/ubot/util/reflection/ReflectionEngine.java" />
-      <change beforePath="$PROJECT_DIR$/uBot.iml" afterPath="$PROJECT_DIR$/uBot.iml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/json_simple_1_1_1.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/asm_all_5_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/asm_all_5_2.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/ubot/bot/BotModel.java" afterPath="$PROJECT_DIR$/src/org/ubot/bot/BotModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/ubot/bot/component/RSCanvas.java" afterPath="$PROJECT_DIR$/src/org/ubot/bot/component/RSCanvas.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/ubot/bot/component/screen/overlays/MouseOverlay.java" afterPath="$PROJECT_DIR$/src/org/ubot/bot/component/screen/overlays/MouseOverlay.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/ubot/bot/script/handler/ScriptHandler.java" afterPath="$PROJECT_DIR$/src/org/ubot/bot/script/handler/ScriptHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/ubot/client/Client.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/Client.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/ubot/client/classloader/ASMClassLoader.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/classloader/ASMClassLoader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/ubot/client/provider/inputs/Keyboard.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/provider/inputs/Keyboard.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/ubot/client/provider/inputs/Mouse.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/provider/inputs/Mouse.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/ubot/client/provider/threads/HandleInputs.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/provider/threads/HandleInputs.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uBot.iml" afterPath="$PROJECT_DIR$/uBot.iml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -214,58 +32,114 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/uBot$uBot.coverage" NAME="uBot Coverage Results" MODIFIED="1500058617683" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="BotModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/ubot/bot/BotModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="43" column="51" lean-forward="false" selection-start-line="43" selection-start-column="51" selection-end-line="43" selection-end-column="51" />
+              <folding>
+                <element signature="e#3341#3342#0" expanded="true" />
+                <element signature="e#3376#3377#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Client.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/org/ubot/client/Client.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AccountManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/ubot/client/account/AccountManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="182">
+              <caret line="26" column="156" lean-forward="true" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="156" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="LoadingScreen.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/ubot/client/ui/screens/loading/LoadingScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
+            <state relative-caret-position="494">
               <caret line="54" column="99" lean-forward="false" selection-start-line="54" selection-start-column="99" selection-end-line="54" selection-end-column="99" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ServerLoader.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/org/ubot/client/provider/loader/ServerLoader.java">
+      <file leaf-file-name="ClientModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/ubot/client/ClientModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="825">
-              <caret line="75" column="28" lean-forward="false" selection-start-line="75" selection-start-column="28" selection-end-line="75" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BotModel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/ubot/bot/BotModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1005">
-              <caret line="39" column="41" lean-forward="false" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="41" />
+            <state relative-caret-position="340">
+              <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
               <folding>
-                <element signature="e#1609#1610#0" expanded="true" />
-                <element signature="e#1633#1634#0" expanded="true" />
-                <element signature="e#2864#2865#0" expanded="true" />
-                <element signature="e#2900#2901#0" expanded="true" />
-                <element signature="e#2933#2934#0" expanded="true" />
-                <element signature="e#2967#2968#0" expanded="true" />
-                <element signature="e#3003#3004#0" expanded="true" />
-                <element signature="e#3043#3044#0" expanded="true" />
-                <element signature="e#3080#3081#0" expanded="true" />
-                <element signature="e#3120#3121#0" expanded="true" />
-                <element signature="e#3159#3160#0" expanded="true" />
-                <element signature="e#3203#3204#0" expanded="true" />
-                <element signature="e#3237#3238#0" expanded="true" />
-                <element signature="e#3271#3272#0" expanded="true" />
+                <element signature="e#4422#4423#0" expanded="true" />
+                <element signature="e#4444#4445#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HandleInputs.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/ubot/client/provider/threads/HandleInputs.java">
+      <file leaf-file-name="DirectoryManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/ubot/util/directory/DirectoryManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="14" column="26" lean-forward="false" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+            <state relative-caret-position="17">
+              <caret line="13" column="44" lean-forward="false" selection-start-line="13" selection-start-column="44" selection-end-line="13" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PortalScreen.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/ubot/launcher/PortalScreen.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="101" column="30" lean-forward="true" selection-start-line="101" selection-start-column="30" selection-end-line="101" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Launcher.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/ubot/launcher/Launcher.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="35" column="28" lean-forward="false" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Keyboard.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/ubot/client/provider/inputs/Keyboard.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="28" column="24" lean-forward="false" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <marker date="1519943867183" expanded="false" signature="590:595" ph=" { " />
+                <marker date="1519943867183" expanded="false" signature="624:627" ph=" }" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MouseOverlay.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/ubot/bot/component/screen/overlays/MouseOverlay.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="50" column="61" lean-forward="false" selection-start-line="50" selection-start-column="61" selection-end-line="50" selection-end-column="61" />
               <folding />
             </state>
           </provider>
@@ -330,11 +204,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/org/bot/client/ui/screens/util/PopUp.java" />
-        <option value="$PROJECT_DIR$/src/org/bot/util/directory/DirectoryManager.java" />
-        <option value="$PROJECT_DIR$/src/org/bot/client/classloader/ServerProviderLoader.java" />
-        <option value="$PROJECT_DIR$/src/org/bot/client/ui/screens/util/ExpandableTabListScreen.java" />
-        <option value="$PROJECT_DIR$/src/org/bot/client/ui/screens/util/ExpandableListLabel.java" />
         <option value="$PROJECT_DIR$/src/org/bot/client/ui/screens/serverselector/ServerSelectorScreen.java" />
         <option value="$PROJECT_DIR$/src/org/bot/client/account/AccountManager.java" />
         <option value="$PROJECT_DIR$/src/org/bot/client/ui/screens/serverselector/ServerInformationTab.java" />
@@ -358,36 +227,42 @@
         <option value="$PROJECT_DIR$/src/org/ubot/client/threads/HandleInputs.java" />
         <option value="$PROJECT_DIR$/src/org/ubot/client/ui/screens/scriptselector/ScriptSelector.java" />
         <option value="$PROJECT_DIR$/src/org/ubot/client/ui/screens/loading/LoadingScreen.java" />
-        <option value="$PROJECT_DIR$/src/org/ubot/client/Client.java" />
         <option value="$PROJECT_DIR$/src/org/ubot/bot/script/loader/ScriptLoader.java" />
         <option value="$PROJECT_DIR$/src/org/ubot/bot/ui/scriptselector/ScriptSelector.java" />
         <option value="$PROJECT_DIR$/src/org/ubot/client/provider/overlays/MouseOverlay.java" />
         <option value="$PROJECT_DIR$/src/org/ubot/bot/component/overlays/MouseOverlay.java" />
-        <option value="$PROJECT_DIR$/src/org/ubot/bot/component/screen/overlays/MouseOverlay.java" />
         <option value="$PROJECT_DIR$/src/org/ubot/bot/component/inputs/Keyboard.java" />
         <option value="$PROJECT_DIR$/src/org/ubot/client/ui/screens/accountmanager/AccountManagerUI.java" />
-        <option value="$PROJECT_DIR$/src/org/ubot/client/ClientModel.java" />
         <option value="$PROJECT_DIR$/src/org/ubot/bot/ui/SettingsMenu.java" />
         <option value="$PROJECT_DIR$/src/org/ubot/bot/Bot.java" />
-        <option value="$PROJECT_DIR$/src/org/ubot/bot/script/handler/ScriptHandler.java" />
         <option value="$PROJECT_DIR$/src/org/ubot/bot/ui/buttonpanel/ButtonPanel.java" />
         <option value="$PROJECT_DIR$/src/org/ubot/bot/threads/HandleInputs.java" />
-        <option value="$PROJECT_DIR$/src/org/ubot/bot/BotModel.java" />
         <option value="$PROJECT_DIR$/src/org/ubot/client/provider/inputs/InternalKeyboard.java" />
         <option value="$PROJECT_DIR$/src/org/ubot/client/provider/inputs/InternalMouse.java" />
-        <option value="$PROJECT_DIR$/src/org/ubot/bot/component/RSCanvas.java" />
-        <option value="$PROJECT_DIR$/src/org/ubot/client/classloader/ASMClassLoader.java" />
         <option value="$PROJECT_DIR$/src/org/ubot/client/provider/manifest/ServerManifest.java" />
         <option value="$PROJECT_DIR$/src/org/ubot/client/ui/screens/serverselector/ServerInformationTab.java" />
-        <option value="$PROJECT_DIR$/src/org/ubot/client/provider/threads/HandleInputs.java" />
         <option value="$PROJECT_DIR$/src/org/ubot/client/provider/loader/ServerLoader.java" />
+        <option value="$PROJECT_DIR$/src/org/ubot/bot/component/RSCanvas.java" />
+        <option value="$PROJECT_DIR$/src/org/ubot/client/classloader/ASMClassLoader.java" />
+        <option value="$PROJECT_DIR$/src/org/ubot/bot/script/handler/ScriptHandler.java" />
+        <option value="$PROJECT_DIR$/src/org/ubot/client/provider/threads/HandleInputs.java" />
+        <option value="$PROJECT_DIR$/src/org/ubot/client/provider/inputs/Mouse.java" />
+        <option value="$PROJECT_DIR$/src/org/ubot/client/provider/inputs/Keyboard.java" />
+        <option value="$PROJECT_DIR$/src/org/ubot/bot/component/screen/overlays/MouseOverlay.java" />
+        <option value="$PROJECT_DIR$/src/org/ubot/bot/BotModel.java" />
+        <option value="$PROJECT_DIR$/src/org/ubot/launcher/PortalScreen.java" />
+        <option value="$PROJECT_DIR$/src/org/ubot/client/Client.java" />
+        <option value="$PROJECT_DIR$/src/org/ubot/util/directory/DirectoryManager.java" />
+        <option value="$PROJECT_DIR$/src/org/ubot/client/account/AccountManager.java" />
+        <option value="$PROJECT_DIR$/src/org/ubot/client/ClientModel.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1440" />
-    <option name="height" value="877" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -404,139 +279,492 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
-          <expand>
-            <path>
-              <item name="uBot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uBot" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="uBot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uBot" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="uBot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uBot" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ubot" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="uBot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uBot" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ubot" type="462c0819:PsiDirectoryNode" />
-              <item name="bot" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="uBot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uBot" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ubot" type="462c0819:PsiDirectoryNode" />
-              <item name="bot" type="462c0819:PsiDirectoryNode" />
-              <item name="component" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="uBot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uBot" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ubot" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="uBot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uBot" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ubot" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="classloader" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="uBot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uBot" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ubot" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="provider" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="uBot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uBot" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ubot" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="provider" type="462c0819:PsiDirectoryNode" />
-              <item name="inputs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="uBot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uBot" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ubot" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="provider" type="462c0819:PsiDirectoryNode" />
-              <item name="loader" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="uBot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uBot" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ubot" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="provider" type="462c0819:PsiDirectoryNode" />
-              <item name="manifest" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="uBot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uBot" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ubot" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="provider" type="462c0819:PsiDirectoryNode" />
-              <item name="threads" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="uBot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uBot" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ubot" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="uBot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uBot" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ubot" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="screens" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="uBot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uBot" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ubot" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="screens" type="462c0819:PsiDirectoryNode" />
-              <item name="loading" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="uBot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uBot" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ubot" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="screens" type="462c0819:PsiDirectoryNode" />
-              <item name="serverselector" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBotGithub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBotGithub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBotGithub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ubot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBotGithub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ubot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="directory" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBotGithub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ubot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="launcher" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBotGithub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ubot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBotGithub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ubot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBotGithub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ubot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="screens" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBotGithub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ubot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="provider" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBotGithub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ubot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="provider" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="threads" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBotGithub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ubot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="provider" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="loader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBotGithub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ubot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="provider" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="inputs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBotGithub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ubot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="classloader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBotGithub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ubot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBotGithub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ubot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="script" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBotGithub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ubot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="script" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="handler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBotGithub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ubot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="component" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBotGithub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ubot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="component" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="screen" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uBotGithub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ubot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="component" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="screen" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="overlays" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
@@ -545,7 +773,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../json-simple-1.1.1.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -588,113 +816,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <module />
-    </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
-    </configuration>
-    <configuration name="uBot" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="org.ubot.launcher.Launcher" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="uBot" />
-      <envs />
-    </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="Dawntained-Client" />
-      <envs />
-    </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-    </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-    </configuration>
+  <component name="RunManager" selected="Application.Unnamed">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
       <option name="PROGRAM_PARAMETERS" />
       <predefined_log_file id="idea.log" enabled="true" />
+      <method />
     </configuration>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
       <module name="" />
@@ -751,6 +879,29 @@
       </Profilers>
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
     <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -765,6 +916,27 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
       <method />
     </configuration>
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
@@ -788,6 +960,19 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Dawntained-Client" />
+      <envs />
+      <method />
+    </configuration>
     <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="filePath" />
@@ -800,6 +985,76 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="false" name="uBot" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="org.ubot.launcher.Launcher" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="uBot" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Unnamed" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="org.ubot.client.Client" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="uBot" />
+      <envs />
+      <method />
+    </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Application.uBot" />
+      <item index="1" class="java.lang.String" itemvalue="Application.Unnamed" />
+    </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -833,38 +1088,60 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="877" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32241014" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33084312" sideWeight="0.50364965" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23467231" sideWeight="0.49635038" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3266385" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13229166" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3991462" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33084312" sideWeight="0.50364965" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3991462" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32225063" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33084312" sideWeight="0.50364965" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22506393" sideWeight="0.49635038" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24791667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3991462" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -886,29 +1163,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/org/ubot/client/ui/screens/util/PopUp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/ubot/client/ui/screens/util/ExpandableListLabel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/ubot/client/ui/screens/util/ExpandableTab.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="73" lean-forward="false" selection-start-line="7" selection-start-column="73" selection-end-line="7" selection-end-column="73" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -928,30 +1186,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/ubot/util/injection/asm/SetSuper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/ubot/client/provider/ServerProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="70" column="27" lean-forward="false" selection-start-line="70" selection-start-column="27" selection-end-line="70" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/bot/client/ui/screens/clientframe/GameFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="20" column="52" lean-forward="false" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/bot/client/ui/screens/clientframe/GameFrame.java" />
     <entry file="file://$PROJECT_DIR$/src/org/ubot/client/account/Account.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="70">
@@ -987,38 +1222,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/ubot/launcher/PortalScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="90" column="13" lean-forward="true" selection-start-line="90" selection-start-column="13" selection-end-line="90" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/ubot/launcher/Launcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="35" column="28" lean-forward="false" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/ubot/bot/script/scriptdata/ScriptManifest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/ubot/client/provider/manifest/HookType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/ubot/client/provider/manifest/HookType.java" />
     <entry file="file://$PROJECT_DIR$/src/org/ubot/client/provider/manifest/NullManifestException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -1042,15 +1253,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="22" column="8" lean-forward="false" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/ubot/client/account/AccountManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-452">
-          <caret line="30" column="39" lean-forward="false" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1070,45 +1272,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/ubot/client/provider/osrs/models/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2507">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/ubot/client/provider/osrs/models/ModelCallBack.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/ubot/client/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="63" column="38" lean-forward="false" selection-start-line="63" selection-start-column="38" selection-end-line="63" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/ubot/client/provider/osrs/models/Model.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/ubot/client/provider/osrs/models/ModelCallBack.java" />
     <entry file="file://$PROJECT_DIR$/src/org/ubot/bot/script/scriptdata/ScriptData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="91">
           <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/ubot/bot/script/loader/ScriptLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1122,24 +1292,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/ubot/bot/component/screen/overlays/MouseOverlay.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="35" lean-forward="true" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/ubot/client/ui/screens/accountmanager/AccountManagerUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="17" column="72" lean-forward="true" selection-start-line="17" selection-start-column="72" selection-end-line="17" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/ubot/client/ui/screens/accountmanager/AccountManagerUI.java" />
     <entry file="file://$PROJECT_DIR$/src/org/ubot/bot/ui/SettingsMenu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="94">
@@ -1147,14 +1300,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/ubot/bot/script/handler/ScriptHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="66" column="11" lean-forward="false" selection-start-line="66" selection-start-column="11" selection-end-line="66" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1171,19 +1316,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/ubot/bot/Bot.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="15" column="36" lean-forward="true" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/ubot/bot/ui/buttonpanel/Buttons.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1192,44 +1328,6 @@
         <state relative-caret-position="75">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/ubot/client/ClientModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="822">
-          <caret line="124" column="5" lean-forward="false" selection-start-line="124" selection-start-column="5" selection-end-line="124" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/ubot/bot/component/RSCanvas.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="18" lean-forward="false" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/ubot/client/provider/inputs/Keyboard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/ubot/client/provider/inputs/InternalKeyboard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-133">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1247,22 +1345,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/ubot/client/provider/inputs/Mouse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="47" column="16" lean-forward="true" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/ubot/client/classloader/ASMClassLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-189">
-          <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -1293,49 +1375,212 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/ubot/client/ui/screens/loading/LoadingScreen.java">
+    <entry file="file://$PROJECT_DIR$/src/org/ubot/util/injection/asm/SetSuper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="54" column="99" lean-forward="false" selection-start-line="54" selection-start-column="99" selection-end-line="54" selection-end-column="99" />
+        <state relative-caret-position="34">
+          <caret line="2" column="24" lean-forward="false" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/ubot/bot/BotModel.java">
+    <entry file="file://$PROJECT_DIR$/src/org/ubot/bot/Bot.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1005">
-          <caret line="39" column="41" lean-forward="false" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="41" />
+        <state relative-caret-position="105">
+          <caret line="15" column="36" lean-forward="false" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/ubot/bot/script/loader/ScriptLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="884">
+          <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/ubot/bot/component/screen/ScreenOverlay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="12" column="22" lean-forward="false" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/ubot/client/provider/ServerProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="531">
+          <caret line="70" column="27" lean-forward="false" selection-start-line="70" selection-start-column="27" selection-end-line="70" selection-end-column="27" />
           <folding>
-            <element signature="e#1609#1610#0" expanded="true" />
-            <element signature="e#1633#1634#0" expanded="true" />
-            <element signature="e#2864#2865#0" expanded="true" />
-            <element signature="e#2900#2901#0" expanded="true" />
-            <element signature="e#2933#2934#0" expanded="true" />
-            <element signature="e#2967#2968#0" expanded="true" />
-            <element signature="e#3003#3004#0" expanded="true" />
-            <element signature="e#3043#3044#0" expanded="true" />
-            <element signature="e#3080#3081#0" expanded="true" />
-            <element signature="e#3120#3121#0" expanded="true" />
-            <element signature="e#3159#3160#0" expanded="true" />
-            <element signature="e#3203#3204#0" expanded="true" />
-            <element signature="e#3237#3238#0" expanded="true" />
-            <element signature="e#3271#3272#0" expanded="true" />
+            <element signature="e#1493#1494#0" expanded="true" />
+            <element signature="e#1519#1520#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/ubot/client/provider/loader/ServerLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="61" column="35" lean-forward="true" selection-start-line="61" selection-start-column="35" selection-end-line="61" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/ubot/bot/component/RSCanvas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="53">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/ubot/client/classloader/ASMClassLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="65" column="37" lean-forward="false" selection-start-line="65" selection-start-column="37" selection-end-line="65" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/ubot/bot/script/handler/ScriptHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="77" column="32" lean-forward="false" selection-start-line="77" selection-start-column="32" selection-end-line="77" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/ubot/client/provider/inputs/InternalKeyboard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="16" column="28" lean-forward="false" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/ubot/client/provider/threads/HandleInputs.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="14" column="26" lean-forward="false" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+        <state relative-caret-position="238">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/ubot/client/provider/loader/ServerLoader.java">
+    <entry file="file://$PROJECT_DIR$/src/org/ubot/client/provider/inputs/Mouse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="75" column="28" lean-forward="false" selection-start-line="75" selection-start-column="28" selection-end-line="75" selection-end-column="28" />
+        <state relative-caret-position="284">
+          <caret line="40" column="20" lean-forward="false" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
+          <folding>
+            <marker date="1519943859993" expanded="false" signature="124:129" ph=" { " />
+            <marker date="1519943859993" expanded="false" signature="158:161" ph=" }" />
+            <marker date="1519943859993" expanded="false" signature="279:284" ph=" { " />
+            <marker date="1519943859993" expanded="false" signature="321:324" ph=" }" />
+            <marker date="1519943859993" expanded="false" signature="356:361" ph=" { " />
+            <marker date="1519943859993" expanded="false" signature="398:401" ph=" }" />
+            <marker date="1519943859993" expanded="false" signature="437:442" ph=" { " />
+            <marker date="1519943859993" expanded="false" signature="482:485" ph=" }" />
+            <marker date="1519943859993" expanded="false" signature="521:526" ph=" { " />
+            <marker date="1519943859993" expanded="false" signature="563:566" ph=" }" />
+            <marker date="1519943859993" expanded="false" signature="602:607" ph=" { " />
+            <marker date="1519943859993" expanded="false" signature="646:649" ph=" }" />
+            <marker date="1519943859993" expanded="false" signature="691:696" ph=" { " />
+            <marker date="1519943859993" expanded="false" signature="727:730" ph=" }" />
+            <marker date="1519943859993" expanded="false" signature="866:871" ph=" { " />
+            <marker date="1519943859993" expanded="false" signature="909:912" ph=" }" />
+            <marker date="1519943859993" expanded="false" signature="967:972" ph=" { " />
+            <marker date="1519943859993" expanded="false" signature="1012:1015" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/ubot/client/provider/inputs/Keyboard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="28" column="24" lean-forward="false" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1519943867183" expanded="false" signature="590:595" ph=" { " />
+            <marker date="1519943867183" expanded="false" signature="624:627" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/ubot/bot/component/screen/overlays/MouseOverlay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="50" column="61" lean-forward="false" selection-start-line="50" selection-start-column="61" selection-end-line="50" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/ubot/bot/BotModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="43" column="51" lean-forward="false" selection-start-line="43" selection-start-column="51" selection-end-line="43" selection-end-column="51" />
+          <folding>
+            <element signature="e#3341#3342#0" expanded="true" />
+            <element signature="e#3376#3377#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/ubot/launcher/Launcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="35" column="28" lean-forward="false" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/ubot/util/directory/DirectoryManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="13" column="44" lean-forward="false" selection-start-line="13" selection-start-column="44" selection-end-line="13" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/ubot/launcher/PortalScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="101" column="30" lean-forward="true" selection-start-line="101" selection-start-column="30" selection-end-line="101" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/ubot/client/account/AccountManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="26" column="156" lean-forward="true" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="156" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/ubot/client/ui/screens/loading/LoadingScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="54" column="99" lean-forward="false" selection-start-line="54" selection-start-column="99" selection-end-line="54" selection-end-column="99" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/ubot/client/ClientModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding>
+            <element signature="e#4422#4423#0" expanded="true" />
+            <element signature="e#4444#4445#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/ubot/client/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1419,7 +1664,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>json-simple-1.1.1</last-edited>
+          <last-edited>asm-all-5.2</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

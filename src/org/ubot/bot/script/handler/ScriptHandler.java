@@ -1,5 +1,6 @@
 package org.ubot.bot.script.handler;
 
+import org.ubot.bot.BotModel;
 import org.ubot.bot.script.scriptdata.ScriptData;
 import org.ubot.bot.script.types.Script;
 import org.ubot.bot.ui.logger.LogType;
@@ -16,12 +17,11 @@ public class ScriptHandler implements Runnable {
 	private Script script;
 	private ScriptData scriptData;
 	private volatile State scriptState;
-	private final RSCanvas gameCanvas;
 	private long breakDuration;
 	private PaintListener paintListener;
-
-	public ScriptHandler(RSCanvas gameCanvas) {
-		this.gameCanvas = gameCanvas;
+	private BotModel botModel;
+	public ScriptHandler(BotModel botModel) {
+		this.botModel = botModel;
 		this.scriptState = State.STOP;
 	}
 
@@ -59,7 +59,7 @@ public class ScriptHandler implements Runnable {
 		if (this.script.onStart()) {
 			this.scriptThread.start();
 			if (script instanceof PaintListener) {
-				gameCanvas.getPaintListeners().add((PaintListener) script);
+				botModel.getGameCanvas().getPaintListeners().add((PaintListener) script);
 			}
 		}
 	}
@@ -75,7 +75,7 @@ public class ScriptHandler implements Runnable {
 		this.scriptState = State.STOP;
 		this.script.onStop();
 		this.scriptThread.interrupt();
-		gameCanvas.getPaintListeners().remove(paintListener);
+		botModel.getGameCanvas().getPaintListeners().remove(paintListener);
 		this.script = null;
 		this.scriptThread = null;
 		this.paintListener = null;

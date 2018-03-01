@@ -17,15 +17,7 @@ public class HandleInputs implements Runnable {
 	@Override
 	public void run() {
 		Logger.log("Attempting to set mouse & keyboard.", LogType.DEBUG);
-		while (model.getGameCanvas() == null) {
-			Condition.sleep(5);
-		}
-		Condition.wait(new Condition.Check() {
-			public boolean poll() {
-				return model.getComponent() != null;
-			}
-		}, 100, 20);
-		//set mouse and keyboard
+
 		Logger.log("Mouse & Keyboard set.", LogType.DEBUG);
 	}
 

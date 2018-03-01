@@ -9,6 +9,7 @@ import org.ubot.bot.ui.scriptselector.ScriptSelector;
 import org.ubot.client.account.Account;
 import org.ubot.client.classloader.ASMClassLoader;
 import org.ubot.client.classloader.ClassArchive;
+import org.ubot.client.provider.ServerProvider;
 import org.ubot.client.provider.inputs.InternalKeyboard;
 import org.ubot.client.provider.inputs.InternalMouse;
 import org.ubot.util.reflection.ReflectionEngine;
@@ -23,12 +24,13 @@ public class BotModel {
 	private final ASMClassLoader classLoader;
 	private final Component component;
 	private final Bot bot;
-	private final RSCanvas gameCanvas;
+	private RSCanvas gameCanvas;
 	private final ScriptHandler scriptHandler;
 	private ScriptSelector scriptSelector;
 	private boolean debugMouse, debugNPCs, debugObjects, debugPlayers, debugInventory, debugGame;
 	private final InternalMouse mouse;
 	private final InternalKeyboard keyboard;
+
 
 	private BotModel(Builder builder) {
 		this.account = builder.account;
@@ -39,7 +41,7 @@ public class BotModel {
 		this.mouse = builder.mouse;
 		this.keyboard = builder.keyboard;
 		this.bot = builder.bot;
-		this.scriptHandler = new ScriptHandler(gameCanvas = new RSCanvas());
+		this.scriptHandler = new ScriptHandler(this);
 	}
 
 	public RSCanvas getGameCanvas() {
@@ -110,7 +112,9 @@ public class BotModel {
 	public void toggleGameDebug() {
 		this.debugGame = !debugGame;
 	}
-
+	public void setGameCanvas(RSCanvas gameCanvas) {
+		this.gameCanvas = gameCanvas;
+	}
 	public static class Builder {
 
 		private static Account account;

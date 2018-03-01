@@ -1,11 +1,10 @@
 package org.ubot.client.provider.inputs;
 
-import org.ubot.Engine;
 
 import java.awt.*;
 
 public class Mouse {
-	public static void move(int x, int y) {
+	/*public static void move(int x, int y) {
 		Engine.getMouse().move(x, y);
 	}
 
@@ -58,5 +57,5 @@ public class Mouse {
 
 	public static boolean dragMouse(int x, int y, int x1, int y1) {
 		return Engine.getMouse().drag(x, y, x1, y1);
-	}
+	}*/
 }

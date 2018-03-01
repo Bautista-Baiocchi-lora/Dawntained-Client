@@ -23,7 +23,7 @@ public class Client extends Application {
 	}
 
 	public static void main(String[] args) {
-		new Client(args[0], args[1]);
+		new Client("ethan", "13");
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (Exception e) {
