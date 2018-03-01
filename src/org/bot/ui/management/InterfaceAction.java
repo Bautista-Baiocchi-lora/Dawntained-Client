@@ -1,5 +1,0 @@
-package org.bot.ui.management;
-
-public enum InterfaceAction {
-	LOAD_SERVER, SHOW_SERVER_SELECTOR, TERMINATE_UI, SAVE_ACCOUNT, UPDATE_ACCOUNT, RESIZE_STAGE, BLOCK_MAIN_STAGE;
-}
