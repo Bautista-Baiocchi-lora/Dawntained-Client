@@ -40,12 +40,11 @@ public abstract class ServerLoader extends Task<BotModel.Builder> {
 		classArchive.addJar(new File(downloader.getArchivePath() + "/" + serverName + ".jar"));
 		updateMessage("Injecting...", 0.6);
 		final ASMClassLoader asmClassLoader = new ASMClassLoader(classArchive, getInjectables());
-		//TODO: Make classloader inject.
 		updateMessage("Starting reflection engine...", 0.7);
 		final ReflectionEngine reflectionEngine = new ReflectionEngine(asmClassLoader);
 		builder.reflectionEngine(reflectionEngine);
 		updateMessage("Loading applet...", 0.8);
-		final Applet applet = loadApplet();
+		final Applet applet = loadApplet(reflectionEngine);
 		updateMessage("Embedding applet...", 0.9);
 		builder.applet(applet);
 		final JPanel panel = embedApplet(applet);
@@ -88,6 +87,6 @@ public abstract class ServerLoader extends Task<BotModel.Builder> {
 
 	protected abstract List<Injector> getInjectables();
 
-	protected abstract Applet loadApplet() throws IllegalAccessException;
+	protected abstract Applet loadApplet(ReflectionEngine reflectionEngine) throws IllegalAccessException;
 
 }
