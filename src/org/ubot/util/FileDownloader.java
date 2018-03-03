@@ -26,7 +26,7 @@ public class FileDownloader implements Runnable {
 		InputStream input;
 		URLConnection connection;
 		try {
-			connection = NetUtil.createURLConnection(source);
+			connection = NetUtil.getConnection(source);
 			length = connection.getContentLength();
 			final Directory destinationDirectory = path = new Directory(DirectoryManager.SERVER_JARS_PATH);
 			if (destinationDirectory.exists()) {
