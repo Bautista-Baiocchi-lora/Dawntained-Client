@@ -56,4 +56,11 @@ public class ClientModel {
 		return providers;
 	}
 
+	protected void createBot(ServerLoader loader) {
+
+		//logic
+
+		client.terminate();
+	}
+
 }

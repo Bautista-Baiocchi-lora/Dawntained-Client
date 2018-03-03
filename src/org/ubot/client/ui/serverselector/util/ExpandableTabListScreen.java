@@ -2,6 +2,7 @@ package org.ubot.client.ui.serverselector.util;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.HBox;
@@ -16,19 +17,20 @@ import java.util.ArrayList;
 public abstract class ExpandableTabListScreen<T extends Object> extends Scene {
 
 	private final Client client;
-	protected static VBox layout;
-	private static HBox mainLayout;
+	protected static HBox layout;
+	protected static VBox mainLayout;
 	private ExpandableTab informationTab;
 
 	public ExpandableTabListScreen(Client client) {
-		super(mainLayout = new HBox());
+		super(mainLayout = new VBox());
 		this.client = client;
 		mainLayout.setStyle("-fx-padding: 10;");
+		mainLayout.setAlignment(Pos.CENTER);
 		mainLayout.setSpacing(5);
 	}
 
 	protected void configure() {
-		layout = new VBox();
+		layout = new HBox();
 
 		ListView<ExpandableListLabel<T>> list = new ListView<ExpandableListLabel<T>>();
 		list.setEditable(false);
@@ -52,10 +54,10 @@ public abstract class ExpandableTabListScreen<T extends Object> extends Scene {
 	private void displayTab(ExpandableTab tab) {
 		client.resizeStage(500, 300);
 		if (informationTab == null) {
-			mainLayout.getChildren().add(informationTab = tab);
+			layout.getChildren().add(informationTab = tab);
 		} else {
-			mainLayout.getChildren().remove(informationTab);
-			mainLayout.getChildren().add(informationTab = tab);
+			layout.getChildren().remove(informationTab);
+			layout.getChildren().add(informationTab = tab);
 		}
 	}
 
