@@ -1,4 +1,5 @@
 package org.ubot.client.ui.serverselector.util;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
@@ -24,7 +25,6 @@ public abstract class ExpandableTabListScreen<T extends Object> extends Scene {
 		this.client = client;
 		mainLayout.setStyle("-fx-padding: 10;");
 		mainLayout.setSpacing(5);
-		configure();
 	}
 
 	protected void configure() {
@@ -50,9 +50,7 @@ public abstract class ExpandableTabListScreen<T extends Object> extends Scene {
 	protected abstract ArrayList<ExpandableListLabel<T>> getListLabels();
 
 	private void displayTab(ExpandableTab tab) {
-		if (this.getWindow().getWidth() == 250) {
-			//client.resizeStage(500, 300);
-		}
+		client.resizeStage(500, 300);
 		if (informationTab == null) {
 			mainLayout.getChildren().add(informationTab = tab);
 		} else {

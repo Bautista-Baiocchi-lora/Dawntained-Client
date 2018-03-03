@@ -39,5 +39,11 @@ public class Client extends Application {
 		stage.sizeToScene();
 	}
 
+	public void resizeStage(double width, double height) {
+		if (stage != null) {
+			stage.setWidth(width);
+			stage.setHeight(height);
+		}
+	}
 
 }

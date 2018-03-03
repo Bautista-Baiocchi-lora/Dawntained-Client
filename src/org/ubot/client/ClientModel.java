@@ -41,7 +41,7 @@ public class ClientModel {
 								if (clazz.isAnnotationPresent(ServerManifest.class)) {
 									System.out.println("Loading Server");
 									final ServerManifest manifest = clazz.getAnnotation(ServerManifest.class);
-									ServerLoader serverLoader = (ServerLoader) clazz.newInstance();
+									final ServerLoader serverLoader = (ServerLoader) clazz.newInstance();
 									providers.put(manifest.serverName(), new ServerProvider(manifest, serverLoader));
 									System.out.println("Server Loaded: " + manifest.serverName());
 								}

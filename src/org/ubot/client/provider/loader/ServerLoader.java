@@ -8,7 +8,7 @@ public abstract class ServerLoader extends Task<Void> {
 
 	private final String serverName, jarUrl, hookUrl;
 
-	protected ServerLoader(String serverName, String jarUrl, String hookUrl) {
+	public ServerLoader(String serverName, String jarUrl, String hookUrl) {
 		this.serverName = serverName;
 		this.jarUrl = jarUrl;
 		this.hookUrl = hookUrl;

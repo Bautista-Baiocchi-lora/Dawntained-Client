@@ -18,6 +18,7 @@ public class ServerSelectorScreen extends ExpandableTabListScreen<ServerProvider
 		super(client);
 		this.serverProviders = providers;
 		this.client = client;
+		configure();
 	}
 
 
