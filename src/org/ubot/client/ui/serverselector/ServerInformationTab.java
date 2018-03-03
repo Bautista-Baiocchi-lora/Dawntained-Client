@@ -35,7 +35,7 @@ public class ServerInformationTab extends ExpandableTab<ServerProvider> {
 		infoArea.setEditable(false);
 		infoArea.setMaxWidth(250);
 
-		final Button startBot = new Button("Start BotModel");
+		final Button startBot = new Button("Start Bot");
 		startBot.setOnAction((e) -> {
 			client.startBot(object.getLoader());
 		});

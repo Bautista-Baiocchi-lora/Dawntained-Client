@@ -10,5 +10,5 @@ public interface Injector {
 
 	boolean condition(ClassNode classNode);
 
-	void execute(ClassNode classNode);
+	void inject(ClassNode classNode);
 }

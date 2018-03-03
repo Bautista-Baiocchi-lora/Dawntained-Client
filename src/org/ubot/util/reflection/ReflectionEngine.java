@@ -11,13 +11,9 @@ public class ReflectionEngine {
 	private ClassArchive path;
 	private ASMClassLoader classLoader;
 
-	public ASMClassLoader getClassLoader() {
-		return classLoader;
-	}
-
-	public ReflectionEngine(ClassArchive path) throws IOException {
+	public ReflectionEngine(ASMClassLoader classLoader) throws IOException {
 		this.path = path;
-		this.classLoader = new ASMClassLoader(path);
+		this.classLoader = classLoader;
 	}
 
 	public ReflectedClass getClass(String name, Object instance) {

@@ -61,7 +61,7 @@ public class ClientModel {
 
 	protected void createBot(ServerLoader loader) {
 		final LoadingScreen loadingScreen = new LoadingScreen(client, loader);
-		client.displayScreen(loadingScreen, "Starting BotModel...");
+		client.displayScreen(loadingScreen, "Starting Bot...");
 		loadingScreen.run(new Account("Bautista", "Alora"), username, permissionKey);
 	}
 

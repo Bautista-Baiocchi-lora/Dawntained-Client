@@ -1,12 +1,13 @@
 package org.ubot.bot;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 public class Bot extends JFrame implements WindowListener {
 
-	private final BotModel model;
+	private static BotModel model;
 
 	public Bot(BotModel.Builder builder) {
 		model = builder.build();
@@ -15,9 +16,9 @@ public class Bot extends JFrame implements WindowListener {
 		setResizable(false);
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
+		getContentPane().add(model.getPanel(), BorderLayout.CENTER);
 		//buttonPanel = new ButtonPanel(this);
 		//getContentPane().add(buttonPanel, BorderLayout.NORTH);
-		//getContentPane().add(model.getComponent());
 		//final LoggerPanel loggerPanel = new LoggerPanel();
 		//loggerPanel.setPreferredSize(new Dimension(model.getComponent().getWidth(), 150));
 		//getContentPane().add(loggerPanel, BorderLayout.SOUTH);
@@ -27,6 +28,10 @@ public class Bot extends JFrame implements WindowListener {
 		setLocationRelativeTo(getOwner());
 
 		setVisible(true);
+	}
+
+	public static String getuBotName() {
+		return model.getuBotName();
 	}
 
 	@Override
