@@ -39,7 +39,7 @@ public abstract class ServerLoader extends Task<BotModel.Builder> {
 		final ClassArchive classArchive = new ClassArchive();
 		classArchive.addJar(new File(downloader.getArchivePath() + "/" + serverName + ".jar"));
 		updateMessage("Injecting...", 0.6);
-		final ASMClassLoader asmClassLoader = new ASMClassLoader(classArchive);
+		final ASMClassLoader asmClassLoader = new ASMClassLoader(classArchive, getInjectables());
 		//TODO: Make classloader inject.
 		updateMessage("Starting reflection engine...", 0.7);
 		final ReflectionEngine reflectionEngine = new ReflectionEngine(asmClassLoader);
