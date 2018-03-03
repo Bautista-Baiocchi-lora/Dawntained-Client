@@ -6,8 +6,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import org.ubot.client.Client;
-import org.ubot.client.ui.serverselector.util.ExpandableTab;
 import org.ubot.client.provider.ServerProvider;
+import org.ubot.client.ui.serverselector.util.ExpandableTab;
 
 public class ServerInformationTab extends ExpandableTab<ServerProvider> {
 
@@ -35,18 +35,18 @@ public class ServerInformationTab extends ExpandableTab<ServerProvider> {
 		infoArea.setEditable(false);
 		infoArea.setMaxWidth(250);
 
-		Button launchButton = new Button("Launch");
-		launchButton.setOnAction((e) -> {
-			//client.launchServerProvider(object);
+		final Button startBot = new Button("Start BotModel");
+		startBot.setOnAction((e) -> {
+			client.startBot(object.getLoader());
 		});
 
 		GridPane grid = new GridPane();
-		GridPane.setRowIndex(launchButton, 0);
+		GridPane.setRowIndex(startBot, 0);
 		GridPane.setRowIndex(authorLabel, 1);
 		GridPane.setRowIndex(versionLabel, 2);
 		GridPane.setRowIndex(infoLabel, 3);
 		GridPane.setRowIndex(infoArea, 4);
-		grid.getChildren().addAll(launchButton, authorLabel, versionLabel, infoLabel,
+		grid.getChildren().addAll(startBot, authorLabel, versionLabel, infoLabel,
 				infoArea);
 
 		layout.getChildren().addAll(grid);

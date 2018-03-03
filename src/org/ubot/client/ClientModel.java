@@ -2,9 +2,11 @@ package org.ubot.client;
 
 import org.ubot.classloader.ASMClassLoader;
 import org.ubot.classloader.ClassArchive;
+import org.ubot.client.account.Account;
 import org.ubot.client.provider.ServerProvider;
 import org.ubot.client.provider.loader.ServerLoader;
 import org.ubot.client.provider.manifest.ServerManifest;
+import org.ubot.client.ui.loading.LoadingScreen;
 import org.ubot.util.directory.DirectoryManager;
 
 import java.io.File;
@@ -16,12 +18,13 @@ import java.util.jar.JarInputStream;
 public class ClientModel {
 
 	private final Client client;
-	private final String username, accountKey;
+	private final String username, accountKey, permissionKey;
 
-	public ClientModel(Client client, String username, String accountKey) {
+	public ClientModel(Client client, String username, String accountKey, String permissionKey) {
 		this.client = client;
 		this.username = username;
 		this.accountKey = accountKey;
+		this.permissionKey = permissionKey;
 	}
 
 	protected final HashMap<String, ServerProvider> getLocalServerProviders() {
@@ -57,10 +60,9 @@ public class ClientModel {
 	}
 
 	protected void createBot(ServerLoader loader) {
-
-		//logic
-
-		client.terminate();
+		final LoadingScreen loadingScreen = new LoadingScreen(client, loader);
+		client.displayScreen(loadingScreen, "Starting BotModel...");
+		loadingScreen.run(new Account("Bautista", "Alora"), username, permissionKey);
 	}
 
 }

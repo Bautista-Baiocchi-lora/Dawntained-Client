@@ -30,7 +30,7 @@ public class Client extends Application {
 		if (permissionKey.equalsIgnoreCase("12345")) {
 			DirectoryManager.init();
 		}
-		model = new ClientModel(Client.this, username, accountKey);
+		model = new ClientModel(Client.this, username, accountKey, permissionKey);
 	}
 
 	@Override
@@ -61,7 +61,7 @@ public class Client extends Application {
 	}
 
 	public void startBot(ServerLoader loader) {
-
+		model.createBot(loader);
 	}
 
 	public void terminate() {
