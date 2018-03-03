@@ -27,7 +27,19 @@ public class ClientModel {
 		this.permissionKey = permissionKey;
 	}
 
-	protected final HashMap<String, ServerProvider> getLocalServerProviders() {
+	protected final HashMap<String, ServerProvider> getServerProviders() {
+		final HashMap<String, ServerProvider> combinedMap = new HashMap<>();
+		combinedMap.putAll(loadLocalServerProviders());
+		combinedMap.putAll(loadSDNServerProviders());
+		return combinedMap;
+	}
+
+	private final HashMap<String, ServerProvider> loadSDNServerProviders() {
+		final HashMap<String, ServerProvider> providers = new HashMap<>();
+		return providers;
+	}
+
+	private final HashMap<String, ServerProvider> loadLocalServerProviders() {
 		final HashMap<String, ServerProvider> providers = new HashMap<>();
 		try {
 			for (File file : DirectoryManager.getInstance().getRootDirectory().getSubDirectory(DirectoryManager.SERVER_PROVIDERS).getFiles()) {

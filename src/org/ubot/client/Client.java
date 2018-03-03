@@ -42,7 +42,7 @@ public class Client extends Application {
 				terminate();
 			}
 		});
-		displayScreen(new ServerSelectorScreen(this, model.getLocalServerProviders()), "Server Selector");
+		displayScreen(new ServerSelectorScreen(this, model.getServerProviders()), "Server Selector");
 		stage.show();
 		System.out.println("Client launched.");
 	}
