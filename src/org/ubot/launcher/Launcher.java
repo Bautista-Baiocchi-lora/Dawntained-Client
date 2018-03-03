@@ -2,9 +2,6 @@ package org.ubot.launcher;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import org.ubot.bot.ui.logger.LogType;
-import org.ubot.bot.ui.logger.Logger;
-import org.ubot.util.ConfigManager;
 import org.ubot.util.directory.DirectoryManager;
 
 import javax.swing.*;
@@ -15,8 +12,7 @@ public class Launcher extends Application {
 
 	public Launcher() {
 		DirectoryManager.init();
-		ConfigManager.init();
-		Logger.log("Launcher Loaded.", LogType.CLIENT);
+		System.out.println("Launcher Loaded.");
 	}
 
 	public static void main(String[] args) {

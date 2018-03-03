@@ -1,8 +1,7 @@
 <component name="libraryTable">
   <library name="asm-all-5.2">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../asm-all-5.2.jar!/" />
-      <root url="jar://$PROJECT_DIR$/../json-simple-1.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../Java Libraries/asm-5.2/lib/all/asm-all-5.2.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
