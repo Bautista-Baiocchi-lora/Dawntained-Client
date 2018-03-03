@@ -26,7 +26,7 @@ public class HandleInputs implements Runnable {
 				applet = (Applet) Engine.getGameComponent();
 				return applet.getComponents().length != 0;
 			}
-		}, 100, 20);
+		}, 100, 100);
 		Engine.setMouse(new InternalMouse());
 		Engine.setKeyboard(new InternalKeyboard());
 		Logger.log("Mouse & Keyboard set.", LogType.DEBUG);

@@ -14,8 +14,8 @@ import org.bot.util.reflection.ReflectionEngine;
 
 import java.awt.*;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Hashtable;
+import java.util.*;
+import java.util.List;
 
 public class Engine {
 

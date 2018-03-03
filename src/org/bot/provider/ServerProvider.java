@@ -4,6 +4,7 @@ import org.bot.component.screen.ScreenOverlay;
 import org.bot.provider.loader.ServerLoader;
 import org.bot.provider.manifest.ServerManifest;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ServerProvider {
@@ -18,7 +19,10 @@ public class ServerProvider {
 		this.manifest = manifest;
 		this.screenOverlays = loader.getOverlays();
 	}
-
+	private java.util.List<Integer> loadedInterfaces = new ArrayList<>();
+	public List<Integer> getLoadedInterfaces() {
+		return loadedInterfaces;
+	}
 	public ServerManifest getManifest() {
 		return manifest;
 	}
