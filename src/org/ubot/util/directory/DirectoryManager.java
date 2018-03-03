@@ -37,7 +37,9 @@ public class DirectoryManager {
 	}
 
 	public static void init() {
-		instance = new DirectoryManager();
+		if (instance == null) {
+			instance = new DirectoryManager();
+		}
 	}
 
 	public static DirectoryManager getInstance() {
