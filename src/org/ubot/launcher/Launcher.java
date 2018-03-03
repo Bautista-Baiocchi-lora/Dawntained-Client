@@ -2,7 +2,6 @@ package org.ubot.launcher;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import org.ubot.jarloading.LoadLocal;
 import org.ubot.util.directory.DirectoryManager;
 
 import javax.swing.*;
@@ -14,7 +13,6 @@ public class Launcher extends Application {
 	public Launcher() {
 		DirectoryManager.init();
 		System.out.println("Launcher Loaded.");
-		new LoadLocal(true);
 	}
 
 	public static void main(String[] args) {

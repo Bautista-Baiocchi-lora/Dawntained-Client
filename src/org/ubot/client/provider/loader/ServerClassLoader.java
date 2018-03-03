@@ -1,6 +1,6 @@
-package org.ubot.provider.loader;
+package org.ubot.client.provider.loader;
 
-import org.ubot.provider.manifest.ServerManifest;
+import org.ubot.client.provider.manifest.ServerManifest;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;

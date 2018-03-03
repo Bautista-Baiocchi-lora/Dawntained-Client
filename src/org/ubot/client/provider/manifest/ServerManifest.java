@@ -1,4 +1,4 @@
-package org.ubot.provider.manifest;
+package org.ubot.client.provider.manifest;
 
 /**
  * Created by Ethan on 3/2/2018.
