@@ -8,10 +8,9 @@ import java.awt.event.WindowListener;
 public class Bot extends JFrame implements WindowListener {
 
 	private static BotModel model;
-
 	public Bot(BotModel.Builder builder) {
 		model = builder.build();
-		setTitle("[" + model.getuBotName() + "] " + model.getServer());
+		setTitle("[" + model.getBotName() + "] " + model.getServer());
 		//setJMenuBar(new SettingsMenu(model));
 		setResizable(false);
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -30,8 +29,8 @@ public class Bot extends JFrame implements WindowListener {
 		setVisible(true);
 	}
 
-	public static String getuBotName() {
-		return model.getuBotName();
+	public static String getBotName() {
+		return model.getBotName();
 	}
 
 	@Override

@@ -7,7 +7,9 @@ package org.ubot.classloader;
 
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.tree.ClassNode;
+import org.ubot.component.RSCanvas;
 import org.ubot.util.injection.Injector;
+import org.ubot.util.injection.injections.ModifyCanvas;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -88,6 +90,7 @@ public class ASMClassLoader extends ClassLoader {
 				}
 			}
 		}
+		new ModifyCanvas(RSCanvas.class.getCanonicalName().replaceAll("\\.", "/"), node);
 		return node;
 	}
 

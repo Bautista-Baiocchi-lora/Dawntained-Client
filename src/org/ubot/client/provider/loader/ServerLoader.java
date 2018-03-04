@@ -4,6 +4,9 @@ import javafx.concurrent.Task;
 import org.ubot.bot.BotModel;
 import org.ubot.classloader.ASMClassLoader;
 import org.ubot.classloader.ClassArchive;
+import org.ubot.component.RSCanvas;
+import org.ubot.component.screen.ScreenOverlay;
+import org.ubot.util.Condition;
 import org.ubot.util.FileDownloader;
 import org.ubot.util.injection.Injector;
 import org.ubot.util.reflection.ReflectionEngine;
@@ -12,11 +15,14 @@ import javax.swing.*;
 import java.applet.Applet;
 import java.awt.*;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class ServerLoader extends Task<BotModel.Builder> {
 
 	private final String serverName, jarUrl, hookUrl;
+	private Applet applet;
+	private RSCanvas canvas;
 
 	public ServerLoader(String jarUrl, String hookUrl, String serverName) {
 		this.serverName = serverName;
@@ -45,10 +51,17 @@ public abstract class ServerLoader extends Task<BotModel.Builder> {
 		builder.reflectionEngine(reflectionEngine);
 		updateMessage("Loading applet...", 0.8);
 		final Applet applet = loadApplet(reflectionEngine);
-		updateMessage("Embedding applet...", 0.9);
+		this.applet = applet;
+		updateMessage("Embedding applet...", 0.85);
 		builder.applet(applet);
+		updateMessage("Hijacking canvas...", 0.90);
+		while ((canvas = getCanvas()) == null) {
+			Condition.sleep(100);
+		}
+		canvas.setServerLoader(this);
 		final JPanel panel = embedApplet(applet);
 		builder.panel(panel);
+		updateMessage("Finished.", 1.0);
 		return builder;
 	}
 
@@ -85,8 +98,30 @@ public abstract class ServerLoader extends Task<BotModel.Builder> {
 		//logic
 	}
 
+	public List<ScreenOverlay> getOverlays() {
+		List<ScreenOverlay> overlays = new ArrayList<>();
+		/*
+			We can add forced overlays here if we wanted too.
+		 */
+		return overlays;
+	}
+
 	protected abstract List<Injector> getInjectables();
 
 	protected abstract Applet loadApplet(ReflectionEngine reflectionEngine) throws IllegalAccessException;
+
+	private Applet getApplet() {
+		return this.applet;
+	}
+
+	private synchronized RSCanvas getCanvas() {
+		if (canvas != null) {
+			return canvas;
+		}
+		if (getApplet() == null || getApplet().getComponentCount() == 0 || !(getApplet().getComponent(0) instanceof RSCanvas)) {
+			return null;
+		}
+		return (RSCanvas) getApplet().getComponent(0);
+	}
 
 }

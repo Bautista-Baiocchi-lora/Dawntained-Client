@@ -1,4 +1,4 @@
-package org.ubot.client.provider.loader;
+package org.ubot.client.sdnloader;
 
 import org.ubot.client.provider.manifest.ServerManifest;
 

@@ -1,6 +1,4 @@
-package org.ubot.client.jarloading;
-
-import org.ubot.client.provider.loader.ServerClassLoader;
+package org.ubot.client.sdnloader;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

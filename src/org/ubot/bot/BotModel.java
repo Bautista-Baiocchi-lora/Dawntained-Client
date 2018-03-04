@@ -29,7 +29,7 @@ public class BotModel {
 		return panel;
 	}
 
-	public String getuBotName() {
+	public String getBotName() {
 		return username;
 	}
 
