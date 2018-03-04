@@ -6,6 +6,7 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import org.ubot.bot.Bot;
 import org.ubot.client.provider.loader.ServerLoader;
 import org.ubot.client.ui.serverselector.ServerSelectorScreen;
 import org.ubot.util.directory.DirectoryManager;
@@ -62,6 +63,14 @@ public class Client extends Application {
 
 	public void startBot(ServerLoader loader) {
 		model.createBot(loader);
+	}
+
+	public void registerBot(Bot bot) {
+		model.registerBot(bot);
+	}
+
+	public void close() {
+		//stage.hide();
 	}
 
 	public void terminate() {

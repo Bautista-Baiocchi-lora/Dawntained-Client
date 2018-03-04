@@ -48,7 +48,7 @@ public class LoadingScreen extends Scene {
 				if (permissionKey.equalsIgnoreCase("12345")) {
 					builder.developer(true);
 				}
-				builder.account(account).username(username).buildBot();
+				client.registerBot(builder.account(account).username(username).buildBot());
 			}
 		});
 		loadThread.start();
