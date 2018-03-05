@@ -16,8 +16,9 @@ import java.util.List;
  */
 public class BotToolBar extends JToolBar {
 	private Client client;
-	private JButton newTabButton = new JButton();
+	private JButton newTabButton = new JButton("+");
 	private JButton settingsButton = new JButton();
+	private JButton theaterMode = new JButton();
 	private JPopupMenu settings = new JPopupMenu("Settings");
 	private JMenu debugs = new JMenu("Debugs");
 	private JMenuItem debugInventory = new JMenuItem("Inventory");
@@ -37,25 +38,17 @@ public class BotToolBar extends JToolBar {
 	private final void configure() {
 		setPreferredSize(new Dimension(765, 24));
 		setFloatable(false);
+
 		debugs.add(debugNPCS);
 		debugs.add(debugPlayers);
 		debugs.add(debugObjects);
 		debugs.add(debugGameInfo);
 		debugs.add(debugInventory);
 		debugs.add(interfaceExplorer);
+
 		settings.add(debugs);
 		settings.addSeparator();
 		settings.add(showLogger);
-		settings.add(exit);
-		settingsButton.setIcon(Utilities.getIcon("resources/settings.png"));
-		settingsButton.setContentAreaFilled(false);
-		settingsButton.setRolloverEnabled(true);
-		settingsButton.setRolloverIcon(Utilities.getIcon("resources/settings_hover.png"));
-		settingsButton.addMouseListener(new MouseAdapter() {
-			public void mousePressed(MouseEvent e) {
-				settings.show(e.getComponent(), e.getX(), e.getY());
-			}
-		});
 		showLogger.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(final ActionEvent e) {
@@ -66,7 +59,36 @@ public class BotToolBar extends JToolBar {
 				}
 			}
 		});
+		settings.add(exit);
 		exit.addActionListener(e -> System.exit(0));
+
+		theaterMode.setIcon(Utilities.getIcon("resources/theater.png"));
+		theaterMode.setContentAreaFilled(false);
+		theaterMode.setRolloverEnabled(true);
+		theaterMode.setBorder(null);
+		theaterMode.setRolloverIcon(Utilities.getIcon("resources/theater_hover.png"));
+		theaterMode.addActionListener(e -> client.showBotTheater());
+
+		settingsButton.setIcon(Utilities.getIcon("resources/buttons/settings.png"));
+		settingsButton.setContentAreaFilled(false);
+		settingsButton.setRolloverEnabled(true);
+		settingsButton.setBorder(null);
+		settingsButton.setRolloverIcon(Utilities.getIcon("resources/buttons/settings_hover.png"));
+		settingsButton.addMouseListener(new MouseAdapter() {
+			public void mousePressed(MouseEvent e) {
+				settings.show(e.getComponent(), e.getX(), e.getY());
+			}
+		});
+
+		newTabButton.setBorder(null);
+		newTabButton.setContentAreaFilled(false);
+		newTabButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(final ActionEvent e) {
+
+			}
+		});
+
 		updateComponents(null);
 	}
 
@@ -77,7 +99,9 @@ public class BotToolBar extends JToolBar {
 				add(c);
 			}
 		}
+		add(newTabButton);
 		add(Box.createHorizontalGlue());
+		add(theaterMode);
 		add(settingsButton);
 		revalidate();
 	}

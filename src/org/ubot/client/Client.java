@@ -5,6 +5,7 @@ import org.ubot.bot.BotModel;
 import org.ubot.client.provider.loader.ServerLoader;
 import org.ubot.client.ui.BotConfigurationScreen;
 import org.ubot.client.ui.BotScreen;
+import org.ubot.client.ui.BotToolBar;
 import org.ubot.client.ui.logger.Logger;
 import org.ubot.client.ui.logger.LoggerPanel;
 import org.ubot.util.directory.DirectoryManager;
@@ -19,11 +20,14 @@ public class Client extends JFrame implements WindowListener {
 	private final ClientModel model;
 	private JPanel currentScreen;
 	private final LoggerPanel loggerPanel;
+	private final BotToolBar toolBar;
 
 	public Client(String username, String accountKey, String permissionKey) {
 		super("[" + username + "] uBot v" + VERSION);
 		this.model = new ClientModel(this, username, accountKey, permissionKey);
 		loggerPanel = new LoggerPanel(new Logger());
+		toolBar = new BotToolBar(this);
+		add(toolBar, BorderLayout.NORTH);
 		DirectoryManager.init();
 		showSplashScreen();
 		setResizable(false);
