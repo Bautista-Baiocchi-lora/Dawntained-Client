@@ -29,8 +29,6 @@ public class Client extends JFrame implements WindowListener {
 		setResizable(false);
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		addWindowListener(this);
-		//setLocationRelativeTo(getParent());
-		//setLocationRelativeTo(getOwner());
 		pack();
 		setVisible(true);
 		System.out.println("Client launched.");
@@ -70,6 +68,7 @@ public class Client extends JFrame implements WindowListener {
 		}
 		currentScreen = screen;
 		add(currentScreen);
+		pack();
 		revalidate();
 	}
 

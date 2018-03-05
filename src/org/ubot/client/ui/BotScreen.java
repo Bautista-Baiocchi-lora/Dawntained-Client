@@ -16,17 +16,11 @@ public class BotScreen extends JPanel implements ActionListener {
 	public BotScreen(Client client, Bot bot) {
 		super(new BorderLayout());
 		this.client = client;
+		add(new BotToolBar(client), BorderLayout.NORTH);
 		add(generateBotComponent(bot), BorderLayout.CENTER);
 		this.back = new JButton("Back");
 		back.addActionListener(this::actionPerformed);
 		add(back, BorderLayout.SOUTH);
-	}
-
-	private final JPanel generateSettingsPanel() {
-		final JPanel settingsPanel = new JPanel();
-		//TODO:Settings
-		settingsPanel.add(new JLabel("This a setting"));
-		return settingsPanel;
 	}
 
 	private final Component generateBotComponent(Bot bot) {
