@@ -13,6 +13,7 @@ import org.ubot.util.reflection.ReflectionEngine;
 
 import javax.swing.*;
 import java.applet.Applet;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,6 +50,7 @@ public abstract class ServerLoader extends SwingWorker<BotModel.Builder, BotMode
 		builder.reflectionEngine(reflectionEngine);
 		setProgress(80);
 		final Applet applet = loadApplet(reflectionEngine);
+		applet.setPreferredSize(new Dimension(765, 503));
 		this.applet = applet;
 		setProgress(85);
 		builder.applet(applet);
