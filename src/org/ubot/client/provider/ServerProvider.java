@@ -20,4 +20,9 @@ public class ServerProvider {
 	public ServerManifest getManifest() {
 		return manifest;
 	}
+
+	@Override
+	public String toString() {
+		return manifest.serverName();
+	}
 }

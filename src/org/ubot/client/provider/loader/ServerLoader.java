@@ -1,6 +1,5 @@
 package org.ubot.client.provider.loader;
 
-import javafx.concurrent.Task;
 import org.ubot.bot.BotModel;
 import org.ubot.classloader.ASMClassLoader;
 import org.ubot.classloader.ClassArchive;
@@ -18,7 +17,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class ServerLoader extends Task<BotModel.Builder> {
+public abstract class ServerLoader extends SwingWorker<BotModel.Builder, BotModel.Builder> {
 
 	private final String serverName, jarUrl, hookUrl;
 	private Applet applet;
@@ -31,37 +30,37 @@ public abstract class ServerLoader extends Task<BotModel.Builder> {
 	}
 
 	@Override
-	protected BotModel.Builder call() throws Exception {
+	protected BotModel.Builder doInBackground() throws Exception {
 		final BotModel.Builder builder = new BotModel.Builder(serverName);
-		updateMessage("Updating " + serverName + " jar file.", 0.1);
+		setProgress(10);
 		final FileDownloader downloader = new FileDownloader(jarUrl, serverName);
 		final Thread downloadThread = new Thread(downloader);
 		downloadThread.start();
 		while (downloadThread.isAlive()) {
-			updateProgress((0.4 * downloader.getProgress()), 1);
+			setProgress((int) (0.4 * downloader.getProgress()));
 		}
 		loadHooks(hookUrl);
-		updateMessage("Invoking client...", 0.5);
+		setProgress(50);
 		final ClassArchive classArchive = new ClassArchive();
 		classArchive.addJar(new File(downloader.getArchivePath() + "/" + serverName + ".jar"));
-		updateMessage("Injecting...", 0.6);
+		setProgress(60);
 		final ASMClassLoader asmClassLoader = new ASMClassLoader(classArchive, getInjectables());
-		updateMessage("Starting reflection engine...", 0.7);
+		setProgress(70);
 		final ReflectionEngine reflectionEngine = new ReflectionEngine(asmClassLoader);
 		builder.reflectionEngine(reflectionEngine);
-		updateMessage("Loading applet...", 0.8);
+		setProgress(80);
 		final Applet applet = loadApplet(reflectionEngine);
 		this.applet = applet;
-		updateMessage("Embedding applet...", 0.85);
+		setProgress(85);
 		builder.applet(applet);
-		updateMessage("Hijacking canvas...", 0.90);
+		setProgress(90);
 		while ((canvas = getCanvas()) == null) {
 			Condition.sleep(100);
 		}
 		canvas.setServerLoader(this);
 		final JPanel panel = embedApplet(applet);
 		builder.panel(panel);
-		updateMessage("Finished.", 1.0);
+		setProgress(1);
 		return builder;
 	}
 
@@ -82,19 +81,8 @@ public abstract class ServerLoader extends Task<BotModel.Builder> {
 		return panel;
 	}
 
-	@Override
-	protected void updateMessage(final String message) {
-		super.updateMessage(message);
-		System.out.println(message);
-	}
-
-	protected void updateMessage(final String message, double percent) {
-		updateMessage(message);
-		updateProgress(percent, 1);
-	}
 
 	private void loadHooks(String hookUrl) {
-		updateMessage("Loading hooks...", 0.5);
 		//logic
 	}
 
