@@ -32,7 +32,7 @@ public abstract class ServerLoader extends SwingWorker<BotModel.Builder, BotMode
 	protected BotModel.Builder doInBackground() throws Exception {
 		final BotModel.Builder builder = new BotModel.Builder(serverName);
 		setProgress(10);
-		final FileDownloader downloader = new FileDownloader(jarUrl, DirectoryManager.getInstance().getRootDirectory().getSubDirectory(DirectoryManager.SERVER_JARS).getPath(), serverName);
+		final FileDownloader downloader = new FileDownloader(jarUrl, DirectoryManager.SERVER_JARS_PATH, serverName);
 		final Thread downloadThread = new Thread(downloader);
 		downloadThread.start();
 		while (downloadThread.isAlive()) {
