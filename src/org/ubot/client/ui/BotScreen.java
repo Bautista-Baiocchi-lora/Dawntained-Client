@@ -11,15 +11,15 @@ import java.awt.event.ActionListener;
 public class BotScreen extends JPanel implements ActionListener {
 
 	private final Client client;
-	private final JButton back;
+	private final BotToolBar toolBar;
 
 	public BotScreen(Client client, Bot bot) {
 		super(new BorderLayout());
 		this.client = client;
-		add(generateBotComponent(bot), BorderLayout.CENTER);
-		this.back = new JButton("Back");
-		back.addActionListener(this::actionPerformed);
-		add(back, BorderLayout.SOUTH);
+		this.toolBar = new BotToolBar(client);
+		add(bot.getApplet());
+		add(toolBar, BorderLayout.NORTH);
+		client.setResizable(true);
 	}
 
 	private final JPanel generateSettingsPanel() {

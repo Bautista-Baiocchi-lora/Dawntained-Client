@@ -20,23 +20,23 @@ public class Client extends JFrame implements WindowListener {
 		super("[" + username + "] uBot v" + VERSION);
 		DirectoryManager.init();
 		this.model = new ClientModel(this, username, accountKey, permissionKey);
-		try {
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
-			ex.printStackTrace();
-		}
+
 		showSplashScreen();
-		setResizable(false);
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		addWindowListener(this);
-		//setLocationRelativeTo(getParent());
-		//setLocationRelativeTo(getOwner());
+		setLocationRelativeTo(getParent());
+		setLocationRelativeTo(getOwner());
 		pack();
 		setVisible(true);
 		System.out.println("Client launched.");
 	}
 
 	public static void main(String[] args) {
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+			ex.printStackTrace();
+		}
 		new Client(args[0], args[1], args[2]);
 	}
 
@@ -71,6 +71,7 @@ public class Client extends JFrame implements WindowListener {
 		currentScreen = screen;
 		add(currentScreen);
 		revalidate();
+		pack();
 	}
 
 	@Override
