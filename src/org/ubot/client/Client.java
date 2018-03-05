@@ -1,24 +1,29 @@
 package org.ubot.client;
 
 import org.ubot.bot.BotModel;
+import org.ubot.client.provider.ServerProvider;
 import org.ubot.client.provider.loader.ServerLoader;
-import org.ubot.client.ui.BotConfigurationScreen;
+import org.ubot.client.ui.BotTabScreen;
 import org.ubot.util.directory.DirectoryManager;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowListener;
+import java.util.ArrayList;
 
 public class Client extends JFrame implements WindowListener {
 
 	private static final double VERSION = 0.1;
 	private final ClientModel model;
+	private final BotTabScreen tabScreen;
 	private JPanel currentScreen;
 
 	public Client(String username, String accountKey, String permissionKey) {
 		super("[" + username + "] uBot v" + VERSION);
-		this.model = new ClientModel(this, username, accountKey, permissionKey);
 		DirectoryManager.init();
+		this.model = new ClientModel(this, username, accountKey, permissionKey);
+		this.tabScreen = new BotTabScreen(this);
+		this.add(tabScreen);
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
@@ -29,15 +34,18 @@ public class Client extends JFrame implements WindowListener {
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		addWindowListener(this);
 		setLocationRelativeTo(getParent());
-		pack();
 		setLocationRelativeTo(getOwner());
-		displayScreen(new BotConfigurationScreen(this, model.getServerProviders()));
+		pack();
 		setVisible(true);
 		System.out.println("Client launched.");
 	}
 
 	public static void main(String[] args) {
 		new Client(args[0], args[1], args[2]);
+	}
+
+	public ArrayList<ServerProvider> getServerProviders() {
+		return model.getServerProviders();
 	}
 
 	public void loadServer(ServerLoader loader) {

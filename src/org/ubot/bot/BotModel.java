@@ -30,10 +30,6 @@ public class BotModel {
 		return username;
 	}
 
-	public String getServer() {
-		return server;
-	}
-
 	public static class Builder {
 
 		private static boolean developer;
