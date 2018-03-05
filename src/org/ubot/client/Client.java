@@ -3,6 +3,7 @@ package org.ubot.client;
 import org.ubot.bot.BotModel;
 import org.ubot.client.provider.loader.ServerLoader;
 import org.ubot.client.ui.BotConfigurationScreen;
+import org.ubot.util.directory.DirectoryManager;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,6 +18,7 @@ public class Client extends JFrame implements WindowListener {
 	public Client(String username, String accountKey, String permissionKey) {
 		super("[" + username + "] uBot v" + VERSION);
 		this.model = new ClientModel(this, username, accountKey, permissionKey);
+		DirectoryManager.init();
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {

@@ -36,7 +36,7 @@ public abstract class ServerLoader extends SwingWorker<BotModel.Builder, BotMode
 		final Thread downloadThread = new Thread(downloader);
 		downloadThread.start();
 		while (downloadThread.isAlive()) {
-			setProgress((int) (0.4 * downloader.getProgress()));
+			setProgress((int) (40 * downloader.getProgress()));
 		}
 		loadHooks(hookUrl);
 		setProgress(50);
@@ -57,7 +57,7 @@ public abstract class ServerLoader extends SwingWorker<BotModel.Builder, BotMode
 			Condition.sleep(100);
 		}
 		canvas.setServerLoader(this);
-		setProgress(1);
+		setProgress(100);
 		return builder;
 	}
 

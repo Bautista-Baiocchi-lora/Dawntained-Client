@@ -23,10 +23,11 @@ public class BotConfigurationScreen extends JPanel implements ActionListener {
 		populateProvidersModel(providers);
 		providerJList = new JList<ServerProvider>(providersListModel);
 		providerJList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		this.add(providerJList);
+		this.add(providerJList, BorderLayout.CENTER);
 		this.start = new JButton("Start Bot");
 		this.start.setActionCommand("start");
 		this.start.addActionListener(this);
+		this.add(start, BorderLayout.SOUTH);
 		setPreferredSize(new Dimension(765, 503));
 	}
 
