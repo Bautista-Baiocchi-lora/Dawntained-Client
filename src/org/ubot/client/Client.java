@@ -5,9 +5,12 @@ import org.ubot.bot.BotModel;
 import org.ubot.client.provider.loader.ServerLoader;
 import org.ubot.client.ui.BotConfigurationScreen;
 import org.ubot.client.ui.BotScreen;
+import org.ubot.client.ui.logger.Logger;
+import org.ubot.client.ui.logger.LoggerPanel;
 import org.ubot.util.directory.DirectoryManager;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.WindowListener;
 
 public class Client extends JFrame implements WindowListener {
@@ -15,22 +18,23 @@ public class Client extends JFrame implements WindowListener {
 	private static final double VERSION = 0.1;
 	private final ClientModel model;
 	private JPanel currentScreen;
+	private LoggerPanel loggerPanel;
 
 	public Client(String username, String accountKey, String permissionKey) {
 		super("[" + username + "] uBot v" + VERSION);
-		DirectoryManager.init();
 		this.model = new ClientModel(this, username, accountKey, permissionKey);
+		DirectoryManager.init();
 		showSplashScreen();
-		setResizable(true);
-		getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
+		showLogger();
+		setResizable(false);
+		//getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		addWindowListener(this);
 		pack();
 		setLocationRelativeTo(getParent());
-
 		setLocationRelativeTo(getOwner());
 		setVisible(true);
-		System.out.println("Client launched.");
+		Logger.log("Client launched.");
 	}
 
 	public static void main(String[] args) {
@@ -40,6 +44,19 @@ public class Client extends JFrame implements WindowListener {
 			ex.printStackTrace();
 		}
 		new Client(args[0], args[1], args[2]);
+	}
+
+	public void showLogger() {
+		if (loggerPanel == null) {
+			loggerPanel = new LoggerPanel(new Logger());
+		}
+		add(loggerPanel, BorderLayout.SOUTH);
+		refreshInterface();
+	}
+
+	private void refreshInterface() {
+		pack();
+		revalidate();
 	}
 
 	private void showSplashScreen() {
@@ -71,9 +88,8 @@ public class Client extends JFrame implements WindowListener {
 			remove(currentScreen);
 		}
 		currentScreen = screen;
-		add(currentScreen);
-		pack();
-		revalidate();
+		add(currentScreen, BorderLayout.CENTER);
+		refreshInterface();
 	}
 
 	@Override

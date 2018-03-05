@@ -1,6 +1,7 @@
 package org.ubot.util.directory;
 
 
+import org.ubot.client.ui.logger.Logger;
 import org.ubot.util.directory.exceptions.InvalidDirectoryNameException;
 
 import java.io.File;
@@ -33,7 +34,7 @@ public class DirectoryManager {
 		} catch (InvalidDirectoryNameException | IOException e) {
 			e.printStackTrace();
 		}
-		System.out.println("Directory Manager started.");
+		Logger.log("Directory Manager started.");
 	}
 
 	public static void init() {
@@ -76,7 +77,7 @@ public class DirectoryManager {
 		SCREENSHOTS_PATH = botDirectory.getSubDirectory(CACHE).getSubDirectory(SCREENSHOTS).getPath();
 		botDirectory.getSubDirectory(CACHE).createSubDirectory(ACCOUNTS);
 		ACCOUNTS_PATH = botDirectory.getSubDirectory(CACHE).getSubDirectory(ACCOUNTS).getPath();
-		System.out.println("uBot directories created.");
+		Logger.log("uBot directories created.");
 	}
 
 }
