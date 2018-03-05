@@ -12,7 +12,6 @@ import org.ubot.util.reflection.ReflectionEngine;
 
 import javax.swing.*;
 import java.applet.Applet;
-import java.awt.*;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -58,29 +57,9 @@ public abstract class ServerLoader extends SwingWorker<BotModel.Builder, BotMode
 			Condition.sleep(100);
 		}
 		canvas.setServerLoader(this);
-		final JPanel panel = embedApplet(applet);
-		builder.panel(panel);
 		setProgress(1);
 		return builder;
 	}
-
-	private final JPanel embedApplet(Applet applet) {
-		final JPanel panel = new JPanel();
-		panel.setPreferredSize(new Dimension(765, 503));
-		panel.setLayout(new BorderLayout());
-		if (applet != null) {
-			panel.add(applet, BorderLayout.CENTER);
-			panel.revalidate();
-			applet.init();
-			if (!applet.isActive()) {
-				applet.start();
-			}
-		} else {
-			panel.add(new JLabel("Error: Corrupted Applet"));
-		}
-		return panel;
-	}
-
 
 	private void loadHooks(String hookUrl) {
 		//logic

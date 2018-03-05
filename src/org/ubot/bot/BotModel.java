@@ -3,7 +3,6 @@ package org.ubot.bot;
 import org.ubot.client.account.Account;
 import org.ubot.util.reflection.ReflectionEngine;
 
-import javax.swing.*;
 import java.applet.Applet;
 
 public class BotModel {
@@ -12,7 +11,6 @@ public class BotModel {
 	private final String username, server;
 	private final Account account;
 	private final Applet applet;
-	private final JPanel panel;
 	private final ReflectionEngine reflectionEngine;
 
 	private BotModel(Builder builder) {
@@ -22,11 +20,10 @@ public class BotModel {
 		server = builder.server;
 		applet = builder.applet;
 		reflectionEngine = builder.reflectionEngine;
-		panel = builder.panel;
 	}
 
-	protected JPanel getPanel() {
-		return panel;
+	protected Applet getApplet() {
+		return applet;
 	}
 
 	public String getBotName() {
@@ -43,16 +40,10 @@ public class BotModel {
 		private static Account account;
 		private static String username, server;
 		private static Applet applet;
-		private static JPanel panel;
 		private static ReflectionEngine reflectionEngine;
 
 		public Builder(String server) {
 			this.server = server;
-		}
-
-		public Builder panel(JPanel panel) {
-			this.panel = panel;
-			return this;
 		}
 
 		public Builder reflectionEngine(ReflectionEngine reflectionEngine) {
