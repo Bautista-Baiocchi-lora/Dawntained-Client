@@ -7,12 +7,12 @@ import org.ubot.component.RSCanvas;
 import org.ubot.component.screen.ScreenOverlay;
 import org.ubot.util.Condition;
 import org.ubot.util.FileDownloader;
+import org.ubot.util.directory.DirectoryManager;
 import org.ubot.util.injection.Injector;
 import org.ubot.util.reflection.ReflectionEngine;
 
 import javax.swing.*;
 import java.applet.Applet;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,7 +32,7 @@ public abstract class ServerLoader extends SwingWorker<BotModel.Builder, BotMode
 	protected BotModel.Builder doInBackground() throws Exception {
 		final BotModel.Builder builder = new BotModel.Builder(serverName);
 		setProgress(10);
-		final FileDownloader downloader = new FileDownloader(jarUrl, serverName);
+		final FileDownloader downloader = new FileDownloader(jarUrl, DirectoryManager.getInstance().getRootDirectory().getSubDirectory(DirectoryManager.SERVER_JARS).getPath(), serverName);
 		final Thread downloadThread = new Thread(downloader);
 		downloadThread.start();
 		while (downloadThread.isAlive()) {
@@ -41,7 +41,7 @@ public abstract class ServerLoader extends SwingWorker<BotModel.Builder, BotMode
 		loadHooks(hookUrl);
 		setProgress(50);
 		final ClassArchive classArchive = new ClassArchive();
-		classArchive.addJar(new File(downloader.getArchivePath() + "/" + serverName + ".jar"));
+		classArchive.addJar(downloader.getDownloadedFile());
 		setProgress(60);
 		final ASMClassLoader asmClassLoader = new ASMClassLoader(classArchive, getInjectables());
 		setProgress(70);

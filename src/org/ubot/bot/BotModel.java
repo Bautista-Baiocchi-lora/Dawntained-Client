@@ -70,7 +70,7 @@ public class BotModel {
 			return this;
 		}
 
-		public Builder canvas(RSCanvas rsCanvas) {
+		public Builder canvas(RSCanvas canvas) {
 			this.canvas = canvas;
 			return this;
 		}

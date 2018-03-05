@@ -1,23 +1,20 @@
 package org.ubot.util;
 
-import org.ubot.util.directory.Directory;
-import org.ubot.util.directory.DirectoryManager;
-
 import java.io.*;
 import java.net.URLConnection;
 
 
 public class FileDownloader implements Runnable {
 
-	private final String fileName;
-	private final String source;
+	private final String fileName, source, filePath;
 	private volatile double progress = 0;
 	private int length, written;
-	private Directory path;
+	private File savedFile;
 
-	public FileDownloader(String source, String fileName) {
+	public FileDownloader(String source, String filePath, String fileName) {
 		this.source = source;
 		this.fileName = fileName;
+		this.filePath = filePath;
 	}
 
 	@Override
@@ -28,16 +25,14 @@ public class FileDownloader implements Runnable {
 		try {
 			connection = NetUtil.getConnection(source);
 			length = connection.getContentLength();
-			final Directory destinationDirectory = path = new Directory(DirectoryManager.SERVER_JARS_PATH);
-			if (destinationDirectory.exists()) {
-				final URLConnection savedFileConnection = destinationDirectory.toURI().toURL().openConnection();
+			savedFile = new File(filePath + File.separator + fileName);
+			if (savedFile != null && savedFile.exists()) {
+				final URLConnection savedFileConnection = savedFile.toURI().toURL().openConnection();
 				if (savedFileConnection.getContentLength() == length) {
 					return;
 				}
-			} else {
-				destinationDirectory.create();
 			}
-			output = new FileOutputStream(destinationDirectory.getPath() + File.separator + fileName + ".jar");
+			output = new FileOutputStream(savedFile);
 			input = connection.getInputStream();
 			final byte[] data = new byte[1024];
 			int read;
@@ -59,8 +54,8 @@ public class FileDownloader implements Runnable {
 		return progress;
 	}
 
-	public String getArchivePath() {
-		return path.getPath();
+	public File getDownloadedFile() {
+		return savedFile;
 	}
 
 	public boolean isFinished() {

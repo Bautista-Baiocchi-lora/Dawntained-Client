@@ -29,6 +29,6 @@ public class BotPreview extends JButton {
 	@Override
 	protected void paintComponent(final Graphics g) {
 		super.paintComponent(g);
-//		g.drawImage(bot.getGameCanvas().getGameBuffer(), 0, 0, null);
+		g.drawImage(bot.getGameCanvas().getGameBuffer(), 0, 0, null);
 	}
 }
