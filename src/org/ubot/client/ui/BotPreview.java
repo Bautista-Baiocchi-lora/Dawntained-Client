@@ -16,6 +16,7 @@ public class BotPreview extends JButton {
 		this.name = name;
 		this.bot = bot;
 		this.addActionListener(listener);
+		setPreferredSize(new Dimension(267, 176));
 	}
 
 	public String getName() {

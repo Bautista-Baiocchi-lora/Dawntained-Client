@@ -28,10 +28,10 @@ public class BotToolBar extends JToolBar {
 
 	public BotToolBar(Client client) {
 		this.client = client;
-		init();
+		configure();
 	}
 
-	private void init() {
+	private final void configure() {
 		setPreferredSize(new Dimension(765, 24));
 		setFloatable(false);
 		debugs.add(debugNPCS);
