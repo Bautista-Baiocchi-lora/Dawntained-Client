@@ -28,6 +28,10 @@ public class RSCanvas extends Canvas {
         super();
     }
 
+	public BufferedImage getGameBuffer() {
+		return gameBuffer;
+	}
+
     public Graphics getGraphics() {
         if (!setOverlays) {
             if (loader != null) {

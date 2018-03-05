@@ -1,28 +1,53 @@
 package org.ubot.client.ui;
 
-import org.ubot.bot.BotModel;
+import org.ubot.bot.Bot;
 import org.ubot.client.Client;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class BotScreen extends JPanel {
+public class BotScreen extends JPanel implements ActionListener {
 
 	private final Client client;
+	private final JButton back;
+	private final JTabbedPane tabbedPane;
 
-	public BotScreen(Client client, BotModel model) {
+	public BotScreen(Client client, Bot bot) {
+		super(new BorderLayout());
 		this.client = client;
-		setPreferredSize(new Dimension(765, 503));
-		setLayout(new BorderLayout());
-		if (model.getApplet() != null) {
-			add(model.getApplet(), BorderLayout.CENTER);
-			revalidate();
-			model.getApplet().init();
-			if (!model.getApplet().isActive()) {
-				model.getApplet().start();
+		this.tabbedPane = new JTabbedPane();
+		tabbedPane.addTab("Bot", generateBotComponent(bot));
+		tabbedPane.addTab("Settings", generateSettingsPanel());
+		add(tabbedPane, BorderLayout.CENTER);
+		this.back = new JButton("Back");
+		back.addActionListener(this::actionPerformed);
+		add(back, BorderLayout.SOUTH);
+	}
+
+	private final JPanel generateSettingsPanel() {
+		final JPanel settingsPanel = new JPanel();
+		//TODO:Settings
+		settingsPanel.add(new JLabel("This a setting"));
+		return settingsPanel;
+	}
+
+	private final Component generateBotComponent(Bot bot) {
+		bot.getApplet().setPreferredSize(new Dimension(765, 503));
+		if (bot.getApplet() != null) {
+			bot.getApplet().init();
+			if (!bot.getApplet().isActive()) {
+				bot.getApplet().start();
 			}
-		} else {
-			add(new JLabel("Error: Corrupted Applet"));
+			bot.getApplet().revalidate();
+			return bot.getApplet();
 		}
+		return new JLabel("Error: Corrupted Applet");
+	}
+
+	@Override
+	public void actionPerformed(final ActionEvent e) {
+		client.showBotTheater();
 	}
 }

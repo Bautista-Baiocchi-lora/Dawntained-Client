@@ -1,40 +1,36 @@
 package org.ubot.client;
 
+import org.ubot.bot.Bot;
 import org.ubot.bot.BotModel;
-import org.ubot.client.provider.ServerProvider;
 import org.ubot.client.provider.loader.ServerLoader;
-import org.ubot.client.ui.BotTabScreen;
+import org.ubot.client.ui.BotConfigurationScreen;
+import org.ubot.client.ui.BotScreen;
 import org.ubot.util.directory.DirectoryManager;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.WindowListener;
-import java.util.ArrayList;
 
 public class Client extends JFrame implements WindowListener {
 
 	private static final double VERSION = 0.1;
 	private final ClientModel model;
-	private final BotTabScreen tabScreen;
 	private JPanel currentScreen;
 
 	public Client(String username, String accountKey, String permissionKey) {
 		super("[" + username + "] uBot v" + VERSION);
 		DirectoryManager.init();
 		this.model = new ClientModel(this, username, accountKey, permissionKey);
-		this.tabScreen = new BotTabScreen(this);
-		this.add(tabScreen);
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
 			ex.printStackTrace();
 		}
-		setPreferredSize(new Dimension(765, 503));
+		showSplashScreen();
 		setResizable(false);
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		addWindowListener(this);
-		setLocationRelativeTo(getParent());
-		setLocationRelativeTo(getOwner());
+		//setLocationRelativeTo(getParent());
+		//setLocationRelativeTo(getOwner());
 		pack();
 		setVisible(true);
 		System.out.println("Client launched.");
@@ -44,8 +40,20 @@ public class Client extends JFrame implements WindowListener {
 		new Client(args[0], args[1], args[2]);
 	}
 
-	public ArrayList<ServerProvider> getServerProviders() {
-		return model.getServerProviders();
+	private void showSplashScreen() {
+		showServerSelector();
+	}
+
+	public void showBotTheater() {
+		displayScreen(model.getUpdatedBotTheater());
+	}
+
+	public void showBotScreen(Bot bot) {
+		displayScreen(new BotScreen(this, bot));
+	}
+
+	public void showServerSelector() {
+		displayScreen(new BotConfigurationScreen(this, model.getServerProviders()));
 	}
 
 	public void loadServer(ServerLoader loader) {

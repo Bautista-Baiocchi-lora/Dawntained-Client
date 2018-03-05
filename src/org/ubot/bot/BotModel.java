@@ -1,6 +1,7 @@
 package org.ubot.bot;
 
 import org.ubot.client.account.Account;
+import org.ubot.component.RSCanvas;
 import org.ubot.util.reflection.ReflectionEngine;
 
 import java.applet.Applet;
@@ -11,6 +12,7 @@ public class BotModel {
 	private final String username, server;
 	private final Account account;
 	private final Applet applet;
+	private final RSCanvas canvas;
 	private final ReflectionEngine reflectionEngine;
 
 	private BotModel(Builder builder) {
@@ -20,6 +22,11 @@ public class BotModel {
 		server = builder.server;
 		applet = builder.applet;
 		reflectionEngine = builder.reflectionEngine;
+		canvas = builder.canvas;
+	}
+
+	public RSCanvas getCanvas() {
+		return canvas;
 	}
 
 	public Applet getApplet() {
@@ -37,6 +44,7 @@ public class BotModel {
 		private static String username, server;
 		private static Applet applet;
 		private static ReflectionEngine reflectionEngine;
+		private static RSCanvas canvas;
 
 		public Builder(String server) {
 			this.server = server;
@@ -59,6 +67,11 @@ public class BotModel {
 
 		public Builder account(Account account) {
 			this.account = account;
+			return this;
+		}
+
+		public Builder canvas(RSCanvas rsCanvas) {
+			this.canvas = canvas;
 			return this;
 		}
 

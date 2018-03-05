@@ -57,6 +57,7 @@ public abstract class ServerLoader extends SwingWorker<BotModel.Builder, BotMode
 			Condition.sleep(100);
 		}
 		canvas.setServerLoader(this);
+		builder.canvas(canvas);
 		setProgress(100);
 		return builder;
 	}

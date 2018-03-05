@@ -9,7 +9,7 @@ import org.ubot.client.provider.ServerProvider;
 import org.ubot.client.provider.loader.ServerLoader;
 import org.ubot.client.provider.manifest.ServerManifest;
 import org.ubot.client.ui.BotLoadingScreen;
-import org.ubot.client.ui.BotScreen;
+import org.ubot.client.ui.BotTheater;
 import org.ubot.util.directory.DirectoryManager;
 
 import java.io.File;
@@ -24,6 +24,7 @@ public class ClientModel {
 	private final Client client;
 	private final String username, accountKey, permissionKey;
 	private final ArrayList<Bot> bots;
+	private final BotTheater botTheater;
 
 	public ClientModel(Client client, String username, String accountKey, String permissionKey) {
 		this.client = client;
@@ -31,6 +32,12 @@ public class ClientModel {
 		this.accountKey = accountKey;
 		this.permissionKey = permissionKey;
 		this.bots = new ArrayList<>();
+		this.botTheater = new BotTheater(client);
+	}
+
+	protected final BotTheater getUpdatedBotTheater() {
+		botTheater.displayPreviews(bots);
+		return botTheater;
 	}
 
 	protected final ArrayList<ServerProvider> getServerProviders() {
@@ -85,8 +92,9 @@ public class ClientModel {
 
 	protected void createBot(BotModel.Builder builder) {
 		final BotModel model = builder.account(new Account("Bautista", "Alora")).username(username).developer(true).build();
-		client.displayScreen(new BotScreen(client, model));
-		bots.add(new Bot(model));
+		final Bot bot = new Bot(model);
+		bots.add(bot);
+		client.showBotScreen(bot);
 	}
 
 }
