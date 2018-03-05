@@ -3,7 +3,8 @@ package org.ubot.client;
 import org.ubot.bot.BotModel;
 import org.ubot.client.provider.ServerProvider;
 import org.ubot.client.provider.loader.ServerLoader;
-import org.ubot.client.ui.BotTabScreen;
+import org.ubot.client.ui.BotConfigurationScreen;
+import org.ubot.client.ui.BotToolBar;
 import org.ubot.util.directory.DirectoryManager;
 
 import javax.swing.*;
@@ -15,32 +16,32 @@ public class Client extends JFrame implements WindowListener {
 
 	private static final double VERSION = 0.1;
 	private final ClientModel model;
-	private final BotTabScreen tabScreen;
 	private JPanel currentScreen;
-
+	private final BotToolBar toolBar;
 	public Client(String username, String accountKey, String permissionKey) {
 		super("[" + username + "] uBot v" + VERSION);
 		DirectoryManager.init();
 		this.model = new ClientModel(this, username, accountKey, permissionKey);
-		this.tabScreen = new BotTabScreen(this);
-		this.add(tabScreen);
-		try {
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
-			ex.printStackTrace();
-		}
+		toolBar = new BotToolBar(this);
 		setPreferredSize(new Dimension(765, 503));
 		setResizable(false);
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		addWindowListener(this);
 		setLocationRelativeTo(getParent());
 		setLocationRelativeTo(getOwner());
+		this.add(toolBar, BorderLayout.NORTH);
+		displayScreen(new BotConfigurationScreen(this, getServerProviders()));
 		pack();
 		setVisible(true);
 		System.out.println("Client launched.");
 	}
 
 	public static void main(String[] args) {
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+			ex.printStackTrace();
+		}
 		new Client(args[0], args[1], args[2]);
 	}
 

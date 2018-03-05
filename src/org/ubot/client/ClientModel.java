@@ -15,7 +15,9 @@ import org.ubot.util.directory.DirectoryManager;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.jar.JarEntry;
 import java.util.jar.JarInputStream;
 
@@ -23,14 +25,14 @@ public class ClientModel {
 
 	private final Client client;
 	private final String username, accountKey, permissionKey;
-	private final ArrayList<Bot> bots;
+	private final Map<Integer, Bot> bots;
 
 	public ClientModel(Client client, String username, String accountKey, String permissionKey) {
 		this.client = client;
 		this.username = username;
 		this.accountKey = accountKey;
 		this.permissionKey = permissionKey;
-		this.bots = new ArrayList<>();
+		this.bots = new LinkedHashMap<>();
 	}
 
 	protected final ArrayList<ServerProvider> getServerProviders() {
@@ -86,7 +88,7 @@ public class ClientModel {
 	protected void createBot(BotModel.Builder builder) {
 		final BotModel model = builder.account(new Account("Bautista", "Alora")).username(username).developer(true).build();
 		client.displayScreen(new BotScreen(client, model));
-		bots.add(new Bot(model));
+		bots.put(bots.size() + 1, new Bot(model));
 	}
 
 }

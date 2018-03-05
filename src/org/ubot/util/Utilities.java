@@ -1,5 +1,9 @@
 package org.ubot.util;
 
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.io.IOException;
+
 public class Utilities {
 
 
@@ -21,4 +25,18 @@ public class Utilities {
 		return false;
 	}
 
+	public static ImageIcon getIcon(String path) {
+		ImageIcon icon = null;
+		try {
+			icon = new ImageIcon(ImageIO.read(Utilities.class.getClassLoader().getResource(path)));
+		} catch (IllegalArgumentException e) {
+		} catch (IOException e) {
+		}
+
+		if (icon == null) {
+			icon = new ImageIcon(path);
+		}
+
+		return icon;
+	}
 }

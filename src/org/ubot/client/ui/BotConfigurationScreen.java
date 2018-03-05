@@ -21,7 +21,7 @@ public class BotConfigurationScreen extends JPanel implements ActionListener {
 		this.client = client;
 		this.providersListModel = new DefaultListModel<>();
 		populateProvidersModel(providers);
-		providerJList = new JList<ServerProvider>(providersListModel);
+		providerJList = new JList<>(providersListModel);
 		providerJList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		this.add(providerJList, BorderLayout.CENTER);
 		this.start = new JButton("Start Bot");
