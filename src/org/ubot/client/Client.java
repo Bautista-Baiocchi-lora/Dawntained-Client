@@ -18,14 +18,14 @@ public class Client extends JFrame implements WindowListener {
 	private static final double VERSION = 0.1;
 	private final ClientModel model;
 	private JPanel currentScreen;
-	private LoggerPanel loggerPanel;
+	private final LoggerPanel loggerPanel;
 
 	public Client(String username, String accountKey, String permissionKey) {
 		super("[" + username + "] uBot v" + VERSION);
 		this.model = new ClientModel(this, username, accountKey, permissionKey);
+		loggerPanel = new LoggerPanel(new Logger());
 		DirectoryManager.init();
 		showSplashScreen();
-		showLogger();
 		setResizable(false);
 		//getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -46,10 +46,12 @@ public class Client extends JFrame implements WindowListener {
 		new Client(args[0], args[1], args[2]);
 	}
 
+	public void hideLogger() {
+		remove(loggerPanel);
+		refreshInterface();
+	}
+
 	public void showLogger() {
-		if (loggerPanel == null) {
-			loggerPanel = new LoggerPanel(new Logger());
-		}
 		add(loggerPanel, BorderLayout.SOUTH);
 		refreshInterface();
 	}

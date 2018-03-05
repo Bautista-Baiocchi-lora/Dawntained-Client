@@ -5,6 +5,8 @@ import org.ubot.util.Utilities;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
@@ -24,6 +26,7 @@ public class BotToolBar extends JToolBar {
 	private JMenuItem debugPlayers = new JMenuItem("Players");
 	private JMenuItem debugGameInfo = new JMenuItem("Information");
 	private JMenuItem interfaceExplorer = new JMenuItem("Interface Explorer");
+	private JCheckBoxMenuItem showLogger = new JCheckBoxMenuItem("Show Logger");
 	private JMenuItem exit = new JMenuItem("Exit");
 
 	public BotToolBar(Client client) {
@@ -42,6 +45,7 @@ public class BotToolBar extends JToolBar {
 		debugs.add(interfaceExplorer);
 		settings.add(debugs);
 		settings.addSeparator();
+		settings.add(showLogger);
 		settings.add(exit);
 		settingsButton.setIcon(Utilities.getIcon("resources/settings.png"));
 		settingsButton.setContentAreaFilled(false);
@@ -50,6 +54,16 @@ public class BotToolBar extends JToolBar {
 		settingsButton.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent e) {
 				settings.show(e.getComponent(), e.getX(), e.getY());
+			}
+		});
+		showLogger.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(final ActionEvent e) {
+				if (showLogger.isSelected()) {
+					client.showLogger();
+				} else {
+					client.hideLogger();
+				}
 			}
 		});
 		exit.addActionListener(e -> System.exit(0));
