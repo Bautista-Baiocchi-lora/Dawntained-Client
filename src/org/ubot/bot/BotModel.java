@@ -22,7 +22,7 @@ public class BotModel {
 		reflectionEngine = builder.reflectionEngine;
 	}
 
-	protected Applet getApplet() {
+	public Applet getApplet() {
 		return applet;
 	}
 
@@ -71,12 +71,8 @@ public class BotModel {
 			return this;
 		}
 
-		protected BotModel build() {
+		public BotModel build() {
 			return new BotModel(this);
-		}
-
-		public Bot buildBot() {
-			return new Bot(this);
 		}
 
 	}

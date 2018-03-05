@@ -16,6 +16,7 @@ public class BotLoadingScreen extends JPanel {
 	private final JProgressBar progressBar;
 
 	public BotLoadingScreen(Client client, ServerLoader loader) {
+		super(new BorderLayout());
 		this.client = client;
 		this.loader = loader;
 
@@ -45,7 +46,7 @@ public class BotLoadingScreen extends JPanel {
 			}
 		});
 
-		add(progressBar);
+		add(progressBar, BorderLayout.CENTER);
 		setPreferredSize(new Dimension(765, 503));
 	}
 

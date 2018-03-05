@@ -9,6 +9,7 @@ import org.ubot.client.provider.ServerProvider;
 import org.ubot.client.provider.loader.ServerLoader;
 import org.ubot.client.provider.manifest.ServerManifest;
 import org.ubot.client.ui.BotLoadingScreen;
+import org.ubot.client.ui.BotScreen;
 import org.ubot.util.directory.DirectoryManager;
 
 import java.io.File;
@@ -83,9 +84,9 @@ public class ClientModel {
 	}
 
 	protected void createBot(BotModel.Builder builder) {
-		final Bot bot = builder.account(new Account("Bautista", "Alora")).username(username).developer(true).buildBot();
-		bots.add(bot);
-		client.displayScreen(bot);
+		final BotModel model = builder.account(new Account("Bautista", "Alora")).username(username).developer(true).build();
+		client.displayScreen(new BotScreen(client, model));
+		bots.add(new Bot(model));
 	}
 
 }
