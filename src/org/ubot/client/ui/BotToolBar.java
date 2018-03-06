@@ -26,6 +26,7 @@ public class BotToolBar extends JToolBar {
 	private JButton stopScript = new JButton();
 	private JPopupMenu settings = new JPopupMenu("Settings");
 	private JMenu debugs = new JMenu("Debugs");
+	private JMenuItem debugSettings = new JMenuItem("Settings");
 	private JMenuItem debugInventory = new JMenuItem("Inventory");
 	private JMenuItem debugNPCS = new JMenuItem("NPCs");
 	private JMenuItem debugObjects = new JMenuItem("Objects");
@@ -70,13 +71,21 @@ public class BotToolBar extends JToolBar {
 		theaterMode.setRolloverEnabled(true);
 		theaterMode.setBorder(null);
 		theaterMode.setRolloverIcon(Utilities.getIcon("resources/theater_mode_hover.png"));
-		theaterMode.addActionListener(e -> client.toggleBotTheater());
+		theaterMode.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(final ActionEvent e) {
+				allowDebugging(false);
+				client.toggleBotTheater();
+			}
+		});
 
+		debugs.setEnabled(false);
 		debugs.add(debugNPCS);
 		debugs.add(debugPlayers);
 		debugs.add(debugObjects);
 		debugs.add(debugGameInfo);
 		debugs.add(debugInventory);
+		debugs.add(debugSettings);
 		debugs.add(interfaceExplorer);
 
 		settings.add(debugs);
@@ -127,6 +136,9 @@ public class BotToolBar extends JToolBar {
 		addComponents();
 	}
 
+	public void allowDebugging(boolean allow) {
+		this.debugs.setEnabled(allow);
+	}
 
 	private void addComponents() {
 		add(newTabButton);

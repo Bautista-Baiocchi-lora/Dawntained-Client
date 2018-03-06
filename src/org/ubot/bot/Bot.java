@@ -20,6 +20,7 @@ public class Bot {
 	private Account account;
 	private JPanel view;
 	private BotCore core;
+	private boolean debugSettings, debugGameInfo, debugNPCs, debugPlayers, debugObjects, debugInventory;
 
 	public Bot(Client client, String name) {
 		this.client = client;

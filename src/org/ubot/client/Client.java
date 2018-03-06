@@ -66,6 +66,7 @@ public class Client extends JFrame implements WindowListener {
 			return;
 		}
 		displayScreen(model.getBotTheaterScreen());
+		toolBar.allowDebugging(false);
 	}
 
 	public void showLogger() {
@@ -100,6 +101,7 @@ public class Client extends JFrame implements WindowListener {
 
 	public void displayScreen(Bot bot) {
 		displayScreen(bot.getView());
+		toolBar.allowDebugging(true);
 	}
 
 	@Override
