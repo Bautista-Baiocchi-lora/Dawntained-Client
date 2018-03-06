@@ -1,6 +1,6 @@
 package org.ubot.client.provider.loader;
 
-import org.ubot.bot.BotModel;
+import org.ubot.bot.BotCore;
 import org.ubot.classloader.ASMClassLoader;
 import org.ubot.classloader.ClassArchive;
 import org.ubot.component.RSCanvas;
@@ -17,7 +17,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class ServerLoader extends SwingWorker<BotModel.Builder, BotModel.Builder> {
+public abstract class ServerLoader extends SwingWorker<BotCore, BotCore> {
 
 	private final String serverName, jarUrl, hookUrl;
 	private Applet applet;
@@ -30,8 +30,8 @@ public abstract class ServerLoader extends SwingWorker<BotModel.Builder, BotMode
 	}
 
 	@Override
-	protected BotModel.Builder doInBackground() throws Exception {
-		final BotModel.Builder builder = new BotModel.Builder(serverName);
+	protected BotCore doInBackground() throws Exception {
+		final BotCore core = new BotCore(serverName);
 		setProgress(10);
 		final FileDownloader downloader = new FileDownloader(jarUrl, DirectoryManager.SERVER_JARS_PATH, serverName);
 		final Thread downloadThread = new Thread(downloader);
@@ -47,21 +47,21 @@ public abstract class ServerLoader extends SwingWorker<BotModel.Builder, BotMode
 		final ASMClassLoader asmClassLoader = new ASMClassLoader(classArchive, getInjectables());
 		setProgress(70);
 		final ReflectionEngine reflectionEngine = new ReflectionEngine(asmClassLoader);
-		builder.reflectionEngine(reflectionEngine);
+		core.setReflectionEngine(reflectionEngine);
 		setProgress(80);
 		final Applet applet = loadApplet(reflectionEngine);
 		applet.setPreferredSize(new Dimension(765, 503));
 		this.applet = applet;
 		setProgress(85);
-		builder.applet(applet);
+		core.setApplet(applet);
 		setProgress(90);
 		while ((canvas = getCanvas()) == null) {
 			Condition.sleep(100);
 		}
 		canvas.setServerLoader(this);
-		builder.canvas(canvas);
+		core.setGameCanvas(canvas);
 		setProgress(100);
-		return builder;
+		return core;
 	}
 
 	private void loadHooks(String hookUrl) {

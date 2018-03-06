@@ -1,15 +1,11 @@
 package org.ubot.client;
 
 import org.ubot.bot.Bot;
-import org.ubot.bot.BotModel;
 import org.ubot.classloader.ASMClassLoader;
 import org.ubot.classloader.ClassArchive;
-import org.ubot.client.account.Account;
 import org.ubot.client.provider.ServerProvider;
 import org.ubot.client.provider.loader.ServerLoader;
 import org.ubot.client.provider.manifest.ServerManifest;
-import org.ubot.client.ui.screens.BotLoadingScreen;
-import org.ubot.client.ui.screens.BotScreen;
 import org.ubot.client.ui.screens.theater.BotTheaterScreen;
 import org.ubot.util.directory.DirectoryManager;
 
@@ -36,9 +32,20 @@ public class ClientModel {
 		this.botTheaterScreen = new BotTheaterScreen(client);
 	}
 
-	protected final BotTheaterScreen getUpdatedBotTheater() {
+	protected final Bot createBot() {
+		final Bot bot = new Bot(client, "Bot " + (bots.size() + 1));
+		bot.initiateConfiguration(getServerProviders());
+		this.bots.add(bot);
+		return bot;
+	}
+
+	public BotTheaterScreen getBotTheaterScreen() {
 		botTheaterScreen.displayPreviews(bots);
 		return botTheaterScreen;
+	}
+
+	protected final ArrayList<Bot> getBots() {
+		return bots;
 	}
 
 	protected final ArrayList<ServerProvider> getServerProviders() {
@@ -83,19 +90,6 @@ public class ClientModel {
 			e.printStackTrace();
 		}
 		return providers;
-	}
-
-	protected void loadServer(ServerLoader loader) {
-		final BotLoadingScreen loadingScreen = new BotLoadingScreen(client, loader);
-		client.displayScreen(loadingScreen);
-		loadingScreen.run();
-	}
-
-	protected void createBot(BotModel.Builder builder) {
-		final BotModel model = builder.account(new Account("Bautista", "Alora")).username(username).developer(true).build();
-		final Bot bot = new Bot(model);
-		bots.add(bot);
-		client.displayScreen(new BotScreen(client, bot));
 	}
 
 }

@@ -1,7 +1,7 @@
 package org.ubot.client.ui;
 
+import org.ubot.bot.Bot;
 import org.ubot.client.Client;
-import org.ubot.client.ui.logger.Logger;
 import org.ubot.util.Utilities;
 
 import javax.swing.*;
@@ -31,8 +31,6 @@ public class BotToolBar extends JToolBar {
 	private JMenuItem interfaceExplorer = new JMenuItem("Interface Explorer");
 	private JCheckBoxMenuItem showLogger = new JCheckBoxMenuItem("Show Logger");
 	private JMenuItem exit = new JMenuItem("Exit");
-	private final ArrayList<BotTab> tabs = new ArrayList<>();
-	private BotTab currentTab;
 
 	public BotToolBar(Client client) {
 		this.client = client;
@@ -71,7 +69,12 @@ public class BotToolBar extends JToolBar {
 		theaterMode.setRolloverEnabled(true);
 		theaterMode.setBorder(null);
 		theaterMode.setRolloverIcon(Utilities.getIcon("resources/theater_hover.png"));
-		theaterMode.addActionListener(e -> client.showBotTheater());
+		theaterMode.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(final ActionEvent e) {
+				client.toggleBotTheater();
+			}
+		});
 
 		settingsButton.setIcon(Utilities.getIcon("resources/buttons/settings.png"));
 		settingsButton.setContentAreaFilled(false);
@@ -89,71 +92,42 @@ public class BotToolBar extends JToolBar {
 		newTabButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(final ActionEvent e) {
-				client.addNewTab();
+				client.tabOpenRequest();
 			}
 		});
 
-		updateComponents();
+		addComponents();
 	}
 
-	private void updateComponents() {
+	public void updateTabs(ArrayList<Bot> bots) {
 		removeAll();
-		for (BotTab tab : tabs) {
+		for (Bot bot : bots) {
+			final BotTab tab = new BotTab(bot);
+			tab.addActionListener(e -> client.displayScreen(tab.getBot()));
 			add(tab);
 		}
+		addComponents();
+	}
+
+	private void addComponents() {
 		add(newTabButton);
 		add(Box.createHorizontalGlue());
 		add(theaterMode);
 		add(settingsButton);
-		revalidate();
-	}
-
-	public void updateCurrentTabContent(JPanel content) {
-		this.currentTab.updateContent(content);
-	}
-
-	public BotTab getCurrentTab() {
-		return currentTab;
-	}
-
-	public void addTab(JPanel panel) {
-		final BotTab tab = new BotTab("Bot " + (tabs.size() + 1), panel);
-		tab.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(final ActionEvent e) {
-				client.displayScreen(tab.getContent());
-				currentTab = tab;
-			}
-		});
-		this.tabs.add(tab);
-		currentTab = tab;
-		updateComponents();
-		client.displayScreen(panel);
-		Logger.log("Bot tab created.");
+		client.refreshInterface();
 	}
 
 	public final class BotTab extends JButton {
 
-		private final String name;
-		private JPanel content;
+		private final Bot bot;
 
-		public BotTab(String name, JPanel content) {
-			super(name);
-			this.content = content;
-			this.name = name;
+		public BotTab(Bot bot) {
+			super(bot.getName());
+			this.bot = bot;
 		}
 
-		public void updateContent(JPanel content) {
-			this.content = content;
-		}
-
-		@Override
-		public String getName() {
-			return name;
-		}
-
-		public JPanel getContent() {
-			return content;
+		public Bot getBot() {
+			return bot;
 		}
 	}
 

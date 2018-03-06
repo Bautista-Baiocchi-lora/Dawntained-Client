@@ -25,6 +25,9 @@ public class ReflectionEngine {
 		return null;
 	}
 
+	public ASMClassLoader getClassLoader() {
+		return classLoader;
+	}
 
 	public ReflectedClass getClass(String name) {
 		return getClass(name, null);

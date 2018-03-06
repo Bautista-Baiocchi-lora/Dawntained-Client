@@ -2,6 +2,7 @@ package org.ubot.util;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public class Utilities {
@@ -38,5 +39,15 @@ public class Utilities {
 		}
 
 		return icon;
+	}
+
+	public static BufferedImage getImage(String path) {
+		BufferedImage image = null;
+		try {
+			image = ImageIO.read(Utilities.class.getClassLoader().getResource(path));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return image;
 	}
 }

@@ -1,11 +1,10 @@
 package org.ubot.client;
 
-import org.ubot.bot.BotModel;
-import org.ubot.client.provider.loader.ServerLoader;
+import org.ubot.bot.Bot;
 import org.ubot.client.ui.BotToolBar;
 import org.ubot.client.ui.logger.Logger;
 import org.ubot.client.ui.logger.LoggerPanel;
-import org.ubot.client.ui.screens.BotConfigurationScreen;
+import org.ubot.client.ui.screens.theater.BotTheaterScreen;
 import org.ubot.util.directory.DirectoryManager;
 
 import javax.swing.*;
@@ -18,19 +17,21 @@ public class Client extends JFrame implements WindowListener {
 	private final ClientModel model;
 	private final LoggerPanel loggerPanel;
 	private final BotToolBar toolBar;
+	private JPanel currentScreen;
 
 	public Client(String username, String accountKey, String permissionKey) {
 		super("[" + username + "] uBot v" + VERSION);
+		DirectoryManager.init();
 		this.model = new ClientModel(this, username, accountKey, permissionKey);
 		loggerPanel = new LoggerPanel(new Logger());
 		toolBar = new BotToolBar(this);
-		DirectoryManager.init();
+		toolBar.updateTabs(model.getBots());
 		add(toolBar, BorderLayout.NORTH);
-		toolBar.addTab(new BotConfigurationScreen(this, model.getServerProviders()));
 		setResizable(false);
 		//getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		addWindowListener(this);
+		tabOpenRequest();
 		pack();
 		setLocationRelativeTo(getParent());
 		setLocationRelativeTo(getOwner());
@@ -52,37 +53,42 @@ public class Client extends JFrame implements WindowListener {
 		refreshInterface();
 	}
 
+	public void toggleBotTheater() {
+		if (currentScreen instanceof BotTheaterScreen) {
+			displayScreen(model.getBots().get(0));
+			return;
+		}
+		displayScreen(model.getBotTheaterScreen());
+	}
+
 	public void showLogger() {
 		add(loggerPanel, BorderLayout.SOUTH);
 		refreshInterface();
 	}
 
-	private void refreshInterface() {
+	public void refreshInterface() {
 		pack();
 		revalidate();
 	}
 
-	public void addNewTab() {
-		toolBar.addTab(new BotConfigurationScreen(this, model.getServerProviders()));
-	}
-
-	public void showBotTheater() {
-		displayScreen(model.getUpdatedBotTheater());
-	}
-
-	public void loadServer(ServerLoader loader) {
-		model.loadServer(loader);
-	}
-
-	public void createBot(BotModel.Builder builder) {
-		model.createBot(builder);
+	public void tabOpenRequest() {
+		final Bot bot = model.createBot();
+		toolBar.updateTabs(model.getBots());
+		displayScreen(bot);
 	}
 
 	public void displayScreen(JPanel screen) {
-		remove(toolBar.getCurrentTab().getContent());
-		toolBar.updateCurrentTabContent(screen);
-		add(screen, BorderLayout.CENTER);
+		if (currentScreen == null) {
+			currentScreen = screen;
+		} else {
+			remove(currentScreen);
+		}
+		add(currentScreen = screen, BorderLayout.CENTER);
 		refreshInterface();
+	}
+
+	public void displayScreen(Bot bot) {
+		displayScreen(bot.getView());
 	}
 
 	@Override
