@@ -8,8 +8,8 @@ import org.ubot.client.account.Account;
 import org.ubot.client.provider.ServerProvider;
 import org.ubot.client.provider.loader.ServerLoader;
 import org.ubot.client.provider.manifest.ServerManifest;
-import org.ubot.client.ui.BotLoadingScreen;
 import org.ubot.client.ui.BotTheater;
+import org.ubot.client.ui.screens.BotLoadingScreen;
 import org.ubot.util.directory.DirectoryManager;
 
 import java.io.File;

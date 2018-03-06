@@ -3,11 +3,11 @@ package org.ubot.client;
 import org.ubot.bot.Bot;
 import org.ubot.bot.BotModel;
 import org.ubot.client.provider.loader.ServerLoader;
-import org.ubot.client.ui.BotConfigurationScreen;
-import org.ubot.client.ui.BotScreen;
 import org.ubot.client.ui.BotToolBar;
 import org.ubot.client.ui.logger.Logger;
 import org.ubot.client.ui.logger.LoggerPanel;
+import org.ubot.client.ui.screens.BotConfigurationScreen;
+import org.ubot.client.ui.screens.BotScreen;
 import org.ubot.util.directory.DirectoryManager;
 
 import javax.swing.*;
@@ -27,9 +27,9 @@ public class Client extends JFrame implements WindowListener {
 		this.model = new ClientModel(this, username, accountKey, permissionKey);
 		loggerPanel = new LoggerPanel(new Logger());
 		toolBar = new BotToolBar(this);
-		add(toolBar, BorderLayout.NORTH);
 		DirectoryManager.init();
-		showSplashScreen();
+		add(toolBar, BorderLayout.NORTH);
+		toolBar.addTab("Server Selector", new BotConfigurationScreen(this, model.getServerProviders()));
 		setResizable(false);
 		//getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -65,8 +65,8 @@ public class Client extends JFrame implements WindowListener {
 		revalidate();
 	}
 
-	private void showSplashScreen() {
-		showServerSelector();
+	public void addNewTab() {
+		toolBar.addTab("Server Selector", new BotConfigurationScreen(this, model.getServerProviders()));
 	}
 
 	public void showBotTheater() {
@@ -89,7 +89,7 @@ public class Client extends JFrame implements WindowListener {
 		model.createBot(builder);
 	}
 
-	protected void displayScreen(JPanel screen) {
+	public void displayScreen(JPanel screen) {
 		if (currentScreen != null) {
 			remove(currentScreen);
 		}

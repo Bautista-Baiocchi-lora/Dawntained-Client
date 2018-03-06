@@ -9,12 +9,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Created by Ethan on 3/4/2018.
  */
 public class BotToolBar extends JToolBar {
+
 	private Client client;
 	private JButton newTabButton = new JButton("+");
 	private JButton settingsButton = new JButton();
@@ -29,6 +30,8 @@ public class BotToolBar extends JToolBar {
 	private JMenuItem interfaceExplorer = new JMenuItem("Interface Explorer");
 	private JCheckBoxMenuItem showLogger = new JCheckBoxMenuItem("Show Logger");
 	private JMenuItem exit = new JMenuItem("Exit");
+	private final ArrayList<BotTab> tabs = new ArrayList<>();
+	private BotTab currentTab;
 
 	public BotToolBar(Client client) {
 		this.client = client;
@@ -85,25 +88,66 @@ public class BotToolBar extends JToolBar {
 		newTabButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(final ActionEvent e) {
-
+				client.addNewTab();
 			}
 		});
 
-		updateComponents(null);
+		updateComponents();
 	}
 
-	public void updateComponents(List<JComponent> components) {
+	private void updateComponents() {
 		removeAll();
-		if (components != null) {
-			for (JComponent c : components) {
-				add(c);
-			}
+		for (BotTab tab : tabs) {
+			add(tab);
 		}
 		add(newTabButton);
 		add(Box.createHorizontalGlue());
 		add(theaterMode);
 		add(settingsButton);
 		revalidate();
+	}
+
+	public void addTab(String name, JPanel panel) {
+		final BotTab tab = new BotTab(name, panel);
+		tab.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(final ActionEvent e) {
+				client.displayScreen(tab.getContent());
+			}
+		});
+		this.tabs.add(tab);
+		currentTab = tab;
+		updateComponents();
+		client.displayScreen(panel);
+	}
+
+	private final class BotTab extends JButton {
+
+		private JPanel content;
+		private String name;
+
+		public BotTab(String name, JPanel content) {
+			super(name);
+			this.content = content;
+			this.name = name;
+		}
+
+		public void updateName(String name) {
+			this.name = name;
+		}
+
+		public void updateContent(JPanel content) {
+			this.content = content;
+		}
+
+		@Override
+		public String getName() {
+			return name;
+		}
+
+		public JPanel getContent() {
+			return content;
+		}
 	}
 
 }
