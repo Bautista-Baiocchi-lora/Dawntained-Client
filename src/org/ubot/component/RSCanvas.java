@@ -1,7 +1,6 @@
 package org.ubot.component;
 
 
-import org.ubot.client.provider.loader.ServerLoader;
 import org.ubot.component.listeners.PaintListener;
 import org.ubot.component.screen.ScreenOverlay;
 
@@ -21,8 +20,6 @@ public class RSCanvas extends Canvas {
     private BufferedImage clientBuffer = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
     private BufferedImage gameBuffer = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
     private List<PaintListener> listeners = new ArrayList<>();
-    private ServerLoader loader;
-    private boolean setOverlays = false;
 
     public RSCanvas() {
         super();
@@ -33,14 +30,6 @@ public class RSCanvas extends Canvas {
 	}
 
     public Graphics getGraphics() {
-        if (!setOverlays) {
-            if (loader != null) {
-                List<ScreenOverlay> overlayList = loader.getOverlays();
-                ScreenOverlay[] overlays = overlayList.toArray(new ScreenOverlay[overlayList.size()]);
-                Collections.addAll(listeners, overlays);
-                setOverlays = true;
-            }
-        }
         if (this.getHeight() != clientBuffer.getHeight() || this.getWidth() != clientBuffer.getWidth()) {
             this.clientBuffer.flush();
             this.gameBuffer.flush();
@@ -72,7 +61,8 @@ public class RSCanvas extends Canvas {
         return listeners;
     }
 
-    public void setServerLoader(ServerLoader serverLoader) {
-        this.loader = serverLoader;
+	public void setSetOverlays(List<ScreenOverlay> overlaysList) {
+		ScreenOverlay[] overlays = overlaysList.toArray(new ScreenOverlay[overlaysList.size()]);
+		Collections.addAll(listeners, overlays);
     }
 }

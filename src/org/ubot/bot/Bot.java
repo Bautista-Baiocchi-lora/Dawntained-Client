@@ -4,7 +4,6 @@ import org.ubot.client.Client;
 import org.ubot.client.account.Account;
 import org.ubot.client.provider.ServerProvider;
 import org.ubot.client.provider.loader.ServerLoader;
-import org.ubot.client.ui.logger.Logger;
 import org.ubot.client.ui.screens.BotConfigurationScreen;
 import org.ubot.client.ui.screens.BotLoadingScreen;
 import org.ubot.client.ui.screens.BotScreen;
@@ -38,7 +37,6 @@ public class Bot {
 
 	public void toggleObjectsDebug() {
 		this.debugObjects = !debugObjects;
-		Logger.log(Boolean.toString(debugObjects));
 	}
 
 	public void togglePlayerDebug() {

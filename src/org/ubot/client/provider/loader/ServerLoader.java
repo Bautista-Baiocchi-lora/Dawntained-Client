@@ -58,7 +58,7 @@ public abstract class ServerLoader extends SwingWorker<BotCore, BotCore> {
 		while ((canvas = getCanvas()) == null) {
 			Condition.sleep(100);
 		}
-		canvas.setServerLoader(this);
+		canvas.setSetOverlays(getOverlays());
 		core.setGameCanvas(canvas);
 		setProgress(100);
 		return core;
