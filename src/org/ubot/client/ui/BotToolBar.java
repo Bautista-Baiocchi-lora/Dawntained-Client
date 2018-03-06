@@ -64,22 +64,24 @@ public class BotToolBar extends JToolBar {
 		settings.add(exit);
 		exit.addActionListener(e -> System.exit(0));
 
-		theaterMode.setIcon(Utilities.getIcon("resources/icon_tab_small.png"));
+		theaterMode.setIcon(Utilities.getIcon("resources/theater_mode.png"));
 		theaterMode.setContentAreaFilled(false);
 		theaterMode.setRolloverEnabled(true);
 		theaterMode.setBorder(null);
+		theaterMode.setRolloverIcon(Utilities.getIcon("resources/theater_mode_hover.png"));
 		theaterMode.addActionListener(e -> client.toggleBotTheater());
 
-		settingsButton.setIcon(Utilities.getIcon("resources/settings.png"));
+		settingsButton.setIcon(Utilities.getIcon("resources/buttons/settings.png"));
 		settingsButton.setContentAreaFilled(false);
 		settingsButton.setRolloverEnabled(true);
 		settingsButton.setBorder(null);
-		settingsButton.setRolloverIcon(Utilities.getIcon("resources/settings_hover.png"));
+		settingsButton.setRolloverIcon(Utilities.getIcon("resources/buttons/settings_hover.png"));
 		settingsButton.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent e) {
 				settings.show(e.getComponent(), e.getX(), e.getY());
 			}
 		});
+
 		newTabButton.setIcon(Utilities.getIcon("resources/icon_plus_small.png"));
 		newTabButton.setContentAreaFilled(false);
 		newTabButton.setRolloverEnabled(true);
