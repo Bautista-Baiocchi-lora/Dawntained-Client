@@ -24,12 +24,12 @@ public class BotToolBar extends JToolBar implements ActionListener {
 	private JButton stopScript = new JButton();
 	private JPopupMenu settings = new JPopupMenu("Settings");
 	private JMenu debugs = new JMenu("Debugs");
-	private JMenuItem debugSettings = new JMenuItem("Settings");
-	private JMenuItem debugInventory = new JMenuItem("Inventory");
-	private JMenuItem debugNPCS = new JMenuItem("NPCs");
-	private JMenuItem debugObjects = new JMenuItem("Objects");
-	private JMenuItem debugPlayers = new JMenuItem("Players");
-	private JMenuItem debugGameInfo = new JMenuItem("Information");
+	private JMenuItem debugSettings = new JCheckBoxMenuItem("Settings");
+	private JMenuItem debugInventory = new JCheckBoxMenuItem("Inventory");
+	private JMenuItem debugNPCS = new JCheckBoxMenuItem("NPCs");
+	private JMenuItem debugObjects = new JCheckBoxMenuItem("Objects");
+	private JMenuItem debugPlayers = new JCheckBoxMenuItem("Player");
+	private JMenuItem debugGameInfo = new JCheckBoxMenuItem("Game");
 	private JMenuItem interfaceExplorer = new JMenuItem("Interface Explorer");
 	private JCheckBoxMenuItem showLogger = new JCheckBoxMenuItem("Show Logger");
 	private JMenuItem exit = new JMenuItem("Exit");
@@ -160,6 +160,12 @@ public class BotToolBar extends JToolBar implements ActionListener {
 
 	public void allowDebugging(boolean allow) {
 		this.debugs.setEnabled(allow);
+		this.debugSettings.setSelected(currentTab.getBot().isDebugSettings());
+		this.debugPlayers.setSelected(currentTab.getBot().isDebugPlayer());
+		this.debugObjects.setSelected(currentTab.getBot().isDebugObjects());
+		this.debugNPCS.setSelected(currentTab.getBot().isDebugNPCs());
+		this.debugGameInfo.setSelected(currentTab.getBot().isDebugGameInfo());
+		this.debugInventory.setSelected(currentTab.getBot().isDebugInventory());
 	}
 
 	private void addComponents() {
@@ -177,7 +183,24 @@ public class BotToolBar extends JToolBar implements ActionListener {
 	public void actionPerformed(final ActionEvent e) {
 		switch (e.getActionCommand()) {
 			case "Inventory":
-
+				currentTab.getBot().toggleInventoryDebug();
+				break;
+			case "Settings":
+				currentTab.getBot().toggleSettingsDebug();
+				break;
+			case "Game":
+				currentTab.getBot().toggleGameInfoDebug();
+				break;
+			case "NPCs":
+				currentTab.getBot().toggleNPCsDebug();
+				break;
+			case "Player":
+				currentTab.getBot().togglePlayerDebug();
+				break;
+			case "Objects":
+				currentTab.getBot().toggleObjectsDebug();
+				break;
+			case "Interface Explorer":
 				break;
 		}
 	}
