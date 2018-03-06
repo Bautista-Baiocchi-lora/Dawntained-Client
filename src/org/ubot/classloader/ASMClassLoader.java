@@ -7,7 +7,7 @@ package org.ubot.classloader;
 
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.tree.ClassNode;
-import org.ubot.component.RSCanvas;
+import org.ubot.bot.canvas.RSCanvas;
 import org.ubot.util.injection.Injector;
 import org.ubot.util.injection.injections.ModifyCanvas;
 

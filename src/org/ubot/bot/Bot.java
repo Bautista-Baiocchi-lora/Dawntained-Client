@@ -1,5 +1,7 @@
 package org.ubot.bot;
 
+import org.ubot.bot.canvas.RSCanvas;
+import org.ubot.bot.canvas.screen.ScreenOverlay;
 import org.ubot.client.Client;
 import org.ubot.client.account.Account;
 import org.ubot.client.provider.ServerProvider;
@@ -7,11 +9,11 @@ import org.ubot.client.provider.loader.ServerLoader;
 import org.ubot.client.ui.screens.BotConfigurationScreen;
 import org.ubot.client.ui.screens.BotLoadingScreen;
 import org.ubot.client.ui.screens.BotScreen;
-import org.ubot.component.RSCanvas;
 
 import javax.swing.*;
 import java.applet.Applet;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Bot {
 
@@ -20,7 +22,6 @@ public class Bot {
 	private Account account;
 	private JPanel view;
 	private BotCore core;
-	private boolean debugSettings, debugGameInfo, debugNPCs, debugPlayer, debugObjects, debugInventory;
 
 	public Bot(Client client, String name) {
 		this.client = client;
@@ -35,52 +36,8 @@ public class Bot {
 		this.account = account;
 	}
 
-	public void toggleObjectsDebug() {
-		this.debugObjects = !debugObjects;
-	}
-
-	public void togglePlayerDebug() {
-		this.debugPlayer = !debugPlayer;
-	}
-
-	public void toggleNPCsDebug() {
-		this.debugNPCs = !debugNPCs;
-	}
-
-	public void toggleInventoryDebug() {
-		this.debugInventory = !debugInventory;
-	}
-
-	public void toggleSettingsDebug() {
-		this.debugSettings = !debugSettings;
-	}
-
-	public void toggleGameInfoDebug() {
-		this.debugGameInfo = !debugGameInfo;
-	}
-
-	public boolean isDebugSettings() {
-		return debugSettings;
-	}
-
-	public boolean isDebugGameInfo() {
-		return debugGameInfo;
-	}
-
-	public boolean isDebugNPCs() {
-		return debugNPCs;
-	}
-
-	public boolean isDebugPlayer() {
-		return debugPlayer;
-	}
-
-	public boolean isDebugObjects() {
-		return debugObjects;
-	}
-
-	public boolean isDebugInventory() {
-		return debugInventory;
+	public List<ScreenOverlay> getScreenOverlays() {
+		return core.getScreenOverlays();
 	}
 
 	public String getName() {

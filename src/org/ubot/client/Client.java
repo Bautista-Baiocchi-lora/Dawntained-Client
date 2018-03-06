@@ -83,6 +83,10 @@ public class Client extends JFrame implements WindowListener {
 
 	}
 
+	public void openInterfaceExplorer() {
+
+	}
+
 	public void tabOpenRequest() {
 		displayScreen(model.createBot());
 	}

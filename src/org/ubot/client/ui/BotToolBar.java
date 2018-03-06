@@ -13,7 +13,7 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 
-public class BotToolBar extends JToolBar implements ActionListener {
+public class BotToolBar extends JToolBar {
 
 	private Client client;
 	private JButton newTabButton = new JButton();
@@ -24,12 +24,6 @@ public class BotToolBar extends JToolBar implements ActionListener {
 	private JButton stopScript = new JButton();
 	private JPopupMenu settings = new JPopupMenu("Settings");
 	private JMenu debugs = new JMenu("Debugs");
-	private JMenuItem debugSettings = new JCheckBoxMenuItem("Settings");
-	private JMenuItem debugInventory = new JCheckBoxMenuItem("Inventory");
-	private JMenuItem debugNPCS = new JCheckBoxMenuItem("NPCs");
-	private JMenuItem debugObjects = new JCheckBoxMenuItem("Objects");
-	private JMenuItem debugPlayers = new JCheckBoxMenuItem("Player");
-	private JMenuItem debugGameInfo = new JCheckBoxMenuItem("Game");
 	private JMenuItem interfaceExplorer = new JMenuItem("Interface Explorer");
 	private JCheckBoxMenuItem showLogger = new JCheckBoxMenuItem("Show Logger");
 	private JMenuItem exit = new JMenuItem("Exit");
@@ -78,23 +72,10 @@ public class BotToolBar extends JToolBar implements ActionListener {
 			}
 		});
 
-		debugGameInfo.addActionListener(this::actionPerformed);
-		debugInventory.addActionListener(this::actionPerformed);
-		debugNPCS.addActionListener(this::actionPerformed);
-		debugObjects.addActionListener(this::actionPerformed);
-		debugPlayers.addActionListener(this::actionPerformed);
-		debugSettings.addActionListener(this::actionPerformed);
-		interfaceExplorer.addActionListener(this::actionPerformed);
-
+		interfaceExplorer.addActionListener(e -> client.openInterfaceExplorer());
 		interfaceExplorer.setEnabled(false);
 
 		debugs.setEnabled(false);
-		debugs.add(debugNPCS);
-		debugs.add(debugPlayers);
-		debugs.add(debugObjects);
-		debugs.add(debugGameInfo);
-		debugs.add(debugInventory);
-		debugs.add(debugSettings);
 		debugs.add(interfaceExplorer);
 
 		settings.add(debugs);
@@ -159,13 +140,16 @@ public class BotToolBar extends JToolBar implements ActionListener {
 	}
 
 	public void allowDebugging(boolean allow) {
+		addDebugComponents();
 		this.debugs.setEnabled(allow);
-		this.debugSettings.setSelected(currentTab.getBot().isDebugSettings());
-		this.debugPlayers.setSelected(currentTab.getBot().isDebugPlayer());
-		this.debugObjects.setSelected(currentTab.getBot().isDebugObjects());
-		this.debugNPCS.setSelected(currentTab.getBot().isDebugNPCs());
-		this.debugGameInfo.setSelected(currentTab.getBot().isDebugGameInfo());
-		this.debugInventory.setSelected(currentTab.getBot().isDebugInventory());
+	}
+
+	private void addDebugComponents() {
+		this.debugs.removeAll();
+		for (JCheckBoxMenuItem debugItem : currentTab.getBot().getScreenOverlays()) {
+			this.debugs.add(debugItem);
+		}
+		this.debugs.add(interfaceExplorer);
 	}
 
 	private void addComponents() {
@@ -177,32 +161,6 @@ public class BotToolBar extends JToolBar implements ActionListener {
 		add(theaterMode);
 		add(settingsButton);
 		client.refreshInterface();
-	}
-
-	@Override
-	public void actionPerformed(final ActionEvent e) {
-		switch (e.getActionCommand()) {
-			case "Inventory":
-				currentTab.getBot().toggleInventoryDebug();
-				break;
-			case "Settings":
-				currentTab.getBot().toggleSettingsDebug();
-				break;
-			case "Game":
-				currentTab.getBot().toggleGameInfoDebug();
-				break;
-			case "NPCs":
-				currentTab.getBot().toggleNPCsDebug();
-				break;
-			case "Player":
-				currentTab.getBot().togglePlayerDebug();
-				break;
-			case "Objects":
-				currentTab.getBot().toggleObjectsDebug();
-				break;
-			case "Interface Explorer":
-				break;
-		}
 	}
 
 	public final class BotTab extends JButton {

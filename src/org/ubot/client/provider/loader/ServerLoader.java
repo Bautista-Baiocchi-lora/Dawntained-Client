@@ -1,10 +1,10 @@
 package org.ubot.client.provider.loader;
 
 import org.ubot.bot.BotCore;
+import org.ubot.bot.canvas.RSCanvas;
+import org.ubot.bot.canvas.screen.ScreenOverlay;
 import org.ubot.classloader.ASMClassLoader;
 import org.ubot.classloader.ClassArchive;
-import org.ubot.component.RSCanvas;
-import org.ubot.component.screen.ScreenOverlay;
 import org.ubot.util.Condition;
 import org.ubot.util.FileDownloader;
 import org.ubot.util.directory.DirectoryManager;
@@ -58,8 +58,8 @@ public abstract class ServerLoader extends SwingWorker<BotCore, BotCore> {
 		while ((canvas = getCanvas()) == null) {
 			Condition.sleep(100);
 		}
-		canvas.setSetOverlays(getOverlays());
 		core.setGameCanvas(canvas);
+		core.setScreenOverlays(getOverlays());
 		setProgress(100);
 		return core;
 	}

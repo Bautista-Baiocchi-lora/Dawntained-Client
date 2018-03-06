@@ -1,8 +1,8 @@
-package org.ubot.component;
+package org.ubot.bot.canvas;
 
 
-import org.ubot.component.listeners.PaintListener;
-import org.ubot.component.screen.ScreenOverlay;
+import org.ubot.bot.canvas.listeners.PaintListener;
+import org.ubot.bot.canvas.screen.ScreenOverlay;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -40,9 +40,9 @@ public class RSCanvas extends Canvas {
 
 		for (PaintListener listener : getPaintListeners()) {
 			if (listener instanceof ScreenOverlay) {
-				final ScreenOverlay<?> debug = (ScreenOverlay<?>) listener;
-				if (debug.activate()) {
-					debug.render((Graphics2D) graphics);
+				final ScreenOverlay<?> overlay = (ScreenOverlay<?>) listener;
+				if (overlay.activate()) {
+					overlay.render((Graphics2D) graphics);
 				}
 			} else {
 				listener.render((Graphics2D) graphics);
