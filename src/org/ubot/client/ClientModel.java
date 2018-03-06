@@ -8,8 +8,9 @@ import org.ubot.client.account.Account;
 import org.ubot.client.provider.ServerProvider;
 import org.ubot.client.provider.loader.ServerLoader;
 import org.ubot.client.provider.manifest.ServerManifest;
-import org.ubot.client.ui.BotTheater;
 import org.ubot.client.ui.screens.BotLoadingScreen;
+import org.ubot.client.ui.screens.BotScreen;
+import org.ubot.client.ui.screens.theater.BotTheaterScreen;
 import org.ubot.util.directory.DirectoryManager;
 
 import java.io.File;
@@ -24,7 +25,7 @@ public class ClientModel {
 	private final Client client;
 	private final String username, accountKey, permissionKey;
 	private final ArrayList<Bot> bots;
-	private final BotTheater botTheater;
+	private final BotTheaterScreen botTheaterScreen;
 
 	public ClientModel(Client client, String username, String accountKey, String permissionKey) {
 		this.client = client;
@@ -32,12 +33,12 @@ public class ClientModel {
 		this.accountKey = accountKey;
 		this.permissionKey = permissionKey;
 		this.bots = new ArrayList<>();
-		this.botTheater = new BotTheater(client);
+		this.botTheaterScreen = new BotTheaterScreen(client);
 	}
 
-	protected final BotTheater getUpdatedBotTheater() {
-		botTheater.displayPreviews(bots);
-		return botTheater;
+	protected final BotTheaterScreen getUpdatedBotTheater() {
+		botTheaterScreen.displayPreviews(bots);
+		return botTheaterScreen;
 	}
 
 	protected final ArrayList<ServerProvider> getServerProviders() {
@@ -94,7 +95,7 @@ public class ClientModel {
 		final BotModel model = builder.account(new Account("Bautista", "Alora")).username(username).developer(true).build();
 		final Bot bot = new Bot(model);
 		bots.add(bot);
-		client.showBotScreen(bot);
+		client.displayScreen(new BotScreen(client, bot));
 	}
 
 }

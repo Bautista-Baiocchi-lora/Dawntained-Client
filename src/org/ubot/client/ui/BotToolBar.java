@@ -1,6 +1,7 @@
 package org.ubot.client.ui;
 
 import org.ubot.client.Client;
+import org.ubot.client.ui.logger.Logger;
 import org.ubot.util.Utilities;
 
 import javax.swing.*;
@@ -107,32 +108,38 @@ public class BotToolBar extends JToolBar {
 		revalidate();
 	}
 
-	public void addTab(String name, JPanel panel) {
-		final BotTab tab = new BotTab(name, panel);
+	public void updateCurrentTabContent(JPanel content) {
+		this.currentTab.updateContent(content);
+	}
+
+	public BotTab getCurrentTab() {
+		return currentTab;
+	}
+
+	public void addTab(JPanel panel) {
+		final BotTab tab = new BotTab("Bot " + (tabs.size() + 1), panel);
 		tab.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(final ActionEvent e) {
 				client.displayScreen(tab.getContent());
+				currentTab = tab;
 			}
 		});
 		this.tabs.add(tab);
 		currentTab = tab;
 		updateComponents();
 		client.displayScreen(panel);
+		Logger.log("Bot tab created.");
 	}
 
-	private final class BotTab extends JButton {
+	public final class BotTab extends JButton {
 
+		private final String name;
 		private JPanel content;
-		private String name;
 
 		public BotTab(String name, JPanel content) {
 			super(name);
 			this.content = content;
-			this.name = name;
-		}
-
-		public void updateName(String name) {
 			this.name = name;
 		}
 

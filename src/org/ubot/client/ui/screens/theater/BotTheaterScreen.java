@@ -1,4 +1,4 @@
-package org.ubot.client.ui;
+package org.ubot.client.ui.screens.theater;
 
 import org.ubot.bot.Bot;
 import org.ubot.client.Client;
@@ -9,13 +9,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class BotTheater extends JPanel implements ActionListener {
+public class BotTheaterScreen extends JPanel implements ActionListener {
 
 	private final Client client;
 	private final JPanel theaterPanel;
 	private final JButton addBot;
 
-	public BotTheater(Client client) {
+	public BotTheaterScreen(Client client) {
 		super(new BorderLayout());
 		this.client = client;
 		this.theaterPanel = new JPanel(new GridLayout(0, 3));
@@ -24,7 +24,7 @@ public class BotTheater extends JPanel implements ActionListener {
 		this.addBot.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(final ActionEvent e) {
-				client.showServerSelector();
+				client.addNewTab();
 			}
 		});
 		add(addBot, BorderLayout.SOUTH);
@@ -45,7 +45,7 @@ public class BotTheater extends JPanel implements ActionListener {
 	@Override
 	public void actionPerformed(final ActionEvent e) {
 		final BotPreview source = (BotPreview) e.getSource();
-		client.showBotScreen(source.getBot());
+		//client.showBotScreen(source.getBot());
 	}
 
 }

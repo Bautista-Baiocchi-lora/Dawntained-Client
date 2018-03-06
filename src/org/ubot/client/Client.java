@@ -1,13 +1,11 @@
 package org.ubot.client;
 
-import org.ubot.bot.Bot;
 import org.ubot.bot.BotModel;
 import org.ubot.client.provider.loader.ServerLoader;
 import org.ubot.client.ui.BotToolBar;
 import org.ubot.client.ui.logger.Logger;
 import org.ubot.client.ui.logger.LoggerPanel;
 import org.ubot.client.ui.screens.BotConfigurationScreen;
-import org.ubot.client.ui.screens.BotScreen;
 import org.ubot.util.directory.DirectoryManager;
 
 import javax.swing.*;
@@ -18,7 +16,6 @@ public class Client extends JFrame implements WindowListener {
 
 	private static final double VERSION = 0.1;
 	private final ClientModel model;
-	private JPanel currentScreen;
 	private final LoggerPanel loggerPanel;
 	private final BotToolBar toolBar;
 
@@ -29,7 +26,7 @@ public class Client extends JFrame implements WindowListener {
 		toolBar = new BotToolBar(this);
 		DirectoryManager.init();
 		add(toolBar, BorderLayout.NORTH);
-		toolBar.addTab("Server Selector", new BotConfigurationScreen(this, model.getServerProviders()));
+		toolBar.addTab(new BotConfigurationScreen(this, model.getServerProviders()));
 		setResizable(false);
 		//getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -66,19 +63,11 @@ public class Client extends JFrame implements WindowListener {
 	}
 
 	public void addNewTab() {
-		toolBar.addTab("Server Selector", new BotConfigurationScreen(this, model.getServerProviders()));
+		toolBar.addTab(new BotConfigurationScreen(this, model.getServerProviders()));
 	}
 
 	public void showBotTheater() {
 		displayScreen(model.getUpdatedBotTheater());
-	}
-
-	public void showBotScreen(Bot bot) {
-		displayScreen(new BotScreen(this, bot));
-	}
-
-	public void showServerSelector() {
-		displayScreen(new BotConfigurationScreen(this, model.getServerProviders()));
 	}
 
 	public void loadServer(ServerLoader loader) {
@@ -90,11 +79,9 @@ public class Client extends JFrame implements WindowListener {
 	}
 
 	public void displayScreen(JPanel screen) {
-		if (currentScreen != null) {
-			remove(currentScreen);
-		}
-		currentScreen = screen;
-		add(currentScreen, BorderLayout.CENTER);
+		remove(toolBar.getCurrentTab().getContent());
+		toolBar.updateCurrentTabContent(screen);
+		add(screen, BorderLayout.CENTER);
 		refreshInterface();
 	}
 

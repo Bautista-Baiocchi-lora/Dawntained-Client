@@ -1,4 +1,4 @@
-package org.ubot.client.ui;
+package org.ubot.client.ui.screens.theater;
 
 import org.ubot.bot.Bot;
 
