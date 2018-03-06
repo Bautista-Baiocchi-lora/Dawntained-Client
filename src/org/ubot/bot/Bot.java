@@ -1,6 +1,7 @@
 package org.ubot.bot;
 
 import org.ubot.client.Client;
+import org.ubot.client.account.Account;
 import org.ubot.client.provider.ServerProvider;
 import org.ubot.client.provider.loader.ServerLoader;
 import org.ubot.client.ui.screens.BotConfigurationScreen;
@@ -16,12 +17,21 @@ public class Bot {
 
 	private final Client client;
 	private final String name;
+	private Account account;
 	private JPanel view;
 	private BotCore core;
 
 	public Bot(Client client, String name) {
 		this.client = client;
 		this.name = name;
+	}
+
+	public Account getAccount() {
+		return account;
+	}
+
+	public void setAccount(final Account account) {
+		this.account = account;
 	}
 
 	public String getName() {
