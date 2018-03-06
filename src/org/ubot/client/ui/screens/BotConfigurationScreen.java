@@ -20,6 +20,7 @@ public class BotConfigurationScreen extends JPanel implements ActionListener {
 		super(new BorderLayout());
 		this.bot = bot;
 		this.providersListModel = new DefaultListModel<>();
+		setBorder(BorderFactory.createLoweredBevelBorder());
 		populateProvidersModel(providers);
 		providerJList = new JList<>(providersListModel);
 		providerJList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);

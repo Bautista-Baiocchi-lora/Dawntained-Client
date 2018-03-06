@@ -12,6 +12,7 @@ public class BotScreen extends JPanel {
 	public BotScreen(Bot bot) {
 		super(new BorderLayout());
 		this.bot = bot;
+		setBorder(BorderFactory.createLoweredBevelBorder());
 		add(configureApplet(bot), BorderLayout.CENTER);
 	}
 

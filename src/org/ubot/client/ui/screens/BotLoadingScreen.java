@@ -20,6 +20,8 @@ public class BotLoadingScreen extends JPanel {
 		this.bot = bot;
 		this.loader = loader;
 
+		setBorder(BorderFactory.createLoweredBevelBorder());
+
 		this.progressBar = new JProgressBar(0, 100);
 		this.progressBar.setStringPainted(true);
 		this.setPreferredSize(new Dimension(300, 50));

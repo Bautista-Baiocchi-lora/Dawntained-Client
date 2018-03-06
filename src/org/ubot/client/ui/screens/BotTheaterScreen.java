@@ -19,6 +19,7 @@ public class BotTheaterScreen extends JPanel implements ActionListener {
 		super(new BorderLayout());
 		this.client = client;
 		this.theaterPanel = new JPanel(new GridLayout(0, 3));
+		setBorder(BorderFactory.createLoweredBevelBorder());
 		add(theaterPanel, BorderLayout.CENTER);
 	}
 

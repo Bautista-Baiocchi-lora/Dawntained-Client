@@ -21,6 +21,9 @@ public class BotToolBar extends JToolBar {
 	private JButton newTabButton = new JButton();
 	private JButton settingsButton = new JButton();
 	private JButton theaterMode = new JButton();
+	private JButton startScript = new JButton();
+	private JButton pauseScript = new JButton();
+	private JButton stopScript = new JButton();
 	private JPopupMenu settings = new JPopupMenu("Settings");
 	private JMenu debugs = new JMenu("Debugs");
 	private JMenuItem debugInventory = new JMenuItem("Inventory");
@@ -40,6 +43,34 @@ public class BotToolBar extends JToolBar {
 	private final void configure() {
 		setPreferredSize(new Dimension(765, 24));
 		setFloatable(false);
+
+		startScript.setIcon(Utilities.getIcon("resources/buttons/play.png"));
+		startScript.setContentAreaFilled(false);
+		startScript.setRolloverEnabled(true);
+		startScript.setBorder(null);
+		startScript.setRolloverIcon(Utilities.getIcon("resources/buttons/play_hover.png"));
+		startScript.addActionListener(e -> client.openScriptSelector());
+
+		stopScript.setIcon(Utilities.getIcon("resources/buttons/stop.png"));
+		stopScript.setContentAreaFilled(false);
+		stopScript.setRolloverEnabled(true);
+		stopScript.setBorder(null);
+		stopScript.setRolloverIcon(Utilities.getIcon("resources/buttons/stop_hover.png"));
+		stopScript.addActionListener(e -> client.openScriptSelector());
+
+		pauseScript.setIcon(Utilities.getIcon("resources/buttons/pause.png"));
+		pauseScript.setContentAreaFilled(false);
+		pauseScript.setRolloverEnabled(true);
+		pauseScript.setBorder(null);
+		pauseScript.setRolloverIcon(Utilities.getIcon("resources/buttons/pause_hover.png"));
+		pauseScript.addActionListener(e -> client.openScriptSelector());
+
+		theaterMode.setIcon(Utilities.getIcon("resources/theater_mode.png"));
+		theaterMode.setContentAreaFilled(false);
+		theaterMode.setRolloverEnabled(true);
+		theaterMode.setBorder(null);
+		theaterMode.setRolloverIcon(Utilities.getIcon("resources/theater_mode_hover.png"));
+		theaterMode.addActionListener(e -> client.toggleBotTheater());
 
 		debugs.add(debugNPCS);
 		debugs.add(debugPlayers);
@@ -63,13 +94,6 @@ public class BotToolBar extends JToolBar {
 		});
 		settings.add(exit);
 		exit.addActionListener(e -> System.exit(0));
-
-		theaterMode.setIcon(Utilities.getIcon("resources/theater_mode.png"));
-		theaterMode.setContentAreaFilled(false);
-		theaterMode.setRolloverEnabled(true);
-		theaterMode.setBorder(null);
-		theaterMode.setRolloverIcon(Utilities.getIcon("resources/theater_mode_hover.png"));
-		theaterMode.addActionListener(e -> client.toggleBotTheater());
 
 		settingsButton.setIcon(Utilities.getIcon("resources/buttons/settings.png"));
 		settingsButton.setContentAreaFilled(false);
@@ -98,13 +122,18 @@ public class BotToolBar extends JToolBar {
 			final BotTab tab = new BotTab(bot);
 			tab.addActionListener(e -> client.displayScreen(tab.getBot()));
 			add(tab);
+			addSeparator();
 		}
 		addComponents();
 	}
 
+
 	private void addComponents() {
 		add(newTabButton);
 		add(Box.createHorizontalGlue());
+		add(startScript);
+		add(pauseScript);
+		add(stopScript);
 		add(theaterMode);
 		add(settingsButton);
 		client.refreshInterface();

@@ -6,6 +6,7 @@ import org.ubot.client.ui.BotToolBar;
 import org.ubot.client.ui.logger.Logger;
 import org.ubot.client.ui.logger.LoggerPanel;
 import org.ubot.client.ui.screens.BotTheaterScreen;
+import org.ubot.client.ui.screens.SplashScreen;
 import org.ubot.util.directory.DirectoryManager;
 
 import javax.swing.*;
@@ -26,13 +27,11 @@ public class Client extends JFrame implements WindowListener {
 		this.model = new ClientModel(this, username, accountKey, permissionKey);
 		loggerPanel = new LoggerPanel(new Logger());
 		toolBar = new BotToolBar(this);
-		toolBar.updateTabs(model.getBots());
 		add(toolBar, BorderLayout.NORTH);
+		showSplashScreen();
 		setResizable(false);
-		//getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		addWindowListener(this);
-		tabOpenRequest();
 		pack();
 		setLocationRelativeTo(getParent());
 		setLocationRelativeTo(getOwner());
@@ -50,6 +49,10 @@ public class Client extends JFrame implements WindowListener {
 			}
 			new Client(args[0], args[1], args[2]);
 		});
+	}
+
+	private void showSplashScreen() {
+		displayScreen(new SplashScreen(VERSION));
 	}
 
 	public void hideLogger() {
@@ -73,6 +76,10 @@ public class Client extends JFrame implements WindowListener {
 	public void refreshInterface() {
 		pack();
 		revalidate();
+	}
+
+	public void openScriptSelector() {
+
 	}
 
 	public void tabOpenRequest() {
