@@ -62,11 +62,11 @@ public class Client extends JFrame implements WindowListener {
 
 	public void toggleBotTheater() {
 		if (currentScreen instanceof BotTheaterScreen) {
-			displayScreen(model.getBots().get(0));
+			displayScreen(toolBar.getCurrentTab().getBot());
 			return;
 		}
-		displayScreen(model.getBotTheaterScreen());
 		toolBar.allowDebugging(false);
+		displayScreen(model.getBotTheaterScreen());
 	}
 
 	public void showLogger() {
@@ -84,24 +84,26 @@ public class Client extends JFrame implements WindowListener {
 	}
 
 	public void tabOpenRequest() {
-		final Bot bot = model.createBot();
-		toolBar.updateTabs(model.getBots());
-		displayScreen(bot);
+		displayScreen(model.createBot());
 	}
 
 	public void displayScreen(JPanel screen) {
 		if (currentScreen == null) {
 			currentScreen = screen;
-		} else {
+			add(screen, BorderLayout.CENTER);
+			refreshInterface();
+		} else if (!currentScreen.equals(screen)) {
 			remove(currentScreen);
+			currentScreen = screen;
+			add(screen, BorderLayout.CENTER);
+			refreshInterface();
 		}
-		add(currentScreen = screen, BorderLayout.CENTER);
-		refreshInterface();
 	}
 
 	public void displayScreen(Bot bot) {
-		displayScreen(bot.getView());
+		toolBar.updateTabs(model.getBots(), bot);
 		toolBar.allowDebugging(true);
+		displayScreen(bot.getView());
 	}
 
 	@Override

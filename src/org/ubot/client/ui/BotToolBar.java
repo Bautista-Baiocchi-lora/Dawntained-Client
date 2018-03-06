@@ -12,10 +12,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
-/**
- * Created by Ethan on 3/4/2018.
- */
-public class BotToolBar extends JToolBar {
+
+public class BotToolBar extends JToolBar implements ActionListener {
 
 	private Client client;
 	private JButton newTabButton = new JButton();
@@ -35,6 +33,7 @@ public class BotToolBar extends JToolBar {
 	private JMenuItem interfaceExplorer = new JMenuItem("Interface Explorer");
 	private JCheckBoxMenuItem showLogger = new JCheckBoxMenuItem("Show Logger");
 	private JMenuItem exit = new JMenuItem("Exit");
+	private BotTab currentTab;
 
 	public BotToolBar(Client client) {
 		this.client = client;
@@ -78,6 +77,16 @@ public class BotToolBar extends JToolBar {
 				client.toggleBotTheater();
 			}
 		});
+
+		debugGameInfo.addActionListener(this::actionPerformed);
+		debugInventory.addActionListener(this::actionPerformed);
+		debugNPCS.addActionListener(this::actionPerformed);
+		debugObjects.addActionListener(this::actionPerformed);
+		debugPlayers.addActionListener(this::actionPerformed);
+		debugSettings.addActionListener(this::actionPerformed);
+		interfaceExplorer.addActionListener(this::actionPerformed);
+
+		interfaceExplorer.setEnabled(false);
 
 		debugs.setEnabled(false);
 		debugs.add(debugNPCS);
@@ -125,15 +134,28 @@ public class BotToolBar extends JToolBar {
 		addComponents();
 	}
 
-	public void updateTabs(ArrayList<Bot> bots) {
+	public void updateTabs(ArrayList<Bot> bots, Bot focus) {
 		removeAll();
 		for (Bot bot : bots) {
 			final BotTab tab = new BotTab(bot);
-			tab.addActionListener(e -> client.displayScreen(tab.getBot()));
+			if (bot.equals(focus)) {
+				currentTab = tab;
+			}
+			tab.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(final ActionEvent e) {
+					currentTab = tab;
+					client.displayScreen(currentTab.getBot());
+				}
+			});
 			add(tab);
 			addSeparator();
 		}
 		addComponents();
+	}
+
+	public BotTab getCurrentTab() {
+		return currentTab;
 	}
 
 	public void allowDebugging(boolean allow) {
@@ -149,6 +171,15 @@ public class BotToolBar extends JToolBar {
 		add(theaterMode);
 		add(settingsButton);
 		client.refreshInterface();
+	}
+
+	@Override
+	public void actionPerformed(final ActionEvent e) {
+		switch (e.getActionCommand()) {
+			case "Inventory":
+
+				break;
+		}
 	}
 
 	public final class BotTab extends JButton {
