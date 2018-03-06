@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class Bot {
 
 	private final Client client;
-	private final String name;
+	private String name;
 	private Account account;
 	private JPanel view;
 	private BotCore core;
