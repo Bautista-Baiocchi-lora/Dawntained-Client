@@ -33,7 +33,7 @@ public class ClientModel {
 	}
 
 	protected final Bot createBot() {
-		final Bot bot = new Bot(client, "Bot " + (bots.size() + 1));
+		final Bot bot = new Bot(client, "Bot #" + (bots.size() + 1));
 		bot.initiateConfiguration(getServerProviders());
 		this.bots.add(bot);
 		return bot;

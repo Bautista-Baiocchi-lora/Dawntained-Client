@@ -1,5 +1,6 @@
 package org.ubot.client;
 
+import org.pushingpixels.substance.api.skin.SubstanceGraphiteGoldLookAndFeel;
 import org.ubot.bot.Bot;
 import org.ubot.client.ui.BotToolBar;
 import org.ubot.client.ui.logger.Logger;
@@ -40,12 +41,15 @@ public class Client extends JFrame implements WindowListener {
 	}
 
 	public static void main(String[] args) {
-		try {
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
-			ex.printStackTrace();
-		}
-		new Client(args[0], args[1], args[2]);
+		JFrame.setDefaultLookAndFeelDecorated(true);
+		SwingUtilities.invokeLater(() -> {
+			try {
+				UIManager.setLookAndFeel(new SubstanceGraphiteGoldLookAndFeel());
+			} catch (Exception e) {
+				System.out.println("Substance Graphite failed to initialize");
+			}
+			new Client(args[0], args[1], args[2]);
+		});
 	}
 
 	public void hideLogger() {

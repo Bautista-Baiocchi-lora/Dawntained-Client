@@ -2,6 +2,7 @@ package org.ubot.util;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
@@ -49,5 +50,14 @@ public class Utilities {
 			e.printStackTrace();
 		}
 		return image;
+	}
+
+	public static BufferedImage resizeImage(BufferedImage img, int newW, int newH) {
+		Image tmp = img.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
+		BufferedImage newImage = new BufferedImage(newW, newH, BufferedImage.TYPE_INT_ARGB);
+		Graphics2D g = newImage.createGraphics();
+		g.drawImage(tmp, 0, 0, null);
+		g.dispose();
+		return newImage;
 	}
 }

@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="asm-all-5.2">
+  <library name="substance-8.0.00-rc">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../asm-all-5.2.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/substance-8.0.00-rc.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

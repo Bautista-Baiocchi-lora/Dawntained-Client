@@ -48,7 +48,7 @@ public class BotTheaterScreen extends JPanel implements ActionListener {
 			super(bot.getName());
 			this.bot = bot;
 			this.addActionListener(listener);
-			setPreferredSize(new Dimension(267, 176));
+			setPreferredSize(new Dimension(250, 250));
 		}
 
 		public Bot getBot() {
@@ -57,14 +57,14 @@ public class BotTheaterScreen extends JPanel implements ActionListener {
 
 		@Override
 		protected void paintComponent(final Graphics g) {
-			if (bot.getGameCanvas() != null) {
-				g.drawImage(bot.getGameCanvas().getGameBuffer(), 0, 0, null);
+			if (bot != null && bot.getGameCanvas() != null) {
+				g.drawImage(Utilities.resizeImage(bot.getGameCanvas().getGameBuffer(), 250, 250), 0, 0, null);
+				g.setFont(new Font("Courier New", Font.BOLD, 22));
+				g.setColor(Color.RED);
+				g.drawString(bot.getName(), 88, 18);
 			} else {
 				g.drawImage(Utilities.getImage("resources/Map.png"), 0, 0, null);
 			}
-			g.setFont(new Font("Courier New", Font.BOLD, 22));
-			g.setColor(Color.RED);
-			g.drawString(bot.getName(), 3, 18);
 		}
 	}
 
