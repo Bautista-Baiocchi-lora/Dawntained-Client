@@ -1,4 +1,4 @@
-package org.ubot.client.ui.screens.theater;
+package org.ubot.client.ui.screens;
 
 import org.ubot.bot.Bot;
 import org.ubot.client.Client;
@@ -57,12 +57,14 @@ public class BotTheaterScreen extends JPanel implements ActionListener {
 
 		@Override
 		protected void paintComponent(final Graphics g) {
-			super.paintComponent(g);
 			if (bot.getGameCanvas() != null) {
 				g.drawImage(bot.getGameCanvas().getGameBuffer(), 0, 0, null);
 			} else {
 				g.drawImage(Utilities.getImage("resources/Map.png"), 0, 0, null);
 			}
+			g.setFont(new Font("Courier New", Font.BOLD, 22));
+			g.setColor(Color.RED);
+			g.drawString(bot.getName(), 3, 18);
 		}
 	}
 

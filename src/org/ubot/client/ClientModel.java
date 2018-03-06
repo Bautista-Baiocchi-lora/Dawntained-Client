@@ -6,7 +6,7 @@ import org.ubot.classloader.ClassArchive;
 import org.ubot.client.provider.ServerProvider;
 import org.ubot.client.provider.loader.ServerLoader;
 import org.ubot.client.provider.manifest.ServerManifest;
-import org.ubot.client.ui.screens.theater.BotTheaterScreen;
+import org.ubot.client.ui.screens.BotTheaterScreen;
 import org.ubot.util.directory.DirectoryManager;
 
 import java.io.File;

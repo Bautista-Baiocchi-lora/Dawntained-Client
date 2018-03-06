@@ -4,7 +4,7 @@ import org.ubot.bot.Bot;
 import org.ubot.client.ui.BotToolBar;
 import org.ubot.client.ui.logger.Logger;
 import org.ubot.client.ui.logger.LoggerPanel;
-import org.ubot.client.ui.screens.theater.BotTheaterScreen;
+import org.ubot.client.ui.screens.BotTheaterScreen;
 import org.ubot.util.directory.DirectoryManager;
 
 import javax.swing.*;
