@@ -112,7 +112,7 @@ public class BotToolBar extends JToolBar {
 		newTabButton.setRolloverIcon(Utilities.getIcon("resources/icon_plus_small_highlighted.png"));
 		newTabButton.addActionListener(e -> client.tabOpenRequest());
 
-		addComponents();
+		addClientComponents();
 	}
 
 	public void updateTabs(ArrayList<Bot> bots, Bot focus) {
@@ -132,7 +132,7 @@ public class BotToolBar extends JToolBar {
 			add(tab);
 			addSeparator();
 		}
-		addComponents();
+		addClientComponents();
 	}
 
 	public BotTab getCurrentTab() {
@@ -154,7 +154,7 @@ public class BotToolBar extends JToolBar {
 		this.debugs.add(interfaceExplorer);
 	}
 
-	private void addComponents() {
+	private void addClientComponents() {
 		add(newTabButton);
 		add(Box.createHorizontalGlue());
 		add(startScript);
@@ -170,7 +170,7 @@ public class BotToolBar extends JToolBar {
 		private final Bot bot;
 
 		public BotTab(Bot bot) {
-			super(bot.getName());
+			super(bot.getBotName());
 			this.bot = bot;
 		}
 
