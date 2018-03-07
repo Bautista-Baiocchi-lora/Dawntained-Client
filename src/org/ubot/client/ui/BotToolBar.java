@@ -140,7 +140,9 @@ public class BotToolBar extends JToolBar {
 	}
 
 	public void allowDebugging(boolean allow) {
-		addDebugComponents();
+		if (allow) {
+			addDebugComponents();
+		}
 		this.debugs.setEnabled(allow);
 	}
 
