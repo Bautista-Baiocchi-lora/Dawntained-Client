@@ -1,4 +1,4 @@
-package org.ubot.bot.script;
+package org.ubot.bot.script.types;
 
 public abstract class LoopScript extends Script {
 

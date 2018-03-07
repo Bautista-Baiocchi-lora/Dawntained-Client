@@ -1,4 +1,4 @@
-package org.ubot.bot.script;
+package org.ubot.bot.script.types;
 
 import java.util.Collections;
 import java.util.Comparator;

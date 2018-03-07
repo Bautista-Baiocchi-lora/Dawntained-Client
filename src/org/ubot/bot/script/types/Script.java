@@ -1,4 +1,4 @@
-package org.ubot.bot.script;
+package org.ubot.bot.script.types;
 
 public abstract class Script {
 
@@ -10,7 +10,7 @@ public abstract class Script {
 
 	public abstract void onBreak();
 
-	protected abstract int operate();
+	public abstract int operate();
 
 	public final long getRuntime() {
 		return System.currentTimeMillis() - startTime;

@@ -1,8 +1,5 @@
 package org.ubot.client.provider.manifest;
 
-/**
- * Created by Ethan on 3/2/2018.
- */
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
@@ -11,10 +8,10 @@ public @interface ServerManifest {
 
     String serverName();
 
-    String author();
+    String author() default "uBot";
 
-    double version();
+    double version() default 1.0;
 
-    String info();
+    String info() default "";
 
 }

@@ -2,6 +2,7 @@ package org.ubot.bot;
 
 import org.ubot.bot.canvas.RSCanvas;
 import org.ubot.bot.canvas.screen.ScreenOverlay;
+import org.ubot.bot.script.ScriptHandler;
 import org.ubot.client.Client;
 import org.ubot.client.account.Account;
 import org.ubot.client.provider.ServerProvider;
@@ -22,6 +23,7 @@ public class Bot {
 	private Account account;
 	private JPanel view;
 	private BotCore core;
+	private ScriptHandler scriptHandler;
 
 	public Bot(Client client, String name) {
 		this.client = client;
@@ -40,7 +42,7 @@ public class Bot {
 		return core.getScreenOverlays();
 	}
 
-	public String getName() {
+	public String getBotName() {
 		return name;
 	}
 
