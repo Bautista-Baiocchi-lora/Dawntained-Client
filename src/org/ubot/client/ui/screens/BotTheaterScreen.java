@@ -46,7 +46,7 @@ public class BotTheaterScreen extends JPanel implements ActionListener {
 		private final Bot bot;
 
 		public BotPreview(Bot bot, ActionListener listener) {
-			super(bot.getName());
+			super(bot.getBotName());
 			this.bot = bot;
 			this.addActionListener(listener);
 			setPreferredSize(new Dimension(250, 250));
@@ -65,7 +65,7 @@ public class BotTheaterScreen extends JPanel implements ActionListener {
 			}
 			g.setFont(new Font("Courier New", Font.BOLD, 22));
 			g.setColor(Color.RED);
-			g.drawString(bot.getName(), 88, 18);
+			g.drawString(bot.getBotName(), 88, 18);
 		}
 	}
 

@@ -6,11 +6,10 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a749048c-453f-45b8-96ac-6d38b10c793b" name="Default" comment="Script framework added.">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/org/ubot/client/ui/scriptselector/ScriptPanel.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/org/ubot/client/ui/scriptselector/ScriptSelector.java" />
+    <list default="true" id="a749048c-453f-45b8-96ac-6d38b10c793b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/org/ubot/client/ui/BotToolBar.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/ui/BotToolBar.java" />
+      <change beforePath="$PROJECT_DIR$/src/org/ubot/client/ui/screens/BotTheaterScreen.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/ui/screens/BotTheaterScreen.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.idea/shelf/" />
@@ -29,24 +28,50 @@
       <file leaf-file-name="BotToolBar.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/ubot/client/ui/BotToolBar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="26" column="31" lean-forward="true" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
+            <state relative-caret-position="326">
+              <caret line="141" column="47" lean-forward="false" selection-start-line="141" selection-start-column="47" selection-end-line="141" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#4576#4577#0" expanded="true" />
                 <element signature="e#4600#4601#0" expanded="true" />
-                <element signature="e#5352#5353#0" expanded="true" />
-                <element signature="e#5371#5372#0" expanded="true" />
+                <element signature="e#5332#5333#0" expanded="true" />
+                <element signature="e#5351#5352#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScriptSelector.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BotTheaterScreen.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/org/ubot/client/ui/screens/BotTheaterScreen.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="344">
+              <caret line="61" column="36" lean-forward="false" selection-start-line="61" selection-start-column="36" selection-end-line="61" selection-end-column="36" />
+              <folding>
+                <element signature="e#910#911#0" expanded="true" />
+                <element signature="e#966#967#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScreenOverlay.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/ubot/bot/canvas/screen/ScreenOverlay.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+              <folding>
+                <element signature="e#606#607#0" expanded="true" />
+                <element signature="e#624#625#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScriptSelector.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/ubot/client/ui/scriptselector/ScriptSelector.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1452">
-              <caret line="106" column="2" lean-forward="false" selection-start-line="106" selection-start-column="2" selection-end-line="106" selection-end-column="2" />
+            <state relative-caret-position="615">
+              <caret line="41" column="13" lean-forward="true" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1143#1244#0" expanded="true" />
@@ -164,7 +189,6 @@
         <option value="$PROJECT_DIR$/src/org/ubot/client/ClientModel.java" />
         <option value="$PROJECT_DIR$/src/org/ubot/util/Utilities.java" />
         <option value="$PROJECT_DIR$/src/org/ubot/client/ui/screens/BotLoadingScreen.java" />
-        <option value="$PROJECT_DIR$/src/org/ubot/client/ui/screens/BotTheaterScreen.java" />
         <option value="$PROJECT_DIR$/src/org/ubot/client/ui/screens/BotScreen.java" />
         <option value="$PROJECT_DIR$/src/org/ubot/client/ui/screens/SplashScreen.java" />
         <option value="$PROJECT_DIR$/src/org/ubot/client/ui/screens/BotConfigurationScreen.java" />
@@ -188,10 +212,11 @@
         <option value="$PROJECT_DIR$/src/org/ubot/bot/script/scriptdata/ScriptManifest.java" />
         <option value="$PROJECT_DIR$/src/org/ubot/client/provider/manifest/ServerManifest.java" />
         <option value="$PROJECT_DIR$/src/org/ubot/bot/Bot.java" />
-        <option value="$PROJECT_DIR$/src/org/ubot/client/ui/BotToolBar.java" />
         <option value="$PROJECT_DIR$/src/org/ubot/client/ui/scriptselector/ScriptPanel.java" />
         <option value="$PROJECT_DIR$/src/org/ubot/bot/script/ScriptLoader.java" />
         <option value="$PROJECT_DIR$/src/org/ubot/client/ui/scriptselector/ScriptSelector.java" />
+        <option value="$PROJECT_DIR$/src/org/ubot/client/ui/BotToolBar.java" />
+        <option value="$PROJECT_DIR$/src/org/ubot/client/ui/screens/BotTheaterScreen.java" />
       </list>
     </option>
   </component>
@@ -245,6 +270,23 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="ubot" type="462c0819:PsiDirectoryNode" />
               <item name="bot" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="uBot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="uBot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ubot" type="462c0819:PsiDirectoryNode" />
+              <item name="bot" type="462c0819:PsiDirectoryNode" />
+              <item name="canvas" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="uBot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="uBot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ubot" type="462c0819:PsiDirectoryNode" />
+              <item name="bot" type="462c0819:PsiDirectoryNode" />
+              <item name="canvas" type="462c0819:PsiDirectoryNode" />
+              <item name="screen" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="uBot" type="b2602c69:ProjectViewProjectNode" />
@@ -876,7 +918,14 @@
       <option name="project" value="LOCAL" />
       <updated>1520382162074</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Script selector kinda.">
+      <created>1520382788413</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1520382788413</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -885,13 +934,13 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31922612" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31922612" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33084312" sideWeight="0.50364965" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21160822" sideWeight="0.49635038" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21160822" sideWeight="0.49635038" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32992327" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -969,7 +1018,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Starting tabs" />
     <MESSAGE value="Tab start." />
     <MESSAGE value="Remnoved tabbed pane format" />
     <MESSAGE value="File download change" />
@@ -994,7 +1042,8 @@
     <MESSAGE value="Overlays reworked." />
     <MESSAGE value="overlay hotfix" />
     <MESSAGE value="Script framework added." />
-    <option name="LAST_COMMIT_MESSAGE" value="Script framework added." />
+    <MESSAGE value="Script selector kinda." />
+    <option name="LAST_COMMIT_MESSAGE" value="Script selector kinda." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1200,17 +1249,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/ubot/client/ui/screens/BotTheaterScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="34" column="58" lean-forward="true" selection-start-line="34" selection-start-column="58" selection-end-line="34" selection-end-column="58" />
-          <folding>
-            <element signature="e#910#911#0" expanded="true" />
-            <element signature="e#966#967#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/ubot/bot/canvas/listeners/PaintListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -1255,17 +1293,6 @@
         <state relative-caret-position="446">
           <caret line="60" column="26" lean-forward="true" selection-start-line="60" selection-start-column="26" selection-end-line="60" selection-end-column="26" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/ubot/bot/canvas/screen/ScreenOverlay.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding>
-            <element signature="e#606#607#0" expanded="true" />
-            <element signature="e#624#625#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1393,37 +1420,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/ubot/bot/Bot.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="56" column="36" lean-forward="true" selection-start-line="56" selection-start-column="36" selection-end-line="56" selection-end-column="36" />
-          <folding>
-            <element signature="e#881#882#0" expanded="true" />
-            <element signature="e#902#903#0" expanded="true" />
-            <element signature="e#952#953#0" expanded="true" />
-            <element signature="e#981#982#0" expanded="true" />
-            <element signature="e#1032#1033#0" expanded="true" />
-            <element signature="e#1070#1071#0" expanded="true" />
-            <element signature="e#1101#1102#0" expanded="true" />
-            <element signature="e#1119#1120#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/ubot/client/ui/BotToolBar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="26" column="31" lean-forward="true" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4576#4577#0" expanded="true" />
-            <element signature="e#4600#4601#0" expanded="true" />
-            <element signature="e#5352#5353#0" expanded="true" />
-            <element signature="e#5371#5372#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/ubot/client/ui/scriptselector/ScriptPanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="185">
@@ -1446,12 +1442,65 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/ubot/client/ui/scriptselector/ScriptSelector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1452">
-          <caret line="106" column="2" lean-forward="false" selection-start-line="106" selection-start-column="2" selection-end-line="106" selection-end-column="2" />
+        <state relative-caret-position="615">
+          <caret line="41" column="13" lean-forward="true" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1143#1244#0" expanded="true" />
             <element signature="e#1243#1244#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/ubot/bot/canvas/screen/ScreenOverlay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding>
+            <element signature="e#606#607#0" expanded="true" />
+            <element signature="e#624#625#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/ubot/bot/Bot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="56" column="36" lean-forward="true" selection-start-line="56" selection-start-column="36" selection-end-line="56" selection-end-column="36" />
+          <folding>
+            <element signature="e#881#882#0" expanded="true" />
+            <element signature="e#902#903#0" expanded="true" />
+            <element signature="e#952#953#0" expanded="true" />
+            <element signature="e#981#982#0" expanded="true" />
+            <element signature="e#1032#1033#0" expanded="true" />
+            <element signature="e#1070#1071#0" expanded="true" />
+            <element signature="e#1101#1102#0" expanded="true" />
+            <element signature="e#1119#1120#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/ubot/client/ui/BotToolBar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="141" column="47" lean-forward="false" selection-start-line="141" selection-start-column="47" selection-end-line="141" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4576#4577#0" expanded="true" />
+            <element signature="e#4600#4601#0" expanded="true" />
+            <element signature="e#5332#5333#0" expanded="true" />
+            <element signature="e#5351#5352#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/ubot/client/ui/screens/BotTheaterScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="61" column="36" lean-forward="false" selection-start-line="61" selection-start-column="36" selection-end-line="61" selection-end-column="36" />
+          <folding>
+            <element signature="e#910#911#0" expanded="true" />
+            <element signature="e#966#967#0" expanded="true" />
           </folding>
         </state>
       </provider>
