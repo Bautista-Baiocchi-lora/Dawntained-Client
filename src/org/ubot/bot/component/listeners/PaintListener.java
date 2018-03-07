@@ -1,4 +1,4 @@
-package org.ubot.bot.canvas.listeners;
+package org.ubot.bot.component.listeners;
 
 import java.awt.*;
 

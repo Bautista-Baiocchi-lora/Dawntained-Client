@@ -1,7 +1,7 @@
-package org.ubot.bot.canvas.screen;
+package org.ubot.bot.component.screen;
 
 
-import org.ubot.bot.canvas.listeners.PaintListener;
+import org.ubot.bot.component.listeners.PaintListener;
 import org.ubot.util.Timer;
 
 import javax.swing.*;

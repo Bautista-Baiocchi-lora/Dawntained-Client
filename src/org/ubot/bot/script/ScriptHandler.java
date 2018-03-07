@@ -1,7 +1,7 @@
 package org.ubot.bot.script;
 
 import org.ubot.bot.Bot;
-import org.ubot.bot.canvas.listeners.PaintListener;
+import org.ubot.bot.component.listeners.PaintListener;
 import org.ubot.bot.script.scriptdata.ScriptData;
 import org.ubot.bot.script.types.Script;
 import org.ubot.client.ui.logger.Logger;

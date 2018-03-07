@@ -1,7 +1,7 @@
 package org.ubot.bot;
 
-import org.ubot.bot.canvas.RSCanvas;
-import org.ubot.bot.canvas.screen.ScreenOverlay;
+import org.ubot.bot.component.RSCanvas;
+import org.ubot.bot.component.screen.ScreenOverlay;
 import org.ubot.client.ui.logger.Logger;
 import org.ubot.util.reflection.ReflectionEngine;
 
@@ -58,6 +58,6 @@ public class BotCore {
 
 	public void setGameCanvas(final RSCanvas gameCanvas) {
 		this.gameCanvas = gameCanvas;
-		Logger.log("Game canvas injected.");
+		Logger.log("Game component injected.");
 	}
 }

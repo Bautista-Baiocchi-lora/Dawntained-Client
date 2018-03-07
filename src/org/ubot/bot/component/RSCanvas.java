@@ -1,8 +1,8 @@
-package org.ubot.bot.canvas;
+package org.ubot.bot.component;
 
 
-import org.ubot.bot.canvas.listeners.PaintListener;
-import org.ubot.bot.canvas.screen.ScreenOverlay;
+import org.ubot.bot.component.listeners.PaintListener;
+import org.ubot.bot.component.screen.ScreenOverlay;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

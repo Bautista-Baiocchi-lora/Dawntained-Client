@@ -1,7 +1,7 @@
 package org.ubot.bot;
 
-import org.ubot.bot.canvas.RSCanvas;
-import org.ubot.bot.canvas.screen.ScreenOverlay;
+import org.ubot.bot.component.RSCanvas;
+import org.ubot.bot.component.screen.ScreenOverlay;
 import org.ubot.bot.script.ScriptHandler;
 import org.ubot.client.Client;
 import org.ubot.client.account.Account;

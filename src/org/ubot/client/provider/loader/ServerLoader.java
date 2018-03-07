@@ -1,8 +1,8 @@
 package org.ubot.client.provider.loader;
 
 import org.ubot.bot.BotCore;
-import org.ubot.bot.canvas.RSCanvas;
-import org.ubot.bot.canvas.screen.ScreenOverlay;
+import org.ubot.bot.component.RSCanvas;
+import org.ubot.bot.component.screen.ScreenOverlay;
 import org.ubot.classloader.ASMClassLoader;
 import org.ubot.classloader.ClassArchive;
 import org.ubot.util.Condition;
