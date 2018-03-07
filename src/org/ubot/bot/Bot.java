@@ -39,6 +39,9 @@ public class Bot {
 	}
 
 	public List<ScreenOverlay> getScreenOverlays() {
+		if (core == null) {
+			return new ArrayList<>();
+		}
 		return core.getScreenOverlays();
 	}
 
@@ -67,7 +70,7 @@ public class Bot {
 	public void launch(BotCore core) {
 		this.core = core;
 		this.view = new BotScreen(this);
-		client.displayScreen(view);
+		client.displayScreen(this);
 	}
 
 	public void initiateConfiguration(ArrayList<ServerProvider> providers) {

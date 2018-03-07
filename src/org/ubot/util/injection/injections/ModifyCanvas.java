@@ -17,7 +17,7 @@ public class ModifyCanvas {
     }
 
     public void init() {
-        if (node.superName.toLowerCase().contains("component")) {
+	    if (node.superName.toLowerCase().contains("canvas") && !node.superName.toLowerCase().contains("rscanvas")) {
             System.out.println("Canvas was: " + node.name + " : " + node.methods.size());
             new SetSuper(newCanvasPath, node);
             System.out.println("Canvas is now: " + node.superName);

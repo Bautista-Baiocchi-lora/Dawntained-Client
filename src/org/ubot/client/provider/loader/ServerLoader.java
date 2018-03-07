@@ -59,7 +59,13 @@ public abstract class ServerLoader extends SwingWorker<BotCore, BotCore> {
 			Condition.sleep(100);
 		}
 		core.setGameCanvas(canvas);
-		core.setScreenOverlays(getOverlays());
+		SwingUtilities.invokeLater(() -> {
+			try {
+				core.setScreenOverlays(getOverlays());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		});
 		setProgress(100);
 		return core;
 	}
@@ -80,18 +86,15 @@ public abstract class ServerLoader extends SwingWorker<BotCore, BotCore> {
 
 	protected abstract Applet loadApplet(ReflectionEngine reflectionEngine) throws IllegalAccessException;
 
-	private Applet getApplet() {
-		return this.applet;
-	}
 
 	private synchronized RSCanvas getCanvas() {
 		if (canvas != null) {
 			return canvas;
 		}
-		if (getApplet() == null || getApplet().getComponentCount() == 0 || !(getApplet().getComponent(0) instanceof RSCanvas)) {
+		if (applet == null || applet.getComponentCount() == 0 || !(applet.getComponent(0) instanceof RSCanvas)) {
 			return null;
 		}
-		return (RSCanvas) getApplet().getComponent(0);
+		return (RSCanvas) applet.getComponent(0);
 	}
 
 }

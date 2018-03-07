@@ -5,6 +5,7 @@ import org.ubot.bot.Bot;
 import org.ubot.client.ui.BotToolBar;
 import org.ubot.client.ui.logger.Logger;
 import org.ubot.client.ui.logger.LoggerPanel;
+import org.ubot.client.ui.screens.BotScreen;
 import org.ubot.client.ui.screens.BotTheaterScreen;
 import org.ubot.client.ui.screens.SplashScreen;
 import org.ubot.util.directory.DirectoryManager;
@@ -106,7 +107,11 @@ public class Client extends JFrame implements WindowListener {
 
 	public void displayScreen(Bot bot) {
 		toolBar.updateTabs(model.getBots(), bot);
-		toolBar.allowDebugging(true);
+		if (bot.getView() instanceof BotScreen) {
+			toolBar.allowDebugging(true);
+		} else {
+			toolBar.allowDebugging(false);
+		}
 		displayScreen(bot.getView());
 	}
 
