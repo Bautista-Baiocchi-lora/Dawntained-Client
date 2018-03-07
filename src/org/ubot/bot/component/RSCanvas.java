@@ -27,6 +27,10 @@ public class RSCanvas extends Canvas {
 		return gameBuffer;
 	}
 
+	public BufferedImage getClientBuffer() {
+		return clientBuffer;
+	}
+
 	public Graphics getGraphics() {
 		if (this.getHeight() != clientBuffer.getHeight() || this.getWidth() != clientBuffer.getWidth()) {
 			this.clientBuffer.flush();

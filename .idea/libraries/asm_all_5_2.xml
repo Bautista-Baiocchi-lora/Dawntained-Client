@@ -1,7 +1,9 @@
 <component name="libraryTable">
   <library name="asm-all-5.2">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../Java Libraries/asm-5.2/lib/all/asm-all-5.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../asm/asm-all-5.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../asm/objenesis-2.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../asm/trident-1.5.00-rc.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

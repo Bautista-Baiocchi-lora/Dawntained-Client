@@ -60,6 +60,7 @@ public class BotTheaterScreen extends JPanel implements ActionListener {
 		protected void paintComponent(final Graphics g) {
 			if (bot != null && bot.getGameCanvas() != null) {
 				g.drawImage(Utilities.resizeImage(bot.getGameCanvas().getGameBuffer(), 250, 250), 0, 0, null);
+				g.drawImage(Utilities.resizeImage(bot.getGameCanvas().getClientBuffer(), 250, 250), 0, 0, null);
 			} else {
 				g.drawImage(Utilities.getImage("resources/Map.png"), 0, 0, null);
 			}
