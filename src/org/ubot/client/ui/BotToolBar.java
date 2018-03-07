@@ -27,10 +27,12 @@ public class BotToolBar extends JToolBar {
 	private JMenuItem interfaceExplorer = new JMenuItem("Interface Explorer");
 	private JCheckBoxMenuItem showLogger = new JCheckBoxMenuItem("Show Logger");
 	private JMenuItem exit = new JMenuItem("Exit");
+	private ArrayList<BotTab> tabs;
 	private BotTab currentTab;
 
 	public BotToolBar(Client client) {
 		this.client = client;
+		tabs = new ArrayList<>();
 		configure();
 	}
 
@@ -64,13 +66,7 @@ public class BotToolBar extends JToolBar {
 		theaterMode.setRolloverEnabled(true);
 		theaterMode.setBorder(null);
 		theaterMode.setRolloverIcon(Utilities.getIcon("resources/theater_mode_hover.png"));
-		theaterMode.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(final ActionEvent e) {
-				allowDebugging(false);
-				client.toggleBotTheater();
-			}
-		});
+		theaterMode.addActionListener(e -> client.toggleBotTheater());
 
 		interfaceExplorer.addActionListener(e -> client.openInterfaceExplorer());
 		interfaceExplorer.setEnabled(false);
@@ -110,63 +106,82 @@ public class BotToolBar extends JToolBar {
 		newTabButton.setRolloverEnabled(true);
 		newTabButton.setBorder(null);
 		newTabButton.setRolloverIcon(Utilities.getIcon("resources/icon_plus_small_highlighted.png"));
-		newTabButton.addActionListener(e -> client.tabOpenRequest());
+		newTabButton.addActionListener(e -> client.openNewBot());
 
-		addClientComponents();
+		configureComponents();
 	}
 
 	public void updateTabs(ArrayList<Bot> bots, Bot focus) {
-		removeAll();
+		tabs.clear();
 		for (Bot bot : bots) {
 			final BotTab tab = new BotTab(bot);
-			if (bot.equals(focus)) {
+			tabs.add(tab);
+			if (focus == null && currentTab == null) {
+				currentTab = tab;
+			} else if (bot.equals(focus)) {
 				currentTab = tab;
 			}
 			tab.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(final ActionEvent e) {
 					currentTab = tab;
-					client.displayScreen(currentTab.getBot());
+					client.displayScreen(currentTab.getBot().getView());
+					debugs.setEnabled(currentTab.getBot().canDebug());
 				}
 			});
+			tab.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mousePressed(final MouseEvent e) {
+					if (SwingUtilities.isRightMouseButton(e)) {
+						tab.showOptionsMenu(e);
+					}
+				}
+			});
+		}
+		configureComponents();
+	}
+
+	public void disableDebugging() {
+		this.debugs.setEnabled(false);
+	}
+
+	private void addTabs() {
+		for (BotTab tab : tabs) {
 			add(tab);
 			addSeparator();
 		}
-		addClientComponents();
 	}
 
 	public BotTab getCurrentTab() {
 		return currentTab;
 	}
 
-	public void allowDebugging(boolean allow) {
-		if (allow) {
-			addDebugComponents();
-		} else {
-			removeDebugComponents();
-		}
-		this.debugs.setEnabled(allow);
-	}
-
-	private void removeDebugComponents() {
-		this.debugs.removeAll();
-	}
-
 	private void addDebugComponents() {
 		this.debugs.removeAll();
-		for (JCheckBoxMenuItem debugItem : currentTab.getBot().getScreenOverlays()) {
-			this.debugs.add(debugItem);
+		if (currentTab != null) {
+			if (currentTab.getBot().canDebug()) {
+				for (JCheckBoxMenuItem debugItem : currentTab.getBot().getScreenOverlays()) {
+					this.debugs.add(debugItem);
+				}
+				this.debugs.addSeparator();
+				this.debugs.add(interfaceExplorer);
+				this.debugs.setEnabled(true);
+				return;
+			}
+			this.debugs.setEnabled(false);
 		}
-		this.debugs.add(interfaceExplorer);
 	}
 
-	private void addClientComponents() {
+	private void configureComponents() {
+		removeAll();
+		addTabs();
 		add(newTabButton);
 		add(Box.createHorizontalGlue());
 		add(startScript);
 		add(pauseScript);
 		add(stopScript);
 		add(theaterMode);
+		addDebugComponents();
 		add(settingsButton);
 		client.refreshInterface();
 	}
@@ -174,10 +189,32 @@ public class BotToolBar extends JToolBar {
 	public final class BotTab extends JButton {
 
 		private final Bot bot;
+		private final JPopupMenu optionsMenu;
+		private final JMenuItem rename, close;
 
 		public BotTab(Bot bot) {
 			super(bot.getBotName());
 			this.bot = bot;
+			this.optionsMenu = new JPopupMenu("Options");
+			this.optionsMenu.add(rename = new JMenuItem("Rename"));
+			this.rename.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(final ActionEvent e) {
+					renameBot("new name");
+				}
+			});
+			this.optionsMenu.add(close = new JMenuItem("Close"));
+			this.close.addActionListener(e -> client.closeBot(bot));
+		}
+
+		public void renameBot(String name) {
+			this.bot.setName(name);
+			this.setText(name);
+			revalidate();
+		}
+
+		public void showOptionsMenu(MouseEvent e) {
+			optionsMenu.show(e.getComponent(), e.getX(), e.getY());
 		}
 
 		public Bot getBot() {

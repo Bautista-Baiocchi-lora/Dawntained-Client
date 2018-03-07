@@ -32,6 +32,12 @@ public class ClientModel {
 		this.botTheaterScreen = new BotTheaterScreen(client);
 	}
 
+	protected final void destroyBot(Bot bot) {
+		bot.destroy();
+		bots.remove(bot);
+		Runtime.getRuntime().gc();
+	}
+
 	protected final Bot createBot() {
 		final Bot bot = new Bot(client, "Bot #" + (bots.size() + 1));
 		bot.initiateConfiguration(getServerProviders());

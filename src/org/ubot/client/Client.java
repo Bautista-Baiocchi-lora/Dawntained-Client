@@ -5,7 +5,6 @@ import org.ubot.bot.Bot;
 import org.ubot.client.ui.BotToolBar;
 import org.ubot.client.ui.logger.Logger;
 import org.ubot.client.ui.logger.LoggerPanel;
-import org.ubot.client.ui.screens.BotScreen;
 import org.ubot.client.ui.screens.BotTheaterScreen;
 import org.ubot.client.ui.screens.SplashScreen;
 import org.ubot.util.directory.DirectoryManager;
@@ -21,6 +20,7 @@ public class Client extends JFrame implements WindowListener {
 	private final LoggerPanel loggerPanel;
 	private final BotToolBar toolBar;
 	private JPanel currentScreen;
+	public static Client client;
 
 	public Client(String username, String accountKey, String permissionKey) {
 		super("[" + username + "] uBot v" + VERSION);
@@ -48,8 +48,14 @@ public class Client extends JFrame implements WindowListener {
 			} catch (Exception e) {
 				System.out.println("Substance Graphite failed to initialize");
 			}
-			new Client(args[0], args[1], args[2]);
+			client = new Client(args[0], args[1], args[2]);
 		});
+	}
+
+	public void closeBot(Bot bot) {
+		model.destroyBot(bot);
+		toolBar.updateTabs(model.getBots(), null);
+		displayScreen(toolBar.getCurrentTab().getBot().getView());
 	}
 
 	private void showSplashScreen() {
@@ -66,7 +72,7 @@ public class Client extends JFrame implements WindowListener {
 			displayScreen(toolBar.getCurrentTab().getBot());
 			return;
 		}
-		toolBar.allowDebugging(false);
+		toolBar.disableDebugging();
 		displayScreen(model.getBotTheaterScreen());
 	}
 
@@ -88,30 +94,23 @@ public class Client extends JFrame implements WindowListener {
 
 	}
 
-	public void tabOpenRequest() {
+	public void openNewBot() {
 		displayScreen(model.createBot());
 	}
 
 	public void displayScreen(JPanel screen) {
 		if (currentScreen == null) {
-			currentScreen = screen;
-			add(screen, BorderLayout.CENTER);
+			add(currentScreen = screen, BorderLayout.CENTER);
 			refreshInterface();
 		} else if (!currentScreen.equals(screen)) {
 			remove(currentScreen);
-			currentScreen = screen;
-			add(screen, BorderLayout.CENTER);
+			add(currentScreen = screen, BorderLayout.CENTER);
 			refreshInterface();
 		}
 	}
 
 	public void displayScreen(Bot bot) {
 		toolBar.updateTabs(model.getBots(), bot);
-		if (bot.getView() instanceof BotScreen) {
-			toolBar.allowDebugging(true);
-		} else {
-			toolBar.allowDebugging(false);
-		}
 		displayScreen(bot.getView());
 	}
 

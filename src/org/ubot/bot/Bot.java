@@ -30,6 +30,10 @@ public class Bot {
 		this.name = name;
 	}
 
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public Account getAccount() {
 		return account;
 	}
@@ -43,6 +47,13 @@ public class Bot {
 			return new ArrayList<>();
 		}
 		return core.getScreenOverlays();
+	}
+
+	public boolean canDebug() {
+		if (view != null) {
+			return view instanceof BotScreen;
+		}
+		return false;
 	}
 
 	public String getBotName() {
@@ -82,5 +93,12 @@ public class Bot {
 		this.view = loadingScreen;
 		client.displayScreen(this);
 		loadingScreen.run();
+	}
+
+	public void destroy() {
+		if (getApplet() != null) {
+			getApplet().stop();
+			getApplet().destroy();
+		}
 	}
 }
