@@ -1,11 +1,11 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="uBot:jar">
+  <artifact type="jar" build-on-make="true" name="uBot:jar">
     <output-path>$PROJECT_DIR$/..</output-path>
     <root id="archive" name="uBot.jar">
       <element id="module-output" name="uBot" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../asm-all-5.2.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$USER_HOME$/Downloads/json-20090211.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/Downloads/objenesis-2.6-bin/objenesis-2.6/objenesis-2.6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../Java Libraries/objenesis-2.6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../Java Libraries/asm-5.2/lib/all/asm-all-5.2.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

@@ -41,14 +41,14 @@ public class ReflectionEngine {
 	public ReflectedField getField(String className, String fieldName, Object instance) {
 
 		final ReflectedClass clazz = getClass(className, instance);
-		final ReflectedField field = clazz.getField(new Modifiers.ModifierBuilder().name(fieldName).build());
+		final ReflectedField field = clazz.getField(new Modifiers.Builder().name(fieldName).build());
 		return field;
 	}
 
 	public void setFieldValue(String className, String fieldName, Object value, Object instance) {
 		try {
 			final ReflectedClass clazz = getClass(className, instance);
-			final ReflectedField field = clazz.getField(new Modifiers.ModifierBuilder().name(fieldName).build());
+			final ReflectedField field = clazz.getField(new Modifiers.Builder().name(fieldName).build());
 			field.setValue(value);
 		} catch (IllegalAccessException e) {
 			e.printStackTrace();
@@ -66,7 +66,7 @@ public class ReflectionEngine {
 	public ReflectedMethod getMethod(String className, String methodName, Object instance) {
 
 		final ReflectedClass clazz = getClass(className, instance);
-		final ReflectedMethod method = clazz.getMethod(new Modifiers.ModifierBuilder().name(methodName).build());
+		final ReflectedMethod method = clazz.getMethod(new Modifiers.Builder().name(methodName).build());
 		return method;
 	}
 
@@ -77,7 +77,7 @@ public class ReflectionEngine {
 	public Object getFieldValue(String className, String fieldName, Object instance) {
 		try {
 			final ReflectedClass clazz = getClass(className, instance);
-			final ReflectedField field = clazz.getField(new Modifiers.ModifierBuilder().name(fieldName).build());
+			final ReflectedField field = clazz.getField(new Modifiers.Builder().name(fieldName).build());
 			return field.getValue();
 		} catch (IllegalAccessException e) {
 			e.printStackTrace();
