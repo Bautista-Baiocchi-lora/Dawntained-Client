@@ -88,8 +88,17 @@ public class Bot {
 		return scriptHandler.getScriptState() == ScriptHandler.State.RUNNING;
 	}
 
-	public void startScript(Script script, ScriptData scriptData) {
+	public void startScript(ScriptData scriptData) {
 		classArchive.inheritClassArchive(scriptData.getClassArchive());
+		//make script here
+		Script script = null;
+		try {
+			script = (Script) scriptData.getMainClass().newInstance();
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		}
 		scriptHandler.start(script, scriptData);
 	}
 

@@ -100,13 +100,7 @@ public class ScriptSelector extends JFrame {
 			int y = col * height + spacing;
 			panel.setBounds(x, y, width, height);
 			panel.getButton().addActionListener(e -> {
-				try {
-					bot.startScript(scriptLoader.loadScript(scriptData), scriptData);
-				} catch (IllegalAccessException e1) {
-					e1.printStackTrace();
-				} catch (InstantiationException e1) {
-					e1.printStackTrace();
-				}
+				bot.startScript(scriptData);
 				dispose();
 			});
 			scriptPanel.add(panel);
