@@ -1,7 +1,5 @@
 package org.ubot.bot.script.scriptdata;
 
-import org.ubot.classloader.ClassArchive;
-
 import java.io.File;
 
 public class ScriptData {
@@ -11,10 +9,9 @@ public class ScriptData {
 	private final double version;
 	private final SkillCategory skillCategory;
 	private final int scriptId;
-	private final ClassArchive classArchive;
 	private final File scriptPath;
 
-	public ScriptData(Class<?> clazz, ClassArchive classArchive, String name, String server, String desc, double version, String author, SkillCategory category, File scriptPath) {
+	public ScriptData(Class<?> clazz, String name, String server, String desc, double version, String author, SkillCategory category, File scriptPath) {
 		this.clazz = clazz;
 		this.name = name;
 		this.server = server;
@@ -23,12 +20,7 @@ public class ScriptData {
 		this.author = author;
 		this.skillCategory = category;
 		this.scriptId = -1;
-		this.classArchive = classArchive;
 		this.scriptPath = scriptPath;
-	}
-
-	public ClassArchive getClassArchive() {
-		return classArchive;
 	}
 
 	public Class<?> getMainClass() {
