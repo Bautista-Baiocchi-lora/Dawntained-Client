@@ -2,7 +2,6 @@ package org.ubot.bot.script.loader;
 
 import org.ubot.bot.script.scriptdata.ScriptData;
 import org.ubot.bot.script.scriptdata.ScriptManifest;
-import org.ubot.bot.script.types.Script;
 import org.ubot.classloader.ASMClassLoader;
 import org.ubot.classloader.ClassArchive;
 import org.ubot.util.directory.DirectoryManager;
@@ -58,7 +57,4 @@ public class ScriptLoader {
 		return scripts;
 	}
 
-	public final Script loadScript(ScriptData scriptData) throws IllegalAccessException, InstantiationException {
-		return (Script) scriptData.getMainClass().newInstance();
-	}
 }
