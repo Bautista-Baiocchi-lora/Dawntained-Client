@@ -60,4 +60,5 @@ public class Utilities {
 		g.dispose();
 		return newImage;
 	}
+
 }

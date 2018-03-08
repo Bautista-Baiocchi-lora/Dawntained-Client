@@ -203,15 +203,18 @@ public class BotToolBar extends JToolBar {
 			this.bot = bot;
 			this.optionsMenu = new JPopupMenu("Options");
 			this.optionsMenu.add(rename = new JMenuItem("Rename"));
-			this.rename.addActionListener(e -> renameBot("new name"));
+			this.rename.addActionListener(e -> renameBot());
 			this.optionsMenu.add(close = new JMenuItem("Close"));
 			this.close.addActionListener(e -> client.closeBot(bot));
 		}
 
-		private void renameBot(String name) {
-			this.bot.setName(name);
-			this.setText(name);
-			revalidate();
+		private void renameBot() {
+			String newName = JOptionPane.showInputDialog(null, "Name?");
+			if (!newName.isEmpty()) {
+				this.bot.setName(newName);
+				this.setText(newName);
+				revalidate();
+			}
 		}
 
 		public void showOptionsMenu(MouseEvent e) {

@@ -87,6 +87,7 @@ public class Bot {
 
 	public void launch(BotCore core) {
 		this.core = core;
+		this.classArchive.inheritClassArchive(core.getClassArchive());
 		this.view = new BotScreen(this);
 		client.displayScreen(this);
 	}
