@@ -1,7 +1,7 @@
 package org.ubot.client.ui.screens;
 
 import org.ubot.bot.Bot;
-import org.ubot.client.provider.loader.ServerLoader;
+import org.ubot.client.provider.ServerProvider;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,13 +12,13 @@ import java.util.concurrent.ExecutionException;
 public class BotLoadingScreen extends JPanel {
 
 	private final Bot bot;
-	private final ServerLoader loader;
+	private final ServerProvider provider;
 	private final JProgressBar progressBar;
 
-	public BotLoadingScreen(Bot bot, ServerLoader loader) {
+	public BotLoadingScreen(Bot bot, ServerProvider provider) {
 		super(new BorderLayout());
 		this.bot = bot;
-		this.loader = loader;
+		this.provider = provider;
 
 		setBorder(BorderFactory.createLoweredBevelBorder());
 
@@ -26,7 +26,7 @@ public class BotLoadingScreen extends JPanel {
 		this.progressBar.setStringPainted(true);
 		this.setPreferredSize(new Dimension(300, 50));
 
-		this.loader.addPropertyChangeListener(new PropertyChangeListener() {
+		this.provider.getLoader().addPropertyChangeListener(new PropertyChangeListener() {
 			@Override
 			public void propertyChange(final PropertyChangeEvent evt) {
 				switch (evt.getPropertyName()) {
@@ -34,9 +34,9 @@ public class BotLoadingScreen extends JPanel {
 						progressBar.setValue((int) evt.getNewValue());
 						break;
 					case "state":
-						if (loader.getState() == SwingWorker.StateValue.DONE) {
+						if (provider.getLoader().getState() == SwingWorker.StateValue.DONE) {
 							try {
-								bot.launch(loader.get());
+								bot.launch(provider.getLoader().get());
 							} catch (InterruptedException e) {
 								e.printStackTrace();
 							} catch (ExecutionException e) {
@@ -56,7 +56,7 @@ public class BotLoadingScreen extends JPanel {
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
 			public void run() {
-				loader.execute();
+				provider.getLoader().execute();
 			}
 		});
 	}

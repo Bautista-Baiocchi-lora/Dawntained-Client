@@ -71,7 +71,7 @@ public class BotConfigurationScreen extends JPanel implements ActionListener {
 		switch (e.getActionCommand()) {
 			case "start":
 				bot.setAccount(accountJList.getSelectedValue());
-				bot.initiateServerLoader(providerJList.getSelectedValue().getLoader());
+				bot.initiateServerLoader(providerJList.getSelectedValue());
 				break;
 		}
 	}

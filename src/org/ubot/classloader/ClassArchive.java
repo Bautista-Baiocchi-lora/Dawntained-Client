@@ -25,7 +25,7 @@ public class ClassArchive {
 
 
     public ClassArchive() {
-        System.out.println("Set new CA");
+	    System.out.println("Set new CA");
         this.classNames = new ArrayList<>();
         this.classes = new HashMap<>();
         this.resources = new HashMap<>();
@@ -82,7 +82,7 @@ public class ClassArchive {
                 if (e.isDirectory())
                     continue;
                 if (e.getName().endsWith(".class")) {
-                    System.out.println(e.getName());
+	                System.out.println(e.getName());
                     loadClass(zin);
                 } else {
                     loadResource(e.getName(), zin);

@@ -8,7 +8,6 @@ import org.ubot.classloader.ClassArchive;
 import org.ubot.client.Client;
 import org.ubot.client.account.Account;
 import org.ubot.client.provider.ServerProvider;
-import org.ubot.client.provider.loader.ServerLoader;
 import org.ubot.client.ui.screens.BotConfigurationScreen;
 import org.ubot.client.ui.screens.BotLoadingScreen;
 import org.ubot.client.ui.screens.BotScreen;
@@ -28,9 +27,12 @@ public class Bot {
 	private BotCore core;
 	private ScriptHandler scriptHandler;
 	private ScriptLoader scriptLoader;
+	private ClassArchive classArchive;
+
 	public Bot(Client client, String name) {
 		this.client = client;
 		this.name = name;
+		this.classArchive = new ClassArchive();
 		this.scriptHandler = new ScriptHandler(this);
 		this.scriptLoader = new ScriptLoader(client.getModel(), this);
 	}
@@ -93,9 +95,10 @@ public class Bot {
 		this.view = new BotConfigurationScreen(this, providers);
 	}
 
-	public void initiateServerLoader(ServerLoader loader) {
-		final BotLoadingScreen loadingScreen = new BotLoadingScreen(this, loader);
+	public void initiateServerLoader(ServerProvider provider) {
+		final BotLoadingScreen loadingScreen = new BotLoadingScreen(this, provider);
 		this.view = loadingScreen;
+		this.classArchive = provider.getClassArchive();
 		client.displayScreen(this);
 		loadingScreen.run();
 	}
