@@ -2,12 +2,12 @@ package org.ubot.client.ui;
 
 import org.ubot.bot.Bot;
 import org.ubot.client.Client;
+import org.ubot.client.ui.logger.Logger;
+import org.ubot.client.ui.scriptselector.ScriptSelector;
 import org.ubot.util.Utilities;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -29,7 +29,7 @@ public class BotToolBar extends JToolBar {
 	private JMenuItem exit = new JMenuItem("Exit");
 	private ArrayList<BotTab> tabs;
 	private BotTab currentTab;
-
+	private ScriptSelector scriptSelector;
 	public BotToolBar(Client client) {
 		this.client = client;
 		tabs = new ArrayList<>();
@@ -37,6 +37,7 @@ public class BotToolBar extends JToolBar {
 	}
 
 	private final void configure() {
+
 		setPreferredSize(new Dimension(765, 24));
 		setFloatable(false);
 
@@ -45,8 +46,19 @@ public class BotToolBar extends JToolBar {
 		startScript.setRolloverEnabled(true);
 		startScript.setBorder(null);
 		startScript.setRolloverIcon(Utilities.getIcon("resources/buttons/play_hover.png"));
-		startScript.addActionListener(e -> client.openScriptSelector());
+		startScript.addActionListener(e -> {
+			if (scriptSelector == null && currentTab != null
+					|| scriptSelector != null && !currentTab.getBot().equals(scriptSelector.getBot())) {
+				Logger.log("Switching ScriptSelectorInstance");
+				scriptSelector = new ScriptSelector(currentTab.getBot());
+			}
+			if (scriptSelector != null) {
+				scriptSelector.loadScripts();
+				scriptSelector.setLocationRelativeTo(scriptSelector.getOwner());
+				scriptSelector.setVisible(!scriptSelector.isVisible());
+			}
 
+		});
 		stopScript.setIcon(Utilities.getIcon("resources/buttons/stop.png"));
 		stopScript.setContentAreaFilled(false);
 		stopScript.setRolloverEnabled(true);
@@ -77,14 +89,11 @@ public class BotToolBar extends JToolBar {
 		settings.add(debugs);
 		settings.addSeparator();
 		settings.add(showLogger);
-		showLogger.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(final ActionEvent e) {
-				if (showLogger.isSelected()) {
-					client.showLogger();
-				} else {
-					client.hideLogger();
-				}
+		showLogger.addActionListener(e -> {
+			if (showLogger.isSelected()) {
+				client.showLogger();
+			} else {
+				client.hideLogger();
 			}
 		});
 		settings.add(exit);
@@ -121,13 +130,10 @@ public class BotToolBar extends JToolBar {
 			} else if (bot.equals(focus)) {
 				currentTab = tab;
 			}
-			tab.addActionListener(new ActionListener() {
-				@Override
-				public void actionPerformed(final ActionEvent e) {
-					currentTab = tab;
-					client.displayScreen(currentTab.getBot().getView());
-					debugs.setEnabled(currentTab.getBot().canDebug());
-				}
+			tab.addActionListener(e -> {
+				currentTab = tab;
+				client.displayScreen(currentTab.getBot().getView());
+				debugs.setEnabled(currentTab.getBot().canDebug());
 			});
 			tab.addMouseListener(new MouseAdapter() {
 				@Override
@@ -197,12 +203,7 @@ public class BotToolBar extends JToolBar {
 			this.bot = bot;
 			this.optionsMenu = new JPopupMenu("Options");
 			this.optionsMenu.add(rename = new JMenuItem("Rename"));
-			this.rename.addActionListener(new ActionListener() {
-				@Override
-				public void actionPerformed(final ActionEvent e) {
-					renameBot("new name");
-				}
-			});
+			this.rename.addActionListener(e -> renameBot("new name"));
 			this.optionsMenu.add(close = new JMenuItem("Close"));
 			this.close.addActionListener(e -> client.closeBot(bot));
 		}

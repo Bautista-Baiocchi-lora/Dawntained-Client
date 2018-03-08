@@ -2,6 +2,7 @@ package org.ubot.bot;
 
 import org.ubot.bot.component.RSCanvas;
 import org.ubot.bot.component.screen.ScreenOverlay;
+import org.ubot.classloader.ClassArchive;
 import org.ubot.client.ui.logger.Logger;
 import org.ubot.util.reflection.ReflectionEngine;
 
@@ -12,6 +13,7 @@ public class BotCore {
 
 	private final String serverName;
 	private ReflectionEngine reflectionEngine;
+	private ClassArchive classArchive;
 	private Applet applet;
 	private RSCanvas gameCanvas;
 	private List<ScreenOverlay> screenOverlays;
@@ -59,5 +61,13 @@ public class BotCore {
 	public void setGameCanvas(final RSCanvas gameCanvas) {
 		this.gameCanvas = gameCanvas;
 		Logger.log("Game component injected.");
+	}
+
+	public ClassArchive getClassArchive() {
+		return classArchive;
+	}
+
+	public void setClassArchive(ClassArchive classArchive) {
+		this.classArchive = classArchive;
 	}
 }
