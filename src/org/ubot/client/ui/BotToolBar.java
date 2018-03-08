@@ -200,7 +200,8 @@ public class BotToolBar extends JToolBar {
 			this.rename.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(final ActionEvent e) {
-					renameBot("new name");
+					String newName = JOptionPane.showInputDialog(null, "Name?");
+					renameBot(newName.isEmpty() ? bot.getBotName() : newName);
 				}
 			});
 			this.optionsMenu.add(close = new JMenuItem("Close"));
