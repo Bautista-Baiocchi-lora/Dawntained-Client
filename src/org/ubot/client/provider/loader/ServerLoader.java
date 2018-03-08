@@ -67,6 +67,7 @@ public abstract class ServerLoader extends SwingWorker<BotCore, BotCore> {
 			}
 		});
 		setProgress(100);
+		core.setClassArchive(classArchive);
 		return core;
 	}
 

@@ -1,5 +1,8 @@
 package org.ubot.client.ui.scriptselector;
 
+import org.ubot.bot.Bot;
+import org.ubot.bot.script.scriptdata.ScriptData;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.FocusAdapter;
@@ -16,12 +19,12 @@ public class ScriptSelector extends JFrame {
 	private JPanel topPanel;
 	private JPanel scriptPanel;
 	private JScrollPane scrollPane;
+	private Bot bot;
 
-	public ScriptSelector() {
+	public ScriptSelector(Bot bot) {
 		super("Script Selector");
+		this.bot = bot;
 		setResizable(false);
-
-
 		searchField = new JTextField(20);
 		searchField.setForeground(Color.LIGHT_GRAY);
 		searchField.setText("Search");
@@ -76,7 +79,7 @@ public class ScriptSelector extends JFrame {
 
 	public void loadScripts() {
 		scriptPanel.removeAll();
-		/*java.util.List<ScriptData> scripts = ScriptLoader.getScripts();
+		java.util.List<ScriptData> scripts = bot.getScriptLoader().getScripts();
 
 		final int width = 170;
 		final int height = 115;
@@ -91,12 +94,9 @@ public class ScriptSelector extends JFrame {
 			int x = row * width + spacing;
 			int y = col * height + spacing;
 			panel.setBounds(x, y, width, height);
-			panel.getButton().addActionListener(new ActionListener() {
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					Engine.getScriptHandler().start(ScriptLoader.loadScript(scriptData), scriptData);
-					ScriptSelector.this.dispose();
-				}
+			panel.getButton().addActionListener(e -> {
+				bot.getScriptHandler().start(bot.getScriptLoader().loadScript(scriptData), scriptData);
+				ScriptSelector.this.dispose();
 			});
 			scriptPanel.add(panel);
 			realIndex++;
@@ -104,8 +104,9 @@ public class ScriptSelector extends JFrame {
 		searchField.setText("");
 		scriptPanel.setPreferredSize(new Dimension(535, (int) (Math.ceil((Double.valueOf(scriptPanel.getComponentCount()) / 3.0)) * height)));
 
-*/
 	}
 
-
+	public Bot getBot() {
+		return bot;
+	}
 }

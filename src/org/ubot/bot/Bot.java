@@ -3,6 +3,8 @@ package org.ubot.bot;
 import org.ubot.bot.component.RSCanvas;
 import org.ubot.bot.component.screen.ScreenOverlay;
 import org.ubot.bot.script.ScriptHandler;
+import org.ubot.bot.script.loader.ScriptLoader;
+import org.ubot.classloader.ClassArchive;
 import org.ubot.client.Client;
 import org.ubot.client.account.Account;
 import org.ubot.client.provider.ServerProvider;
@@ -10,6 +12,7 @@ import org.ubot.client.provider.loader.ServerLoader;
 import org.ubot.client.ui.screens.BotConfigurationScreen;
 import org.ubot.client.ui.screens.BotLoadingScreen;
 import org.ubot.client.ui.screens.BotScreen;
+import org.ubot.util.reflection.ReflectionEngine;
 
 import javax.swing.*;
 import java.applet.Applet;
@@ -24,10 +27,12 @@ public class Bot {
 	private JPanel view;
 	private BotCore core;
 	private ScriptHandler scriptHandler;
-
+	private ScriptLoader scriptLoader;
 	public Bot(Client client, String name) {
 		this.client = client;
 		this.name = name;
+		this.scriptHandler = new ScriptHandler(this);
+		this.scriptLoader = new ScriptLoader(client.getModel(), this);
 	}
 
 	public void setName(String name) {
@@ -100,5 +105,25 @@ public class Bot {
 			getApplet().stop();
 			getApplet().destroy();
 		}
+	}
+
+	public ScriptHandler getScriptHandler() {
+		return scriptHandler;
+	}
+
+	public ScriptLoader getScriptLoader() {
+		return scriptLoader;
+	}
+
+	public String getServerName() {
+		return core.getServerName();
+	}
+
+	public ReflectionEngine getReflectionEngine() {
+		return core.getReflectionEngine();
+	}
+
+	public ClassArchive getClassArchive() {
+		return core.getClassArchive();
 	}
 }
