@@ -2,6 +2,7 @@ package org.ubot.bot;
 
 import org.ubot.bot.component.RSCanvas;
 import org.ubot.bot.component.screen.ScreenOverlay;
+import org.ubot.classloader.ASMClassLoader;
 import org.ubot.classloader.ClassArchive;
 import org.ubot.client.ui.logger.Logger;
 import org.ubot.util.reflection.ReflectionEngine;
@@ -17,6 +18,7 @@ public class BotCore {
 	private Applet applet;
 	private RSCanvas gameCanvas;
 	private List<ScreenOverlay> screenOverlays;
+	private ASMClassLoader classLoader;
 
 	public List<ScreenOverlay> getScreenOverlays() {
 		return screenOverlays;
@@ -69,5 +71,13 @@ public class BotCore {
 
 	public void setClassArchive(ClassArchive classArchive) {
 		this.classArchive = classArchive;
+	}
+
+	public ASMClassLoader getClassLoader() {
+		return classLoader;
+	}
+
+	public void setClassLoader(ASMClassLoader classLoader) {
+		this.classLoader = classLoader;
 	}
 }

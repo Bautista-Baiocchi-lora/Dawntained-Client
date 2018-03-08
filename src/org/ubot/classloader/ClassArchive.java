@@ -29,12 +29,58 @@ public class ClassArchive {
 		this.resources = new HashMap<>();
 	}
 
+	public void inheritClassArchive(ClassArchive classArchive) {
+		if (classArchive == null)
+			return;
+		inheritClassNodeCache(classArchive);
+		inheritClassNames(classArchive);
+		inheritResourceCache(classArchive);
+	}
+
+	private void inheritClassNodeCache(ClassArchive classArchive) {
+		for (Map.Entry<String, ClassNode> classNodes : classArchive.classes.entrySet()) {
+			if (classes.containsKey(classNodes.getKey())) {
+				classes.remove(classNodes.getKey());
+				classes.put(classNodes.getKey(), classNodes.getValue());
+				System.err.println("Removed: " + classNodes.getKey());
+			} else {
+				classes.put(classNodes.getKey(), classNodes.getValue());
+				System.out.println("added: " + classNodes.getKey());
+			}
+		}
+	}
+
+	private void inheritResourceCache(ClassArchive classArchive) {
+		for (Map.Entry<String, File> resource : classArchive.resources.entrySet()) {
+			if (resources.containsKey(resource.getKey())) {
+				resources.remove(resource.getKey());
+				resources.put(resource.getKey(), resource.getValue());
+				System.err.println("Removed: " + resource.getKey());
+			} else {
+				resources.put(resource.getKey(), resource.getValue());
+				System.out.println("added: " + resource.getKey());
+			}
+		}
+	}
+
+	private void inheritClassNames(ClassArchive classArchive) {
+		for (String s : classArchive.classNames) {
+			if (!classNames.contains(s)) {
+				classNames.add(s);
+			}
+		}
+	}
 
 	protected void loadClass(InputStream in) throws IOException {
 		ClassReader cr = new ClassReader(in);
 		ClassNode cn = new ClassNode();
 		cr.accept(cn, ClassReader.EXPAND_FRAMES);
-		classNames.add(cn.name.replace('/', '.'));
+		if (!classNames.contains(cn.name.replace('/', '.'))) {
+			classNames.add(cn.name.replace('/', '.'));
+		}
+		if (classes.containsKey(cn.name)) {
+			classes.remove(cn.name);
+		}
 		classes.put(cn.name, cn);
 
 	}

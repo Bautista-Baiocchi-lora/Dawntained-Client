@@ -45,6 +45,7 @@ public abstract class ServerLoader extends SwingWorker<BotCore, BotCore> {
 		classArchive.addJar(downloader.getDownloadedFile());
 		setProgress(60);
 		final ASMClassLoader asmClassLoader = new ASMClassLoader(classArchive, getInjectables());
+		core.setClassLoader(asmClassLoader);
 		setProgress(70);
 		final ReflectionEngine reflectionEngine = new ReflectionEngine(asmClassLoader);
 		core.setReflectionEngine(reflectionEngine);

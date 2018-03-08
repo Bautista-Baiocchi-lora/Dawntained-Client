@@ -5,6 +5,7 @@ import org.ubot.bot.component.screen.ScreenOverlay;
 import org.ubot.bot.script.ScriptHandler;
 import org.ubot.bot.script.scriptdata.ScriptData;
 import org.ubot.bot.script.types.Script;
+import org.ubot.classloader.ASMClassLoader;
 import org.ubot.classloader.ClassArchive;
 import org.ubot.client.Client;
 import org.ubot.client.account.Account;
@@ -12,7 +13,6 @@ import org.ubot.client.provider.ServerProvider;
 import org.ubot.client.ui.screens.BotConfigurationScreen;
 import org.ubot.client.ui.screens.BotLoadingScreen;
 import org.ubot.client.ui.screens.BotScreen;
-import org.ubot.util.reflection.ReflectionEngine;
 
 import javax.swing.*;
 import java.applet.Applet;
@@ -90,17 +90,28 @@ public class Bot {
 
 	public void startScript(ScriptData scriptData) {
 		Script script = null;
-		String providerClass = null;
-		this.getClassArchive().addJar(scriptData.getScriptPath());
+		ClassArchive providerArchive = null;
+		ASMClassLoader providerClassLoader = null;
+
+		ClassArchive classArchive = new ClassArchive();
+		classArchive.addJar(scriptData.getScriptPath());
+
 		for (Map.Entry<File, ServerProvider> providerEntry : client.getModel().getProviders().entrySet()) {
 			if (providerEntry.getValue().getManifest().serverName().equals(this.getServerName())) {
-				this.getClassArchive().addJar(providerEntry.getKey());
-				providerClass = providerEntry.getValue().getMainClass().getCanonicalName();
+				providerArchive = providerEntry.getValue().getClassArchive();
+				providerClassLoader = providerEntry.getValue().getClassLoader();
 			}
 		}
+
+		classArchive.inheritClassArchive(this.getClassArchive());
+		classArchive.inheritClassArchive(providerArchive);
+
+		ASMClassLoader classLoader = new ASMClassLoader(classArchive);
+		classLoader.inheritClassLoader(core.getClassLoader());
+		classLoader.inheritClassLoader(providerClassLoader);
+
 		try {
-			this.getReflectionEngine().setScriptReflEngine(providerClass, this.getReflectionEngine());
-			script = (Script) this.getReflectionEngine().getClass(scriptData.getMainClass().getCanonicalName()).getNewInstance();
+			script = (Script) classLoader.loadClass(scriptData.getMainClass().getCanonicalName()).newInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -145,16 +156,9 @@ public class Bot {
 	public String getServerName() {
 		return core.getServerName();
 	}
-
-	public ReflectionEngine getReflectionEngine() {
-		return core.getReflectionEngine();
-	}
-
+	
 	public ClassArchive getClassArchive() {
 		return core.getClassArchive();
 	}
 
-	public ScriptHandler getScriptHandler() {
-		return scriptHandler;
-	}
 }

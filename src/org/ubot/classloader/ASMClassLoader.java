@@ -55,6 +55,24 @@ public class ASMClassLoader extends ClassLoader {
 		return getSystemResource(name);
 	}
 
+	public void inheritClassLoader(ASMClassLoader classLoader) {
+		if (classLoader == null)
+			return;
+		inheritClassCache(classLoader);
+	}
+
+	private void inheritClassCache(ASMClassLoader classLoader) {
+		for (Map.Entry<String, Class<?>> classNodes : classLoader.classCache.entrySet()) {
+			if (classCache.containsKey(classNodes.getKey())) {
+				classCache.remove(classNodes.getKey());
+				classCache.put(classNodes.getKey(), classNodes.getValue());
+				System.err.println("Removed: " + classNodes.getKey());
+			} else {
+				classCache.put(classNodes.getKey(), classNodes.getValue());
+				System.out.println("added cache: " + classNodes.getKey());
+			}
+		}
+	}
 	@Override
 	public Class<?> loadClass(String name) throws ClassNotFoundException {
 		return findClass(name);
