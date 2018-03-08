@@ -13,7 +13,9 @@ import org.ubot.util.directory.DirectoryManager;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.jar.JarEntry;
 import java.util.jar.JarInputStream;
 
@@ -24,6 +26,7 @@ public class ClientModel {
 	private final ArrayList<Bot> bots;
 	private final BotTheaterScreen botTheaterScreen;
 	private final ScriptLoader scriptLoader;
+	private final Map<File, ServerProvider> providers;
 
 	public ClientModel(Client client, String username, String accountKey, String permissionKey) {
 		this.client = client;
@@ -33,6 +36,7 @@ public class ClientModel {
 		this.bots = new ArrayList<>();
 		this.botTheaterScreen = new BotTheaterScreen(client);
 		this.scriptLoader = new ScriptLoader();
+		this.providers = new LinkedHashMap<>();
 	}
 
 	protected final void destroyBot(Bot bot) {
@@ -65,7 +69,6 @@ public class ClientModel {
 		final ArrayList<ServerProvider> providers = new ArrayList<>();
 		providers.addAll(loadLocalServerProviders());
 		providers.addAll(loadSDNServerProviders());
-
 		return providers;
 	}
 
@@ -93,6 +96,7 @@ public class ClientModel {
 									final ServerManifest manifest = clazz.getAnnotation(ServerManifest.class);
 									final ServerLoader serverLoader = (ServerLoader) clazz.newInstance();
 									providers.add(new ServerProvider(manifest, serverLoader, classArchive, clazz));
+									this.providers.put(file, new ServerProvider(manifest, serverLoader, classArchive, clazz));
 									System.out.println("Server Loaded: " + manifest.serverName());
 								}
 							}
@@ -103,6 +107,10 @@ public class ClientModel {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return providers;
+	}
+
+	public Map<File, ServerProvider> getProviders() {
 		return providers;
 	}
 }

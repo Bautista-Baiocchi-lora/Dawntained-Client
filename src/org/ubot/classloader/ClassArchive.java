@@ -29,11 +29,6 @@ public class ClassArchive {
 		this.resources = new HashMap<>();
 	}
 
-	public void inheritClassArchive(ClassArchive classArchive) {
-		classNames.addAll(classArchive.classNames);
-		classes.putAll(classArchive.classes);
-		resources.putAll(classArchive.resources);
-	}
 
 	protected void loadClass(InputStream in) throws IOException {
 		ClassReader cr = new ClassReader(in);

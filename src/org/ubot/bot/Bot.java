@@ -16,8 +16,10 @@ import org.ubot.util.reflection.ReflectionEngine;
 
 import javax.swing.*;
 import java.applet.Applet;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Bot {
 
@@ -27,12 +29,10 @@ public class Bot {
 	private JPanel view;
 	private BotCore core;
 	private ScriptHandler scriptHandler;
-	private ClassArchive classArchive;
 
 	public Bot(Client client, String name) {
 		this.client = client;
 		this.name = name;
-		this.classArchive = new ClassArchive();
 		this.scriptHandler = new ScriptHandler(this);
 	}
 
@@ -89,14 +89,19 @@ public class Bot {
 	}
 
 	public void startScript(ScriptData scriptData) {
-		classArchive.inheritClassArchive(scriptData.getClassArchive());
-		//make script here
 		Script script = null;
+		String providerClass = null;
+		this.getClassArchive().addJar(scriptData.getScriptPath());
+		for (Map.Entry<File, ServerProvider> providerEntry : client.getModel().getProviders().entrySet()) {
+			if (providerEntry.getValue().getManifest().serverName().equals(this.getServerName())) {
+				this.getClassArchive().addJar(providerEntry.getKey());
+				providerClass = providerEntry.getValue().getMainClass().getCanonicalName();
+			}
+		}
 		try {
-			script = (Script) scriptData.getMainClass().newInstance();
-		} catch (InstantiationException e) {
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
+			this.getReflectionEngine().setScriptReflEngine(providerClass, this.getReflectionEngine());
+			script = (Script) this.getReflectionEngine().getClass(scriptData.getMainClass().getCanonicalName()).getNewInstance();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		scriptHandler.start(script, scriptData);
@@ -112,7 +117,6 @@ public class Bot {
 
 	public void launch(BotCore core) {
 		this.core = core;
-		this.classArchive.inheritClassArchive(core.getClassArchive());
 		this.view = new BotScreen(this);
 		client.displayScreen(this);
 	}
@@ -124,13 +128,14 @@ public class Bot {
 	public void initiateServerLoader(ServerProvider provider) {
 		final BotLoadingScreen loadingScreen = new BotLoadingScreen(this, provider);
 		this.view = loadingScreen;
-		this.classArchive = provider.getClassArchive();
 		client.displayScreen(this);
 		loadingScreen.run();
 	}
 
 	public void destroy() {
-		stopScript();
+		if (scriptRunning()) {
+			stopScript();
+		}
 		if (getApplet() != null) {
 			getApplet().stop();
 			getApplet().destroy();
@@ -147,5 +152,9 @@ public class Bot {
 
 	public ClassArchive getClassArchive() {
 		return core.getClassArchive();
+	}
+
+	public ScriptHandler getScriptHandler() {
+		return scriptHandler;
 	}
 }

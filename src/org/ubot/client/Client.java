@@ -58,6 +58,7 @@ public class Client extends JFrame implements WindowListener {
 		model.destroyBot(bot);
 		toolBar.updateTabs(model.getBots(), null);
 		displayScreen(toolBar.getCurrentTab().getBot().getView());
+
 	}
 
 	private void showSplashScreen() {
@@ -122,8 +123,12 @@ public class Client extends JFrame implements WindowListener {
 		displayScreen(bot.getView());
 	}
 
-	@Override
-	public void windowOpened(final java.awt.event.WindowEvent e) {
+    public ClientModel getModel() {
+        return model;
+    }
+
+    @Override
+    public void windowOpened(final java.awt.event.WindowEvent e) {
 
 	}
 

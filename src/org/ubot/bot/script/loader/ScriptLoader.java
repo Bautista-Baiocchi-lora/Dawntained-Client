@@ -43,7 +43,7 @@ public class ScriptLoader {
 								if (clazz.isAnnotationPresent(ScriptManifest.class)) {
 									System.out.println("Loading Server");
 									final ScriptManifest manifest = clazz.getAnnotation(ScriptManifest.class);
-									ScriptData scriptData = new ScriptData(clazz, classArchive, manifest.name(), manifest.server(), manifest.description(), manifest.version(), manifest.author(), manifest.category());
+									ScriptData scriptData = new ScriptData(clazz, classArchive, manifest.name(), manifest.server(), manifest.description(), manifest.version(), manifest.author(), manifest.category(), file);
 									scripts.add(scriptData);
 								}
 							}

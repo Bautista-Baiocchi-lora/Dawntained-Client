@@ -55,6 +55,19 @@ public class ReflectionEngine {
 		}
 	}
 
+	public void setScriptReflEngine(String className, Object value) {
+		try {
+			final ReflectedClass clazz = getClass(className);
+			for (ReflectedField f : clazz.getFields()) {
+				if (f.getType().toGenericString().equals("public class org.ubot.util.reflection.ReflectionEngine")) {
+					f.setValue(value);
+				}
+			}
+
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		}
+	}
 	public void setFieldValue(String className, String fieldName, Object value) {
 		setFieldValue(className, fieldName, value, null);
 	}
