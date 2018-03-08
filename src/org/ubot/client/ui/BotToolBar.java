@@ -2,8 +2,6 @@ package org.ubot.client.ui;
 
 import org.ubot.bot.Bot;
 import org.ubot.client.Client;
-import org.ubot.client.ui.logger.Logger;
-import org.ubot.client.ui.scriptselector.ScriptSelector;
 import org.ubot.util.Utilities;
 
 import javax.swing.*;
@@ -29,7 +27,7 @@ public class BotToolBar extends JToolBar {
 	private JMenuItem exit = new JMenuItem("Exit");
 	private ArrayList<BotTab> tabs;
 	private BotTab currentTab;
-	private ScriptSelector scriptSelector;
+
 	public BotToolBar(Client client) {
 		this.client = client;
 		tabs = new ArrayList<>();
@@ -47,31 +45,23 @@ public class BotToolBar extends JToolBar {
 		startScript.setBorder(null);
 		startScript.setRolloverIcon(Utilities.getIcon("resources/buttons/play_hover.png"));
 		startScript.addActionListener(e -> {
-			if (scriptSelector == null && currentTab != null
-					|| scriptSelector != null && !currentTab.getBot().equals(scriptSelector.getBot())) {
-				Logger.log("Switching ScriptSelectorInstance");
-				scriptSelector = new ScriptSelector(currentTab.getBot());
+			if (currentTab != null) {
+				client.openScriptSelector(currentTab.getBot());
 			}
-			if (scriptSelector != null) {
-				scriptSelector.loadScripts();
-				scriptSelector.setLocationRelativeTo(scriptSelector.getOwner());
-				scriptSelector.setVisible(!scriptSelector.isVisible());
-			}
-
 		});
 		stopScript.setIcon(Utilities.getIcon("resources/buttons/stop.png"));
 		stopScript.setContentAreaFilled(false);
 		stopScript.setRolloverEnabled(true);
 		stopScript.setBorder(null);
 		stopScript.setRolloverIcon(Utilities.getIcon("resources/buttons/stop_hover.png"));
-		stopScript.addActionListener(e -> client.openScriptSelector());
+		stopScript.addActionListener(e -> currentTab.getBot().stopScript());
 
 		pauseScript.setIcon(Utilities.getIcon("resources/buttons/pause.png"));
 		pauseScript.setContentAreaFilled(false);
 		pauseScript.setRolloverEnabled(true);
 		pauseScript.setBorder(null);
 		pauseScript.setRolloverIcon(Utilities.getIcon("resources/buttons/pause_hover.png"));
-		pauseScript.addActionListener(e -> client.openScriptSelector());
+		pauseScript.addActionListener(e -> currentTab.getBot().pauseScript());
 
 		theaterMode.setIcon(Utilities.getIcon("resources/theater_mode.png"));
 		theaterMode.setContentAreaFilled(false);
@@ -133,7 +123,7 @@ public class BotToolBar extends JToolBar {
 			tab.addActionListener(e -> {
 				currentTab = tab;
 				client.displayScreen(currentTab.getBot().getView());
-				debugs.setEnabled(currentTab.getBot().canDebug());
+				debugs.setEnabled(currentTab.getBot().isGameLoaded());
 			});
 			tab.addMouseListener(new MouseAdapter() {
 				@Override
@@ -165,7 +155,7 @@ public class BotToolBar extends JToolBar {
 	private void addDebugComponents() {
 		this.debugs.removeAll();
 		if (currentTab != null) {
-			if (currentTab.getBot().canDebug()) {
+			if (currentTab.getBot().isGameLoaded()) {
 				for (JCheckBoxMenuItem debugItem : currentTab.getBot().getScreenOverlays()) {
 					this.debugs.add(debugItem);
 				}

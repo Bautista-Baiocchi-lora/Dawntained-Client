@@ -1,6 +1,7 @@
 package org.ubot.client;
 
 import org.ubot.bot.Bot;
+import org.ubot.bot.script.loader.ScriptLoader;
 import org.ubot.classloader.ASMClassLoader;
 import org.ubot.classloader.ClassArchive;
 import org.ubot.client.provider.ServerProvider;
@@ -12,9 +13,7 @@ import org.ubot.util.directory.DirectoryManager;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.jar.JarEntry;
 import java.util.jar.JarInputStream;
 
@@ -24,7 +23,7 @@ public class ClientModel {
 	private final String username, accountKey, permissionKey;
 	private final ArrayList<Bot> bots;
 	private final BotTheaterScreen botTheaterScreen;
-	private Map<File, ServerProvider> providers;
+	private final ScriptLoader scriptLoader;
 
 	public ClientModel(Client client, String username, String accountKey, String permissionKey) {
 		this.client = client;
@@ -32,14 +31,18 @@ public class ClientModel {
 		this.accountKey = accountKey;
 		this.permissionKey = permissionKey;
 		this.bots = new ArrayList<>();
-		this.providers = new LinkedHashMap<>();
 		this.botTheaterScreen = new BotTheaterScreen(client);
+		this.scriptLoader = new ScriptLoader();
 	}
 
 	protected final void destroyBot(Bot bot) {
 		bot.destroy();
 		bots.remove(bot);
 		Runtime.getRuntime().gc();
+	}
+
+	protected ScriptLoader getScriptLoader() {
+		return scriptLoader;
 	}
 
 	protected final Bot createBot() {
@@ -49,7 +52,7 @@ public class ClientModel {
 		return bot;
 	}
 
-	public BotTheaterScreen getBotTheaterScreen() {
+	protected BotTheaterScreen getBotTheaterScreen() {
 		botTheaterScreen.displayPreviews(bots);
 		return botTheaterScreen;
 	}
@@ -90,7 +93,6 @@ public class ClientModel {
 									final ServerManifest manifest = clazz.getAnnotation(ServerManifest.class);
 									final ServerLoader serverLoader = (ServerLoader) clazz.newInstance();
 									providers.add(new ServerProvider(manifest, serverLoader, classArchive, clazz));
-									this.providers.put(file, new ServerProvider(manifest, serverLoader, classArchive, clazz));
 									System.out.println("Server Loaded: " + manifest.serverName());
 								}
 							}
@@ -101,10 +103,6 @@ public class ClientModel {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return providers;
-	}
-
-	public Map<File, ServerProvider> getProviders() {
 		return providers;
 	}
 }

@@ -14,13 +14,13 @@ public class ScriptPanel extends JPanel {
 	public ScriptPanel(final ScriptData scriptData) {
 		setLayout(new BorderLayout());
 
-		setToolTipText(scriptData.desc);
+		setToolTipText(scriptData.getDesc());
 
 		button = new JButton("Start");
 
 		add(button, BorderLayout.SOUTH);
 
-		final JLabel scriptName = new JLabel(scriptData.name);
+		final JLabel scriptName = new JLabel(scriptData.getName());
 
 		scriptName.setHorizontalAlignment(JLabel.CENTER);
 

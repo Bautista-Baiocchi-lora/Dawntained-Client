@@ -7,6 +7,7 @@ import org.ubot.client.ui.logger.Logger;
 import org.ubot.client.ui.logger.LoggerPanel;
 import org.ubot.client.ui.screens.BotTheaterScreen;
 import org.ubot.client.ui.screens.SplashScreen;
+import org.ubot.client.ui.scriptselector.ScriptSelector;
 import org.ubot.util.directory.DirectoryManager;
 
 import javax.swing.*;
@@ -21,6 +22,7 @@ public class Client extends JFrame implements WindowListener {
 	private final BotToolBar toolBar;
 	private JPanel currentScreen;
 	public static Client client;
+	private ScriptSelector scriptSelector;
 
 	public Client(String username, String accountKey, String permissionKey) {
 		super("[" + username + "] uBot v" + VERSION);
@@ -86,8 +88,14 @@ public class Client extends JFrame implements WindowListener {
 		revalidate();
 	}
 
-	public void openScriptSelector() {
-
+	public void openScriptSelector(Bot bot) {
+		if (bot.isGameLoaded() && !bot.scriptRunning()) {
+			if (scriptSelector != null && scriptSelector.isShowing()) {
+				Logger.logWarning("Script selector already open.");
+				return;
+			}
+			scriptSelector = new ScriptSelector(bot, model.getScriptLoader());
+		}
 	}
 
 	public void openInterfaceExplorer() {
@@ -112,10 +120,6 @@ public class Client extends JFrame implements WindowListener {
 	public void displayScreen(Bot bot) {
 		toolBar.updateTabs(model.getBots(), bot);
 		displayScreen(bot.getView());
-	}
-
-	public ClientModel getModel() {
-		return model;
 	}
 
 	@Override

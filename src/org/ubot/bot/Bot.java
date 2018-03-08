@@ -3,7 +3,8 @@ package org.ubot.bot;
 import org.ubot.bot.component.RSCanvas;
 import org.ubot.bot.component.screen.ScreenOverlay;
 import org.ubot.bot.script.ScriptHandler;
-import org.ubot.bot.script.loader.ScriptLoader;
+import org.ubot.bot.script.scriptdata.ScriptData;
+import org.ubot.bot.script.types.Script;
 import org.ubot.classloader.ClassArchive;
 import org.ubot.client.Client;
 import org.ubot.client.account.Account;
@@ -26,7 +27,6 @@ public class Bot {
 	private JPanel view;
 	private BotCore core;
 	private ScriptHandler scriptHandler;
-	private ScriptLoader scriptLoader;
 	private ClassArchive classArchive;
 
 	public Bot(Client client, String name) {
@@ -34,7 +34,6 @@ public class Bot {
 		this.name = name;
 		this.classArchive = new ClassArchive();
 		this.scriptHandler = new ScriptHandler(this);
-		this.scriptLoader = new ScriptLoader(client.getModel(), this);
 	}
 
 	public void setName(String name) {
@@ -56,7 +55,7 @@ public class Bot {
 		return core.getScreenOverlays();
 	}
 
-	public boolean canDebug() {
+	public boolean isGameLoaded() {
 		if (view != null) {
 			return view instanceof BotScreen;
 		}
@@ -85,6 +84,23 @@ public class Bot {
 		return core.getApplet();
 	}
 
+	public boolean scriptRunning() {
+		return scriptHandler.getScriptState() == ScriptHandler.State.RUNNING;
+	}
+
+	public void startScript(Script script, ScriptData scriptData) {
+		classArchive.inheritClassArchive(scriptData.getClassArchive());
+		scriptHandler.start(script, scriptData);
+	}
+
+	public void pauseScript() {
+		scriptHandler.pause();
+	}
+
+	public void stopScript() {
+		scriptHandler.stop();
+	}
+
 	public void launch(BotCore core) {
 		this.core = core;
 		this.classArchive.inheritClassArchive(core.getClassArchive());
@@ -105,18 +121,11 @@ public class Bot {
 	}
 
 	public void destroy() {
+		stopScript();
 		if (getApplet() != null) {
 			getApplet().stop();
 			getApplet().destroy();
 		}
-	}
-
-	public ScriptHandler getScriptHandler() {
-		return scriptHandler;
-	}
-
-	public ScriptLoader getScriptLoader() {
-		return scriptLoader;
 	}
 
 	public String getServerName() {

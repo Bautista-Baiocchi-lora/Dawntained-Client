@@ -1,6 +1,7 @@
 package org.ubot.client.ui.scriptselector;
 
 import org.ubot.bot.Bot;
+import org.ubot.bot.script.loader.ScriptLoader;
 import org.ubot.bot.script.scriptdata.ScriptData;
 
 import javax.swing.*;
@@ -19,11 +20,13 @@ public class ScriptSelector extends JFrame {
 	private JPanel topPanel;
 	private JPanel scriptPanel;
 	private JScrollPane scrollPane;
-	private Bot bot;
+	private final ScriptLoader scriptLoader;
+	private final Bot bot;
 
-	public ScriptSelector(Bot bot) {
+	public ScriptSelector(Bot bot, ScriptLoader scriptLoader) {
 		super("Script Selector");
 		this.bot = bot;
+		this.scriptLoader = scriptLoader;
 		setResizable(false);
 		searchField = new JTextField(20);
 		searchField.setForeground(Color.LIGHT_GRAY);
@@ -74,12 +77,14 @@ public class ScriptSelector extends JFrame {
 
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		setSize(535, 405);
+		loadScripts();
+		setVisible(true);
 	}
 
 
-	public void loadScripts() {
+	private void loadScripts() {
 		scriptPanel.removeAll();
-		java.util.List<ScriptData> scripts = bot.getScriptLoader().getScripts();
+		java.util.List<ScriptData> scripts = scriptLoader.getScripts();
 
 		final int width = 170;
 		final int height = 115;
@@ -95,8 +100,14 @@ public class ScriptSelector extends JFrame {
 			int y = col * height + spacing;
 			panel.setBounds(x, y, width, height);
 			panel.getButton().addActionListener(e -> {
-				bot.getScriptHandler().start(bot.getScriptLoader().loadScript(scriptData), scriptData);
-				ScriptSelector.this.dispose();
+				try {
+					bot.startScript(scriptLoader.loadScript(scriptData), scriptData);
+				} catch (IllegalAccessException e1) {
+					e1.printStackTrace();
+				} catch (InstantiationException e1) {
+					e1.printStackTrace();
+				}
+				dispose();
 			});
 			scriptPanel.add(panel);
 			realIndex++;
@@ -104,9 +115,5 @@ public class ScriptSelector extends JFrame {
 		searchField.setText("");
 		scriptPanel.setPreferredSize(new Dimension(535, (int) (Math.ceil((Double.valueOf(scriptPanel.getComponentCount()) / 3.0)) * height)));
 
-	}
-
-	public Bot getBot() {
-		return bot;
 	}
 }

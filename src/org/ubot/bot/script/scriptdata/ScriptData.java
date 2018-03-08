@@ -1,20 +1,17 @@
 package org.ubot.bot.script.scriptdata;
 
-import java.io.File;
+import org.ubot.classloader.ClassArchive;
 
 public class ScriptData {
 
-	public String clazz;
-	public String name;
-	public String server;
-	public String desc;
-	public double version;
-	public String author;
-	public SkillCategory skillCategory;
-	public int scriptId;
-	public File scriptPath;
+	private final Class<?> clazz;
+	private final String name, server, author, desc;
+	private final double version;
+	private final SkillCategory skillCategory;
+	private final int scriptId;
+	private final ClassArchive classArchive;
 
-	public ScriptData(String clazz, String name, String server, String desc, double version, String author, SkillCategory category, File scriptPath) {
+	public ScriptData(Class<?> clazz, ClassArchive classArchive, String name, String server, String desc, double version, String author, SkillCategory category) {
 		this.clazz = clazz;
 		this.name = name;
 		this.server = server;
@@ -23,14 +20,14 @@ public class ScriptData {
 		this.author = author;
 		this.skillCategory = category;
 		this.scriptId = -1;
-		this.scriptPath = scriptPath;
+		this.classArchive = classArchive;
 	}
 
-	public File getScriptPath() {
-		return scriptPath;
+	public ClassArchive getClassArchive() {
+		return classArchive;
 	}
 
-	public String getClazz() {
+	public Class<?> getMainClass() {
 		return clazz;
 	}
 

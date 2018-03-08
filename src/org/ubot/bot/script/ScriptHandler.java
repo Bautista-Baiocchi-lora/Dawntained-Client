@@ -47,7 +47,7 @@ public class ScriptHandler implements Runnable {
 			Logger.logException("Error starting script.");
 			return;
 		}
-		Logger.log("Script Started: " + scriptData.name);
+		Logger.log("Script Started: " + scriptData.getName());
 		this.scriptState = State.RUNNING;
 		this.scriptData = scriptData;
 		this.script = script;
@@ -62,13 +62,13 @@ public class ScriptHandler implements Runnable {
 	}
 
 	public void takeBreak(long duration) {
-		Logger.logWarning(scriptData.name + " Breaking for: " + duration);
+		Logger.logWarning(scriptData.getName() + " Breaking for: " + duration);
 		this.breakDuration = duration;
 		this.scriptState = State.BREAKING;
 	}
 
 	public void stop() {
-		Logger.logWarning("Script Stopped: " + scriptData.name);
+		Logger.logWarning("Script Stopped: " + scriptData.getName());
 		this.scriptState = State.STOPPED;
 		this.script.onStop();
 		this.scriptThread.interrupt();
@@ -76,7 +76,7 @@ public class ScriptHandler implements Runnable {
 	}
 
 	public void pause() {
-		Logger.logWarning("Script Paused: " + scriptData.name);
+		Logger.logWarning("Script Paused: " + scriptData.getName());
 		this.scriptState = State.PAUSE;
 	}
 
