@@ -49,7 +49,22 @@ public class ReflectionEngine {
 		try {
 			final ReflectedClass clazz = getClass(className, instance);
 			final ReflectedField field = clazz.getField(new Modifiers.Builder().name(fieldName).build());
+			System.out.println(field.getType().toGenericString());
 			field.setValue(value);
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void setScriptReflEngine(String className, Object value) {
+		try {
+			final ReflectedClass clazz = getClass(className);
+			for (ReflectedField f : clazz.getFields()) {
+				if (f.getType().toGenericString().equals("public class org.ubot.util.reflection.ReflectionEngine")) {
+					f.setValue(value);
+				}
+			}
+
 		} catch (IllegalAccessException e) {
 			e.printStackTrace();
 		}

@@ -7,12 +7,14 @@ import org.ubot.bot.script.types.LoopScript;
 import org.ubot.classloader.ASMClassLoader;
 import org.ubot.classloader.ClassArchive;
 import org.ubot.client.ClientModel;
+import org.ubot.client.provider.ServerProvider;
 import org.ubot.util.directory.DirectoryManager;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.jar.JarEntry;
 import java.util.jar.JarInputStream;
 
@@ -71,8 +73,17 @@ public class ScriptLoader {
 
 	public final LoopScript loadScript(ScriptData scriptData) {
 		LoopScript loopScript = null;
+		String clazz = null;
 		try {
 			bot.getClassArchive().addJar(new File(scriptData.scriptPath.getAbsolutePath()));
+			for (Map.Entry<File, ServerProvider> providerEntry : model.getProviders().entrySet()) {
+				if (providerEntry.getValue().getManifest().serverName().equals(bot.getServerName())) {
+					bot.getClassArchive().addJar(providerEntry.getKey());
+					clazz = providerEntry.getValue().getMainClass().getCanonicalName();
+				}
+			}
+
+			bot.getReflectionEngine().setScriptReflEngine(clazz, bot.getReflectionEngine());
 			loopScript = (LoopScript) bot.getReflectionEngine().getClass(scriptData.clazz).getNewInstance();
 		} catch (Exception e) {
 			e.printStackTrace();

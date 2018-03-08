@@ -89,8 +89,8 @@ public class ClientModel {
 									System.out.println("Loading Server");
 									final ServerManifest manifest = clazz.getAnnotation(ServerManifest.class);
 									final ServerLoader serverLoader = (ServerLoader) clazz.newInstance();
-									providers.add(new ServerProvider(manifest, serverLoader, classArchive));
-									this.providers.put(file, new ServerProvider(manifest, serverLoader, classArchive));
+									providers.add(new ServerProvider(manifest, serverLoader, classArchive, clazz));
+									this.providers.put(file, new ServerProvider(manifest, serverLoader, classArchive, clazz));
 									System.out.println("Server Loaded: " + manifest.serverName());
 								}
 							}
@@ -101,6 +101,10 @@ public class ClientModel {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return providers;
+	}
+
+	public Map<File, ServerProvider> getProviders() {
 		return providers;
 	}
 }
