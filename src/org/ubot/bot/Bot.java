@@ -16,10 +16,8 @@ import org.ubot.client.ui.screens.BotScreen;
 
 import javax.swing.*;
 import java.applet.Applet;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class Bot {
 
@@ -29,7 +27,7 @@ public class Bot {
 	private JPanel view;
 	private BotCore core;
 	private ScriptHandler scriptHandler;
-
+	private ServerProvider provider;
 	public Bot(Client client, String name) {
 		this.client = client;
 		this.name = name;
@@ -90,25 +88,16 @@ public class Bot {
 
 	public void startScript(ScriptData scriptData) {
 		Script script = null;
-		ClassArchive providerArchive = null;
-		ASMClassLoader providerClassLoader = null;
 
 		ClassArchive classArchive = new ClassArchive();
 		classArchive.addJar(scriptData.getScriptPath());
 
-		for (Map.Entry<File, ServerProvider> providerEntry : client.getModel().getProviders().entrySet()) {
-			if (providerEntry.getValue().getManifest().serverName().equals(this.getServerName())) {
-				providerArchive = providerEntry.getValue().getClassArchive();
-				providerClassLoader = providerEntry.getValue().getClassLoader();
-			}
-		}
-
 		classArchive.inheritClassArchive(this.getClassArchive());
-		classArchive.inheritClassArchive(providerArchive);
+		classArchive.inheritClassArchive(getProvider().getClassArchive());
 
 		ASMClassLoader classLoader = new ASMClassLoader(classArchive);
 		classLoader.inheritClassLoader(core.getClassLoader());
-		classLoader.inheritClassLoader(providerClassLoader);
+		classLoader.inheritClassLoader(getProvider().getClassLoader());
 
 		try {
 			script = (Script) classLoader.loadClass(scriptData.getMainClass().getCanonicalName()).newInstance();
@@ -139,6 +128,7 @@ public class Bot {
 	public void initiateServerLoader(ServerProvider provider) {
 		final BotLoadingScreen loadingScreen = new BotLoadingScreen(this, provider);
 		this.view = loadingScreen;
+		this.provider = provider;
 		client.displayScreen(this);
 		loadingScreen.run();
 	}
@@ -156,9 +146,12 @@ public class Bot {
 	public String getServerName() {
 		return core.getServerName();
 	}
-	
+
 	public ClassArchive getClassArchive() {
 		return core.getClassArchive();
 	}
 
+	public ServerProvider getProvider() {
+		return provider;
+	}
 }
