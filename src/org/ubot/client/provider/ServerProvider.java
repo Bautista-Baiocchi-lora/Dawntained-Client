@@ -11,14 +11,12 @@ public class ServerProvider {
 	private final ServerManifest manifest;
 	private final ClassArchive classArchive;
 	private final ASMClassLoader classLoader;
-	private final Class<?> mainClass;
 
-	public ServerProvider(ServerManifest manifest, ServerLoader loader, ClassArchive classArchive, ASMClassLoader classLoader, Class<?> mainClass) {
+	public ServerProvider(ServerManifest manifest, ServerLoader loader, ClassArchive classArchive, ASMClassLoader classLoader) {
 		this.manifest = manifest;
 		this.loader = loader;
 		this.classArchive = classArchive;
 		this.classLoader = classLoader;
-		this.mainClass = mainClass;
 	}
 
 	public ServerLoader getLoader() {
@@ -35,10 +33,6 @@ public class ServerProvider {
 
 	public ASMClassLoader getClassLoader() {
 		return classLoader;
-	}
-
-	public Class<?> getMainClass() {
-		return mainClass;
 	}
 
 	@Override
