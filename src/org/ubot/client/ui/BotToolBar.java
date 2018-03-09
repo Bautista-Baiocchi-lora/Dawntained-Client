@@ -39,28 +39,28 @@ public class BotToolBar extends JToolBar {
 		setPreferredSize(new Dimension(765, 24));
 		setFloatable(false);
 
-		startScript.setIcon(Utilities.getIcon("resources/buttons/play.png"));
+		startScript.setIcon(Utilities.getIcon("resources/DarkPlay.png"));
 		startScript.setContentAreaFilled(false);
 		startScript.setRolloverEnabled(true);
 		startScript.setBorder(null);
-		startScript.setRolloverIcon(Utilities.getIcon("resources/buttons/play_hover.png"));
+		startScript.setRolloverIcon(Utilities.getIcon("resources/DarkPlay.png"));
 		startScript.addActionListener(e -> {
 			if (currentTab != null) {
 				client.openScriptSelector(currentTab.getBot());
 			}
 		});
-		stopScript.setIcon(Utilities.getIcon("resources/buttons/stop.png"));
+		stopScript.setIcon(Utilities.getIcon("resources/DarkStop.png"));
 		stopScript.setContentAreaFilled(false);
 		stopScript.setRolloverEnabled(true);
 		stopScript.setBorder(null);
-		stopScript.setRolloverIcon(Utilities.getIcon("resources/buttons/stop_hover.png"));
+		stopScript.setRolloverIcon(Utilities.getIcon("resources/DarkStop.png"));
 		stopScript.addActionListener(e -> currentTab.getBot().stopScript());
 
-		pauseScript.setIcon(Utilities.getIcon("resources/buttons/pause.png"));
+		pauseScript.setIcon(Utilities.getIcon("resources/DarkPause.png"));
 		pauseScript.setContentAreaFilled(false);
 		pauseScript.setRolloverEnabled(true);
 		pauseScript.setBorder(null);
-		pauseScript.setRolloverIcon(Utilities.getIcon("resources/buttons/pause_hover.png"));
+		//	pauseScript.setRolloverIcon(Utilities.getIcon("resources/buttons/pause_hover.png"));
 		pauseScript.addActionListener(e -> currentTab.getBot().pauseScript());
 
 		theaterMode.setIcon(Utilities.getIcon("resources/theater_mode.png"));
@@ -89,11 +89,11 @@ public class BotToolBar extends JToolBar {
 		settings.add(exit);
 		exit.addActionListener(e -> System.exit(0));
 
-		settingsButton.setIcon(Utilities.getIcon("resources/buttons/settings.png"));
+		settingsButton.setIcon(Utilities.getIcon("resources/DarkSettings.png"));
 		settingsButton.setContentAreaFilled(false);
 		settingsButton.setRolloverEnabled(true);
 		settingsButton.setBorder(null);
-		settingsButton.setRolloverIcon(Utilities.getIcon("resources/buttons/settings_hover.png"));
+		//settingsButton.setRolloverIcon(Utilities.getIcon("resources/buttons/settings_hover.png"));
 		settingsButton.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent e) {
 				settings.show(e.getComponent(), e.getX(), e.getY());
