@@ -28,12 +28,14 @@ public class BotConfigurationScreen extends JPanel implements ActionListener {
 		this.providerJList = new JList<>(providersListModel);
 		populateProvidersModel(providers);
 		providerJList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		providerJList.addListSelectionListener(e -> displayServerInfo(providerJList.getSelectedValue()));
 		this.add(providerJList, BorderLayout.WEST);
 
 		this.accountListModel = new DefaultListModel<>();
 		this.accountJList = new JList<>(accountListModel);
 		populateAccountsModel(null);
 		accountJList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		accountJList.addListSelectionListener(e -> displayAccountInfo(accountJList.getSelectedValue()));
 		this.add(accountJList, BorderLayout.EAST);
 
 		this.start = new JButton("Start Bot");
@@ -43,9 +45,35 @@ public class BotConfigurationScreen extends JPanel implements ActionListener {
 		setPreferredSize(new Dimension(765, 503));
 	}
 
-	public final void populateAccountsModel(ArrayList<Account> accounts) {
+	private void displayServerInfo(ServerProvider provider) {
+		Box layout = Box.createVerticalBox();
+		layout.add(new JLabel("Name: " + provider.getManifest().serverName()));
+		layout.add(new JLabel("Author: " + provider.getManifest().author()));
+		layout.add(new JLabel("Version: " + provider.getManifest().version()));
+		layout.add(new JLabel("Information: " + provider.getManifest().info()));
+		add(generateInfoPanel(layout), BorderLayout.CENTER);
+		revalidate();
+	}
+
+	private void displayAccountInfo(Account account) {
+		Box layout = Box.createVerticalBox();
+		layout.add(new JLabel("Name: " + account.getUsername()));
+		layout.add(new JLabel("Password: " + account.getPassword()));
+		layout.add(new JLabel("Server: " + account.getServer()));
+		layout.add(new JLabel("Sleep Duration: " + account.getSleepDuration()));
+		layout.add(new JLabel("Sleep Interval: " + account.getSleepInterval()));
+		add(generateInfoPanel(layout));
+		revalidate();
+	}
+
+	private final JPanel generateInfoPanel(Box layout) {
+		final JPanel serverInfoPanel = new JPanel();
+		serverInfoPanel.add(layout);
+		return serverInfoPanel;
+	}
+
+	private final void populateAccountsModel(ArrayList<Account> accounts) {
 		this.accountListModel.addElement(new Account("Default", "All"));
-		this.accountJList.setSelectedIndex(0);
 		if (accounts == null) {
 			return;
 		}
@@ -60,9 +88,6 @@ public class BotConfigurationScreen extends JPanel implements ActionListener {
 		}
 		for (ServerProvider provider : providers) {
 			this.providersListModel.addElement(provider);
-		}
-		if (!providersListModel.isEmpty()) {
-			providerJList.setSelectedIndex(0);
 		}
 	}
 
