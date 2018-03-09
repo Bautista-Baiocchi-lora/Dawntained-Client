@@ -128,10 +128,6 @@ public class Client extends JFrame implements WindowListener {
 		displayScreen(bot.getView());
 	}
 
-    public ClientModel getModel() {
-        return model;
-    }
-
     @Override
     public void windowOpened(final java.awt.event.WindowEvent e) {
 

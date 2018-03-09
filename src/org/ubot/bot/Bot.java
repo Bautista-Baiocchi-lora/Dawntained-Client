@@ -28,6 +28,7 @@ public class Bot {
 	private BotCore core;
 	private ScriptHandler scriptHandler;
 	private ServerProvider provider;
+
 	public Bot(Client client, String name) {
 		this.client = client;
 		this.name = name;
