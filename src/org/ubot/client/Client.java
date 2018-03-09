@@ -23,14 +23,14 @@ public class Client extends JFrame implements WindowListener {
 	private JPanel currentScreen;
 	public static Client client;
 	private ScriptSelector scriptSelector;
-    private String user;
+	private String user;
 
 	public Client(String username, String accountKey, String permissionKey) {
 		super("[" + username + "] uBot v" + VERSION);
 		DirectoryManager.init();
 		this.model = new ClientModel(this, username, accountKey, permissionKey);
-        this.user = username;
-        loggerPanel = new LoggerPanel(new Logger());
+		this.user = username;
+		loggerPanel = new LoggerPanel(new Logger());
 		toolBar = new BotToolBar(this);
 		add(toolBar, BorderLayout.NORTH);
 		showSplashScreen();
@@ -59,13 +59,17 @@ public class Client extends JFrame implements WindowListener {
 	public void closeBot(Bot bot) {
 		model.destroyBot(bot);
 		toolBar.updateTabs(model.getBots(), null);
-		displayScreen(toolBar.getCurrentTab().getBot().getView());
-
+		if (toolBar.getCurrentTab() != null) {
+			displayScreen(toolBar.getCurrentTab().getBot().getView());
+		} else {
+			showSplashScreen();
+		}
+		Runtime.getRuntime().gc();
 	}
 
 	private void showSplashScreen() {
-        displayScreen(new SplashScreen(VERSION, user));
-    }
+		displayScreen(new SplashScreen(VERSION, user));
+	}
 
 	public void hideLogger() {
 		remove(loggerPanel);
@@ -73,8 +77,8 @@ public class Client extends JFrame implements WindowListener {
 	}
 
 	public void toggleBotTheater() {
-        if (toolBar.getCurrentTab() == null || toolBar.getCurrentTab().getBot() == null)
-            return;
+		if (toolBar.getCurrentTab() == null || toolBar.getCurrentTab().getBot() == null)
+			return;
 
 		if (currentScreen instanceof BotTheaterScreen) {
 			displayScreen(toolBar.getCurrentTab().getBot());
@@ -128,8 +132,8 @@ public class Client extends JFrame implements WindowListener {
 		displayScreen(bot.getView());
 	}
 
-    @Override
-    public void windowOpened(final java.awt.event.WindowEvent e) {
+	@Override
+	public void windowOpened(final java.awt.event.WindowEvent e) {
 
 	}
 

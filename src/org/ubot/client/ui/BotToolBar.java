@@ -111,13 +111,14 @@ public class BotToolBar extends JToolBar {
 	}
 
 	public void updateTabs(ArrayList<Bot> bots, Bot focus) {
+		if (focus == null) {
+			currentTab = null;
+		}
 		tabs.clear();
 		for (Bot bot : bots) {
 			final BotTab tab = new BotTab(bot);
 			tabs.add(tab);
-			if (focus == null && currentTab == null) {
-				currentTab = tab;
-			} else if (bot.equals(focus)) {
+			if (currentTab == null || bot.equals(focus)) {
 				currentTab = tab;
 			}
 			tab.addActionListener(e -> {

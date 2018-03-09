@@ -38,7 +38,6 @@ public class ClientModel {
 	protected final void destroyBot(Bot bot) {
 		bot.destroy();
 		bots.remove(bot);
-		Runtime.getRuntime().gc();
 	}
 
 	protected ScriptLoader getScriptLoader() {
