@@ -45,6 +45,7 @@ public class Bot {
 
 	public void setAccount(final Account account) {
 		this.account = account;
+		this.setName(account.getUsername());
 	}
 
 	public List<ScreenOverlay> getScreenOverlays() {

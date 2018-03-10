@@ -17,31 +17,39 @@ public class BotConfigurationScreen extends JPanel implements ActionListener {
 	private final JList<ServerProvider> providerJList;
 	private final DefaultListModel<Account> accountListModel;
 	private final JList<Account> accountJList;
-	private final JButton start;
+	private final JLabel title;
+	private final JButton next;
+	private JPanel infoPanel;
+
 
 	public BotConfigurationScreen(Bot bot, ArrayList<ServerProvider> providers) {
 		super(new BorderLayout());
 		this.bot = bot;
 		setBorder(BorderFactory.createLoweredBevelBorder());
 
+		this.title = new JLabel("Server Providers", SwingConstants.CENTER);
+		title.setFont(new Font("Courier New", Font.BOLD, 20));
+		title.setBorder(BorderFactory.createEtchedBorder());
+		this.add(title, BorderLayout.NORTH);
+
 		this.providersListModel = new DefaultListModel<>();
 		this.providerJList = new JList<>(providersListModel);
 		populateProvidersModel(providers);
 		providerJList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		providerJList.addListSelectionListener(e -> displayServerInfo(providerJList.getSelectedValue()));
-		this.add(providerJList, BorderLayout.WEST);
+		providerJList.setBorder(BorderFactory.createEtchedBorder());
+		this.add(providerJList, BorderLayout.CENTER);
 
 		this.accountListModel = new DefaultListModel<>();
 		this.accountJList = new JList<>(accountListModel);
-		populateAccountsModel(null);
 		accountJList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		accountJList.addListSelectionListener(e -> displayAccountInfo(accountJList.getSelectedValue()));
-		this.add(accountJList, BorderLayout.EAST);
+		accountJList.setBorder(BorderFactory.createEtchedBorder());
 
-		this.start = new JButton("Start Bot");
-		this.start.setActionCommand("start");
-		this.start.addActionListener(this);
-		this.add(start, BorderLayout.SOUTH);
+		this.next = new JButton("Next");
+		this.next.setActionCommand("next");
+		this.next.addActionListener(this);
+		this.add(next, BorderLayout.SOUTH);
 		setPreferredSize(new Dimension(765, 503));
 	}
 
@@ -51,7 +59,7 @@ public class BotConfigurationScreen extends JPanel implements ActionListener {
 		layout.add(new JLabel("Author: " + provider.getManifest().author()));
 		layout.add(new JLabel("Version: " + provider.getManifest().version()));
 		layout.add(new JLabel("Information: " + provider.getManifest().info()));
-		add(generateInfoPanel(layout), BorderLayout.CENTER);
+		add(infoPanel = generateInfoPanel(layout), BorderLayout.EAST);
 		revalidate();
 	}
 
@@ -62,13 +70,14 @@ public class BotConfigurationScreen extends JPanel implements ActionListener {
 		layout.add(new JLabel("Server: " + account.getServer()));
 		layout.add(new JLabel("Sleep Duration: " + account.getSleepDuration()));
 		layout.add(new JLabel("Sleep Interval: " + account.getSleepInterval()));
-		add(generateInfoPanel(layout));
+		add(infoPanel = generateInfoPanel(layout), BorderLayout.EAST);
 		revalidate();
 	}
 
 	private final JPanel generateInfoPanel(Box layout) {
 		final JPanel serverInfoPanel = new JPanel();
 		serverInfoPanel.add(layout);
+		serverInfoPanel.setBorder(BorderFactory.createEtchedBorder());
 		return serverInfoPanel;
 	}
 
@@ -94,9 +103,23 @@ public class BotConfigurationScreen extends JPanel implements ActionListener {
 	@Override
 	public void actionPerformed(final ActionEvent e) {
 		switch (e.getActionCommand()) {
+			case "next":
+				if (!providerJList.isSelectionEmpty()) {
+					populateAccountsModel(null);
+					remove(providerJList);
+					remove(infoPanel);
+					add(accountJList, BorderLayout.CENTER);
+					title.setText("Accounts");
+					next.setText("Start");
+					next.setActionCommand("start");
+					revalidate();
+				}
+				break;
 			case "start":
-				bot.setAccount(accountJList.getSelectedValue());
-				bot.initiateServerLoader(providerJList.getSelectedValue());
+				if (!accountJList.isSelectionEmpty()) {
+					bot.setAccount(accountJList.getSelectedValue());
+					bot.initiateServerLoader(providerJList.getSelectedValue());
+				}
 				break;
 		}
 	}
