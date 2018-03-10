@@ -22,7 +22,7 @@ public class BotConfigurationScreen extends JPanel implements ActionListener {
 	private JPanel infoPanel;
 
 
-	public BotConfigurationScreen(Bot bot, ArrayList<ServerProvider> providers) {
+	public BotConfigurationScreen(Bot bot, ArrayList<ServerProvider> providers, ArrayList<Account> accounts) {
 		super(new BorderLayout());
 		this.bot = bot;
 		setBorder(BorderFactory.createLoweredBevelBorder());
@@ -42,6 +42,7 @@ public class BotConfigurationScreen extends JPanel implements ActionListener {
 
 		this.accountListModel = new DefaultListModel<>();
 		this.accountJList = new JList<>(accountListModel);
+		populateAccountsModel(accounts);
 		accountJList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		accountJList.addListSelectionListener(e -> displayAccountInfo(accountJList.getSelectedValue()));
 		accountJList.setBorder(BorderFactory.createEtchedBorder());
@@ -82,9 +83,8 @@ public class BotConfigurationScreen extends JPanel implements ActionListener {
 	}
 
 	private final void populateAccountsModel(ArrayList<Account> accounts) {
-		this.accountListModel.addElement(new Account("Default", "All"));
-		if (accounts == null) {
-			return;
+		if (accounts.isEmpty()) {
+			this.accountListModel.addElement(new Account("Default", "All"));
 		}
 		for (Account account : accounts) {
 			this.accountListModel.addElement(account);
@@ -105,9 +105,9 @@ public class BotConfigurationScreen extends JPanel implements ActionListener {
 		switch (e.getActionCommand()) {
 			case "next":
 				if (!providerJList.isSelectionEmpty()) {
-					populateAccountsModel(null);
 					remove(providerJList);
 					remove(infoPanel);
+					//remove(next);
 					add(accountJList, BorderLayout.CENTER);
 					title.setText("Accounts");
 					next.setText("Start");

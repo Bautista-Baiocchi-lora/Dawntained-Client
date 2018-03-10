@@ -1,9 +1,11 @@
 package org.ubot.client.account;
 
+import org.json.simple.JSONObject;
+
 public class Account {
 
-	private final String username;
-	private final String server;
+	private String username;
+	private String server;
 	private int sleepDuration;
 	private int sleepInterval;
 	private String password = "";
@@ -42,6 +44,10 @@ public class Account {
 		return username;
 	}
 
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
 	public String getPassword() {
 		return password;
 	}
@@ -52,6 +58,30 @@ public class Account {
 
 	public String getServer() {
 		return server;
+	}
+
+	public void setServer(String server) {
+		this.server = server;
+	}
+
+	public JSONObject toJSON() {
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("username", username);
+		jsonObject.put("password", password);
+		jsonObject.put("servers", server);
+		jsonObject.put("duration", sleepDuration);
+		jsonObject.put("interval", sleepInterval);
+		jsonObject.put("breaking", breaking);
+		return jsonObject;
+	}
+
+	public static Account wrap(JSONObject accountJson) {
+		final Account account = new Account((String) accountJson.get("username"), (String) accountJson.get("server"));
+		account.setBreaking(Boolean.parseBoolean((String) accountJson.get("breaking")));
+		account.setPassword((String) accountJson.get("password"));
+		account.setSleepDuration((int) (Long.valueOf((String) accountJson.get("duration")) / 1000));
+		account.setSleepInterval((int) (Long.valueOf((String) accountJson.get("interval")) / 1000));
+		return account;
 	}
 
 	@Override

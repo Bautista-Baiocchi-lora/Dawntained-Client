@@ -7,9 +7,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a749048c-453f-45b8-96ac-6d38b10c793b" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/json_simple_1_1_1.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/org/ubot/client/account/AccountManager.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/org/ubot/bot/Bot.java" afterPath="$PROJECT_DIR$/src/org/ubot/bot/Bot.java" />
+      <change beforePath="$PROJECT_DIR$/src/org/ubot/client/ClientModel.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/ClientModel.java" />
+      <change beforePath="$PROJECT_DIR$/src/org/ubot/client/account/Account.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/account/Account.java" />
       <change beforePath="$PROJECT_DIR$/src/org/ubot/client/ui/screens/BotConfigurationScreen.java" afterPath="$PROJECT_DIR$/src/org/ubot/client/ui/screens/BotConfigurationScreen.java" />
+      <change beforePath="$PROJECT_DIR$/uBot.iml" afterPath="$PROJECT_DIR$/uBot.iml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.idea/shelf/" />
@@ -29,7 +34,7 @@
         <entry file="file://$PROJECT_DIR$/src/org/ubot/client/ui/screens/BotConfigurationScreen.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
-              <caret line="109" column="36" lean-forward="false" selection-start-line="109" selection-start-column="36" selection-end-line="109" selection-end-column="36" />
+              <caret line="109" column="22" lean-forward="false" selection-start-line="109" selection-start-column="22" selection-end-line="109" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -38,9 +43,42 @@
       <file leaf-file-name="Bot.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/ubot/bot/Bot.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="47" column="42" lean-forward="false" selection-start-line="47" selection-start-column="42" selection-end-line="47" selection-end-column="42" />
+            <state relative-caret-position="270">
+              <caret line="125" column="92" lean-forward="false" selection-start-line="125" selection-start-column="92" selection-end-line="125" selection-end-column="92" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClientModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/ubot/client/ClientModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="61">
+              <caret line="49" column="37" lean-forward="true" selection-start-line="49" selection-start-column="37" selection-end-line="49" selection-end-column="37" />
+              <folding>
+                <element signature="e#1901#1902#0" expanded="true" />
+                <element signature="e#1943#1944#0" expanded="true" />
+                <element signature="e#1990#1991#0" expanded="true" />
+                <element signature="e#2031#2032#0" expanded="true" />
+                <element signature="e#2080#2081#0" expanded="true" />
+                <element signature="e#2124#2125#0" expanded="true" />
+                <element signature="e#2159#2160#0" expanded="true" />
+                <element signature="e#2195#2196#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AccountManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/ubot/client/account/AccountManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="362">
+              <caret line="26" column="179" lean-forward="false" selection-start-line="26" selection-start-column="179" selection-end-line="26" selection-end-column="179" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1351#1352#0" expanded="true" />
+                <element signature="e#1373#1374#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -114,8 +152,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/org/ubot/client/ui/BotTheater.java" />
-        <option value="$PROJECT_DIR$/src/org/ubot/util/FileDownloader.java" />
         <option value="$PROJECT_DIR$/src/org/ubot/client/ui/BotPreview.java" />
         <option value="$PROJECT_DIR$/src/org/ubot/client/ui/logger/LoggerFlag.java" />
         <option value="$PROJECT_DIR$/src/org/ubot/client/ui/logger/LoggerPanel.java" />
@@ -161,9 +197,11 @@
         <option value="$PROJECT_DIR$/src/org/ubot/client/provider/ServerProvider.java" />
         <option value="$PROJECT_DIR$/src/org/ubot/client/ui/screens/SplashScreen.java" />
         <option value="$PROJECT_DIR$/src/org/ubot/client/ui/BotToolBar.java" />
-        <option value="$PROJECT_DIR$/src/org/ubot/client/ClientModel.java" />
         <option value="$PROJECT_DIR$/src/org/ubot/client/Client.java" />
+        <option value="$PROJECT_DIR$/src/org/ubot/client/account/Account.java" />
         <option value="$PROJECT_DIR$/src/org/ubot/bot/Bot.java" />
+        <option value="$PROJECT_DIR$/src/org/ubot/client/ClientModel.java" />
+        <option value="$PROJECT_DIR$/src/org/ubot/client/account/AccountManager.java" />
         <option value="$PROJECT_DIR$/src/org/ubot/client/ui/screens/BotConfigurationScreen.java" />
       </list>
     </option>
@@ -173,6 +211,9 @@
     <option name="y" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -234,6 +275,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="ubot" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="account" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="uBot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="uBot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ubot" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="provider" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -261,6 +310,21 @@
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="ui" type="462c0819:PsiDirectoryNode" />
               <item name="screens" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="uBot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="uBot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ubot" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="uBot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="uBot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ubot" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+              <item name="directory" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -549,13 +613,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1499137726540</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Almost done">
-      <created>1520056500103</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1520056500103</updated>
     </task>
     <task id="LOCAL-00008" summary="Injection added back.">
       <created>1520058781870</created>
@@ -893,7 +950,14 @@
       <option name="project" value="LOCAL" />
       <updated>1520612142663</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="Finished Configuration Screen">
+      <created>1520713320262</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1520713320262</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -986,7 +1050,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Start account manager" />
     <MESSAGE value="enabling and disabling debugging." />
     <MESSAGE value="Remember which tab was last open." />
     <MESSAGE value="Separate bot debugging done." />
@@ -1011,7 +1074,8 @@
     <MESSAGE value="Remove un-used variables." />
     <MESSAGE value="closing tabs works." />
     <MESSAGE value="Starting configuration screen." />
-    <option name="LAST_COMMIT_MESSAGE" value="Starting configuration screen." />
+    <MESSAGE value="Finished Configuration Screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished Configuration Screen" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1026,28 +1090,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/org/ubot/bot/BotModel.java" />
-    <entry file="file://$PROJECT_DIR$/src/org/ubot/bot/script/types/Task.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="22" lean-forward="false" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/ubot/bot/script/types/LoopScript.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="22" lean-forward="false" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/ubot/bot/script/types/Script.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="22" lean-forward="false" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/ubot/bot/script/scriptdata/SkillCategory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="267">
@@ -1320,14 +1362,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/ubot/client/ClientModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="39" column="25" lean-forward="false" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/ubot/client/ui/BotToolBar.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="410">
@@ -1341,19 +1375,11 @@
         <state relative-caret-position="302">
           <caret line="65" column="9" lean-forward="false" selection-start-line="65" selection-start-column="9" selection-end-line="65" selection-end-column="9" />
           <folding>
-            <element signature="e#2203#2204#0" expanded="true" />
-            <element signature="e#2256#2257#0" expanded="true" />
-            <element signature="e#3200#3201#0" expanded="true" />
-            <element signature="e#3239#3240#0" expanded="true" />
+            <element signature="e#2203#2204#0" expanded="false" />
+            <element signature="e#2256#2257#0" expanded="false" />
+            <element signature="e#3200#3201#0" expanded="false" />
+            <element signature="e#3239#3240#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/ubot/bot/Bot.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="47" column="42" lean-forward="false" selection-start-line="47" selection-start-column="42" selection-end-line="47" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1365,10 +1391,77 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/ubot/client/account/Account.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="84" column="23" lean-forward="false" selection-start-line="84" selection-start-column="23" selection-end-line="84" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#914#915#0" expanded="true" />
+            <element signature="e#945#946#0" expanded="true" />
+            <element signature="e#1166#1167#0" expanded="true" />
+            <element signature="e#1193#1194#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/ubot/util/directory/Directory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-932">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/ubot/util/directory/DirectoryManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-437">
+          <caret line="20" column="25" lean-forward="false" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/ubot/bot/Bot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="125" column="92" lean-forward="false" selection-start-line="125" selection-start-column="92" selection-end-line="125" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/ubot/client/ClientModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="61">
+          <caret line="49" column="37" lean-forward="true" selection-start-line="49" selection-start-column="37" selection-end-line="49" selection-end-column="37" />
+          <folding>
+            <element signature="e#1901#1902#0" expanded="true" />
+            <element signature="e#1943#1944#0" expanded="true" />
+            <element signature="e#1990#1991#0" expanded="true" />
+            <element signature="e#2031#2032#0" expanded="true" />
+            <element signature="e#2080#2081#0" expanded="true" />
+            <element signature="e#2124#2125#0" expanded="true" />
+            <element signature="e#2159#2160#0" expanded="true" />
+            <element signature="e#2195#2196#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/ubot/client/account/AccountManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="26" column="179" lean-forward="false" selection-start-line="26" selection-start-column="179" selection-end-line="26" selection-end-column="179" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1351#1352#0" expanded="true" />
+            <element signature="e#1373#1374#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/ubot/client/ui/screens/BotConfigurationScreen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
-          <caret line="109" column="36" lean-forward="false" selection-start-line="109" selection-start-column="36" selection-end-line="109" selection-end-column="36" />
+          <caret line="109" column="22" lean-forward="false" selection-start-line="109" selection-start-column="22" selection-end-line="109" selection-end-column="22" />
           <folding />
         </state>
       </provider>
@@ -1451,7 +1544,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>asm-all-5.2</last-edited>
+          <last-edited>json-simple-1.1.1</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

@@ -123,8 +123,8 @@ public class Bot {
 		client.displayScreen(this);
 	}
 
-	public void initiateConfiguration(ArrayList<ServerProvider> providers) {
-		this.view = new BotConfigurationScreen(this, providers);
+	public void initiateConfiguration(ArrayList<ServerProvider> providers, ArrayList<Account> accounts) {
+		this.view = new BotConfigurationScreen(this, providers, accounts);
 	}
 
 	public void initiateServerLoader(ServerProvider provider) {
