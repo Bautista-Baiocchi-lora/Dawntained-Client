@@ -120,9 +120,12 @@ public class BotToolBar extends JToolBar {
 			tabs.add(tab);
 			if (currentTab == null || bot.equals(focus)) {
 				currentTab = tab;
+				tab.setBorder(BorderFactory.createEtchedBorder());
 			}
 			tab.addActionListener(e -> {
+				currentTab.setBorder(null);
 				currentTab = tab;
+				tab.setBorder(BorderFactory.createEtchedBorder());
 				client.displayScreen(currentTab.getBot().getView());
 				debugs.setEnabled(currentTab.getBot().isGameLoaded());
 			});

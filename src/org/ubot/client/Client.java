@@ -96,6 +96,7 @@ public class Client extends JFrame implements WindowListener {
 	public void refreshInterface() {
 		pack();
 		revalidate();
+		repaint();
 	}
 
 	public void openScriptSelector(Bot bot) {
