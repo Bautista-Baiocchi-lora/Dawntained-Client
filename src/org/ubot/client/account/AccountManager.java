@@ -39,11 +39,14 @@ public class AccountManager {
 		Logger.log("Account Manager started.");
 	}
 
-	public ArrayList<Account> getAccounts() {
+	public synchronized ArrayList<Account> getAccounts() {
+		if (accounts.isEmpty()) {
+			accounts.add(new Account("Default", "All"));
+		}
 		return accounts;
 	}
 
-	public void loadAccounts() {
+	private void loadAccounts() {
 		Properties property = new Properties();
 		try (FileInputStream inputStream = new FileInputStream(cache)) {
 			property.load(inputStream);
@@ -63,7 +66,7 @@ public class AccountManager {
 				e.printStackTrace();
 			}
 			if (account == null) {
-				Logger.logException("Account Save Corrrupted: " + username);
+				Logger.logException("Account Save Corrupted: " + username);
 				continue;
 			}
 			accounts.add(account);
@@ -83,7 +86,7 @@ public class AccountManager {
 		Logger.log("Account saved.");
 	}
 
-	private void saveAccounts() {
+	public void saveAccounts() {
 		Properties property = new Properties();
 		for (Account account : accounts) {
 			property.put(account.getUsername(), account.toJSON().toJSONString());
@@ -99,6 +102,7 @@ public class AccountManager {
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}
+			Logger.log("Account change saved.");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

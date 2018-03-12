@@ -9,6 +9,7 @@ import org.ubot.classloader.ASMClassLoader;
 import org.ubot.classloader.ClassArchive;
 import org.ubot.client.Client;
 import org.ubot.client.account.Account;
+import org.ubot.client.account.AccountManager;
 import org.ubot.client.provider.ServerProvider;
 import org.ubot.client.ui.screens.BotConfigurationScreen;
 import org.ubot.client.ui.screens.BotLoadingScreen;
@@ -123,8 +124,8 @@ public class Bot {
 		client.displayScreen(this);
 	}
 
-	public void initiateConfiguration(ArrayList<ServerProvider> providers, ArrayList<Account> accounts) {
-		this.view = new BotConfigurationScreen(this, providers, accounts);
+	public void initiateConfiguration(AccountManager accountManager, ArrayList<ServerProvider> providers) {
+		this.view = new BotConfigurationScreen(this, accountManager, providers);
 	}
 
 	public void initiateServerLoader(ServerProvider provider) {

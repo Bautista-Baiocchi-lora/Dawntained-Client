@@ -71,13 +71,13 @@ public class Account {
 		jsonObject.put("servers", server);
 		jsonObject.put("duration", sleepDuration);
 		jsonObject.put("interval", sleepInterval);
-		jsonObject.put("breaking", breaking);
+		jsonObject.put("breaking", Boolean.toString(breaking));
 		return jsonObject;
 	}
 
 	public static Account wrap(JSONObject accountJson) {
 		final Account account = new Account((String) accountJson.get("username"), (String) accountJson.get("server"));
-		account.setBreaking(Boolean.parseBoolean((String) accountJson.get("breaking")));
+		account.setBreaking(Boolean.valueOf((String) accountJson.get("breaking")));
 		account.setPassword((String) accountJson.get("password"));
 		account.setSleepDuration((int) (Long.valueOf((String) accountJson.get("duration")) / 1000));
 		account.setSleepInterval((int) (Long.valueOf((String) accountJson.get("interval")) / 1000));

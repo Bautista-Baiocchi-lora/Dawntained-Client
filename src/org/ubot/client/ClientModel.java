@@ -4,7 +4,6 @@ import org.ubot.bot.Bot;
 import org.ubot.bot.script.loader.ScriptLoader;
 import org.ubot.classloader.ASMClassLoader;
 import org.ubot.classloader.ClassArchive;
-import org.ubot.client.account.Account;
 import org.ubot.client.account.AccountManager;
 import org.ubot.client.provider.ServerProvider;
 import org.ubot.client.provider.loader.ServerLoader;
@@ -49,7 +48,7 @@ public class ClientModel {
 
 	protected final Bot createBot() {
 		final Bot bot = new Bot(client, "Bot #" + (bots.size() + 1));
-		bot.initiateConfiguration(getServerProviders(), getAccounts());
+		bot.initiateConfiguration(accountManager, getServerProviders());
 		this.bots.add(bot);
 		return bot;
 	}
@@ -57,22 +56,6 @@ public class ClientModel {
 	protected BotTheaterScreen getBotTheaterScreen() {
 		botTheaterScreen.displayPreviews(bots);
 		return botTheaterScreen;
-	}
-
-	protected ArrayList<Account> getAccounts() {
-		return accountManager.getAccounts();
-	}
-
-	protected void saveAccount(Account account) {
-		accountManager.addAccount(account);
-	}
-
-	protected void deleteAccount(Account account) {
-		accountManager.deleteAccount(account);
-	}
-
-	protected void accountUpdated() {
-		accountManager.loadAccounts();
 	}
 
 	protected final ArrayList<Bot> getBots() {

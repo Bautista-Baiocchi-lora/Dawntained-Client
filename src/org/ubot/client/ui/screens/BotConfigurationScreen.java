@@ -2,6 +2,7 @@ package org.ubot.client.ui.screens;
 
 import org.ubot.bot.Bot;
 import org.ubot.client.account.Account;
+import org.ubot.client.account.AccountManager;
 import org.ubot.client.provider.ServerProvider;
 
 import javax.swing.*;
@@ -13,18 +14,20 @@ import java.util.ArrayList;
 public class BotConfigurationScreen extends JPanel implements ActionListener {
 
 	private final Bot bot;
+	private final AccountManager accountManager;
 	private final DefaultListModel<ServerProvider> providersListModel;
 	private final JList<ServerProvider> providerJList;
 	private final DefaultListModel<Account> accountListModel;
 	private final JList<Account> accountJList;
 	private final JLabel title;
-	private final JButton next;
+	private final JButton nextStep;
 	private JPanel infoPanel;
 
 
-	public BotConfigurationScreen(Bot bot, ArrayList<ServerProvider> providers, ArrayList<Account> accounts) {
+	public BotConfigurationScreen(Bot bot, AccountManager accountManager, ArrayList<ServerProvider> providers) {
 		super(new BorderLayout());
 		this.bot = bot;
+		this.accountManager = accountManager;
 		setBorder(BorderFactory.createLoweredBevelBorder());
 
 		this.title = new JLabel("Server Providers", SwingConstants.CENTER);
@@ -42,50 +45,88 @@ public class BotConfigurationScreen extends JPanel implements ActionListener {
 
 		this.accountListModel = new DefaultListModel<>();
 		this.accountJList = new JList<>(accountListModel);
-		populateAccountsModel(accounts);
+		populateAccountsModel(accountManager.getAccounts());
 		accountJList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		accountJList.addListSelectionListener(e -> displayAccountInfo(accountJList.getSelectedValue()));
 		accountJList.setBorder(BorderFactory.createEtchedBorder());
 
-		this.next = new JButton("Next");
-		this.next.setActionCommand("next");
-		this.next.addActionListener(this);
-		this.add(next, BorderLayout.SOUTH);
+		this.nextStep = new JButton("Next");
+		this.nextStep.setActionCommand("nextStep");
+		this.nextStep.addActionListener(this);
+		this.add(nextStep, BorderLayout.SOUTH);
 		setPreferredSize(new Dimension(765, 503));
 	}
 
 	private void displayServerInfo(ServerProvider provider) {
-		Box layout = Box.createVerticalBox();
+		final JPanel serverInfoPanel = new JPanel();
+		final Box layout = Box.createVerticalBox();
 		layout.add(new JLabel("Name: " + provider.getManifest().serverName()));
 		layout.add(new JLabel("Author: " + provider.getManifest().author()));
 		layout.add(new JLabel("Version: " + provider.getManifest().version()));
 		layout.add(new JLabel("Information: " + provider.getManifest().info()));
-		add(infoPanel = generateInfoPanel(layout), BorderLayout.EAST);
-		revalidate();
+		serverInfoPanel.add(layout);
+		serverInfoPanel.setBorder(BorderFactory.createEtchedBorder());
+		displayInfoPanel(serverInfoPanel);
 	}
 
 	private void displayAccountInfo(Account account) {
-		Box layout = Box.createVerticalBox();
-		layout.add(new JLabel("Name: " + account.getUsername()));
-		layout.add(new JLabel("Password: " + account.getPassword()));
-		layout.add(new JLabel("Server: " + account.getServer()));
-		layout.add(new JLabel("Sleep Duration: " + account.getSleepDuration()));
-		layout.add(new JLabel("Sleep Interval: " + account.getSleepInterval()));
-		add(infoPanel = generateInfoPanel(layout), BorderLayout.EAST);
+		final JPanel accountInfoPanel = new JPanel(new GridLayout(0, 2));
+		accountInfoPanel.setBorder(BorderFactory.createEtchedBorder());
+
+		accountInfoPanel.add(new JLabel("Name: "));
+		final JTextField usernameField = new JTextField(account.getUsername());
+		accountInfoPanel.add(usernameField);
+
+		accountInfoPanel.add(new JLabel("Password: "));
+		final JPasswordField passwordField = new JPasswordField(account.getPassword());
+		accountInfoPanel.add(passwordField);
+
+		accountInfoPanel.add(new JLabel("Servers: "));
+		final JTextField serverField = new JTextField(account.getServer());
+		accountInfoPanel.add(serverField);
+
+		accountInfoPanel.add(new JLabel("Sleeping: "));
+		final JCheckBox breaking = new JCheckBox();
+		breaking.setSelected(account.isBreaking());
+		accountInfoPanel.add(breaking);
+
+		accountInfoPanel.add(new JLabel("Sleep Duration (Minutes): "));
+		final JSpinner duration = new JSpinner();
+		duration.setValue(account.getSleepDuration());
+		accountInfoPanel.add(duration);
+
+		accountInfoPanel.add(new JLabel("Sleep Intervals (Minutes): "));
+		final JSpinner interval = new JSpinner();
+		interval.setValue(account.getSleepInterval());
+		accountInfoPanel.add(interval);
+
+		final JButton saveChanges = new JButton("Save Changes");
+		saveChanges.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(final ActionEvent e) {
+				account.setUsername(usernameField.getText());
+				account.setPassword(String.valueOf(passwordField.getPassword()));
+				account.setServer(serverField.getText());
+				account.setBreaking(breaking.isSelected());
+				account.setSleepDuration((int) duration.getValue());
+				account.setSleepInterval((int) duration.getValue());
+				accountManager.saveAccounts();
+			}
+		});
+		accountInfoPanel.add(saveChanges);
+
+		displayInfoPanel(accountInfoPanel);
+	}
+
+	private void displayInfoPanel(JPanel panel) {
+		if (infoPanel != null) {
+			remove(infoPanel);
+		}
+		add(infoPanel = panel, BorderLayout.EAST);
 		revalidate();
 	}
 
-	private final JPanel generateInfoPanel(Box layout) {
-		final JPanel serverInfoPanel = new JPanel();
-		serverInfoPanel.add(layout);
-		serverInfoPanel.setBorder(BorderFactory.createEtchedBorder());
-		return serverInfoPanel;
-	}
-
 	private final void populateAccountsModel(ArrayList<Account> accounts) {
-		if (accounts.isEmpty()) {
-			this.accountListModel.addElement(new Account("Default", "All"));
-		}
 		for (Account account : accounts) {
 			this.accountListModel.addElement(account);
 		}
@@ -103,15 +144,14 @@ public class BotConfigurationScreen extends JPanel implements ActionListener {
 	@Override
 	public void actionPerformed(final ActionEvent e) {
 		switch (e.getActionCommand()) {
-			case "next":
+			case "nextStep":
 				if (!providerJList.isSelectionEmpty()) {
 					remove(providerJList);
 					remove(infoPanel);
-					//remove(next);
 					add(accountJList, BorderLayout.CENTER);
 					title.setText("Accounts");
-					next.setText("Start");
-					next.setActionCommand("start");
+					nextStep.setText("Start");
+					nextStep.setActionCommand("start");
 					revalidate();
 				}
 				break;
@@ -120,6 +160,10 @@ public class BotConfigurationScreen extends JPanel implements ActionListener {
 					bot.setAccount(accountJList.getSelectedValue());
 					bot.initiateServerLoader(providerJList.getSelectedValue());
 				}
+				break;
+			case "delete":
+				break;
+			case "add":
 				break;
 		}
 	}
